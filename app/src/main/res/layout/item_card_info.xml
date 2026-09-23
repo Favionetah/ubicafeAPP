@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tarjeta informativa de la Guía del café (Explorar) -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/fondo_tarjeta_categoria"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/texto_titulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nunito_bold"
+        android:textColor="@color/texto_principal"
+        android:textSize="17sp"
+        tools:text="¿Qué es el café de especialidad?" />
+
+    <TextView
+        android:id="@+id/texto_descripcion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/nunito_sans_regular"
+        android:lineSpacingExtra="3dp"
+        android:textColor="@color/texto_secundario"
+        android:textSize="13sp"
+        tools:text="Cafés con puntaje superior a 80 puntos en la escala SCA." />
+</LinearLayout>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Pantalla: Detalle de una Tostaduría
+    - Info general + Descripción + Horarios + Ubicación + Contacto.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo_crema"
+    android:orientation="vertical">
+
+    <include layout="@layout/barra_titulo" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:paddingBottom="32dp">
+
+            <TextView
+                android:id="@+id/texto_nombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/texto_principal"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                tools:text="Tostaduría ROC" />
+
+            <TextView
+                android:id="@+id/texto_region"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/fondo_chip"
+                android:paddingHorizontal="14dp"
+                android:paddingVertical="6dp"
+                android:textColor="@color/verde_oscuro"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                tools:text="La Paz" />
+
+            <TextView
+                android:id="@+id/titulo_descripcion"
+                style="@style/TituloSeccion"
+                android:layout_marginStart="0dp"
+                android:layout_marginEnd="0dp"
+                android:text="@string/tostaderia_descripcion" />
+
+            <TextView
+                android:id="@+id/texto_descripcion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="3dp"
+                android:textColor="@color/texto_principal"
+                android:textSize="15sp"
+                tools:text="Tostamos en pequeños lotes para resaltar el origen." />
+
+            <!-- Tarjeta de horarios / contacto -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:cardBackgroundColor="@color/fondo_blanco"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="2dp">
+
+                <LinearLayout
+                    android:id="@+id/contenedor_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="18dp" />
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

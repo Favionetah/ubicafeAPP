@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Etiqueta verde (usada para chips y badges) -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp" android:height="24dp"
+    android:viewportWidth="24" android:viewportHeight="24">
+    <path android:fillColor="#1E7049"
+        android:pathData="M2,5 L22,5 L22,19 L2,19 z" />
+</vector>

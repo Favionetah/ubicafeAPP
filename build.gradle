@@ -1,0 +1,6 @@
+// Archivo de compilación raíz del proyecto.
+// Aquí SOLO se definen plugins comunes. Las configuraciones del módulo
+// de la app están en app/build.gradle.
+plugins {
+    id 'com.android.application' version '9.3.3' apply false
+}

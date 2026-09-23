@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Manifesto de UbiCafe.
+    Declara las "pantallas" (Activities) y los permisos que usa la app.
+
+    NOTA PARA EL FUTURO (Google Maps):
+    Cuando se implemente el mapa real, se debe agregar aquí el meta-data de la API key:
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="TU_API_KEY" />
+    El lugar exacto está marcado con "ESTA ES LA API KEY" más abajo.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_logo_ubicafe"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/TemaUbiCafe">
+
+        <!-- ESTA ES LA API KEY: insertar aquí el meta-data de Google Maps cuando se habilite -->
+
+        <!-- Pantalla de bienvenida: siempre la primera en abrirse -->
+        <activity
+            android:name=".ui.SplashActivity"
+            android:exported="true"
+            android:theme="@style/TemaUbiCafe.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Pantalla principal con las pestañas: Inicio, Mapa y Explorar -->
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
+
+        <!-- Onboarding de bienvenida -->
+        <activity
+            android:name=".ui.OnboardingActivity"
+            android:exported="false" />
+
+        <!-- Pantallas de listado -->
+        <activity android:name=".ui.cafeterias.ListaCafeteriasActivity" />
+        <activity android:name=".ui.marcas.ListaMarcasActivity" />
+        <activity android:name=".ui.productores.ListaProductoresActivity" />
+        <activity android:name=".ui.tostaderias.ListaTostaderiasActivity" />
+        <activity android:name=".ui.puntosventa.PuntosVentaActivity" />
+
+        <!-- Pantallas de detalle -->
+        <activity android:name=".ui.cafeterias.DetalleCafeteriaActivity" />
+        <activity android:name=".ui.marcas.DetalleMarcaActivity" />
+        <activity android:name=".ui.productores.DetalleProductorActivity" />
+        <activity android:name=".ui.tostaderias.DetalleTostaderiaActivity" />
+        <activity android:name=".ui.origen.FichaOrigenActivity" />
+
+        <!-- Mapa "Cerca de ti" -->
+        <activity android:name=".ui.mapa.MapaActivity" />
+    </application>
+
+</manifest>

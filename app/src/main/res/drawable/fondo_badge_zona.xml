@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Badge de zona: pill con tinte verde al 10% -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <corners android:radius="999dp" />
+    <solid android:color="@color/verde_oscuro_tint" />
+</shape>

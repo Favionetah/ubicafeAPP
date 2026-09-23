@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Pantalla: Detalle de una Marca de café
+    - Encabezado con logo/letra de la marca.
+    - "Marca nacional registrada" + descripción.
+    - Lista de sus cafés de especialidad (abren Ficha de Origen).
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo_crema"
+    android:orientation="vertical">
+
+    <include layout="@layout/barra_titulo" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:paddingBottom="32dp">
+
+            <!-- Encabezado de la marca -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/box_color"
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    android:background="@drawable/fondo_cuadro_color"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/texto_inicial"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/texto_sobre_verde"
+                        android:textSize="34sp"
+                        android:textStyle="bold"
+                        tools:text="T" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/texto_nombre"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/texto_principal"
+                        android:textSize="26sp"
+                        android:textStyle="bold"
+                        tools:text="TYPICA" />
+
+                    <TextView
+                        android:id="@+id/texto_etiquetas"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:textColor="@color/texto_secundario"
+                        android:textSize="13sp"
+                        tools:text="Cafetería · Tostaduría · Productor" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/texto_registro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/fondo_chip"
+                android:paddingHorizontal="14dp"
+                android:paddingVertical="6dp"
+                android:text="@string/marca_nacional_registrada"
+                android:textColor="@color/verde_oscuro"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/texto_descripcion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:textColor="@color/texto_principal"
+                android:textSize="15sp"
+                android:lineSpacingExtra="3dp"
+                tools:text="Marca paceña que impulsa el café boliviano de especialidad." />
+
+            <!-- Sección: cafés de especialidad de la marca -->
+            <TextView
+                style="@style/TituloSeccion"
+                android:layout_marginStart="0dp"
+                android:layout_marginEnd="0dp"
+                android:text="@string/marca_cafes_origen" />
+
+            <LinearLayout
+                android:id="@+id/contenedor_cafes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

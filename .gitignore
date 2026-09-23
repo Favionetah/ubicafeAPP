@@ -1,0 +1,13 @@
+# Archivos generados por Gradle / Android Studio — no se suben al repositorio.
+.gradle/
+build/
+local.properties
+.idea/
+*.iml
+.cxx/
+captures/
+.DS_Store
+
+# Archivos locales de este equipo.
+ubicafeAPP.zip
+.directory

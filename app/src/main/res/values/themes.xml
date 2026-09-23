@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Temas de UbiCafe. Controlan los colores, tipografía y estilos globales de la aplicación. -->
+<resources>
+
+    <style name="TemaUbiCafe" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Colores principales -->
+        <item name="colorPrimary">@color/verde_oscuro</item>
+        <item name="colorPrimaryVariant">@color/verde_claro</item>
+        <item name="colorOnPrimary">@color/texto_sobre_verde</item>
+        <item name="colorSecondary">@color/cafe_accent</item>
+        <item name="colorOnSecondary">@color/texto_sobre_verde</item>
+
+        <!-- Fondo de la app: crema, como en el diseño -->
+        <item name="android:colorBackground">@color/fondo_crema</item>
+        <item name="colorSurface">@color/fondo_blanco</item>
+
+        <!-- Tipografía por defecto: Nunito Sans -->
+        <item name="android:fontFamily">@font/nunito_sans_family</item>
+
+        <!-- Barra de estado crema con iconos oscuros (como en el Figma) -->
+        <item name="android:statusBarColor">@color/fondo_crema</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+    </style>
+
+    <!-- Tema para la pantalla de carga (Splash): fondo crema y logo en círculo blanco -->
+    <style name="TemaUbiCafe.Splash" parent="TemaUbiCafe">
+        <item name="android:background">@color/fondo_crema</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+</resources>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Todas las palabras visibles de la app están aquí. Un solo lugar para editar el idioma (español). -->
+<resources>
+    <string name="app_name">UbiCafe</string>
+    <string name="app_nombre_largo">UBICAFÉ</string>
+    <string name="app_subtitulo">Café de La Paz</string>
+    <string name="app_eslogan">El mapa del café de La Paz</string>
+    <string name="app_ubicacion">La Paz • Bolivia</string>
+
+    <!-- Pestañas principales -->
+    <string name="tab_inicio">Inicio</string>
+    <string name="tab_mapa">Mapa</string>
+    <string name="tab_explorar">Explorar</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_hero">Descubre el café de La Paz</string>
+    <string name="onboarding_descripcion">Encuentra cafeterías, marcas, tostadurías y productores registrados en el censo. Un mapa territorial del ecosistema paceño.</string>
+    <string name="onboarding_comenzar">Comenzar</string>
+
+    <!-- Pantalla de inicio (P3) -->
+    <string name="inicio_saludo">Buenos días</string>
+    <string name="inicio_titulo">Descubre el café de La Paz</string>
+    <string name="inicio_buscar_placeholder">¿Qué estás buscando?</string>
+    <string name="inicio_explora">Explora por categoría</string>
+    <string name="inicio_cerca_de_ti">Cerca de ti</string>
+    <string name="inicio_categoria_ver_informacion">Ver información</string>
+    <string name="inicio_macrodistritos">Explora por macrodistrito</string>
+    <string name="inicio_distancia">A %1$s de ti</string>
+    <string name="inicio_rating">%1$s (%2$s opiniones)</string>
+
+    <!-- Categorías -->
+    <string name="categoria_cafeterias">Cafeterías</string>
+    <string name="categoria_marcas">Marcas</string>
+    <string name="categoria_productores">Productores</string>
+    <string name="categoria_tostaderias">Tostadurías</string>
+    <string name="categoria_puntos_venta">Puntos de venta</string>
+
+    <!-- Banner de productores (final del Home) -->
+    <string name="productores_banner_titulo">¿Eres productor?</string>
+    <string name="productores_banner_descripcion">Registra tu finca o marca en el próximo censo de café paceño.</string>
+
+    <!-- Pantalla Explorar (P5) -->
+    <string name="explorar_titulo">Explorar</string>
+    <string name="explorar_subtitulo">Conoce el ecosistema del café de La Paz</string>
+    <string name="explorar_variedades">Variedades paceñas</string>
+    <string name="explorar_regiones">Regiones cafeteras</string>
+    <string name="explorar_regiones_descripcion">De los Yungas a Caranavi, el café de especialidad paceño nace en estas regiones.</string>
+    <string name="explorar_guia">Guía del café</string>
+    <string name="explorar_guia_card1_titulo">¿Qué es el café de especialidad?</string>
+    <string name="explorar_guia_card1_txt">Cafés con puntaje superior a 80 puntos en la escala SCA, producidos a gran altura y con trazabilidad desde la finca.</string>
+    <string name="explorar_guia_card2_titulo">Del grano a la taza</string>
+    <string name="explorar_guia_card2_txt">Recolección, despulpado, fermentación, lavado, secado y tostado: cada paso define el sabor final del café.</string>
+    <string name="explorar_guia_card3_titulo">Cómo comprar café paceño</string>
+    <string name="explorar_guia_card3_txt">Busca el origen, la altura y la fecha de tueste. El café de La Paz destaca por sus notas florales y cítricas.</string>
+
+    <!-- Mapa (P4) -->
+    <string name="mapa_titulo">Mapa</string>
+    <string name="mapa_subtitulo">Achumani, La Paz</string>
+    <string name="mapa_filtro_todos">Todos</string>
+    <string name="mapa_ver_informacion">Ver información</string>
+    <string name="mapa_categoria_rating">Rating</string>
+
+    <!-- Pantalla Ecosistema (fuera de alcance, se mantiene compilable) -->
+    <string name="ecosistema_titulo">Ecosistema paceño</string>
+    <string name="ecosistema_subtitulo">Conoce el ecosistema del café de La Paz en cifras</string>
+    <string name="ecosistema_lugares">Lugares registrados</string>
+    <string name="ecosistema_marcas">Marcas de café</string>
+    <string name="ecosistema_tostaderias">Tostadurías locales</string>
+    <string name="ecosistema_productores">Productores</string>
+    <string name="ecosistema_macrodistritos">Distribución por Macrodistrito</string>
+
+    <!-- Buscador -->
+    <string name="buscar_cafeteria">Buscar cafetería…</string>
+    <string name="buscar_marca">Buscar una marca…</string>
+    <string name="buscar_tostaderia">Buscar tostaduría…</string>
+    <string name="buscar_global">Busca en todo UbiCafe…</string>
+    <string name="buscar_cancelar">Cancelar</string>
+    <string name="buscar_sin_resultados">Sin resultados para «%1$s»</string>
+    <string name="seccion_cafes_especialidad">Cafés de especialidad</string>
+    <string name="seccion_marcas_registradas">Marcas registradas</string>
+    <string name="seccion_establecimientos">Establecimientos</string>
+
+    <!-- Acciones comunes -->
+    <string name="accion_ficha_tecnica">Ficha técnica</string>
+    <string name="accion_ver_detalle">Ver detalle</string>
+    <string name="accion_volver">Volver</string>
+
+    <!-- Cafeterías (P6) -->
+    <string name="cafeterias_titulo">Cafeterías</string>
+    <string name="cafeterias_subtitulo">Establecimientos registrados</string>
+    <string name="cafeteria_campo_zona">Zona</string>
+    <string name="cafeterias_filtro_todas">Todos</string>
+    <string name="cafeterias_filtro_cerca">Cerca</string>
+    <string name="cafeterias_filtro_centro">Centro</string>
+    <string name="cafeterias_filtro_cotahuma">Cotahuma</string>
+    <string name="cafeterias_filtro_sur">Sur</string>
+    <string name="cafeterias_filtro_propietario">Café de origen</string>
+    <string name="cafeterias_filtro_marca">Marca nacional</string>
+
+    <!-- Detalle cafetería (P7) -->
+    <string name="detalle_tab_descripcion">Descripción</string>
+    <string name="detalle_tab_horarios">Horarios</string>
+    <string name="detalle_tab_ubicacion">Ubicación</string>
+    <string name="detalle_como_llegar">Cómo llegar</string>
+    <string name="cafeteria_descripcion_marca">Café de especialidad de la casa %1$s, servido en la zona %2$s.</string>
+    <string name="cafeteria_descripcion_clasica">Cafetería clásica de la zona %1$s, punto de encuentro local.</string>
+
+    <!-- Detalle marca -->
+    <string name="marcas_registro_nota">Conoce las marcas de la ciudad.</string>
+    <string name="marca_nacional_registrada">Marca nacional registrada</string>
+    <string name="marca_cafes_origen">Cafés de Origen</string>
+
+    <!-- Ficha de origen -->
+    <string name="ficha_origen_titulo">Ficha de Origen</string>
+    <string name="ficha_campo_origen">Origen</string>
+    <string name="ficha_campo_marca">Marca</string>
+    <string name="ficha_campo_altitud">Altitud</string>
+    <string name="ficha_campo_variedad">Variedad</string>
+    <string name="ficha_campo_proceso">Proceso</string>
+    <string name="ficha_campo_tostado">Tostado</string>
+    <string name="ficha_campo_aroma">Aroma</string>
+    <string name="ficha_campo_notas">Notas de cata</string>
+
+    <!-- Productores -->
+    <string name="productores_titulo">Productores</string>
+    <string name="productores_subtitulo">Conoce a los productores de los cafetales registrados.</string>
+    <string name="productores_productor_origen">Productor de origen</string>
+
+    <!-- Puntos de venta -->
+    <string name="puntos_titulo">Puntos de venta</string>
+    <string name="puntos_subtitulo">Marcas y distribución urbana</string>
+    <string name="puntos_marcas_censadas">Marcas censadas</string>
+
+    <!-- Tostadurías -->
+    <string name="tostaderias_titulo">Tostadurías</string>
+    <string name="tostaderias_subtitulo">Conoce las tostadurías de la ciudad.</string>
+    <string name="tostaderia_descripcion">Descripción</string>
+    <string name="tostaderia_horarios">Horarios</string>
+    <string name="tostaderia_ubicacion">Ubicación</string>
+    <string name="tostaderia_contacto">Contacto</string>
+    <string name="tostaderia_horario_ejemplo">Lunes a Domingo\n9:00 a.m. - 10:00 p.m.</string>
+
+    <!-- Mapa -->
+    <string name="mapa_la_paz">LA PAZ\nBOLIVIA</string>
+    <string name="mapa_leyenda">Zonas cafeteras de La Paz</string>
+
+    <!-- Conteos y unidades -->
+    <plurals name="unidad_cafes">
+        <item quantity="one">%1$d café</item>
+        <item quantity="other">%1$d cafés</item>
+    </plurals>
+    <plurals name="unidad_puntos_venta">
+        <item quantity="one">%1$d punto de venta</item>
+        <item quantity="other">%1$d puntos de venta</item>
+    </plurals>
+</resources>

@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    PANTALLA: Detalle de cafetería (P7)
+    - Foto hero con el nombre encima.
+    - Tarjeta crema redondeada con rating/distancia, descripción,
+      horarios, ubicación y el botón "Cómo llegar".
+-->
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo_crema"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Hero con foto -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/fondo_photo_r10">
+
+            <!-- Botón de volver -->
+            <ImageButton
+                android:id="@+id/btn_volver"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_gravity="top|start"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/fondo_circulo_blanco"
+                android:contentDescription="@string/accion_volver"
+                android:padding="8dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_chevron_left" />
+
+            <!-- Nombre y tipo sobre la foto -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|start"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="14dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/texto_nombre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunito_extra_bold"
+                    android:textColor="@color/verde_oscuro"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/texto_tipo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunito_extra_bold"
+                    android:textColor="@color/verde_oscuro"
+                    android:textSize="20sp" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <!-- Tarjeta crema con esquinas redondeadas (superpuesta a la foto) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-24dp"
+            android:background="@drawable/fondo_arriba_redondeado"
+            android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:paddingTop="16dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="28dp">
+
+            <!-- Rating y distancia -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_star" />
+
+                <TextView
+                    android:id="@+id/texto_rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="@font/nunito_sans_medium"
+                    android:textColor="@color/verde_oscuro"
+                    android:textSize="14sp"
+                    tools:text="4.9 (240)" />
+
+                <Space
+                    android:layout_width="16dp"
+                    android:layout_height="1dp" />
+
+                <ImageView
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_navigation" />
+
+                <TextView
+                    android:id="@+id/texto_distancia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="@font/nunito_sans_medium"
+                    android:textColor="@color/verde_oscuro"
+                    android:textSize="13sp"
+                    tools:text="A 450 m" />
+            </LinearLayout>
+
+            <!-- Descripción -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/nunito_extra_bold"
+                android:text="@string/detalle_tab_descripcion"
+                android:textColor="@color/verde_oscuro"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/texto_descripcion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/nunito_sans_medium"
+                android:lineSpacingExtra="3dp"
+                android:textColor="@color/verde_oscuro"
+                android:textSize="14sp"
+                tools:text="Café de especialidad de la casa TYPICA, servido punto." />
+
+            <!-- Horarios -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <Space
+                    android:layout_width="20dp"
+                    android:layout_height="1dp" />
+
+                <ImageView
+                    android:layout_width="23dp"
+                    android:layout_height="23dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_clock" />
+
+                <Space
+                    android:layout_width="12dp"
+                    android:layout_height="1dp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nunito_bold"
+                        android:text="@string/detalle_tab_horarios"
+                        android:textColor="@color/verde_oscuro"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/texto_horarios"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/nunito_sans_medium"
+                        android:textColor="@color/verde_oscuro"
+                        android:textSize="14sp"
+                        tools:text="Lunes a Domingo\n9:00 a.m. - 10:00 p.m." />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_arrow_right" />
+            </LinearLayout>
+
+            <!-- Ubicación -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <Space
+                    android:layout_width="20dp"
+                    android:layout_height="1dp" />
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_map_pin" />
+
+                <Space
+                    android:layout_width="12dp"
+                    android:layout_height="1dp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nunito_bold"
+                        android:text="@string/detalle_tab_ubicacion"
+                        android:textColor="@color/verde_oscuro"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/texto_ubicacion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/nunito_sans_medium"
+                        android:lineSpacingExtra="2dp"
+                        android:textColor="@color/verde_oscuro"
+                        android:textSize="14sp"
+                        tools:text="Av. xxxx, entre calle 6 y 7\nMacrodistrito Centro, La Paz" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_arrow_right" />
+            </LinearLayout>
+
+            <!-- Cómo llegar -->
+            <Button
+                android:id="@+id/btn_como_llegar"
+                style="@style/BotonVerde12"
+                android:layout_marginTop="24dp"
+                android:text="@string/detalle_como_llegar"
+                android:drawableStart="@drawable/ic_route" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

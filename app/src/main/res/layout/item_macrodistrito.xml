@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Fila de la distribución por macrodistrito: nombre + barra de progreso + total -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingHorizontal="18dp"
+    android:paddingVertical="12dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/texto_nombre"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/texto_principal"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            tools:text="Sur" />
+
+        <TextView
+            android:id="@+id/texto_conteo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/texto_secundario"
+            android:textSize="13sp"
+            tools:text="21 cafés" />
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/barra_progreso"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:layout_marginTop="8dp"
+        android:max="100"
+        android:progressTint="@color/verde_oscuro"
+        android:progressBackgroundTint="@color/verde_tenue" />
+</LinearLayout>

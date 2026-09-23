@@ -1,0 +1,19 @@
+// Configuración general del proyecto.
+// Aquí se declaran los módulos que forman la aplicación.
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.name = "UbiCafe"
+include ':app'

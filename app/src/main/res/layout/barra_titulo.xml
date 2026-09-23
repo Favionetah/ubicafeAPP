@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Cabecera reutilizable de las pantallas con volver:
+    - Botón circular blanco con chevron izquierda.
+    - Título Nunito 800 24sp verde + subtítulo gris tenue.
+    Se incluye con <include layout="@layout/barra_titulo" />.
+    Para ocultar el subtítulo: findViewById(R.id.texto_subtitulo).setVisibility(GONE).
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="72dp"
+    android:background="@android:color/transparent"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
+
+    <!-- Botón para volver a la pantalla anterior -->
+    <ImageButton
+        android:id="@+id/btn_volver"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/fondo_circulo_blanco"
+        android:contentDescription="@string/accion_volver"
+        android:padding="11dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_chevron_left"
+        app:tint="@color/texto_principal" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/texto_titulo"
+            style="@style/TituloHeader"
+            android:maxLines="1"
+            tools:text="Cafeterías" />
+
+        <TextView
+            android:id="@+id/texto_subtitulo"
+            style="@style/SubtituloHeader"
+            android:maxLines="1"
+            android:text=""
+            tools:text="Zona Sur · La Paz" />
+    </LinearLayout>
+</LinearLayout>

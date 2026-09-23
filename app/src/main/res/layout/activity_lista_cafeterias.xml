@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    PANTALLA: Lista de Cafeterías (P6)
+    - Cabecera con título y subtítulo.
+    - Buscador.
+    - Filtros por zona (Todos, Cerca, Centro, Cotahuma, Sur).
+    - Lista de tarjetas con foto.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo_crema"
+    android:orientation="vertical">
+
+    <include layout="@layout/barra_titulo" />
+
+    <!-- Buscador -->
+    <EditText
+        android:id="@+id/campo_busqueda"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/fondo_buscador"
+        android:drawableStart="@drawable/ic_buscar"
+        android:drawablePadding="8dp"
+        android:hint="@string/buscar_cafeteria"
+        android:inputType="text"
+        android:maxLines="1"
+        android:paddingHorizontal="14dp"
+        android:textColor="@color/texto_principal"
+        android:textColorHint="@color/texto_secundario"
+        android:textSize="15sp" />
+
+    <!-- Filtros por zona -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:id="@+id/fila_filtros"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp" />
+    </HorizontalScrollView>
+
+    <!-- Lista de cafeterías -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/lista"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingBottom="16dp"
+        tools:listitem="@layout/item_cafeteria" />
+</LinearLayout>

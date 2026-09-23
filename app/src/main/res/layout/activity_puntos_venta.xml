@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Pantalla: Puntos de venta (marcas y distribución urbana)
+    - Título + subtítulo.
+    - Marcas censadas: fila por marca con su número de puntos de venta.
+    - Lista de todos los puntos de venta.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo_crema"
+    android:orientation="vertical">
+
+    <include layout="@layout/barra_titulo" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="16dp"
+        android:text="@string/puntos_titulo"
+        android:textColor="@color/texto_principal"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="4dp"
+        android:text="@string/puntos_subtitulo"
+        android:textColor="@color/texto_secundario"
+        android:textSize="14sp" />
+
+    <!-- Marcas censadas (conteo por marca) -->
+    <TextView
+        style="@style/TituloSeccion"
+        android:text="@string/puntos_marcas_censadas" />
+
+    <LinearLayout
+        android:id="@+id/contenedor_marcas_censadas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp" />
+
+    <TextView
+        style="@style/TituloSeccion"
+        android:text="@string/categoria_puntos_venta" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/lista"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingBottom="16dp"
+        tools:listitem="@layout/item_punto_venta" />
+</LinearLayout>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Pantalla: Ficha de Origen de un café de especialidad.
+    Muestra los datos de la ficha técnica: origen, altitud, variedad, proceso…
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo_crema"
+    android:orientation="vertical">
+
+    <include layout="@layout/barra_titulo" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:paddingBottom="32dp">
+
+            <!-- Variedad -->
+            <TextView
+                android:id="@+id/texto_variedad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/texto_principal"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                tools:text="GEISHA" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/ficha_origen_titulo"
+                android:textColor="@color/texto_secundario"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/texto_marca"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:textColor="@color/verde_oscuro"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:text="Marca: TYPICA" />
+
+            <!-- Tarjeta con los campos de la ficha -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:cardBackgroundColor="@color/fondo_blanco"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="2dp">
+
+                <LinearLayout
+                    android:id="@+id/contenedor_ficha"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="18dp" />
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

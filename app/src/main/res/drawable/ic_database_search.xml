@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Icono de navegación: Explorar (base de datos + lupa) -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp" android:height="24dp"
+    android:viewportWidth="24" android:viewportHeight="24">
+    <path
+        android:fillColor="#26332E"
+        android:pathData="M4,6.5 C4,5.4 7.6,4.2 12,4.2 C16.4,4.2 20,5.4 20,6.5 C20,7.6 16.4,8.8 12,8.8 C7.6,8.8 4,7.6 4,6.5 Z M4,9.5 M4,9.5 C4,8.3 7.6,7.1 12,7.1 C16.4,7.1 20,8.3 20,9.5 L20,17 C20,18.1 16.4,19.3 12,19.3 C7.6,19.3 4,18.1 4,17 Z M4,13 C4,11.8 7.6,10.6 12,10.6 C16.4,10.6 20,11.8 20,13" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M17.5,17.5 L21,21"
+        android:strokeColor="#26332E"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round" />
+    <path
+        android:fillColor="#26332E"
+        android:pathData="M16.5,13 a2.5,2.5 0 1,0 0,5 a2.5,2.5 0 1,0 0,-5 z" />
+</vector>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    PANTALLA DE BÚSQUEDA GLOBAL
+    Un campo de búsqueda arriba y los resultados agrupados por sección.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo_crema"
+    android:orientation="vertical">
+
+    <!-- Barra superior: botón Cancelar + campo de búsqueda -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/verde_oscuro"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <Button
+            android:id="@+id/btn_cancelar"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/buscar_cancelar"
+            android:textColor="@color/texto_sobre_verde" />
+
+        <EditText
+            android:id="@+id/campo_busqueda"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/fondo_buscador"
+            android:drawableStart="@drawable/ic_buscar"
+            android:drawablePadding="8dp"
+            android:hint="@string/buscar_global"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:maxLines="1"
+            android:paddingHorizontal="14dp"
+            android:textColor="@color/texto_principal"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <!-- Área de resultados -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="24dp">
+
+            <!-- Mensaje cuando no hay búsqueda todavía -->
+            <TextView
+                android:id="@+id/texto_vacio_inicial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="40dp"
+                android:textColor="@color/texto_secundario"
+                android:textSize="14sp"
+                tools:text="Busca cafeterías, marcas y tostadurías de La Paz." />
+
+            <!-- Secciones de resultados (se llenan desde BusquedaFragment) -->
+            <TextView
+                android:id="@+id/titulo_cafes"
+                style="@style/TituloSeccion"
+                android:visibility="gone"
+                tools:text="@string/seccion_cafes_especialidad" />
+
+            <LinearLayout
+                android:id="@+id/lista_cafes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+            <TextView
+                android:id="@+id/titulo_marcas"
+                style="@style/TituloSeccion"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/lista_marcas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+            <TextView
+                android:id="@+id/titulo_establecimientos"
+                style="@style/TituloSeccion"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/lista_establecimientos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

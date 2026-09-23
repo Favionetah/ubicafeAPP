@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tarjeta con gradiente café (final del Home) -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <corners android:radius="30dp" />
+    <gradient
+        android:angle="315"
+        android:endColor="#2B1810"
+        android:startColor="#915136" />
+</shape>

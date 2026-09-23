@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Pantalla: Mapa "Cerca de ti" (estático por ahora).
+    La vista MapaLaPazView dibuja La Paz y los marcadores.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo_crema"
+    android:orientation="vertical">
+
+    <include layout="@layout/barra_titulo" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!-- Mapa estático dibujado por código -->
+        <com.ubicafe.app.ui.mapa.MapaLaPazView
+            android:id="@+id/mapa_vista"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!-- Panel inferior: muestra la zona elegida -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_margin="16dp"
+            app:cardBackgroundColor="@color/fondo_blanco"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/texto_marcador_titulo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/texto_principal"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    tools:text="TYPICA - Achumani" />
+
+                <TextView
+                    android:id="@+id/texto_marcador_zona"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:textColor="@color/texto_secundario"
+                    android:textSize="13sp"
+                    tools:text="Zona Sur · Toca un marcador en el mapa" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </FrameLayout>
+</LinearLayout>

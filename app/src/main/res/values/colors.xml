@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Paleta de colores de UbiCafe (valores exactos del diseño Figma).
+    Usamos colores "semánticos": si cambias uno aquí, se actualiza en toda la app.
+-->
+<resources>
+    <!-- Verde principal de marca (Figma #164E3B) -->
+    <color name="verde_oscuro">#164E3B</color>
+    <!-- Verde más oscuro / borde de marca (Figma #1C4E3B) -->
+    <color name="verde_claro">#1C4E3B</color>
+    <!-- Verde muy tenue para chips/badges en reposo (10% de opacidad) -->
+    <color name="verde_tenue">#164E3B10</color>
+    <!-- Mismo verde al 10%, token explícito del Figma -->
+    <color name="verde_oscuro_tint">#164E3B10</color>
+
+    <!-- Fondos -->
+    <color name="fondo_crema">#F8F4EA</color>
+    <color name="fondo_blanco">#FFFFFF</color>
+    <!-- Superficie crema para tarjetas secundarias (Figma #F1EBDD) -->
+    <color name="superficie">#F1EBDD</color>
+
+    <!-- Texto -->
+    <color name="texto_principal">#26332E</color>
+    <color name="texto_secundario">#4E5A55</color>
+    <color name="texto_tenue">#78817D</color>
+    <color name="texto_sobre_verde">#FFFFFF</color>
+
+    <!-- Acentos -->
+    <color name="cafe_accent">#76513D</color>
+    <color name="caramelo_claro">#DDA15E</color>
+    <color name="dorado">#DDA15E</color>
+    <color name="verde_marca">#1C4E3B</color>
+
+    <!-- Líneas divisorias -->
+    <color name="divisor">#E0E1DC</color>
+</resources>

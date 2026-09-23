@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tarjeta que muestra UNA cifra del ecosistema (número grande + etiqueta + raya de color).
+     Se reutiliza 4 veces; los textos se asignan desde EcosistemaFragment. -->
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="6dp"
+    android:layout_gravity="fill_horizontal"
+    app:cardBackgroundColor="@color/fondo_blanco"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="2dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="18dp">
+
+        <TextView
+            android:id="@+id/texto_numero"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/texto_principal"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            tools:text="126" />
+
+        <TextView
+            android:id="@+id/texto_etiqueta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:gravity="center"
+            android:textColor="@color/texto_secundario"
+            android:textSize="13sp"
+            tools:text="Lugares registrados" />
+
+        <!-- Raya de color decorativa (verde, café, caramelo…) -->
+        <View
+            android:id="@+id/barra_color"
+            android:layout_width="42dp"
+            android:layout_height="4dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/verde_oscuro" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

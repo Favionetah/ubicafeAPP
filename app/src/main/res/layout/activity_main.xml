@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Pantalla principal: contiene las tres pestañas
+    (Inicio, Ecosistema, Búsqueda) que se cargan como Fragmentos.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo_crema"
+    android:orientation="vertical">
+
+    <!-- Aquí se muestra el Fragmento activo -->
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/contenedor_fragmentos"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- Barra de pestañas inferior -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_inferior"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/fondo_blanco"
+        app:itemIconTint="@color/navegacion_selector"
+        app:itemTextColor="@color/navegacion_selector"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/menu_principal" />
+</LinearLayout>

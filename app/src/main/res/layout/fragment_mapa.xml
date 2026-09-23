@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    PANTALLA MAPA (P4)
+    - Encabezado: título "Mapa" + ubicación "Achumani, La Paz".
+    - Filtros pill: Todos, Cafeterías, Tostadurías, Productores, Puntos de venta.
+    - Mapa estático de La Paz (MapaLaPazView) con marcadores.
+    - Panel inferior con la información del marcador elegido.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo_crema"
+    android:orientation="vertical">
+
+    <!-- Encabezado -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingTop="18dp"
+        android:paddingRight="20dp">
+
+        <TextView
+            android:id="@+id/texto_titulo"
+            style="@style/TituloHeader"
+            android:text="@string/mapa_titulo" />
+
+        <TextView
+            android:id="@+id/texto_ubicacion"
+            style="@style/SubtituloHeader"
+            android:text="@string/mapa_subtitulo" />
+    </LinearLayout>
+
+    <!-- Filtros -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:id="@+id/fila_filtros"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp" />
+    </HorizontalScrollView>
+
+    <!-- Mapa + panel inferior -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="12dp">
+
+        <com.ubicafe.app.ui.mapa.MapaLaPazView
+            android:id="@+id/mapa_vista"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!-- Panel inferior: información del marcador -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_margin="16dp"
+            android:background="@drawable/fondo_tarjeta_categoria"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/texto_marcador_nombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_bold"
+                android:textColor="@color/texto_principal"
+                android:textSize="20sp"
+                tools:text="TYPICA - Achumani" />
+
+            <TextView
+                android:id="@+id/texto_marcador_tipo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:fontFamily="@font/nunito_sans_medium"
+                android:textColor="@color/texto_secundario"
+                android:textSize="13sp"
+                tools:text="Cafetería de Especialidad · Tostaduría" />
+
+            <TextView
+                android:id="@+id/texto_marcador_direccion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/nunito_sans_medium"
+                android:textColor="@color/texto_principal"
+                android:textSize="15sp"
+                tools:text="Calle 15 de Achumani, La Paz" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_star" />
+
+                <TextView
+                    android:id="@+id/texto_marcador_rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="@font/nunito_sans_bold"
+                    android:textColor="@color/texto_principal"
+                    android:textSize="20sp"
+                    tools:text="4.9" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:fontFamily="@font/nunito_sans_medium"
+                    android:textColor="@color/texto_tenue"
+                    android:text="@string/mapa_categoria_rating"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_ver_informacion"
+                style="@style/BotonVerde"
+                android:layout_marginTop="12dp"
+                android:text="@string/mapa_ver_informacion" />
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    PANTALLA EXPLORAR (P5)
+    Contenido aprobado (sin métricas ni cifras):
+      1. Variedades paceñas: cafés de especialidad de origen (→ Ficha de Origen).
+      2. Regiones cafeteras: información estática de las zonas de cultivo.
+      3. Guía del café: tres tarjetas informativas estáticas.
+-->
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo_crema"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="28dp">
+
+        <!-- Encabezado -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:paddingTop="18dp"
+            android:paddingRight="20dp">
+
+            <TextView
+                style="@style/TituloHeader"
+                android:text="@string/explorar_titulo" />
+
+            <TextView
+                style="@style/SubtituloHeader"
+                android:text="@string/explorar_subtitulo" />
+        </LinearLayout>
+
+        <!-- ============ 1. VARIEDADES PACEÑAS ============ -->
+        <TextView
+            style="@style/TituloSeccion"
+            android:text="@string/explorar_variedades" />
+
+        <LinearLayout
+            android:id="@+id/contenedor_variedades"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:orientation="vertical" />
+
+        <!-- ============ 2. REGIONES CAFETERAS ============ -->
+        <TextView
+            style="@style/TituloSeccion"
+            android:text="@string/explorar_regiones" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/nunito_sans_regular"
+            android:text="@string/explorar_regiones_descripcion"
+            android:textColor="@color/texto_secundario"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:id="@+id/contenedor_regiones"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:orientation="vertical" />
+
+        <!-- ============ 3. GUÍA DEL CAFÉ ============ -->
+        <TextView
+            style="@style/TituloSeccion"
+            android:text="@string/explorar_guia" />
+
+        <LinearLayout
+            android:id="@+id/contenedor_guia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    PANTALLA ECOSISTEMA
+    Muestra el "ecosistema paceño en cifras" y la distribución por macrodistrito.
+    Los números y colores se rellenan desde EcosistemaFragment.
+-->
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo_crema"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="24dp">
+
+        <!-- Encabezado -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/verde_oscuro"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/ecosistema_titulo"
+                android:textColor="@color/texto_sobre_verde"
+                android:textSize="26sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="@string/ecosistema_subtitulo"
+                android:textColor="@color/caramelo_claro"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- ============ CIFRAS EN REJILLA (2x2) ============ -->
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="12dp"
+            android:layout_marginTop="16dp"
+            android:columnCount="2"
+            android:useDefaultMargins="false">
+
+            <include
+                layout="@layout/tarjeta_cifra"
+                android:id="@+id/cifra_lugares"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="fill_horizontal"
+                android:layout_column="0" />
+
+            <include
+                layout="@layout/tarjeta_cifra"
+                android:id="@+id/cifra_marcas"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="fill_horizontal"
+                android:layout_column="1" />
+
+            <include
+                layout="@layout/tarjeta_cifra"
+                android:id="@+id/cifra_tostaderias"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="fill_horizontal"
+                android:layout_column="0" />
+
+            <include
+                layout="@layout/tarjeta_cifra"
+                android:id="@+id/cifra_productores"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="fill_horizontal"
+                android:layout_column="1" />
+        </GridLayout>
+
+        <!-- ============ DISTRIBUCIÓN POR MACRODISTRITO ============ -->
+        <TextView
+            style="@style/TituloSeccion"
+            android:text="@string/ecosistema_macrodistritos" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            app:cardBackgroundColor="@color/fondo_blanco"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:id="@+id/contenedor_macrodistritos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

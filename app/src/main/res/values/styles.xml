@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Estilos reutilizables de toda la app (evitan repetir atributos en cada XML). -->
+<resources>
+
+    <!-- ===================== TIPOGRAFÍA ===================== -->
+    <!-- Título de sección (Nunito 700 20sp) -->
+    <style name="TituloSeccion">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">20dp</item>
+        <item name="android:layout_marginRight">20dp</item>
+        <item name="android:layout_marginTop">24dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:fontFamily">@font/nunito_bold</item>
+        <item name="android:textColor">@color/texto_principal</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <!-- Título de cabecera de pantalla (Nunito 800 24sp verde) -->
+    <style name="TituloHeader">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/nunito_extra_bold</item>
+        <item name="android:textColor">@color/verde_oscuro</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <!-- Subtítulo de cabecera (Nunito Sans 500 13sp gris tenue) -->
+    <style name="SubtituloHeader">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">2dp</item>
+        <item name="android:fontFamily">@font/nunito_sans_medium</item>
+        <item name="android:textColor">@color/texto_tenue</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <!-- Nombre dentro de las tarjetas de categoría (Nunito Sans 600 15sp) -->
+    <style name="TextoNombreCategoria">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginStart">14dp</item>
+        <item name="android:fontFamily">@font/nunito_sans_semi_bold</item>
+        <item name="android:textColor">@color/texto_principal</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <!-- ===================== TARJETA DE CATEGORÍA ===================== -->
+    <!-- Fila blanca (radio 12) de "Explora por categoría" -->
+    <style name="TarjetaCategoria">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">49dp</item>
+        <item name="android:layout_margin">6dp</item>
+        <item name="android:background">@drawable/fondo_tarjeta_categoria</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+    </style>
+
+    <!-- ===================== FILTROS (CHIPS PILL) ===================== -->
+    <!-- Chip de filtro pill (radio 999, 34dp, Nunito Sans 600 13sp).
+         El color de selección lo aplica UiUtils. -->
+    <style name="FiltroChip">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">34dp</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:background">@drawable/fondo_chip_no_seleccionado</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:fontFamily">@font/nunito_sans_semi_bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:textColor">@color/texto_principal</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <!-- ===================== BADGES ===================== -->
+    <!-- Badge de zona sobre tarjeta (tinte verde al 10%) -->
+    <style name="BadgeZona">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/fondo_badge_zona</item>
+        <item name="android:fontFamily">@font/nunito_sans_bold</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:textColor">@color/verde_oscuro</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <!-- ===================== BOTONES ===================== -->
+    <!-- Botón verde primario (radio 8) -->
+    <style name="BotonVerde" parent="Widget.MaterialComponents.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/nunito_sans_semi_bold</item>
+        <item name="android:textColor">@color/texto_sobre_verde</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="backgroundTint">@color/verde_oscuro</item>
+        <item name="shapeAppearanceOverlay">@style/Boton.Esquinas8</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <!-- Botón verde con radio 12 (acciones largas: Cómo llegar / Ver en mapa) -->
+    <style name="BotonVerde12" parent="Widget.MaterialComponents.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/nunito_bold</item>
+        <item name="android:textColor">@color/texto_sobre_verde</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="backgroundTint">@color/verde_oscuro</item>
+        <item name="shapeAppearanceOverlay">@style/Boton.Esquinas12</item>
+    </style>
+
+    <!-- Botón pill verde (radio 999) del onboarding -->
+    <style name="BotonVerdePill" parent="Widget.MaterialComponents.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">52dp</item>
+        <item name="android:fontFamily">@font/nunito_sans_bold</item>
+        <item name="android:textColor">@color/texto_sobre_verde</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="backgroundTint">@color/verde_oscuro</item>
+        <item name="shapeAppearanceOverlay">@style/Boton.EsquinasPill</item>
+    </style>
+
+    <style name="Boton.Esquinas8" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item>
+    </style>
+
+    <style name="Boton.Esquinas12" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">12dp</item>
+    </style>
+
+    <style name="Boton.EsquinasPill" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+</resources>

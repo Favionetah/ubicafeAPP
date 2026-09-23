@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Fila informativa reutilizable: etiqueta pequeña arriba + valor debajo -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingVertical="8dp">
+
+    <TextView
+        android:id="@+id/texto_etiqueta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/texto_secundario"
+        android:textSize="12sp"
+        tools:text="Dirección" />
+
+    <TextView
+        android:id="@+id/texto_valor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:textColor="@color/texto_principal"
+        android:textSize="15sp"
+        tools:text="Av. Costanera, Achumani" />
+</LinearLayout>
