@@ -1,21 +1,16 @@
 package com.ubicafe.app.ui.busqueda;
 
 import android.content.Intent;
-import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.ubicafe.app.R;
 import com.ubicafe.app.datos.RepositorioDatos;
@@ -28,37 +23,33 @@ import com.ubicafe.app.ui.marcas.DetalleMarcaActivity;
 import com.ubicafe.app.ui.origen.FichaOrigenActivity;
 
 /**
- * Pestaña BÚSQUEDA.
- * Busca en toda la app (cafés, marcas y cafeterías) mientras el usuario escribe.
+ * BÚSQUEDA GLOBAL (P10).
+ * Busca en toda la app (cafés, marcas y cafeterías) mientras se escribe.
  */
-public class BusquedaFragment extends Fragment {
+public class BusquedaActivity extends AppCompatActivity {
 
     private TextView textoVacioInicial;
     private TextView tituloCafes, tituloMarcas, tituloEstablecimientos;
     private LinearLayout listaCafes, listaMarcas, listaEstablecimientos;
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflador, @Nullable ViewGroup contenedor,
-                             @Nullable Bundle estado) {
-        return inflador.inflate(R.layout.fragment_busqueda, contenedor, false);
-    }
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_busqueda);
 
-    @Override
-    public void onViewCreated(@NonNull View vista, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(vista, savedInstanceState);
+        textoVacioInicial = findViewById(R.id.texto_vacio_inicial);
+        tituloCafes = findViewById(R.id.titulo_cafes);
+        tituloMarcas = findViewById(R.id.titulo_marcas);
+        tituloEstablecimientos = findViewById(R.id.titulo_establecimientos);
+        tituloCafes.setTag(R.string.seccion_cafes_especialidad);
+        tituloMarcas.setTag(R.string.seccion_marcas_registradas);
+        tituloEstablecimientos.setTag(R.string.seccion_establecimientos);
+        listaCafes = findViewById(R.id.lista_cafes);
+        listaMarcas = findViewById(R.id.lista_marcas);
+        listaEstablecimientos = findViewById(R.id.lista_establecimientos);
 
-        textoVacioInicial = vista.findViewById(R.id.texto_vacio_inicial);
-        tituloCafes = vista.findViewById(R.id.titulo_cafes);
-        tituloMarcas = vista.findViewById(R.id.titulo_marcas);
-        tituloEstablecimientos = vista.findViewById(R.id.titulo_establecimientos);
-        listaCafes = vista.findViewById(R.id.lista_cafes);
-        listaMarcas = vista.findViewById(R.id.lista_marcas);
-        listaEstablecimientos = vista.findViewById(R.id.lista_establecimientos);
-
-        EditText campo = vista.findViewById(R.id.campo_busqueda);
-
-        // Al escribir, se busca automáticamente.
+        EditText campo = findViewById(R.id.campo_busqueda);
+        campo.requestFocus();
         campo.addTextChangedListener(new TextWatcher() {
             @Override public void beforeTextChanged(CharSequence s, int a, int b, int c) { }
 
@@ -78,23 +69,19 @@ public class BusquedaFragment extends Fragment {
             return false;
         });
 
-        // El botón "Cancelar" vuelve a la pestaña anterior (cierra el teclado).
-        vista.findViewById(R.id.btn_cancelar).setOnClickListener(v -> {
-            campo.setText("");
-            campo.clearFocus();
-        });
+        findViewById(R.id.btn_cancelar).setOnClickListener(v -> finish());
     }
 
     /** Lanza la búsqueda y pinta los resultados en sus secciones. */
     private void buscar(String texto) {
         ResultadoBusqueda resultado = RepositorioDatos.buscar(texto);
 
-        // Mensaje inicial mientras no hay nada escrito.
         textoVacioInicial.setVisibility(texto.trim().isEmpty() ? View.VISIBLE : View.GONE);
 
         llenarSeccion(listaCafes, tituloCafes, resultado.cafesDeEspecialidad.size());
         llenarSeccion(listaMarcas, tituloMarcas, resultado.marcasRegistradas.size());
-        llenarSeccion(listaEstablecimientos, tituloEstablecimientos, resultado.establecimientos.size());
+        llenarSeccion(listaEstablecimientos, tituloEstablecimientos,
+                resultado.establecimientos.size());
 
         listaCafes.removeAllViews();
         listaMarcas.removeAllViews();
@@ -116,6 +103,8 @@ public class BusquedaFragment extends Fragment {
         boolean hayResultados = cantidad > 0;
         lista.setVisibility(hayResultados ? View.VISIBLE : View.GONE);
         titulo.setVisibility(hayResultados ? View.VISIBLE : View.GONE);
+        titulo.setText(getString(R.string.seccion_conteo,
+                getString((Integer) titulo.getTag()), cantidad));
     }
 
     // ---------- Construcción de filas ----------
@@ -123,9 +112,7 @@ public class BusquedaFragment extends Fragment {
     private void agregarFilaCafe(CafeOrigen cafe) {
         View fila = inflarFila(listaCafes);
         ((TextView) fila.findViewById(R.id.texto_nombre)).setText(cafe.variedad);
-        ((TextView) fila.findViewById(R.id.texto_subtitulo))
-                .setText(getString(R.string.ficha_campo_origen) + ": " + cafe.origen);
-        pintarInicial(fila, cafe.variedad, R.color.cafe_accent);
+        ((TextView) fila.findViewById(R.id.texto_subtitulo)).setText(cafe.origen);
 
         fila.setOnClickListener(v -> abrirFichaOrigen(cafe, ""));
         listaCafes.addView(fila);
@@ -137,10 +124,9 @@ public class BusquedaFragment extends Fragment {
         ((TextView) fila.findViewById(R.id.texto_subtitulo))
                 .setText(getString(R.string.marca_nacional_registrada)
                         + " · " + android.text.TextUtils.join(", ", marca.etiquetas));
-        pintarInicial(fila, marca.nombre, marca.colorMarca);
 
         fila.setOnClickListener(v -> {
-            Intent intento = new Intent(requireContext(), DetalleMarcaActivity.class);
+            Intent intento = new Intent(this, DetalleMarcaActivity.class);
             intento.putExtra(DetalleMarcaActivity.EXTRA_NOMBRE_MARCA, marca.nombre);
             startActivity(intento);
         });
@@ -151,11 +137,10 @@ public class BusquedaFragment extends Fragment {
         View fila = inflarFila(listaEstablecimientos);
         ((TextView) fila.findViewById(R.id.texto_nombre)).setText(cafeteria.nombre);
         ((TextView) fila.findViewById(R.id.texto_subtitulo))
-                .setText(cafeteria.zona + " · " + cafeteria.tipo);
-        pintarInicial(fila, cafeteria.nombre, R.color.verde_oscuro);
+                .setText(cafeteria.direccion + " · " + cafeteria.zona);
 
         fila.setOnClickListener(v -> {
-            Intent intento = new Intent(requireContext(), DetalleCafeteriaActivity.class);
+            Intent intento = new Intent(this, DetalleCafeteriaActivity.class);
             intento.putExtra(DetalleCafeteriaActivity.EXTRA_NOMBRE_CAFETERIA, cafeteria.nombre);
             startActivity(intento);
         });
@@ -168,22 +153,8 @@ public class BusquedaFragment extends Fragment {
         return getLayoutInflater().inflate(R.layout.item_resultado_busqueda, contenedor, false);
     }
 
-    /** Pinta el cuadrito de color y su letra inicial. */
-    private void pintarInicial(View fila, String nombre, int colorRes) {
-        LinearLayout boxColor = fila.findViewById(R.id.box_color);
-        TextView textoInicial = fila.findViewById(R.id.texto_inicial);
-
-        GradientDrawable cuadro = new GradientDrawable();
-        cuadro.setShape(GradientDrawable.RECTANGLE);
-        cuadro.setCornerRadius(12f);
-        cuadro.setColor(getResources().getColor(colorRes, requireContext().getTheme()));
-        boxColor.setBackground(cuadro);
-
-        textoInicial.setText(nombre.substring(0, 1));
-    }
-
     private void abrirFichaOrigen(CafeOrigen cafe, String nombreMarca) {
-        Intent intento = new Intent(requireContext(), FichaOrigenActivity.class);
+        Intent intento = new Intent(this, FichaOrigenActivity.class);
         intento.putExtra(FichaOrigenActivity.EXTRA_VARIEDAD, cafe.variedad);
         intento.putExtra(FichaOrigenActivity.EXTRA_NOMBRE_MARCA, nombreMarca);
         startActivity(intento);

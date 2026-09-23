@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    Pantalla: Detalle de un Productor (finca cafetalera)
-    - Encabezado con nombre de finca y familia.
-    - Cifras: cafés, altitud.
-    - Descripción.
+    PANTALLA: Detalle de un Productor (P9b)
+    - Cabecera con el nombre de la finca y la familia.
+    - Foto hero.
+    - Tarjeta crema con Descripción y los datos de la finca.
 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -23,126 +22,93 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="20dp"
-            android:paddingBottom="32dp">
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/texto_finca"
+            <!-- Hero con foto -->
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/texto_principal"
-                android:textSize="26sp"
-                android:textStyle="bold"
-                tools:text="Finca El Cóndor" />
-
-            <TextView
-                android:id="@+id/texto_familia"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:textColor="@color/texto_secundario"
-                android:textSize="15sp"
-                tools:text="Familia Mamani" />
-
-            <TextView
-                android:id="@+id/texto_origen"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="230dp"
+                android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="12dp"
-                android:background="@drawable/fondo_chip"
-                android:paddingHorizontal="14dp"
-                android:paddingVertical="6dp"
-                android:textColor="@color/verde_oscuro"
-                android:textSize="12sp"
-                android:textStyle="bold"
-                tools:text="Caranavi, La Paz" />
+                android:background="@drawable/fondo_photo_r10">
 
-            <!-- Cifras de la finca -->
-            <GridLayout
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="@null"
+                    android:padding="12dp"
+                    android:src="@drawable/ic_productor" />
+            </FrameLayout>
+
+            <!-- Tarjeta crema superpuesta -->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="18dp"
-                android:columnCount="2"
-                android:useDefaultMargins="false">
+                android:layout_marginTop="-24dp"
+                android:background="@drawable/fondo_arriba_redondeado"
+                android:orientation="vertical"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="20dp"
+                android:paddingBottom="32dp">
+
+                <!-- Descripción -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunito_extra_bold"
+                    android:text="@string/tostaderia_descripcion"
+                    android:textColor="@color/verde_oscuro"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/texto_descripcion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/nunito_sans_medium"
+                    android:lineSpacingExtra="3dp"
+                    android:textColor="@color/verde_oscuro"
+                    android:textSize="14sp"
+                    tools:text="Productor de origen de las laderas del río Yara." />
+
+                <!-- Ficha de la finca -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="22dp"
+                    android:fontFamily="@font/nunito_extra_bold"
+                    android:text="@string/productor_informacion"
+                    android:textColor="@color/verde_oscuro"
+                    android:textSize="20sp" />
 
                 <LinearLayout
-                    android:id="@+id/box_cifra_cafes"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="fill_horizontal"
-                    android:layout_margin="6dp"
+                    android:layout_marginTop="10dp"
                     android:background="@drawable/fondo_tarjeta_categoria"
-                    android:gravity="center"
                     android:orientation="vertical"
-                    android:padding="16dp">
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="8dp">
 
-                    <TextView
-                        android:id="@+id/texto_num_cafes"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:id="@+id/contenedor_ficha"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/texto_principal"
-                        android:textSize="26sp"
-                        android:textStyle="bold"
-                        tools:text="3" />
-
-                    <TextView
-                        android:id="@+id/texto_etiqueta_cafes"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:textColor="@color/texto_secundario"
-                        android:textSize="13sp"
-                        tools:text="3 cafés" />
+                        android:orientation="vertical" />
                 </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/box_cifra_altitud"
-                    android:layout_width="0dp"
+                <!-- Distintivo de origen -->
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="fill_horizontal"
-                    android:layout_margin="6dp"
-                    android:background="@drawable/fondo_tarjeta_categoria"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="16dp">
-
-                    <TextView
-                        android:id="@+id/texto_num_altitud"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/texto_principal"
-                        android:textSize="26sp"
-                        android:textStyle="bold"
-                        tools:text="1.600 m" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="@string/ficha_campo_altitud"
-                        android:textColor="@color/texto_secundario"
-                        android:textSize="13sp" />
-                </LinearLayout>
-            </GridLayout>
-
-            <!-- Descripción -->
-            <TextView
-                android:id="@+id/texto_descripcion"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="18dp"
-                android:lineSpacingExtra="3dp"
-                android:textColor="@color/texto_principal"
-                android:textSize="15sp"
-                tools:text="Productor de origen de las laderas del río Yara." />
-
-            <TextView
-                android:id="@+id/texto_rol_productor"
-                style="@style/TituloSeccion"
-                android:layout_marginStart="0dp"
-                android:layout_marginEnd="0dp"
-                android:text="@string/productores_productor_origen" />
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/nunito_sans_medium"
+                    android:text="@string/productores_productor_origen"
+                    android:textColor="@color/texto_tenue"
+                    android:textSize="13sp" />
+            </LinearLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </LinearLayout>

@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import com.ubicafe.app.R;
 import com.ubicafe.app.datos.RepositorioDatos;
 import com.ubicafe.app.modelo.Cafeteria;
+import com.ubicafe.app.ui.busqueda.BusquedaActivity;
 import com.ubicafe.app.ui.cafeterias.DetalleCafeteriaActivity;
 import com.ubicafe.app.ui.cafeterias.ListaCafeteriasActivity;
 import com.ubicafe.app.ui.marcas.ListaMarcasActivity;
@@ -44,6 +45,7 @@ public class InicioFragment extends Fragment {
         super.onViewCreated(vista, savedInstanceState);
 
         prepararCategorias(vista);
+        prepararBusqueda(vista);
         prepararCercaDeTi(vista);
         prepararMacrodistritos(vista);
         prepararBannerProductores(vista);
@@ -59,6 +61,12 @@ public class InicioFragment extends Fragment {
                 .setOnClickListener(v -> abrir(ListaTostaderiasActivity.class));
         vista.findViewById(R.id.tile_puntos_venta)
                 .setOnClickListener(v -> abrir(PuntosVentaActivity.class));
+    }
+
+    /** El buscador del Home abre la búsqueda global (P10). */
+    private void prepararBusqueda(View vista) {
+        vista.findViewById(R.id.buscador_inicio)
+                .setOnClickListener(v -> abrir(BusquedaActivity.class));
     }
 
     /** Tarjeta "Cerca de ti": muestra la primera cafetería y abre su detalle. */

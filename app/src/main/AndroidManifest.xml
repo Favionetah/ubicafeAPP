@@ -57,6 +57,9 @@
         <activity android:name=".ui.tostaderias.DetalleTostaderiaActivity" />
         <activity android:name=".ui.origen.FichaOrigenActivity" />
 
+        <!-- Búsqueda global -->
+        <activity android:name=".ui.busqueda.BusquedaActivity" />
+
         <!-- Mapa "Cerca de ti" -->
         <activity android:name=".ui.mapa.MapaActivity" />
     </application>

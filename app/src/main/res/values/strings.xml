@@ -76,9 +76,11 @@
     <string name="buscar_global">Busca en todo UbiCafe…</string>
     <string name="buscar_cancelar">Cancelar</string>
     <string name="buscar_sin_resultados">Sin resultados para «%1$s»</string>
-    <string name="seccion_cafes_especialidad">Cafés de especialidad</string>
-    <string name="seccion_marcas_registradas">Marcas registradas</string>
+    <string name="buscar_vacio_inicial">Busca cafeterías, marcas y tostadurías de La Paz.</string>
+    <string name="seccion_cafes_especialidad">Cafés de Especialidad</string>
+    <string name="seccion_marcas_registradas">Marcas Registradas</string>
     <string name="seccion_establecimientos">Establecimientos</string>
+    <string name="seccion_conteo">%1$s (%2$d)</string>
 
     <!-- Acciones comunes -->
     <string name="accion_ficha_tecnica">Ficha técnica</string>
@@ -105,13 +107,17 @@
     <string name="cafeteria_descripcion_marca">Café de especialidad de la casa %1$s, servido en la zona %2$s.</string>
     <string name="cafeteria_descripcion_clasica">Cafetería clásica de la zona %1$s, punto de encuentro local.</string>
 
-    <!-- Detalle marca -->
+    <!-- Detalle marca (P8) -->
     <string name="marcas_registro_nota">Conoce las marcas de la ciudad.</string>
     <string name="marca_nacional_registrada">Marca nacional registrada</string>
     <string name="marca_cafes_origen">Cafés de Origen</string>
+    <string name="marca_donde_encontrar">¿Dónde encontrar la marca?</string>
+    <string name="marca_puntos_descripcion">%1$s cuenta con %2$d puntos de venta y cafeterías en la ciudad de La Paz.</string>
+    <string name="marca_ver_puntos_mapa">Ver puntos en mapa</string>
 
-    <!-- Ficha de origen -->
+    <!-- Ficha de origen (P9a) -->
     <string name="ficha_origen_titulo">Ficha de Origen</string>
+    <string name="ficha_marca_formato">Marca: %1$s</string>
     <string name="ficha_campo_origen">Origen</string>
     <string name="ficha_campo_marca">Marca</string>
     <string name="ficha_campo_altitud">Altitud</string>
@@ -120,24 +126,49 @@
     <string name="ficha_campo_tostado">Tostado</string>
     <string name="ficha_campo_aroma">Aroma</string>
     <string name="ficha_campo_notas">Notas de cata</string>
+    <string name="ficha_notas_sensoriales">Notas Sensoriales</string>
+    <string name="ficha_presentacion">Presentación</string>
+    <string name="ficha_precio_observado">Precio Observado</string>
+    <string name="ficha_presentacion_valor">250 g</string>
+    <string name="ficha_precio_valor">Bs. 95</string>
+    <string name="ficha_precio_referencia">Precio de referencia estimado · Censo 2026</string>
 
-    <!-- Productores -->
-    <string name="productores_titulo">Productores</string>
-    <string name="productores_subtitulo">Conoce a los productores de los cafetales registrados.</string>
-    <string name="productores_productor_origen">Productor de origen</string>
-
-    <!-- Puntos de venta -->
-    <string name="puntos_titulo">Puntos de venta</string>
-    <string name="puntos_subtitulo">Marcas y distribución urbana</string>
-    <string name="puntos_marcas_censadas">Marcas censadas</string>
-
-    <!-- Tostadurías -->
-    <string name="tostaderias_titulo">Tostadurías</string>
-    <string name="tostaderias_subtitulo">Conoce las tostadurías de la ciudad.</string>
-    <string name="tostaderia_descripcion">Descripción</string>
+    <!-- Detalle informativo (P9b: tostadurías y productores) -->
     <string name="tostaderia_horarios">Horarios</string>
     <string name="tostaderia_ubicacion">Ubicación</string>
     <string name="tostaderia_contacto">Contacto</string>
+    <string name="productor_informacion">Huella del productor</string>
+    <string name="productor_campo_familia">Familia</string>
+    <string name="productor_campo_origen">Origen</string>
+    <string name="productor_campo_altitud">Altitud</string>
+    <string name="productor_campo_cafes">Cafés producidos</string>
+
+    <!-- Productores (P11) -->
+    <string name="productores_titulo">Productores</string>
+    <string name="productores_subtitulo">Conoce productores y cafetales registrados.</string>
+    <string name="productores_productor_origen">Productor de origen registrado</string>
+    <string name="productores_cta_titulo">¿Eres productor?</string>
+    <string name="productores_cta_descripcion">Registra tu finca o marca en el próximo censo de café paceño.</string>
+
+    <!-- Puntos de venta (P12) -->
+    <string name="puntos_titulo">Puntos de venta</string>
+    <string name="puntos_subtitulo">Marcas y distribución urbana</string>
+    <string name="puntos_marcas_censadas">Marcas censadas</string>
+    <string name="puntos_donde_encontrarlo">Dónde encontrarlo:</string>
+    <string name="puntos_destacado">Destacado</string>
+    <string name="puntos_ver_mapa">Ver en mapa</string>
+
+    <!-- Marcas (P13) -->
+    <string name="marcas_titulo">Marcas</string>
+    <string name="marcas_subtitulo">Conoce las marcas de la ciudad.</string>
+    <string name="marcas_cta_titulo">¿Tienes toda una marca?</string>
+    <string name="marcas_cta_descripcion">Registra tu marca en el próximo censo de café paceño.</string>
+
+    <!-- Tostadurías (P14) -->
+    <string name="tostaderias_titulo">Tostadurías</string>
+    <string name="tostaderias_subtitulo">Conoce las tostadurías nacionales.</string>
+    <string name="tostaderia_tipo_detalle">Tostaduría · %1$s</string>
+    <string name="tostaderia_descripcion">Descripción</string>
     <string name="tostaderia_horario_ejemplo">Lunes a Domingo\n9:00 a.m. - 10:00 p.m.</string>
 
     <!-- Mapa -->

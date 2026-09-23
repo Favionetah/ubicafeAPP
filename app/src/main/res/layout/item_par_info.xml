@@ -5,22 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:paddingVertical="8dp">
+    android:paddingVertical="7dp">
 
     <TextView
         android:id="@+id/texto_etiqueta"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/texto_secundario"
+        android:fontFamily="@font/nunito_sans_medium"
+        android:textColor="@color/texto_tenue"
         android:textSize="12sp"
-        tools:text="Dirección" />
+        tools:text="Origen" />
 
     <TextView
         android:id="@+id/texto_valor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
+        android:fontFamily="@font/nunito_bold"
         android:textColor="@color/texto_principal"
-        android:textSize="15sp"
-        tools:text="Av. Costanera, Achumani" />
+        android:textSize="16sp"
+        tools:text="Caranavi, La Paz" />
 </LinearLayout>

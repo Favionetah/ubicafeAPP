@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Fila de marca sin seleccionar en "Puntos de venta" (blanco, radio 12) -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/fondo_blanco" />
+    <corners android:radius="12dp" />
+</shape>

@@ -1,7 +1,7 @@
 package com.ubicafe.app.ui.productores;
 
 import android.os.Bundle;
-import android.graphics.drawable.GradientDrawable;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -12,8 +12,8 @@ import com.ubicafe.app.datos.RepositorioDatos;
 import com.ubicafe.app.modelo.Productor;
 
 /**
- * DETALLE DE UN PRODUCTOR (finca cafetalera).
- * Muestra la finca, la familia, sus cifras y una descripción.
+ * DETALLE DE UN PRODUCTOR (finca cafetalera) (P9b).
+ * Muestra la descripción de la finca y sus datos de registro.
  */
 public class DetalleProductorActivity extends AppCompatActivity {
 
@@ -34,32 +34,26 @@ public class DetalleProductorActivity extends AppCompatActivity {
             return;
         }
 
-        ((TextView) findViewById(R.id.texto_titulo)).setText(getString(R.string.productores_titulo));
-        ((TextView) findViewById(R.id.texto_finca)).setText(productor.nombreFinca);
-        ((TextView) findViewById(R.id.texto_familia)).setText(productor.nombreFamilia);
-        ((TextView) findViewById(R.id.texto_origen)).setText(productor.origen);
+        ((TextView) findViewById(R.id.texto_titulo)).setText(productor.nombreFinca);
+        ((TextView) findViewById(R.id.texto_subtitulo)).setText(productor.nombreFamilia);
         ((TextView) findViewById(R.id.texto_descripcion)).setText(productor.descripcion);
 
-        ((TextView) findViewById(R.id.texto_num_cafes))
-                .setText(String.valueOf(productor.numCafes));
-        ((TextView) findViewById(R.id.texto_etiqueta_cafes))
-                .setText(getResources().getQuantityString(
+        LinearLayout contenedor = findViewById(R.id.contenedor_ficha);
+        agregarCampo(contenedor, getString(R.string.productor_campo_origen), productor.origen);
+        agregarCampo(contenedor, getString(R.string.productor_campo_altitud),
+                productor.altitud + " m s. n. m.");
+        agregarCampo(contenedor, getString(R.string.productor_campo_familia),
+                productor.nombreFamilia);
+        agregarCampo(contenedor, getString(R.string.productor_campo_cafes),
+                getResources().getQuantityString(
                         R.plurals.unidad_cafes, productor.numCafes, productor.numCafes));
-        ((TextView) findViewById(R.id.texto_num_altitud))
-                .setText(productor.altitud + " m");
-
-        // Color de las tarjetas de cifra
-        pintarContenedor(R.id.box_cifra_cafes, productor.colorMarca);
-        pintarContenedor(R.id.box_cifra_altitud, productor.colorMarca);
     }
 
-    /** Aplica un color de fondo suave con el color de la finca. */
-    private void pintarContenedor(int idContenedor, int colorRes) {
-        LinearLayout contenedor = findViewById(idContenedor);
-        GradientDrawable fondo = new GradientDrawable();
-        fondo.setShape(GradientDrawable.RECTANGLE);
-        fondo.setCornerRadius(18f);
-        fondo.setColor(getColor(colorRes));
-        contenedor.setBackground(fondo);
+    private void agregarCampo(LinearLayout contenedor, String etiqueta, String valor) {
+        ViewGroup fila = (ViewGroup) getLayoutInflater()
+                .inflate(R.layout.item_par_info, contenedor, false);
+        ((TextView) fila.findViewById(R.id.texto_etiqueta)).setText(etiqueta);
+        ((TextView) fila.findViewById(R.id.texto_valor)).setText(valor);
+        contenedor.addView(fila);
     }
 }

@@ -1,8 +1,6 @@
 package com.ubicafe.app.ui.tostaderias;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,7 +10,7 @@ import com.ubicafe.app.datos.RepositorioDatos;
 import com.ubicafe.app.modelo.Tostaderia;
 
 /**
- * DETALLE DE UNA TOSTADURÍA.
+ * DETALLE DE UNA TOSTADURÍA (P9b).
  * Muestra descripción, horarios, ubicación y contacto.
  */
 public class DetalleTostaderiaActivity extends AppCompatActivity {
@@ -34,23 +32,12 @@ public class DetalleTostaderiaActivity extends AppCompatActivity {
             return;
         }
 
-        ((TextView) findViewById(R.id.texto_titulo))
-                .setText(getString(R.string.categoria_tostaderias));
-        ((TextView) findViewById(R.id.texto_nombre)).setText(tostaduría.nombre);
-        ((TextView) findViewById(R.id.texto_region)).setText(tostaduría.region);
+        ((TextView) findViewById(R.id.texto_titulo)).setText(tostaduría.nombre);
+        ((TextView) findViewById(R.id.texto_subtitulo))
+                .setText(getString(R.string.tostaderia_tipo_detalle, tostaduría.region));
         ((TextView) findViewById(R.id.texto_descripcion)).setText(tostaduría.descripcion);
-
-        // Tarjeta con horarios, ubicación y contacto
-        LinearLayout contenedor = findViewById(R.id.contenedor_info);
-        agregarCampo(contenedor, getString(R.string.tostaderia_horarios), tostaduría.horarios);
-        agregarCampo(contenedor, getString(R.string.tostaderia_ubicacion), tostaduría.direccion);
-        agregarCampo(contenedor, getString(R.string.tostaderia_contacto), tostaduría.contacto);
-    }
-
-    private void agregarCampo(LinearLayout contenedor, String etiqueta, String valor) {
-        View fila = getLayoutInflater().inflate(R.layout.item_par_info, contenedor, false);
-        ((TextView) fila.findViewById(R.id.texto_etiqueta)).setText(etiqueta);
-        ((TextView) fila.findViewById(R.id.texto_valor)).setText(valor);
-        contenedor.addView(fila);
+        ((TextView) findViewById(R.id.texto_horarios)).setText(tostaduría.horarios);
+        ((TextView) findViewById(R.id.texto_ubicacion)).setText(tostaduría.direccion);
+        ((TextView) findViewById(R.id.texto_contacto)).setText(tostaduría.contacto);
     }
 }

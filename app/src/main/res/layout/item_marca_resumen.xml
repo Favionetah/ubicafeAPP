@@ -1,31 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Resumen de una marca censada en la pantalla de puntos de venta -->
+<!--
+    Fila de una marca censada en "Puntos de venta" (P12).
+    El fondo lo alterna el código: verde (seleccionada) o blanco.
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/fondo_tarjeta_categoria"
+    android:layout_height="50dp"
+    android:layout_marginVertical="4dp"
+    android:background="@drawable/fondo_fila_brand_no_seleccionado"
+    android:clickable="true"
+    android:focusable="true"
     android:gravity="center_vertical"
     android:orientation="horizontal"
-    android:paddingHorizontal="16dp"
-    android:paddingVertical="12dp">
+    android:paddingHorizontal="16dp">
 
     <TextView
         android:id="@+id/texto_nombre"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:ellipsize="end"
+        android:fontFamily="@font/nunito_extra_bold"
+        android:maxLines="1"
         android:textColor="@color/texto_principal"
         android:textSize="16sp"
-        android:textStyle="bold"
         tools:text="TYPICA" />
 
     <TextView
         android:id="@+id/texto_conteo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/verde_oscuro"
+        android:fontFamily="@font/nunito_sans_medium"
+        android:textColor="@color/texto_secundario"
         android:textSize="13sp"
-        android:textStyle="bold"
         tools:text="3 puntos de venta" />
 </LinearLayout>

@@ -1,11 +1,9 @@
 package com.ubicafe.app.ui.tostaderias;
 
 import android.content.Intent;
-import android.graphics.drawable.GradientDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -48,8 +46,6 @@ public class AdaptadorTostaderia extends RecyclerView.Adapter<AdaptadorTostaderi
 
         soporte.textoNombre.setText(tostaduría.nombre);
         soporte.textoRegion.setText(tostaduría.region);
-        soporte.textoInicial.setText(String.valueOf(tostaduría.inicial));
-        pintarCuadro(soporte.boxInicial, tostaduría.colorMarca);
 
         soporte.itemView.setOnClickListener(v -> {
             Intent intento = new Intent(v.getContext(), DetalleTostaderiaActivity.class);
@@ -58,27 +54,16 @@ public class AdaptadorTostaderia extends RecyclerView.Adapter<AdaptadorTostaderi
         });
     }
 
-    private void pintarCuadro(LinearLayout cuadro, int colorRes) {
-        GradientDrawable fondo = new GradientDrawable();
-        fondo.setShape(GradientDrawable.RECTANGLE);
-        fondo.setCornerRadius(12f);
-        fondo.setColor(cuadro.getContext().getColor(colorRes));
-        cuadro.setBackground(fondo);
-    }
-
     @Override
     public int getItemCount() {
         return tostadurias.size();
     }
 
     static class Vista extends RecyclerView.ViewHolder {
-        final LinearLayout boxInicial;
-        final TextView textoInicial, textoNombre, textoRegion;
+        final TextView textoNombre, textoRegion;
 
         Vista(View itemView) {
             super(itemView);
-            boxInicial = itemView.findViewById(R.id.box_inicial);
-            textoInicial = itemView.findViewById(R.id.texto_inicial);
             textoNombre = itemView.findViewById(R.id.texto_nombre);
             textoRegion = itemView.findViewById(R.id.texto_region);
         }

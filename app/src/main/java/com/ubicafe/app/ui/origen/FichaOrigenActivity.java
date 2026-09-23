@@ -1,7 +1,8 @@
 package com.ubicafe.app.ui.origen;
 
 import android.os.Bundle;
-import android.view.View;
+import android.view.Gravity;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -12,8 +13,9 @@ import com.ubicafe.app.datos.RepositorioDatos;
 import com.ubicafe.app.modelo.CafeOrigen;
 
 /**
- * FICHA DE ORIGEN de un café de especialidad.
- * Muestra los detalles de la variedad: origen, altitud, proceso, tostado, aroma y notas.
+ * FICHA DE ORIGEN de un café de especialidad (P9a).
+ * Muestra los datos de la ficha técnica, las notas sensoriales
+ * y la presentación con precio observado.
  */
 public class FichaOrigenActivity extends AppCompatActivity {
 
@@ -36,33 +38,62 @@ public class FichaOrigenActivity extends AppCompatActivity {
             return;
         }
 
-        ((TextView) findViewById(R.id.texto_titulo)).setText(getString(R.string.ficha_origen_titulo));
-        ((TextView) findViewById(R.id.texto_variedad)).setText(cafe.variedad);
-
-        // Línea "Marca: X" solo cuando se conoce la marca (no en búsqueda genérica).
-        TextView textoMarca = findViewById(R.id.texto_marca);
-        if (nombreMarca == null || nombreMarca.isEmpty()) {
-            textoMarca.setVisibility(View.GONE);
+        // Cabecera: variedad + marca (o "Ficha de Origen" cuando no se conoce).
+        ((TextView) findViewById(R.id.texto_titulo)).setText(cafe.variedad);
+        TextView subtitulo = findViewById(R.id.texto_subtitulo);
+        if (nombreMarca != null && !nombreMarca.isEmpty()) {
+            subtitulo.setText(getString(R.string.ficha_marca_formato, nombreMarca));
         } else {
-            textoMarca.setText(getString(R.string.ficha_campo_marca) + ": " + nombreMarca);
+            subtitulo.setText(getString(R.string.ficha_origen_titulo));
         }
 
-        // Campos de la ficha (etiqueta + valor)
+        ((TextView) findViewById(R.id.texto_inicial_hero))
+                .setText(String.valueOf(cafe.variedad.charAt(0)));
+
         LinearLayout contenedor = findViewById(R.id.contenedor_ficha);
         agregarCampo(contenedor, getString(R.string.ficha_campo_origen), cafe.origen);
         agregarCampo(contenedor, getString(R.string.ficha_campo_altitud),
-                cafe.altitud + " m s.n.m.");
+                cafe.altitud + " m s. n. m.");
         agregarCampo(contenedor, getString(R.string.ficha_campo_variedad), cafe.variedad);
         agregarCampo(contenedor, getString(R.string.ficha_campo_proceso), cafe.proceso);
-        agregarCampo(contenedor, getString(R.string.ficha_campo_tostado), cafe.tostado);
-        agregarCampo(contenedor, getString(R.string.ficha_campo_aroma), cafe.aroma);
-        agregarCampo(contenedor, getString(R.string.ficha_campo_notas), cafe.notasCata);
+
+        llenarNotas(cafe.aroma);
     }
 
     private void agregarCampo(LinearLayout contenedor, String etiqueta, String valor) {
-        View fila = getLayoutInflater().inflate(R.layout.item_par_info, contenedor, false);
+        ViewGroup fila = (ViewGroup) getLayoutInflater()
+                .inflate(R.layout.item_par_info, contenedor, false);
         ((TextView) fila.findViewById(R.id.texto_etiqueta)).setText(etiqueta);
         ((TextView) fila.findViewById(R.id.texto_valor)).setText(valor);
         contenedor.addView(fila);
+    }
+
+    /** Notas sensoriales como chips (separadas por coma o "y" en el texto). */
+    private void llenarNotas(String aroma) {
+        LinearLayout fila = findViewById(R.id.fila_notas);
+        for (String nota : aroma.split("[,;]| y |\\s+")) {
+            if (nota.trim().isEmpty()) {
+                continue;
+            }
+            TextView chip = new TextView(this);
+            chip.setText(nota.trim());
+            chip.setTextSize(12);
+            chip.setTypeface(android.graphics.Typeface.create(
+                    "sans-serif-medium", android.graphics.Typeface.NORMAL));
+            chip.setTextColor(getColor(R.color.verde_oscuro));
+            chip.setBackgroundResource(R.drawable.fondo_badge_zona);
+            chip.setPadding(dp(10), dp(4), dp(10), dp(4));
+            chip.setGravity(Gravity.CENTER);
+
+            LinearLayout.LayoutParams parametros =
+                    new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+                            ViewGroup.LayoutParams.WRAP_CONTENT);
+            parametros.rightMargin = dp(8);
+            fila.addView(chip, parametros);
+        }
+    }
+
+    private int dp(int valor) {
+        return Math.round(valor * getResources().getDisplayMetrics().density);
     }
 }

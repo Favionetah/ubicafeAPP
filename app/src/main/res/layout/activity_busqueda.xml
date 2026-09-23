@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    PANTALLA DE BÚSQUEDA GLOBAL
-    Un campo de búsqueda arriba y los resultados agrupados por sección.
+    PANTALLA: Búsqueda global (P10)
+    - Campo de búsqueda + botón Cancelar.
+    - Resultados agrupados: Cafés de Especialidad, Marcas Registradas, Establecimientos.
 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -10,45 +11,56 @@
     android:background="@color/fondo_crema"
     android:orientation="vertical">
 
-    <!-- Barra superior: botón Cancelar + campo de búsqueda -->
+    <!-- Barra de búsqueda -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/verde_oscuro"
+        android:layout_height="48dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/fondo_buscador"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:padding="10dp">
+        android:paddingLeft="14dp"
+        android:paddingRight="10dp">
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_buscar" />
+
+        <EditText
+            android:id="@+id/campo_busqueda"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:hint="@string/buscar_global"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:maxLines="1"
+            android:textColor="@color/texto_principal"
+            android:textColorHint="@color/texto_tenue"
+            android:textSize="15sp" />
 
         <Button
             android:id="@+id/btn_cancelar"
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito_bold"
+            android:paddingHorizontal="8dp"
             android:text="@string/buscar_cancelar"
-            android:textColor="@color/texto_sobre_verde" />
-
-        <EditText
-            android:id="@+id/campo_busqueda"
-            android:layout_width="0dp"
-            android:layout_height="44dp"
-            android:layout_marginStart="8dp"
-            android:layout_weight="1"
-            android:background="@drawable/fondo_buscador"
-            android:drawableStart="@drawable/ic_buscar"
-            android:drawablePadding="8dp"
-            android:hint="@string/buscar_global"
-            android:imeOptions="actionSearch"
-            android:inputType="text"
-            android:maxLines="1"
-            android:paddingHorizontal="14dp"
-            android:textColor="@color/texto_principal"
-            android:textSize="14sp" />
+            android:textColor="@color/verde_oscuro"
+            android:textSize="15sp" />
     </LinearLayout>
 
-    <!-- Área de resultados -->
+    <!-- Resultados -->
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="12dp"
         android:fillViewport="true">
 
         <LinearLayout
@@ -57,23 +69,24 @@
             android:orientation="vertical"
             android:paddingBottom="24dp">
 
-            <!-- Mensaje cuando no hay búsqueda todavía -->
+            <!-- Mensaje mientras no hay búsqueda -->
             <TextView
                 android:id="@+id/texto_vacio_inicial"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_sans_medium"
                 android:gravity="center"
                 android:padding="40dp"
-                android:textColor="@color/texto_secundario"
-                android:textSize="14sp"
-                tools:text="Busca cafeterías, marcas y tostadurías de La Paz." />
+                android:text="@string/buscar_vacio_inicial"
+                android:textColor="@color/texto_tenue"
+                android:textSize="14sp" />
 
-            <!-- Secciones de resultados (se llenan desde BusquedaFragment) -->
+            <!-- Sección: cafés de especialidad -->
             <TextView
                 android:id="@+id/titulo_cafes"
                 style="@style/TituloSeccion"
                 android:visibility="gone"
-                tools:text="@string/seccion_cafes_especialidad" />
+                tools:text="Cafés de Especialidad (1)" />
 
             <LinearLayout
                 android:id="@+id/lista_cafes"
@@ -81,6 +94,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical" />
 
+            <!-- Sección: marcas registradas -->
             <TextView
                 android:id="@+id/titulo_marcas"
                 style="@style/TituloSeccion"
@@ -92,6 +106,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical" />
 
+            <!-- Sección: establecimientos -->
             <TextView
                 android:id="@+id/titulo_establecimientos"
                 style="@style/TituloSeccion"

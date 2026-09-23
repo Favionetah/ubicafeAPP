@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    Pantalla: Ficha de Origen de un café de especialidad.
-    Muestra los datos de la ficha técnica: origen, altitud, variedad, proceso…
+    PANTALLA: Ficha de Origen de un café de especialidad (P9a)
+    - Foto hero con la inicial de la variedad.
+    - Tarjeta blanca con los campos de la ficha técnica.
+    - Notas sensoriales en chips.
+    - Presentación y precio observado.
 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -22,53 +24,130 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="20dp"
             android:paddingBottom="32dp">
 
-            <!-- Variedad -->
-            <TextView
-                android:id="@+id/texto_variedad"
+            <!-- Hero con foto -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="230dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/fondo_photo_r12">
+
+                <TextView
+                    android:id="@+id/texto_inicial_hero"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/nunito_extra_bold"
+                    android:textColor="#F5F1E4"
+                    android:textSize="72sp"
+                    tools:text="G" />
+            </FrameLayout>
+
+            <!-- Tarjeta blanca superpuesta al hero -->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/texto_principal"
-                android:textSize="28sp"
-                android:textStyle="bold"
-                tools:text="GEISHA" />
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="-20dp"
+                android:background="@drawable/fondo_tarjeta_categoria"
+                android:orientation="vertical"
+                android:padding="18dp">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:text="@string/ficha_origen_titulo"
-                android:textColor="@color/texto_secundario"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/texto_marca"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
-                android:textColor="@color/verde_oscuro"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                tools:text="Marca: TYPICA" />
-
-            <!-- Tarjeta con los campos de la ficha -->
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                app:cardBackgroundColor="@color/fondo_blanco"
-                app:cardCornerRadius="18dp"
-                app:cardElevation="2dp">
-
+                <!-- Campos de la ficha -->
                 <LinearLayout
                     android:id="@+id/contenedor_ficha"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="18dp" />
-            </androidx.cardview.widget.CardView>
+                    android:orientation="vertical" />
+
+                <!-- Notas sensoriales -->
+                <TextView
+                    android:id="@+id/titulo_notas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:fontFamily="@font/nunito_bold"
+                    android:text="@string/ficha_notas_sensoriales"
+                    android:textColor="@color/texto_principal"
+                    android:textSize="15sp" />
+
+                <LinearLayout
+                    android:id="@+id/fila_notas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal" />
+
+                <!-- Presentación / Precio observado -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nunito_sans_medium"
+                            android:text="@string/ficha_presentacion"
+                            android:textColor="@color/texto_tenue"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:fontFamily="@font/nunito_extra_bold"
+                            android:text="@string/ficha_presentacion_valor"
+                            android:textColor="@color/texto_principal"
+                            android:textSize="17sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nunito_sans_medium"
+                            android:text="@string/ficha_precio_observado"
+                            android:textColor="@color/texto_tenue"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:fontFamily="@font/nunito_extra_bold"
+                            android:text="@string/ficha_precio_valor"
+                            android:textColor="@color/verde_oscuro"
+                            android:textSize="17sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Pie de precio de referencia -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/nunito_sans_regular"
+                android:gravity="center"
+                android:text="@string/ficha_precio_referencia"
+                android:textColor="@color/texto_tenue"
+                android:textSize="11sp" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </LinearLayout>

@@ -51,8 +51,7 @@ public class ExplorarFragment extends Fragment {
             ((TextView) tarjeta.findViewById(R.id.texto_variedad)).setText(cafe.variedad);
             ((TextView) tarjeta.findViewById(R.id.texto_origen)).setText(
                     nombreMarcaDe(cafe.variedad) + " · " + cafe.origen);
-            ((TextView) tarjeta.findViewById(R.id.texto_inicial))
-                    .setText(cafe.variedad.substring(0, 1));
+            ((TextView) tarjeta.findViewById(R.id.texto_notas)).setText(cafe.aroma);
 
             tarjeta.setOnClickListener(v -> {
                 Intent intento = new Intent(requireContext(), FichaOrigenActivity.class);

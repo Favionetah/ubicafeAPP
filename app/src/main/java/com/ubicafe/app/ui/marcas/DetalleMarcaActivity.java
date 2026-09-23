@@ -1,9 +1,9 @@
 package com.ubicafe.app.ui.marcas;
 
 import android.content.Intent;
-import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
-import android.view.View;
+import android.view.Gravity;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -13,11 +13,12 @@ import com.ubicafe.app.R;
 import com.ubicafe.app.datos.RepositorioDatos;
 import com.ubicafe.app.modelo.CafeOrigen;
 import com.ubicafe.app.modelo.MarcaCafe;
+import com.ubicafe.app.ui.mapa.MapaActivity;
 import com.ubicafe.app.ui.origen.FichaOrigenActivity;
 
 /**
- * DETALLE DE UNA MARCA DE CAFÉ.
- * Muestra el encabezado de la marca, su descripción y sus cafés de origen.
+ * DETALLE DE UNA MARCA DE CAFÉ (P8).
+ * Muestra las etiquetas de la marca, sus cafés de origen y sus puntos de venta.
  */
 public class DetalleMarcaActivity extends AppCompatActivity {
 
@@ -38,39 +39,50 @@ public class DetalleMarcaActivity extends AppCompatActivity {
             return;
         }
 
-        ((TextView) findViewById(R.id.texto_titulo)).setText(getString(R.string.categoria_marcas));
+        // Cabecera con el nombre de la marca y su estado de registro.
+        ((TextView) findViewById(R.id.texto_titulo)).setText(marca.nombre);
+        ((TextView) findViewById(R.id.texto_subtitulo))
+                .setText(getString(R.string.marca_nacional_registrada));
 
-        // Encabezado
-        TextView textoNombre = findViewById(R.id.texto_nombre);
-        textoNombre.setText(marca.nombre);
-        ((TextView) findViewById(R.id.texto_etiquetas))
-                .setText(android.text.TextUtils.join(" · ", marca.etiquetas));
-        ((TextView) findViewById(R.id.texto_inicial)).setText(String.valueOf(marca.inicial));
-        ((TextView) findViewById(R.id.texto_descripcion)).setText(marca.descripcion);
+        llenarEtiquetas(marca);
+        llenarCafes(marca);
+        llenarDondeEncontrar(marca);
+    }
 
-        // Cuadro de color de la marca
-        GradientDrawable cuadro = new GradientDrawable();
-        cuadro.setShape(GradientDrawable.RECTANGLE);
-        cuadro.setCornerRadius(16f);
-        cuadro.setColor(getColor(marca.colorMarca));
-        findViewById(R.id.box_color).setBackground(cuadro);
+    /** Etiquetas de la marca como chips pega: Cafetería · Tostaduría · Productor. */
+    private void llenarEtiquetas(MarcaCafe marca) {
+        LinearLayout fila = findViewById(R.id.fila_etiquetas);
+        for (String etiqueta : marca.etiquetas) {
+            TextView chip = new TextView(this);
+            chip.setText(etiqueta);
+            chip.setTextSize(12);
+            chip.setTypeface(android.graphics.Typeface.create(
+                    "sans-serif-medium", android.graphics.Typeface.NORMAL));
+            chip.setTextColor(getColor(R.color.verde_oscuro));
+            chip.setBackgroundResource(R.drawable.fondo_badge_zona);
+            chip.setPadding(
+                    dp(12), dp(5), dp(12), dp(5));
+            chip.setGravity(Gravity.CENTER);
 
-        // Chip "Marca nacional registrada" solo si es nacional
-        TextView textoRegistro = findViewById(R.id.texto_registro);
-        if (!marca.esNacional) {
-            textoRegistro.setVisibility(View.GONE);
+            LinearLayout.LayoutParams parametros =
+                    new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+                            ViewGroup.LayoutParams.WRAP_CONTENT);
+            parametros.rightMargin = dp(8);
+            fila.addView(chip, parametros);
         }
+    }
 
-        // Lista de cafés de especialidad
+    /** Lista de cafés de especialidad de la marca. */
+    private void llenarCafes(MarcaCafe marca) {
         LinearLayout contenedorCafes = findViewById(R.id.contenedor_cafes);
         for (CafeOrigen cafe : marca.cafésOrigen) {
-            View tarjeta = getLayoutInflater()
+            ViewGroup tarjeta = (ViewGroup) getLayoutInflater()
                     .inflate(R.layout.item_cafe_origen, contenedorCafes, false);
+
             ((TextView) tarjeta.findViewById(R.id.texto_variedad)).setText(cafe.variedad);
             ((TextView) tarjeta.findViewById(R.id.texto_origen))
-                    .setText(cafe.origen + " - " + cafe.altitud + " m s.n.m.");
-            ((TextView) tarjeta.findViewById(R.id.texto_inicial))
-                    .setText(cafe.variedad.substring(0, 1));
+                    .setText(cafe.origen + " · " + cafe.altitud + " m");
+            ((TextView) tarjeta.findViewById(R.id.texto_notas)).setText(cafe.aroma);
 
             tarjeta.setOnClickListener(v -> {
                 Intent intento = new Intent(this, FichaOrigenActivity.class);
@@ -80,5 +92,27 @@ public class DetalleMarcaActivity extends AppCompatActivity {
             });
             contenedorCafes.addView(tarjeta);
         }
+    }
+
+    /** ¿Dónde encontrar la marca? + acceso al mapa de puntos de venta. */
+    private void llenarDondeEncontrar(MarcaCafe marca) {
+        int puntos = RepositorioDatos.contarPuntosDeVentaDe(marca.nombre);
+        int cafeterias = 0;
+        for (com.ubicafe.app.modelo.Cafeteria c : RepositorioDatos.obtenerCafeterias()) {
+            if (marca.nombre.equalsIgnoreCase(c.marca)) {
+                cafeterias++;
+            }
+        }
+        int total = puntos + cafeterias;
+
+        ((TextView) findViewById(R.id.texto_descripcion))
+                .setText(getString(R.string.marca_puntos_descripcion, marca.nombre, total));
+
+        findViewById(R.id.btn_ver_puntos_mapa)
+                .setOnClickListener(v -> startActivity(new Intent(this, MapaActivity.class)));
+    }
+
+    private int dp(int valor) {
+        return Math.round(valor * getResources().getDisplayMetrics().density);
     }
 }

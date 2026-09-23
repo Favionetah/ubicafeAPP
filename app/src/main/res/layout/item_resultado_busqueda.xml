@@ -5,54 +5,36 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="?attr/selectableItemBackground"
-    android:gravity="center_vertical"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:paddingHorizontal="20dp"
     android:paddingVertical="12dp">
 
-    <LinearLayout
-        android:id="@+id/box_color"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:background="@drawable/fondo_cuadro_color"
-        android:gravity="center">
-
-        <TextView
-            android:id="@+id/texto_inicial"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/texto_sobre_verde"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            tools:text="G" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="0dp"
+    <TextView
+        android:id="@+id/texto_nombre"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_weight="1"
-        android:orientation="vertical">
+        android:ellipsize="end"
+        android:fontFamily="@font/nunito_extra_bold"
+        android:maxLines="1"
+        android:textColor="@color/texto_principal"
+        android:textSize="15sp"
+        tools:text="TYPICA - Achumani" />
 
-        <TextView
-            android:id="@+id/texto_nombre"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:textColor="@color/texto_principal"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            tools:text="GEISHA" />
+    <TextView
+        android:id="@+id/texto_subtitulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/nunito_sans_medium"
+        android:maxLines="2"
+        android:textColor="@color/texto_secundario"
+        android:textSize="13sp"
+        tools:text="Av. Costanera, Achumani · Cafetería" />
 
-        <TextView
-            android:id="@+id/texto_subtitulo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:textColor="@color/texto_secundario"
-            android:textSize="13sp"
-            tools:text="TYPICA - Caranavi, La Paz" />
-    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="12dp"
+        android:background="@color/divisor" />
 </LinearLayout>

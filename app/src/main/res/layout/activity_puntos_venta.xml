@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    Pantalla: Puntos de venta (marcas y distribución urbana)
-    - Título + subtítulo.
-    - Marcas censadas: fila por marca con su número de puntos de venta.
-    - Lista de todos los puntos de venta.
+    PANTALLA: Puntos de venta (P12)
+    - Cabecera con título y subtítulo.
+    - Buscador de marca + lista "Marcas censadas" (selección destacada).
+    - Tarjeta de detalle de la marca seleccionada con sus puntos.
 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -14,47 +14,112 @@
 
     <include layout="@layout/barra_titulo" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingHorizontal="20dp"
-        android:paddingTop="16dp"
-        android:text="@string/puntos_titulo"
-        android:textColor="@color/texto_principal"
-        android:textSize="24sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingHorizontal="20dp"
-        android:paddingTop="4dp"
-        android:text="@string/puntos_subtitulo"
-        android:textColor="@color/texto_secundario"
-        android:textSize="14sp" />
-
-    <!-- Marcas censadas (conteo por marca) -->
-    <TextView
-        style="@style/TituloSeccion"
-        android:text="@string/puntos_marcas_censadas" />
-
-    <LinearLayout
-        android:id="@+id/contenedor_marcas_censadas"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingHorizontal="16dp" />
-
-    <TextView
-        style="@style/TituloSeccion"
-        android:text="@string/categoria_puntos_venta" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/lista"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:clipToPadding="false"
-        android:paddingBottom="16dp"
-        tools:listitem="@layout/item_punto_venta" />
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="24dp">
+
+            <!-- Buscador de marcas -->
+            <EditText
+                android:id="@+id/campo_busqueda"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/fondo_buscador"
+                android:drawableStart="@drawable/ic_buscar"
+                android:drawablePadding="8dp"
+                android:hint="@string/buscar_marca"
+                android:inputType="text"
+                android:maxLines="1"
+                android:paddingHorizontal="14dp"
+                android:textColor="@color/texto_principal"
+                android:textColorHint="@color/texto_tenue"
+                android:textSize="15sp" />
+
+            <!-- Marcas censadas -->
+            <TextView
+                style="@style/TituloSeccion"
+                android:text="@string/puntos_marcas_censadas" />
+
+            <LinearLayout
+                android:id="@+id/lista_marcas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="16dp" />
+
+            <!-- Detalle de la marca seleccionada -->
+            <LinearLayout
+                android:id="@+id/tarjeta_detalle_marca"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/fondo_tarjeta_categoria"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/texto_detalle_nombre"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nunito_extra_bold"
+                        android:textColor="@color/verde_oscuro"
+                        android:textSize="18sp"
+                        tools:text="TYPICA" />
+
+                    <TextView
+                        android:id="@+id/texto_destacado"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/fondo_badge_destacado"
+                        android:fontFamily="@font/nunito_bold"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:text="@string/puntos_destacado"
+                        android:textColor="@color/fondo_blanco"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/texto_donde_encontrarlo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:fontFamily="@font/nunito_bold"
+                    android:text="@string/puntos_donde_encontrarlo"
+                    android:textColor="@color/texto_secundario"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:id="@+id/contenedor_puntos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="vertical" />
+
+                <Button
+                    android:id="@+id/btn_ver_mapa"
+                    style="@style/BotonVerde12"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/puntos_ver_mapa" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 </LinearLayout>
