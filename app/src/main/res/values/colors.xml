@@ -31,6 +31,7 @@
     <color name="dorado">#DDA15E</color>
     <color name="verde_medio">#6B8F71</color>
     <color name="verde_marca">#1C4E3B</color>
+    <color name="azul_ubicacion">#2E6DB4</color>
 
     <!-- Líneas divisorias -->
     <color name="divisor">#E0E1DC</color>

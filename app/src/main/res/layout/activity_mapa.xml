@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    Pantalla: Mapa "Cerca de ti" (estático por ahora).
-    La vista MapaLaPazView dibuja La Paz y los marcadores.
+    Pantalla: Mapa "Cerca de ti" (P4, pantalla completa).
+    Mapa real de OpenStreetMap (osmdroid) con los puntos según el
+    contexto desde el que se abre (cafetería, marca o todos).
 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:osmdroid="http://schemas.osmdroid.org/map"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -18,13 +20,16 @@
         android:layout_height="0dp"
         android:layout_weight="1">
 
-        <!-- Mapa estático dibujado por código -->
-        <com.ubicafe.app.ui.mapa.MapaLaPazView
+        <!-- Mapa real de OpenStreetMap (osmdroid) -->
+        <org.osmdroid.views.MapView
             android:id="@+id/mapa_vista"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            osmdroid:tilesource="MAPNIK"
+            osmdroid:zoom="13"
+            osmdroid:multiTouchControls="true" />
 
-        <!-- Panel inferior: muestra la zona elegida -->
+        <!-- Panel inferior: muestra el punto elegido -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -57,6 +62,12 @@
                     android:textColor="@color/texto_secundario"
                     android:textSize="13sp"
                     tools:text="Zona Sur · Toca un marcador en el mapa" />
+
+                <Button
+                    android:id="@+id/btn_ver_informacion"
+                    style="@style/BotonVerde"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/mapa_ver_informacion" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
     </FrameLayout>

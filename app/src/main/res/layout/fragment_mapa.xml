@@ -3,11 +3,12 @@
     PANTALLA MAPA (P4)
     - Encabezado: título "Mapa" + ubicación "Achumani, La Paz".
     - Filtros pill: Todos, Cafeterías, Tostadurías, Productores, Puntos de venta.
-    - Mapa estático de La Paz (MapaLaPazView) con marcadores.
+    - Mapa real de OpenStreetMap (osmdroid) con marcadores por tipo.
     - Panel inferior con la información del marcador elegido.
 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:osmdroid="http://schemas.osmdroid.org/map"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -57,10 +58,13 @@
         android:layout_weight="1"
         android:layout_marginTop="12dp">
 
-        <com.ubicafe.app.ui.mapa.MapaLaPazView
+        <org.osmdroid.views.MapView
             android:id="@+id/mapa_vista"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            osmdroid:tilesource="MAPNIK"
+            osmdroid:zoom="13"
+            osmdroid:multiTouchControls="true" />
 
         <!-- Panel inferior: información del marcador -->
         <LinearLayout
@@ -102,6 +106,7 @@
                 tools:text="Calle 15 de Achumani, La Paz" />
 
             <LinearLayout
+                android:id="@+id/fila_rating"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"

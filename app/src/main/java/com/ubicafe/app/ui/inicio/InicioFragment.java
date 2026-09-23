@@ -51,7 +51,7 @@ public class InicioFragment extends Fragment {
         prepararBannerProductores(vista);
     }
 
-    /** Tiles 2x2: cada categoría abre su listado. */
+    /** Tiles de categoría: cada uno abre su listado. */
     private void prepararCategorias(View vista) {
         vista.findViewById(R.id.tile_cafeterias)
                 .setOnClickListener(v -> abrir(ListaCafeteriasActivity.class));
@@ -94,7 +94,7 @@ public class InicioFragment extends Fragment {
         vista.findViewById(R.id.btn_ver_informacion).setOnClickListener(abrir);
     }
 
-    /** Chips de macrodistrito: al tocar, abre el listado de cafeterías. */
+    /** Chips de macrodistrito: al tocar, abre el listado con ese filtro. */
     private void prepararMacrodistritos(View vista) {
         String[] distritos = {"Sur", "Centro", "Cotahuma", "Mallasa", "Sopocachi", "San Antonio"};
         LinearLayout fila = vista.findViewById(R.id.fila_macrodistritos);
@@ -102,8 +102,16 @@ public class InicioFragment extends Fragment {
         for (int i = 0; i < distritos.length; i++) {
             TextView chip = UiUtils.crearChip(fila, distritos[i]);
             UiUtils.marcarChipSeleccionado(chip, i == 0);
-            chip.setOnClickListener(v -> abrir(ListaCafeteriasActivity.class));
+            final String distrito = distritos[i];
+            chip.setOnClickListener(v -> abrirListaDe(distrito));
         }
+    }
+
+    /** Abre el listado de cafeterías preseleccionando el macrodistrito. */
+    private void abrirListaDe(String distrito) {
+        Intent intento = new Intent(requireContext(), ListaCafeteriasActivity.class);
+        intento.putExtra(ListaCafeteriasActivity.EXTRA_ZONA, distrito);
+        startActivity(intento);
     }
 
     /** Banner final de productores. */

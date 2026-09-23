@@ -51,6 +51,7 @@
     <style name="TarjetaCategoria">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">49dp</item>
+        <item name="android:layout_weight">1</item>
         <item name="android:layout_margin">6dp</item>
         <item name="android:background">@drawable/fondo_tarjeta_categoria</item>
         <item name="android:clickable">true</item>

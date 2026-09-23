@@ -2,15 +2,12 @@
 <!--
     Manifesto de UbiCafe.
     Declara las "pantallas" (Activities) y los permisos que usa la app.
-
-    NOTA PARA EL FUTURO (Google Maps):
-    Cuando se implemente el mapa real, se debe agregar aquí el meta-data de la API key:
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="TU_API_KEY" />
-    El lugar exacto está marcado con "ESTA ES LA API KEY" más abajo.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Permisos: internet para descargar las teselas del mapa de OpenStreetMap. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -19,7 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/TemaUbiCafe">
 
-        <!-- ESTA ES LA API KEY: insertar aquí el meta-data de Google Maps cuando se habilite -->
+        <!-- El mapa usa OpenStreetMap (osmdroid) con teselas públicas:
+             no requiere API key. Si algún día tienes un token de un
+             proveedor de teselas propio, ajústalo en ConfiguracionMapa. -->
 
         <!-- Pantalla de bienvenida: siempre la primera en abrirse -->
         <activity

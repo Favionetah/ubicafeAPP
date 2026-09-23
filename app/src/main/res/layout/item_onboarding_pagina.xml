@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Página del carrusel de onboarding (P2).
+    Cada diapositiva muestra un hero con el logo, un título y una descripción.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="20dp"
+    android:paddingTop="12dp"
+    android:paddingRight="20dp"
+    android:paddingBottom="24dp">
+
+    <!-- Hero con el café -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/fondo_tarjeta_gradiente">
+
+        <ImageView
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_gravity="center"
+            android:contentDescription="@string/onboarding_hero"
+            android:padding="18dp"
+            android:src="@drawable/ic_logo_ubicafe" />
+    </FrameLayout>
+
+    <!-- Título -->
+    <TextView
+        android:id="@+id/texto_titulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/nunito_extra_bold"
+        android:gravity="center"
+        android:lineSpacingExtra="2dp"
+        android:textColor="@color/verde_oscuro"
+        android:textSize="28sp" />
+
+    <!-- Descripción -->
+    <TextView
+        android:id="@+id/texto_descripcion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/nunito_sans_regular"
+        android:gravity="center"
+        android:lineSpacingExtra="4dp"
+        android:textColor="@color/texto_secundario"
+        android:textSize="16sp" />
+</LinearLayout>

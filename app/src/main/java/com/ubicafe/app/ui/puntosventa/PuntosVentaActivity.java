@@ -18,6 +18,7 @@ import com.ubicafe.app.datos.RepositorioDatos;
 import com.ubicafe.app.modelo.MarcaCafe;
 import com.ubicafe.app.modelo.PuntoVenta;
 import com.ubicafe.app.ui.mapa.MapaActivity;
+import com.ubicafe.app.ui.marcas.DetalleMarcaActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,7 +46,14 @@ public class PuntosVentaActivity extends AppCompatActivity {
 
         findViewById(R.id.btn_volver).setOnClickListener(v -> finish());
         findViewById(R.id.btn_ver_mapa)
-                .setOnClickListener(v -> startActivity(new Intent(this, MapaActivity.class)));
+                .setOnClickListener(v -> {
+                    Intent intento = new Intent(this, MapaActivity.class);
+                    if (seleccionada != null) {
+                        intento.putExtra(DetalleMarcaActivity.EXTRA_NOMBRE_MARCA,
+                                seleccionada.nombre);
+                    }
+                    startActivity(intento);
+                });
 
         // Solo entran las marcas con puntos de venta en el censo.
         for (MarcaCafe marca : RepositorioDatos.obtenerMarcas()) {

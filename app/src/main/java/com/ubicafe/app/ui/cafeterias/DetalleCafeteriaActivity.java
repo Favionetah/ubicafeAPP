@@ -55,9 +55,12 @@ public class DetalleCafeteriaActivity extends AppCompatActivity {
         ((TextView) findViewById(R.id.texto_ubicacion)).setText(
                 cafeteria.direccion + "\n" + cafeteria.zona + ", La Paz");
 
-        // Cómo llegar
-        findViewById(R.id.btn_como_llegar).setOnClickListener(
-                v -> startActivity(new Intent(this, MapaActivity.class)));
+        // Cómo llegar: abre el mapa centrado en esta cafetería.
+        findViewById(R.id.btn_como_llegar).setOnClickListener(v -> {
+            Intent intento = new Intent(this, MapaActivity.class);
+            intento.putExtra(DetalleCafeteriaActivity.EXTRA_NOMBRE_CAFETERIA, cafeteria.nombre);
+            startActivity(intento);
+        });
     }
 
     /** Texto breve según el tipo de local. */

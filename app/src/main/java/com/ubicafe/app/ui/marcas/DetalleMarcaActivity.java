@@ -109,7 +109,11 @@ public class DetalleMarcaActivity extends AppCompatActivity {
                 .setText(getString(R.string.marca_puntos_descripcion, marca.nombre, total));
 
         findViewById(R.id.btn_ver_puntos_mapa)
-                .setOnClickListener(v -> startActivity(new Intent(this, MapaActivity.class)));
+                .setOnClickListener(v -> {
+                    Intent intento = new Intent(this, MapaActivity.class);
+                    intento.putExtra(DetalleMarcaActivity.EXTRA_NOMBRE_MARCA, marca.nombre);
+                    startActivity(intento);
+                });
     }
 
     private int dp(int valor) {

@@ -1,95 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
     ONBOARDING (P2)
-    - Imagen/hero con el café de fondo.
-    - Título "Descubre el café de La Paz" y descripción.
-    - Puntos de carrusel + botón "Comenzar".
+    Carrusel deslizable (ViewPager2) de 3 diapositivas con puntos de
+    indicador, botón "Omitir" y botón "Siguiente"/"Comenzar".
 -->
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/fondo_crema"
-    android:fillViewport="true">
+    android:orientation="vertical">
 
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/pager_onboarding"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- Puntos del carrusel -->
+    <LinearLayout
+        android:id="@+id/indicador_paginas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal" />
+
+    <!-- Acciones: Omitir + Siguiente/Comenzar -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingLeft="20dp"
-        android:paddingTop="12dp"
-        android:paddingRight="20dp"
-        android:paddingBottom="24dp">
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="24dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
 
-        <!-- Hero con el café -->
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="430dp"
-            android:background="@drawable/fondo_tarjeta_gradiente">
-
-            <ImageView
-                android:layout_width="110dp"
-                android:layout_height="110dp"
-                android:layout_gravity="center"
-                android:contentDescription="@string/onboarding_hero"
-                android:padding="18dp"
-                android:src="@drawable/ic_logo_ubicafe" />
-        </FrameLayout>
-
-        <!-- Título -->
         <TextView
-            android:layout_width="match_parent"
+            android:id="@+id/btn_omitir"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:fontFamily="@font/nunito_extra_bold"
-            android:gravity="center"
-            android:lineSpacingExtra="2dp"
-            android:text="@string/onboarding_hero"
-            android:textColor="@color/verde_oscuro"
-            android:textSize="28sp" />
+            android:fontFamily="@font/nunito_sans_semi_bold"
+            android:padding="8dp"
+            android:text="@string/onboarding_omitir"
+            android:textColor="@color/texto_tenue"
+            android:textSize="15sp" />
 
-        <!-- Descripción -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:fontFamily="@font/nunito_sans_regular"
-            android:gravity="center"
-            android:lineSpacingExtra="4dp"
-            android:text="@string/onboarding_descripcion"
-            android:textColor="@color/texto_secundario"
-            android:textSize="16sp" />
-
-        <!-- Puntos del carrusel -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <View
-                android:layout_width="20dp"
-                android:layout_height="6dp"
-                android:background="@color/verde_oscuro" />
-
-            <View
-                android:layout_width="6dp"
-                android:layout_height="6dp"
-                android:layout_marginStart="6dp"
-                android:background="@drawable/fondo_punto_inactivo" />
-
-            <View
-                android:layout_width="6dp"
-                android:layout_height="6dp"
-                android:layout_marginStart="6dp"
-                android:background="@drawable/fondo_punto_inactivo" />
-        </LinearLayout>
-
-        <!-- Botón Comenzar -->
         <Button
-            android:id="@+id/btn_comenzar"
+            android:id="@+id/btn_avanzar"
             style="@style/BotonVerdePill"
-            android:layout_marginTop="22dp"
-            android:text="@string/onboarding_comenzar" />
+            android:layout_marginStart="12dp" />
     </LinearLayout>
-</androidx.core.widget.NestedScrollView>
+</LinearLayout>

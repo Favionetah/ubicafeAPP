@@ -16,6 +16,14 @@
     <string name="onboarding_hero">Descubre el café de La Paz</string>
     <string name="onboarding_descripcion">Encuentra cafeterías, marcas, tostadurías y productores registrados en el censo. Un mapa territorial del ecosistema paceño.</string>
     <string name="onboarding_comenzar">Comenzar</string>
+    <string name="onboarding_omitir">Omitir</string>
+    <string name="onboarding_siguiente">Siguiente</string>
+
+    <!-- Onboarding: diapositivas extra del carrusel -->
+    <string name="onboarding_slide2_titulo">Cafeterías de especialidad</string>
+    <string name="onboarding_slide2_descripcion">Descubre los establecimientos censados de La Paz: desde cafés de origen en Achumani hasta clásicas de barrio en el Centro, con horarios, zonas y cómo llegar.</string>
+    <string name="onboarding_slide3_titulo">Marcas, tostadurías y productores</string>
+    <string name="onboarding_slide3_descripcion">Conoce las marcas paceñas, las tostadurías artesanales y las fincas de Caranavi y los Yungas. De la finca a la taza, todo en un mismo mapa.</string>
 
     <!-- Pantalla de inicio (P3) -->
     <string name="inicio_saludo">Buenos días</string>
@@ -96,6 +104,7 @@
     <string name="cafeterias_filtro_centro">Centro</string>
     <string name="cafeterias_filtro_cotahuma">Cotahuma</string>
     <string name="cafeterias_filtro_sur">Sur</string>
+    <string name="cafeterias_sin_resultados">Sin resultados para este filtro o búsqueda.</string>
     <string name="cafeterias_filtro_propietario">Café de origen</string>
     <string name="cafeterias_filtro_marca">Marca nacional</string>
 

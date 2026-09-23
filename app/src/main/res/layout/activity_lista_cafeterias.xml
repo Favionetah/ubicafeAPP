@@ -50,13 +50,33 @@
     </HorizontalScrollView>
 
     <!-- Lista de cafeterías -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/lista"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="8dp"
-        android:layout_weight="1"
-        android:clipToPadding="false"
-        android:paddingBottom="16dp"
-        tools:listitem="@layout/item_cafeteria" />
+        android:layout_weight="1">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/lista"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
+            android:clipToPadding="false"
+            android:paddingBottom="16dp"
+            tools:listitem="@layout/item_cafeteria" />
+
+        <!-- Estado vacío cuando no hay resultados -->
+        <TextView
+            android:id="@+id/texto_vacio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/nunito_sans_medium"
+            android:gravity="center"
+            android:paddingHorizontal="32dp"
+            android:text="@string/cafeterias_sin_resultados"
+            android:textColor="@color/texto_secundario"
+            android:textSize="15sp"
+            android:visibility="gone" />
+    </FrameLayout>
 </LinearLayout>

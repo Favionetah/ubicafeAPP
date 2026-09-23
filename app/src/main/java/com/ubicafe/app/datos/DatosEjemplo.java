@@ -144,15 +144,15 @@ public class DatosEjemplo {
     private static final List<Productor> PRODUCTORES = new ArrayList<>(Arrays.asList(
             new Productor("Finca El Cóndor", "Familia Mamani", "Caranavi, La Paz",
                     3, 1600, "Productor de origen de las laderas del río Yara.",
-                    R.color.verde_oscuro, 'C'),
+                    R.color.verde_oscuro, 'C', -15.833, -67.567),
 
             new Productor("Finca La Primavera", "Familia Ramírez", "Coroico, Yungas",
                     4, 1500, "Cafetales bajo sombra de árboles nativos.",
-                    R.color.cafe_accent, 'P'),
+                    R.color.cafe_accent, 'P', -16.190, -67.727),
 
             new Productor("Finca Alto Sajama", "Familia Choque", "Caranavi, La Paz",
                     2, 1700, "Finca de altura con recolección 100% manual.",
-                    R.color.verde_claro, 'A')));
+                    R.color.verde_claro, 'A', -15.800, -67.600)));
 
     // ------------------------------------------------------------------
     // 5. TOSTADURÍAS (regiones: La Paz, Yungas, Tarija)
@@ -161,27 +161,27 @@ public class DatosEjemplo {
             new Tostaderia("Tostaduría ROC", "La Paz", "Zona Sopocachi",
                     "Lun-Vie 9:00-18:00",
                     "Tostamos en pequeños lotes para resaltar el origen de cada grano boliviano.",
-                    "info@roc.bo", R.color.cafe_accent, 'R'),
+                    "info@roc.bo", R.color.cafe_accent, 'R', -16.512, -68.124),
 
             new Tostaderia("Torrefactora del Alto", "La Paz", "Av. Periférica",
                     "Lun-Sáb 8:00-17:00",
                     "Tostadora tradicional de la ciudad, especialista en blends paceños.",
-                    "contacto@altocafe.bo", R.color.verde_oscuro, 'A'),
+                    "contacto@altocafe.bo", R.color.verde_oscuro, 'A', -16.505, -68.155),
 
             new Tostaderia("CoffeeLab La Paz", "La Paz", "Zona San Jorge",
                     "Lun-Sáb 9:30-19:00",
                     "Laboratorio de tostado y catación para cafés de especialidad.",
-                    "hola@coffeelab.bo", R.color.texto_secundario, 'C'),
+                    "hola@coffeelab.bo", R.color.texto_secundario, 'C', -16.513, -68.120),
 
             new Tostaderia("Tostaduría Yungas", "Yungas", "Coroico",
                     "Lun-Dom 8:00-18:00",
                     "Tueste yngueño con granos 100% yungueños, directo de la región.",
-                    "ventas@tostyungas.bo", R.color.caramelo_claro, 'Y'),
+                    "ventas@tostyungas.bo", R.color.caramelo_claro, 'Y', -16.190, -67.727),
 
             new Tostaderia("Tostaduría del Sur", "Tarija", "Calle Bolívar, Tarija",
                     "Lun-Sáb 9:00-18:30",
                     "Sabores del sur boliviano con café de las laderas tarijeñas.",
-                    "sabor@tostadelsur.bo", R.color.verde_claro, 'S')));
+                    "sabor@tostadelsur.bo", R.color.verde_claro, 'S', -21.535, -64.729)));
 
     // ------------------------------------------------------------------
     // 6. PUNTOS DE VENTA (distribución urbana por marca)
