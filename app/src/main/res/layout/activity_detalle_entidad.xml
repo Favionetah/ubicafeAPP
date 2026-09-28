@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    FICHA DE UN LUGAR DEL CENSO (P7)
+    Una sola plantilla para cafeterías, tostadurías y productores, porque
+    en el censo un mismo lugar puede cumplir varios papeles y su ficha
+    tiene bloques distintos según cuáles respondió.
+
+    Los bloques se rellenan desde el código y se ocultan cuando el lugar
+    no respondió esa sección. Nunca se rellenan con datos inventados:
+    no hay fotos, ni estrellas, ni precios en el censo.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo_crema"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/barra"
+        layout="@layout/barra_titulo" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingBottom="32dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp">
+
+            <!-- Encabezado: ícono de rol, nombre y roles -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/icono_rol"
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:background="@drawable/fondo_circulo_icono"
+                    android:contentDescription="@null"
+                    android:padding="12dp"
+                    tools:src="@drawable/ic_cafeteria" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/texto_nombre"
+                        style="@style/SubtituloHeader"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="2"
+                        android:textColor="@color/texto_principal"
+                        android:textSize="22sp"
+                        tools:text="Café Berna" />
+
+                    <TextView
+                        android:id="@+id/texto_roles"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nunito_sans_medium"
+                        android:textColor="@color/cafe_accent"
+                        android:textSize="14sp"
+                        tools:text="Cafetería · Tostaduría" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Datos clave: zona, dirección, distancia -->
+            <LinearLayout
+                android:id="@+id/bloque_tecnico"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+                <include
+                    android:id="@+id/dato_zona"
+                    layout="@layout/item_dato" />
+
+                <include
+                    android:id="@+id/dato_direccion"
+                    layout="@layout/item_dato" />
+
+                <include
+                    android:id="@+id/dato_distancia"
+                    layout="@layout/item_dato" />
+
+                <include
+                    android:id="@+id/dato_tipo"
+                    layout="@layout/item_dato" />
+            </LinearLayout>
+
+            <!-- Aviso del censo sobre la posición del lugar -->
+            <TextView
+                android:id="@+id/texto_aviso_ubicacion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/fondo_aviso"
+                android:drawablePadding="10dp"
+                android:fontFamily="@font/nunito_sans_medium"
+                android:padding="14dp"
+                android:textColor="@color/texto_secundario"
+                android:textSize="13sp"
+                android:visibility="gone"
+                app:drawableStartCompat="@drawable/ic_ubicacion"
+                tools:text="Aviso del censo: la coordenada fue aproximada por quien respondió."
+                tools:visibility="visible" />
+
+            <!-- Fichas de detalle, una por sección respondida -->
+            <TextView
+                android:id="@+id/texto_titulo_fichas"
+                style="@style/TituloSeccion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:text="@string/detalle_ficha_tecnica" />
+
+            <LinearLayout
+                android:id="@+id/contenedor_fichas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+            <!-- El censo no registró precios: se explica en vez de callar -->
+            <TextView
+                android:id="@+id/texto_sin_precios"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/nunito_sans_regular"
+                android:text="@string/detalle_precios_omitidos"
+                android:textColor="@color/texto_tenue"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/texto_registro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/nunito_sans_regular"
+                android:textColor="@color/texto_tenue"
+                android:textSize="12sp"
+                tools:text="Registrado en el censo 2026" />
+
+            <!-- Acciones -->
+            <LinearLayout
+                android:id="@+id/bloque_acciones"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/btn_ver_mapa"
+                    style="@style/BotonVerde"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:gravity="center"
+                    android:text="@string/detalle_volver_mapa" />
+
+                <TextView
+                    android:id="@+id/btn_ir_marca"
+                    style="@style/BotonVerde"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    tools:text="Ver la cadena" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

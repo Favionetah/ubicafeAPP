@@ -1,122 +1,128 @@
 package com.ubicafe.app.ui.marcas;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Gravity;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.ubicafe.app.R;
 import com.ubicafe.app.datos.RepositorioDatos;
-import com.ubicafe.app.modelo.CafeOrigen;
-import com.ubicafe.app.modelo.MarcaCafe;
+import com.ubicafe.app.databinding.ActivityDetalleMarcaBinding;
+import com.ubicafe.app.modelo.Marca;
+import com.ubicafe.app.modelo.Rol;
+import com.ubicafe.app.modelo.Sucursal;
+import com.ubicafe.app.ui.cafeterias.DetalleCafeteriaActivity;
+import com.ubicafe.app.ui.comun.FichaTecnica;
+import com.ubicafe.app.ui.comun.ListaSucursales;
 import com.ubicafe.app.ui.mapa.MapaActivity;
-import com.ubicafe.app.ui.origen.FichaOrigenActivity;
+
+import java.util.List;
 
 /**
- * DETALLE DE UNA MARCA DE CAFÉ (P8).
- * Muestra las etiquetas de la marca, sus cafés de origen y sus puntos de venta.
+ * FICHA DE UNA MARCA (P7)
+ * ---------------------------------------------------------------
+ * Una marca es una empresa, no un lugar, así que su ficha tiene dos
+ * mitades: los datos que registró la empresa y los locales que el censo
+ * encontró abiertos. De las 40 marcas censadas, varias no
+ * registraron ni una sucursal: se dice con todas las letras en vez de
+ * mostrar una lista vacía.
  */
 public class DetalleMarcaActivity extends AppCompatActivity {
 
+    /** Nombre de la marca a mostrar. */
     public static final String EXTRA_NOMBRE_MARCA = "nombre_marca";
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detalle_marca);
+    /** Alias con el nombre que usaban las pantallas viejas. */
+    public static final String EXTRA_MARCA = EXTRA_NOMBRE_MARCA;
 
-        findViewById(R.id.btn_volver).setOnClickListener(v -> finish());
+    private ActivityDetalleMarcaBinding ui;
+
+    public static void abrir(Context origen, Marca marca) {
+        Intent intento = new Intent(origen, DetalleMarcaActivity.class);
+        intento.putExtra(EXTRA_NOMBRE_MARCA, marca.nombre);
+        origen.startActivity(intento);
+    }
+
+    @Override
+    protected void onCreate(@Nullable Bundle estado) {
+        super.onCreate(estado);
+        ui = ActivityDetalleMarcaBinding.inflate(getLayoutInflater());
+        setContentView(ui.getRoot());
+
+        ui.barra.btnVolver.setOnClickListener(v -> finish());
 
         String nombre = getIntent().getStringExtra(EXTRA_NOMBRE_MARCA);
-        MarcaCafe marca = RepositorioDatos.obtenerMarca(nombre);
-
+        Marca marca = nombre == null ? null : RepositorioDatos.obtenerMarca(nombre);
         if (marca == null) {
             finish();
             return;
         }
 
-        // Cabecera con el nombre de la marca y su estado de registro.
-        ((TextView) findViewById(R.id.texto_titulo)).setText(marca.nombre);
-        ((TextView) findViewById(R.id.texto_subtitulo))
-                .setText(getString(R.string.marca_nacional_registrada));
+        pintarEncabezado(marca);
+        pintarDatos(marca);
+        pintarSucursales(marca);
 
-        llenarEtiquetas(marca);
-        llenarCafes(marca);
-        llenarDondeEncontrar(marca);
-    }
-
-    /** Etiquetas de la marca como chips pega: Cafetería · Tostaduría · Productor. */
-    private void llenarEtiquetas(MarcaCafe marca) {
-        LinearLayout fila = findViewById(R.id.fila_etiquetas);
-        for (String etiqueta : marca.etiquetas) {
-            TextView chip = new TextView(this);
-            chip.setText(etiqueta);
-            chip.setTextSize(12);
-            chip.setTypeface(android.graphics.Typeface.create(
-                    "sans-serif-medium", android.graphics.Typeface.NORMAL));
-            chip.setTextColor(getColor(R.color.verde_oscuro));
-            chip.setBackgroundResource(R.drawable.fondo_badge_zona);
-            chip.setPadding(
-                    dp(12), dp(5), dp(12), dp(5));
-            chip.setGravity(Gravity.CENTER);
-
-            LinearLayout.LayoutParams parametros =
-                    new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
-                            ViewGroup.LayoutParams.WRAP_CONTENT);
-            parametros.rightMargin = dp(8);
-            fila.addView(chip, parametros);
+        int anio = RepositorioDatos.obtenerAnioCenso();
+        if (anio > 0) {
+            ui.textoRegistro.setText(getString(R.string.detalle_registrada_en, anio));
         }
     }
 
-    /** Lista de cafés de especialidad de la marca. */
-    private void llenarCafes(MarcaCafe marca) {
-        LinearLayout contenedorCafes = findViewById(R.id.contenedor_cafes);
-        for (CafeOrigen cafe : marca.cafésOrigen) {
-            ViewGroup tarjeta = (ViewGroup) getLayoutInflater()
-                    .inflate(R.layout.item_cafe_origen, contenedorCafes, false);
+    private void pintarEncabezado(Marca marca) {
+        ui.barra.textoTitulo.setText(R.string.marcas_titulo);
+        ui.barra.textoSubtitulo.setText(getString(R.string.marcas_subtitulo));
+        ui.textoInicial.setText(String.valueOf(marca.inicial()));
+        ui.textoInicial.setBackgroundTintList(ContextCompat.getColorStateList(
+                this, Rol.MARCA.color()));
+        ui.textoNombre.setText(marca.nombre);
+    }
 
-            ((TextView) tarjeta.findViewById(R.id.texto_variedad)).setText(cafe.variedad);
-            ((TextView) tarjeta.findViewById(R.id.texto_origen))
-                    .setText(cafe.origen + " · " + cafe.altitud + " m");
-            ((TextView) tarjeta.findViewById(R.id.texto_notas)).setText(cafe.aroma);
+    private void pintarDatos(Marca marca) {
+        if (marca.detalle == null || marca.detalle.estaVacia()) {
+            FichaTecnica.mostrarAviso(ui.contenedorDatos,
+                    getString(R.string.detalle_marca_vacio));
+            return;
+        }
+        FichaTecnica.agregar(ui.contenedorDatos, marca.detalle.pares());
 
-            tarjeta.setOnClickListener(v -> {
-                Intent intento = new Intent(this, FichaOrigenActivity.class);
-                intento.putExtra(FichaOrigenActivity.EXTRA_VARIEDAD, cafe.variedad);
-                intento.putExtra(FichaOrigenActivity.EXTRA_NOMBRE_MARCA, marca.nombre);
-                startActivity(intento);
-            });
-            contenedorCafes.addView(tarjeta);
+        if (!marca.nota.isEmpty()) {
+            ui.textoNota.setVisibility(View.VISIBLE);
+            ui.textoNota.setText(marca.nota);
         }
     }
 
-    /** ¿Dónde encontrar la marca? + acceso al mapa de puntos de venta. */
-    private void llenarDondeEncontrar(MarcaCafe marca) {
-        int puntos = RepositorioDatos.contarPuntosDeVentaDe(marca.nombre);
-        int cafeterias = 0;
-        for (com.ubicafe.app.modelo.Cafeteria c : RepositorioDatos.obtenerCafeterias()) {
-            if (marca.nombre.equalsIgnoreCase(c.marca)) {
-                cafeterias++;
-            }
+    /**
+     * Los locales de la cadena. Es el bloque más útil de la ficha:
+     * sin él, "Typica" es solo un nombre.
+     */
+    private void pintarSucursales(Marca marca) {
+        List<Sucursal> sucursales = marca.sucursales;
+
+        if (sucursales.isEmpty()) {
+            ui.textoTituloSucursales.setText(R.string.detalle_sin_sucursales);
+            ui.btnVerMapa.setVisibility(View.GONE);
+            return;
         }
-        int total = puntos + cafeterias;
 
-        ((TextView) findViewById(R.id.texto_descripcion))
-                .setText(getString(R.string.marca_puntos_descripcion, marca.nombre, total));
+        int total = sucursales.size();
+        ui.textoTituloSucursales.setText(getResources().getQuantityString(
+                R.plurals.detalle_sucursales, total, total));
+        ui.contenedorSucursales.addView(
+                ListaSucursales.encabezado(ui.contenedorSucursales, sucursales.size()));
+        ListaSucursales.agregar(ui.contenedorSucursales, sucursales, sucursal ->
+                DetalleCafeteriaActivity.abrir(this,
+                        RepositorioDatos.obtenerEntidad(sucursal.entidadId)));
 
-        findViewById(R.id.btn_ver_puntos_mapa)
-                .setOnClickListener(v -> {
-                    Intent intento = new Intent(this, MapaActivity.class);
-                    intento.putExtra(DetalleMarcaActivity.EXTRA_NOMBRE_MARCA, marca.nombre);
-                    startActivity(intento);
-                });
-    }
-
-    private int dp(int valor) {
-        return Math.round(valor * getResources().getDisplayMetrics().density);
+        ui.btnVerMapa.setVisibility(View.VISIBLE);
+        ui.btnVerMapa.setOnClickListener(v -> {
+            Intent intento = new Intent(this, MapaActivity.class);
+            intento.putExtra(MapaActivity.EXTRA_FILTRO_MARCA, marca.nombre);
+            startActivity(intento);
+        });
     }
 }

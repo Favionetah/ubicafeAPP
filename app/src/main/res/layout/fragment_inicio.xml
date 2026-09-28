@@ -230,24 +230,6 @@
                     android:textColor="@color/texto_secundario"
                     android:textSize="13sp" />
 
-                <Space
-                    android:layout_width="16dp"
-                    android:layout_height="1dp" />
-
-                <ImageView
-                    android:layout_width="14dp"
-                    android:layout_height="14dp"
-                    android:contentDescription="@null"
-                    android:src="@drawable/ic_star" />
-
-                <TextView
-                    android:id="@+id/texto_rating"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:fontFamily="@font/nunito_sans_medium"
-                    android:textColor="@color/texto_secundario"
-                    android:textSize="13sp" />
             </LinearLayout>
 
             <Button
@@ -319,6 +301,36 @@
                 android:lineSpacingExtra="2dp"
                 android:text="@string/productores_banner_descripcion"
                 android:textColor="#E8E4D8"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- ============ CIFRAS REALES DEL CENSO ============ -->
+        <LinearLayout
+            android:id="@+id/bloque_resumen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/fondo_tarjeta_categoria"
+            android:orientation="vertical"
+            android:padding="18dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_extra_bold"
+                android:text="@string/inicio_resumen_titulo"
+                android:textColor="@color/texto_principal"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/texto_resumen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/nunito_sans_regular"
+                android:lineSpacingExtra="4dp"
+                android:textColor="@color/texto_secundario"
                 android:textSize="14sp" />
         </LinearLayout>
     </LinearLayout>

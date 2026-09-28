@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    TARJETA DE UN PUNTO DE VENTA
+    Una sucursal es un local físico con su propia dirección y coordenadas,
+    pero pertenece a una entidad (cafetería, tostaduría, marca o productor).
+    Por eso la tarjeta lleva el nombre de la entidad arriba y el local abajo.
+-->
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="20dp"
+    android:layout_marginBottom="12dp"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardBackgroundColor="@color/fondo_blanco"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="2dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/texto_entidad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito_sans_medium"
+            android:letterSpacing="0.06"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textAllCaps="true"
+            android:textColor="@color/cafe_accent"
+            android:textSize="11sp"
+            tools:text="Alexander Coffee" />
+
+        <TextView
+            android:id="@+id/texto_sucursal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/nunito_extra_bold"
+            android:maxLines="1"
+            android:textColor="@color/texto_principal"
+            android:textSize="17sp"
+            tools:text="Sucursal Mallasa" />
+
+        <TextView
+            android:id="@+id/texto_direccion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/nunito_sans_regular"
+            android:maxLines="2"
+            android:textColor="@color/texto_secundario"
+            android:textSize="14sp"
+            tools:text="Av. hemispheric oriental 780, Mallasa" />
+
+        <LinearLayout
+            android:id="@+id/fila_pie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_navigation" />
+
+            <TextView
+                android:id="@+id/texto_distancia"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:fontFamily="@font/nunito_sans_medium"
+                android:maxLines="1"
+                android:textColor="@color/texto_secundario"
+                android:textSize="13sp"
+                tools:text="A 6,4 km de ti" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    UNA FILA DE "ETIQUETA: VALOR" (P7)
+    Se repite en la ficha técnica. El código la rellena y, si el dato no
+    vino en la encuesta, la oculta entera en vez de mostrar un guion.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingVertical="10dp">
+
+    <TextView
+        android:id="@+id/texto_etiqueta"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.42"
+        android:fontFamily="@font/nunito_sans_medium"
+        android:textColor="@color/texto_secundario"
+        android:textSize="14sp"
+        tools:text="Dirección" />
+
+    <TextView
+        android:id="@+id/texto_valor"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_weight="0.58"
+        android:fontFamily="@font/nunito_sans_medium"
+        android:textColor="@color/texto_principal"
+        android:textSize="14sp"
+        tools:text="Calle 21 de Calacoto" />
+</LinearLayout>

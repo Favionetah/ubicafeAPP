@@ -1,78 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    PANTALLA: Detalle de una Marca (P8)
-    - Cabecera con el nombre de la marca y el subtítulo "Marca nacional registrada".
-    - Etiquetas de la marca como chips.
-    - Cafés de Origen (abren la Ficha de Origen).
-    - "¿Dónde encontrar la marca?" + botón "Ver puntos en mapa".
+    FICHA DE UNA MARCA (P7)
+    Una marca es una empresa, no un lugar: la ficha muestra los datos que
+    registró la empresa y, debajo, los locales que el censo encontró
+    abiertos. Si no registró ninguno, se dice con todas las letras.
 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/fondo_crema"
     android:orientation="vertical">
 
-    <include layout="@layout/barra_titulo" />
+    <include
+        android:id="@+id/barra"
+        layout="@layout/barra_titulo" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingBottom="32dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingBottom="32dp">
+            android:paddingHorizontal="20dp">
 
-            <!-- Etiquetas de la marca -->
             <LinearLayout
-                android:id="@+id/fila_etiquetas"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:orientation="horizontal" />
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
-            <!-- Sección: cafés de especialidad de la marca -->
+                <TextView
+                    android:id="@+id/texto_inicial"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:background="@drawable/fondo_circulo_icono"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/fondo_blanco"
+                    android:textSize="26sp"
+                    tools:text="T" />
+
+                <TextView
+                    android:id="@+id/texto_nombre"
+                    style="@style/SubtituloHeader"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:textColor="@color/texto_principal"
+                    android:textSize="22sp"
+                    tools:text="Typica" />
+            </LinearLayout>
+
             <TextView
-                style="@style/TituloSeccion"
-                android:text="@string/marca_cafes_origen" />
-
-            <LinearLayout
-                android:id="@+id/contenedor_cafes"
+                android:id="@+id/texto_nota"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingHorizontal="16dp"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/fondo_aviso"
+                android:fontFamily="@font/nunito_sans_medium"
+                android:padding="14dp"
+                android:textColor="@color/texto_secundario"
+                android:textSize="13sp"
+                android:visibility="gone"
+                tools:text="Cadena boliviana con 11 locales registrados."
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/texto_titulo_datos"
+                style="@style/TituloSeccion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/marca_datos_empresa" />
+
+            <LinearLayout
+                android:id="@+id/contenedor_datos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical" />
 
-            <!-- Sección: dónde encontrar la marca -->
             <TextView
+                android:id="@+id/texto_titulo_sucursales"
                 style="@style/TituloSeccion"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:text="@string/marca_donde_encontrar" />
-
-            <TextView
-                android:id="@+id/texto_descripcion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:fontFamily="@font/nunito_sans_regular"
-                android:lineSpacingExtra="3dp"
-                android:textColor="@color/texto_principal"
-                android:textSize="14sp"
-                tools:text="TYPICA cuenta con 3 puntos de venta y cafeterías en la ciudad de La Paz." />
+                android:layout_marginTop="28dp"
+                tools:text="11 sucursales registradas" />
 
-            <Button
-                android:id="@+id/btn_ver_puntos_mapa"
-                style="@style/BotonVerde12"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="16dp"
-                android:text="@string/marca_ver_puntos_mapa"
-                android:drawableStart="@drawable/ic_route" />
+            <LinearLayout
+                android:id="@+id/contenedor_sucursales"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="vertical" />
+
+            <TextView
+                android:id="@+id/btn_ver_mapa"
+                style="@style/BotonVerde"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="@string/marca_ver_puntos_mapa" />
+
+            <TextView
+                android:id="@+id/texto_registro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/nunito_sans_regular"
+                android:textColor="@color/texto_tenue"
+                android:textSize="12sp"
+                tools:text="Registrado en el censo 2026" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </LinearLayout>

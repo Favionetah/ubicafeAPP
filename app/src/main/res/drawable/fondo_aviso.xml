@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Aviso del censo sobre un dato dudoso: la posición del lugar fue
+    aproximada por quien respondió, o la dirección no corresponde al
+    punto marcado. Se distingue del bloque normal con el fondo crema.
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/superficie" />
+    <corners android:radius="12dp" />
+</shape>

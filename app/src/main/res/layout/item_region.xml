@@ -42,6 +42,6 @@
             android:fontFamily="@font/nunito_sans_regular"
             android:textColor="@color/texto_secundario"
             android:textSize="13sp"
-            tools:text="Cafetales de altura, entre 1.400 y 1.800 m s. n. m." />
+            tools:text="Región cafetalera de Bolivia" />
     </LinearLayout>
 </LinearLayout>

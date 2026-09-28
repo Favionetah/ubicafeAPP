@@ -1,0 +1,495 @@
+═══════════════════════════════════════════════════════════════════════
+ROL
+═══════════════════════════════════════════════════════════════════════
+
+Eres un ingeniero Android senior. Genera el proyecto Android completo y compilable de "Ubicafé",
+una app de exploración e información del ecosistema cafetero de La Paz, Bolivia, basada en datos
+de un censo real. Produces código, no mockups.
+
+═══════════════════════════════════════════════════════════════════════
+1. QUÉ ES Y QUÉ NO ES UBICAFÉ
+═══════════════════════════════════════════════════════════════════════
+
+Concepto: "Ubicafé — El mapa del café de La Paz".
+App de EXPLORACIÓN + INFORMACIÓN territorial basada en datos censados.
+
+Descubre: cafeterías, tostadurías, marcas de café, productores/cafetales, tiendas de café,
+puntos de venta, otros lugares, y estadísticas del sector.
+
+FUERA DE ALCANCE (no generar, no insinuar, no placeholders):
+Wi-Fi, pet friendly, reservas, delivery, menús, reviews/puntuaciones, login, registro,
+perfiles de usuario, seguidores, likes, chat, carrito, notificaciones push, costos de servidor,
+interfaz de encuestadores, ni ninguna función sin respaldo en el censo.
+NO es un clon visual de Roasters, Starbucks ni ninguna app de café.
+NO incluir pestaña "Perfil": no hay usuarios ni cuentas en esta app.
+
+El usuario final solo consulta. La carga de datos ocurre por un sistema administrativo EXTERNO;
+esta app es solo lectora. El diseño debe tolerar datos incompletos: muchos registros del censo
+tienen campos vacíos y la UI nunca debe romperse ni inventar información.
+
+═══════════════════════════════════════════════════════════════════════
+2. STACK TÉCNICO (no negociable — no usar Compose, no Kotlin, no Flutter)
+═══════════════════════════════════════════════════════════════════════
+
+- Android nativo, Java 17, vistas clásicas XML + ViewBinding.
+- compileSdk 37, minSdk 24, targetSdk 37, AGP 9.3.3, namespace com.ubicafe.app
+- AppCompat 1.7.0, Material Components 1.12.0, ConstraintLayout 2.2.1
+- Fragment 1.8.8, RecyclerView 1.4.0, CardView 1.0.0, ViewPager2 1.1.0
+- Mapa: osmdroid-android 6.1.20 con teselas públicas MAPNIK (SIN API key, SIN token)
+- buildFeatures { viewBinding true }  ·  sin kotlin, sin compose, sin hilt, sin room, sin retrofit
+- Permisos: INTERNET, ACCESS_NETWORK_STATE (teselas OSM) y ACCESS_COARSE_LOCATION
+  (ubicación del usuario, solicitada en runtime con degradación elegante)
+
+═══════════════════════════════════════════════════════════════════════
+3. ESTRUCTURA DE ARCHIVOS A GENERAR
+═══════════════════════════════════════════════════════════════════════
+
+app/src/main/AndroidManifest.xml
+app/src/main/assets/censo_ubicafe.json          ← fuente de datos local (ver §4)
+app/src/main/java/com/ubicafe/app/
+  modelo/     Entidad.java, Rol.java, MarcaCafe.java, Productor.java,
+              Tostaderia.java, CafeVariedad.java, PrecioObservado.java,
+              ResultadoBusqueda.java, Estadisticas.java
+  datos/      RepositorioDatos.java   ← ÚNICO punto de acceso a datos (fachada estática)
+              CargadorCenso.java      ← parseo del JSON de assets
+  ui/         MainActivity, SplashActivity, OnboardingActivity, OnboardingAdapter
+  ui/inicio/  InicioFragment
+  ui/mapa/    MapaFragment, MapaActivity, MarcadorMapa, ConfiguracionMapa, Geolocalizador
+  ui/explorar/ExplorarFragment
+  ui/ecosistema/EcosistemaFragment
+  ui/busqueda/ BusquedaActivity
+  ui/cafeterias/  ListaCafeteriasActivity, DetalleCafeteriaActivity, AdaptadorCafeteria
+  ui/marcas/     ListaMarcasActivity, DetalleMarcaActivity, AdaptadorMarca
+  ui/tostaderias/ListaTostaderiasActivity, DetalleTostaderiaActivity, AdaptadorTostaderia
+  ui/productores/ListaProductoresActivity, DetalleProductorActivity
+  ui/puntosventa/PuntosVentaActivity
+  ui/cafes/      FichaOrigenActivity
+  ui/macrodistritos/ MacrodistritosActivity, DetalleMacrodistritoActivity
+  util/        UiUtils.java, Formato.java, Distancia.java
+app/src/main/res/
+  values/      colors.xml, strings.xml, styles.xml, themes.xml
+  font/        nunito_sans_family.xml, nunito_family.xml + 7 .ttf (400/500/600/700/800/900)
+  color/       navegacion_selector.xml
+  drawable/    ~42 XML (fondos shape + iconos vector) — ver §7
+  menu/        menu_principal.xml
+  layout/      33 layouts — ver §9
+Todos los textos visibles en strings.xml. Todos los ids en minúsculas con guion bajo, en español.
+
+═══════════════════════════════════════════════════════════════════════
+4. FUENTE DE VERDAD: EL CENSO REAL (cifras y esquema exactos)
+═══════════════════════════════════════════════════════════════════════
+
+El censo procesó 213 encuestas. TODAS tienen coordenadas geográficas.
+Volcar estos datos en assets/censo_ubicafe.json con esta estructura:
+
+{
+  "meta": { "fuente":"Censo del sector cafetero de La Paz","anio":2026,
+            "totalRegistros":213, "coordenadasCompletas":213 },
+  "entidades": [ {
+      "id":"...", "nombre":"...", "direccion":"...", "macrodistrito":"...",
+      "lat":-16.49, "lng":-68.13,
+      "roles":["CAFETERIA","MARCA","TOSTADURIA","PRODUCTOR","TIENDA","OTRO"],
+      "rolPrincipal":"CAFETERIA",
+      "marcaAsociada":"...", "nota":"...",
+      "detalleCafeteria":{ "anioApertura":"","mesas":"","capacidad":"","baristas":"",
+                           "tipoEstablecimiento":"","tipoApp":"Marca nacional" },
+      "detalleMarca":{ "esNacional":"Sí","anioCreacion":"","lugarCreacion":"",
+                       "registradaSenapi":"","segmento":"","nProductos":"",
+                       "municipioOrigen":"","canalComercializacion":"Cadena de cafeterías",
+                       "cobertura":"La Paz" },
+      "detalleTostaderia":{ "anioInicio":"2005","kgTostadosMes":"10 KG",
+                             "compraCafe":"Sí","regionesOrigen":"CARANAVI - ILLIMANI",
+                             "tiposTueste":"Personalizado","contacto":"info@roc.bo" },
+      "detalleProductor":{ "comunidadMunicipio":"CARANAVI - ILLIMANI","aniosProduciendo":"25",
+                           "especies":"Coffe arábica","variedades":"Otro",
+                           "produccionUltimaCosecha":"15 BOLSAS",
+                           "notasCata":"canela, chocolate, uva, piña, mango",
+                           "vendeA":"Asociación/cooperativa" }
+  } ],
+  "cafeterias":[], "marcas":[], "puntosDeVenta":[], "tostaderias":[],
+  "productores":[], "variedades":[], "preciosObservados":[]
+}
+
+Cifras que la app debe mostrar (NO inventes otras, NO son redondeos decorativos):
+  213  registros del censo, 213 con coordenadas
+  199  declararon tener una cafetería
+   69  con datos completos de cafetería · 16 de marca · 13 de tostaduría · 8 de productor
+  188  clasificados como Cafetería (rol principal)
+   17  Otro (no negocio de café) · 4 Tienda · 2 Marca · 2 Tostaduría
+  Roles (una entidad puede tener varios; la suma excede 213):
+  189 Cafetería · 25 Marca de café · 17 Otro · 13 Tostaduría · 12 Productor · 6 Tienda
+  188 cafeterías · 40 marcas · 78 puntos de venta · 13 tostadurías · 12 productores ·
+   66 variedades de café
+  Macrodistritos con registros: Centro 121 · Sur 49 · Cotahuma 29 · Max Paredes 9 ·
+  Periférica 4 · Mallasa 1.  (San Antonio = 0 registros: NO mostrarlo como chip con cero)
+  Cadenas con más puntos: Alexander Coffee 11 · Typica 7 · Juan Valdez 4 · Rosa Negra 4 ·
+  Café Copacabana 3 · Corban 3 · El Parlamento 3
+
+═══════════════════════════════════════════════════════════════════════
+5. MODELO DE DOMINIO
+═══════════════════════════════════════════════════════════════════════
+
+Regla central: la unidad primaria NO es "la cafetería" sino LA ENTIDAD con ROLES MÚLTIPLES.
+Una misma entidad puede ser a la vez cafetería + marca + tostaduría + productor.
+
+enum Rol { CAFETERIA, MARCA, TOSTADURIA, PRODUCTOR, TIENDA, OTRO }
+  etiquetaCorta(): "Cafetería","Marca","Tostaduría","Productor","Tienda de café","Otros"
+  icono(): vector 24dp correspondiente
+  color(): token de la paleta (verde = principal, tierra = acento)
+
+class Entidad {          // una fila de CLASIFICACIÓN
+  id, nombre, direccion, macrodistrito, lat, lng, Set<Rol> roles, Rol rolPrincipal,
+  String marcaAsociada,          // agrupa sucursales de una misma cadena
+  String nota,                   // fuente / motivo, se muestra como cita de la ficha
+  DetalleCafeteria, DetalleMarca, DetalleTostaderia, DetalleProductor  // pueden ser null
+}
+
+class Sucursal { String nombre; String macrodistrito; String direccion; double lat,lng;
+                  String entidadId; }   // un punto de venta = una sucursal de una entidad/marca
+
+class CafeVariedad { String variedad; String region; int altitud; String proceso;
+                     String tostado; List<String> notas; String entidadId; }
+
+class PrecioObservado {           // OBLIGATORIO: precio + presentación + FECHA
+  String cafeId, presentacion;    // "250 g"
+  double monto;                   // Bs.
+  String fechaObservacion;        // "2026-09-12"  -> se formatea "12 de septiembre de 2026"
+  String nota;                    // "Precio de referencia estimado · Censo 2026"
+}
+
+Precios: el JSON de ejemplo trae Bs. 15 — Bs. 95 como rango observado del censo.
+NO mostrar nunca un precio sin su fecha al lado. Si no hay fecha, ocultar el bloque entero.
+
+Macrodistritos: enum o lista cerrada con Centro, Sur, Cotahuma, Max Paredes, Periférica, Mallasa.
+Regiones de origen de café (ficha, NO son macrodistritos urbanos): Caranavi, Yungas, Tarija.
+No confundirlos: "macrodistrito" clasifica lugares en la ciudad; "región" clasifica el cultivo.
+
+═══════════════════════════════════════════════════════════════════════
+6. CAPA DE DATOS
+═══════════════════════════════════════════════════════════════════════
+
+- CargadorCenso: lee assets/censo_ubicafe.json UNA vez (singleton, en Application o lazy holder),
+  cachea en memoria. Nunca parsear en el hilo UI.
+- RepositorioDatos: fachada ESTÁTICA. Ninguna Activity/Fragment/Adapter accede al JSON ni a
+  CargadorCenso directamente. TODAS las consultas de pantalla pasan por aquí.
+  API mínima obligatoria:
+    List<Entidad> obtenerEntidades(); List<Entidad> obtenerEntidadesPorRol(Rol);
+    List<Entidad> obtenerEntidadesPorMacrodistrito(String);
+    List<Entidad> obtenerEntidadesPorMarca(String);
+    List<Sucursal> obtenerSucursalesDe(String entidadId);
+    List<Entidad> buscarSucursalesDeMarca(String marca);
+    List<CafeVariedad> obtenerVariedades(); List<CafeVariedad> obtenerVariedadesDe(String entidadId);
+    Optional<PrecioObservado> obtenerPrecioDe(String cafeId);
+    List<Entidad> obtenerDestacadasCercanas(double lat, double lng, int limite);
+    ResultadoBusqueda buscar(String texto);
+    Estadisticas obtenerEstadisticas();  // conteos por rol, por macrodistrito, rango de precios
+  Búsqueda: normalizar con NFD + quitar diacríticos + minúsculas; comparar por nombre de entidad,
+  nombre de marca, dirección, macrodistrito, barrio, variedad y nombre de productor.
+  Devolver ResultadoBusqueda agrupado en secciones: CAFÉS, MARCAS, ESTABLECIMIENTOS,
+  PRODUCTORES, TOSTADURÍAS. Con estaVacio() para el empty state.
+- Todo List devuelto es una copia defensiva. Nada de estado global mutable.
+- Cuando la app se conecte a un backend, solo se reescribe CargadorCenso; RepositorioDatos
+  y las pantallas no cambian. Esto es un requisito de diseño, no una sugerencia.
+
+═══════════════════════════════════════════════════════════════════════
+7. IDENTIDAD VISUAL
+═══════════════════════════════════════════════════════════════════════
+
+Sensación: natural, paceña, cálida, moderna, editorial, geográfica, informativa, confiable.
+Comunica TERRITORIO + CAFÉ + DATOS. El café no puede ser el único elemento visual:
+no llenar la UI de tazas y granos. Verde como color de marca; marrón solo como acento.
+
+colors.xml (tokens semánticos, nombres exactos):
+  verde_oscuro        #164E3B   (Primary Forest — color de marca y de acción)
+  verde_claro         #1C4E3B   (Dark Forest — bordes, gradients de marca)
+  verde_medio         #6B8F71   (Sage — productores, elementos terciarios)
+  verde_tenue         #164E3B10 (verde al 10% — chips y badges en reposo)
+  verde_oscuro_tint   #164E3B10 (alias explícito, mismo valor)
+  fondo_crema         #F8F4EA   (fondo global de la app)
+  fondo_blanco        #FFFFFF   (tarjetas y superficies)
+  superficie          #F1EBDD   (superficie crema secundaria)
+  texto_principal     #26332E
+  texto_secundario    #4E5A55
+  texto_tenue         #78817D   (icono de pestaña inactivo, placeholders)
+  texto_sobre_verde   #FFFFFF
+  cafe_accent         #76513D   (Coffee Roast — acento, nunca dominante)
+  caramelo_claro      #DDA15E   (Accent Gold)
+  dorado              #DDA15E   (alias)
+  verde_marca         #1C4E3B
+  azul_ubicacion      #2E6DB4   (solo el marcador del usuario)
+  divisor             #E0E1DC
+Estados: success #397A58 · warning #B7791F · error #B84A4A
+No definir colores nuevos ni literales #hex dentro de layouts o Java: siempre @color/...
+
+Tipografía (Nunito Sans para UI, Nunito para titulares y cifras). Fuentes en res/font:
+  nunito_sans_family.xml -> regular 400, medium 500, semi_bold 600
+  nunito_family.xml      -> bold 700, extra_bold 800, black 900
+Escala (sp, no px): Display 28 ExtraBold · H1 24 ExtraBold · H2 20 Bold · H3 17 Bold
+Body Large 17 Regular · Body 15 Regular · Body Medium 15 SemiBold · Caption 13 Medium
+Label 12 Bold · Cifra 34 ExtraBold
+styles.xml define y reutiliza: TituloHeader, SubtituloHeader, TituloSeccion, TarjetaCategoria,
+FiltroChip, BadgeZona, BotonVerde, BotonVerde12, BotonVerdePill, y las overlays de radio
+Boton.Esquinas8 / Boton.Esquinas12 / Boton.EsquinasPill. Nada de estilos inline repetidos.
+
+Layout: base 390dp de ancho, padding horizontal 20dp, espaciado en múltiplos de 4
+(4/8/12/16/20/24/32/40/48/64). Radios: 8dp chips pequeños, 12dp botones y chips,
+16dp tarjetas, 24dp bottom sheets, 999dp pills. Mapear px->dp y 1:1.
+Mucho espacio negativo, bordes sutiles, jerarquía tipográfica antes que sombras:
+elevación máxima 2dp en CardView. Sin gradientes fuertes, sin neón, sin glassmorphism.
+
+themes.xml: Theme.MaterialComponents.Light.NoActionBar, colorPrimary verde_oscuro,
+colorSecondary cafe_accent, android:colorBackground fondo_crema, statusBarColor fondo_crema,
+windowLightStatusBar true. Un estilo derivado solo para el Splash.
+
+drawable (shape XML, sin imágenes bitmaps salvo el logo):
+  Fondos: fondo_tarjeta_categoria, fondo_tarjeta_superficie, fondo_tarjeta_gradiente,
+  fondo_buscador, fondo_chip, fondo_chip_seleccionado, fondo_chip_no_seleccionado,
+  fondo_badge_zona, fondo_badge_conteo, fondo_badge_destacado, fondo_circulo_blanco,
+  fondo_circulo_icono, fondo_cuadro_color, fondo_photo_r10, fondo_photo_r12,
+  fondo_arriba_redondeado, fondo_punto_activo/inactivo/verde,
+  fondo_fila_brand_seleccionado/no_seleccionado, ic_etiqueta_verde
+  Iconos vectoriales 24dp outline redondeado, stroke 1.6dp, tint por color:
+  ic_cafeteria, ic_marca, ic_tostaderia, ic_productor, ic_puntosventa, ic_ubicacion,
+  ic_house, ic_map_pin, ic_database_search, ic_buscar, ic_navigation, ic_route,
+  ic_star, ic_clock, ic_arrow_right, ic_arrow_up_right, ic_chevron_left/right,
+  ic_flecha_atras, ic_logo_ubicafe
+  ic_logo_ubicafe: marca de Ubicafé — taza/recipiente minimalista integrado con hojas,
+  en verde forest. Es el único recurso que necesita bitmap de alta resolución.
+
+═══════════════════════════════════════════════════════════════════════
+8. NAVEGACIÓN
+═══════════════════════════════════════════════════════════════════════
+
+BottomNavigationView con 4 destinos, fondo blanco, labelVisibilityMode=labeled,
+seleccionado verde_oscuro / inactivo texto_tenue (selector navegacion_selector.xml):
+
+  Inicio     ic_house          InicioFragment
+  Mapa       ic_map_pin        MapaFragment
+  Explorar   ic_database_search ExplorarFragment
+  Ecosistema ic_database_search EcosistemaFragment   (estadísticas del sector)
+
+NO hay pestaña Perfil, NO hay Favoritos. No poner Favoritos en ningún lugar.
+MainActivity solo orquesta el cambio de Fragment; no contiene lógica de negocio.
+Manifest: SplashActivity (LAUNCHER, tema Splash) -> OnboardingActivity -> MainActivity.
+Todas las pantallas de listado y detalle son Activity separadas y registradas en el manifiesto.
+barra_titulo.xml es un include reutilizable: flecha atrás + título + subtítulo.
+
+═══════════════════════════════════════════════════════════════════════
+9. PANTALLAS (33 layouts)
+═══════════════════════════════════════════════════════════════════════
+
+P1 SplashActivity (activity_splash.xml)
+   Logo centrado en círculo blanco, "UBICAFÉ" ExtraBold, "El mapa del café de La Paz",
+   fondo crema. 1,5 s y pasa a onboarding. Recordar en SharedPreferences: si el usuario
+   ya lo vio, saltar directo a MainActivity.
+
+P2 OnboardingActivity (activity_onboarding.xml + item_onboarding_pagina.xml)
+   ViewPager2 de 3 slides, puntos indicadores, "Omitir" (texto tenue) y
+   "Siguiente"/"Comenzar" (pill verde 52dp).
+   1. "Descubre el café de La Paz" — "Encuentra cafeterías, marcas, tostadurías y productores
+      registrados en el censo. Un mapa territorial del ecosistema paceño."
+   2. "Cafeterías de especialidad" — "...desde cafés de origen en Achumani hasta clásicas de
+      barrio en el Centro, con zonas y cómo llegar."
+   3. "Marcas, tostadurías y productores" — "...las fincas de Caranavi y los Yungas. De la finca
+      a la taza, todo en un mismo mapa."
+   Sin fotos de stock: usar el logo, formas y color, no bancos de imágenes genéricas.
+
+P3 InicioFragment (fragment_inicio.xml) — NestedScrollView vertical
+   1. Saludo "Buenos días" 13sp texto_tenue + "Descubre el café de La Paz" 28sp verde ExtraBold.
+   2. Buscador pill 48dp, ícono ic_buscar, "¿Qué estás buscando?" — abre BusquedaActivity.
+   3. "Explora por categoría": grid 2x2 de TarjetaCategoria (49dp, radio 12) con
+      Cafeterías · Marcas · Tostadurías · Productores, y fila ancho completo para
+      Puntos de venta. Cada tile muestra además su conteo real (188, 40, 13, 12, 78).
+   4. "Cerca de ti": usar Geolocalizador. Si hay permiso -> distancia real (450 m, 1,2 km).
+      Si no hay permiso -> mostrar el estado "Activa la ubicación para ver cafeterías cercanas"
+      con botón, o bien el centroide del macrodistrito detectado.
+      La tarjeta lleva: nombre, roles ("Cafetería · Marca"), badge de macrodistrito,
+      distancia en km/m, y botón "Ver información".
+      IMPORTANTE: donde el diseño original ponía "4.9 (240 opiniones)" poner
+      "Verificado en el censo 2026" con ic_clock. NO existe rating ni número de opiniones.
+   5. "Explora por macrodistrito": chips con los 6 macrodistritos que tienen registros
+      (Centro, Sur, Cotahuma, Max Paredes, Periférica, Mallasa). Tocar un chip abre el
+      listado filtrado. No incluir San Antonio.
+   6. "Café en La Paz": 3 TarjetaCifra — 213 lugares registrados · 25 marcas · 13 tostadurías,
+      con rayita de color decorativa bajo cada cifra.
+   7. Banner final verde (fondo_tarjeta_gradiente) "¿Eres productor?" ->
+      "Registra tu finca o marca en el próximo censo de café paceño." abre ListaProductores.
+      Se rotula como información, no como formulario dentro de la app.
+
+P4 MapaFragment (fragment_mapa.xml) — el corazón territorial
+   Cabecera "Mapa" + subtítulo con la ubicación actual ("Achumani, La Paz" o
+   "Ubicación no disponible"). Chips de filtro: Todos · Cafeterías · Tostadurías ·
+   Productores · Puntos de venta · Otros.
+   MapView osmdroid, MAPNIK, centro por defecto LAT -16.500 / LNG -68.120, zoom 13,
+   multiTouchControls true. ConfiguracionMapa centraliza user-agent y token opcional vacío.
+   Marcadores: pin circular BLANCO con glifo verde por rol (nunca pins multicolor de Google,
+   nunca teñir el pin genérico por color de categoría). El usuario se marca con
+   azul_ubicacion + halo. Datos con lat/lng 0 o ausentes NO se dibujan.
+   Al pulsar un marcador, panel inferior (radio 24, esquinas superiores redondeadas):
+     Nombre
+     Roles + macrodistrito
+     Dirección
+     [Ver información]  -> Activity de detalle según el rol principal
+     [Cómo llegar]     -> geo: intent con la coordenada exacta
+   P4b MapaActivity (activity_mapa.xml): variante "Cerca de ti", abierta desde Inicio.
+   Ciclo de vida del MapView: onResume/onPause/onDetach en el Fragment (obligatorio,
+   si no osmdroid filtra la app en background).
+
+P5 ExplorarFragment (fragment_explorar.xml)
+   Título "Explorar" + "Conoce el ecosistema del café de La Paz".
+   "Variedades paceñas": 1 fila por cada CaféVariedad (item_cafe_origen.xml) con variedad
+   ExtraBold verde, "MARCA · Región · 1.600 m" y aroma como línea tenue. -> FichaOrigen.
+   "Regiones cafeteras": Caranavi (1.400–1.800 m) · Yungas (1.200–1.500 m) ·
+   La Paz (capital de tostadores y cafeterías). Aclarar visualmente que son regiones de
+   ORIGEN del café, no macrodistritos.
+   "Guía del café": 3 tarjetas informativas item_card_info.xml — qué es el café de especialidad,
+   del grano a la taza, cómo comprar café paceño. Solo informativo, cero CTA de compra.
+
+P6 EcosistemaFragment (fragment_ecosistema.xml) — 4a pestaña
+   Título "El café en La Paz" + "Información basada en los registros del censo."
+   Fila 1: 4 TarjetaCifra (34sp ExtraBold + etiqueta 13sp + rayita de color):
+     213 lugares registrados · 40 marcas · 188 cafeterías · 13 tostadurías
+   Fila 2: 12 productores · 78 puntos de venta · 25 marcas de café · 66 variedades
+   "Registros por macrodistrito": gráfico de barras horizontales limpio (item_macrodistrito.xml)
+   con los 6 macrodistritos y su conteo real, ordenado de mayor a menor, barras en verde
+   con la más larga como referencia. NO es un dashboard: máximo 2 gráficos, sin ejes,
+   sin leyenda, sin tooltips, sin filtros de fecha.
+   "Rango de precios observado": "Bs. 15 — Bs. 95" con la leyenda
+   "Precio observado en el censo 2026. No son precios en tiempo real."
+   "Nota metodológica" al pie: 213 encuestas · 199 declararon tener cafetería ·
+   69 con datos completos. Fuente y año siempre visibles.
+
+P7 BusquedaActivity (activity_busqueda.xml + item_resultado_busqueda.xml)
+   SearchView/EditText con placeholder "Busca cafeterías, marcas, tostadurías, productores…"
+   Resultados agrupados por sección con título + contador:
+     CAFÉS -> variedad, marca, origen
+     MARCAS -> nombre, "N puntos de venta", roles
+     ESTABLECIMIENTOS -> nombre, macrodistrito, dirección
+     PRODUCTORES / TOSTADURÍAS -> nombre, región
+   Búsqueda insensible a mayúsculas y acentos ("geisha" encuentra "Geisha"; "cafe" encuentra
+   "Café"). Debounce 200 ms. Empty state con icono ic_database_search y texto explicativo.
+
+P8–P12 Listados reutilizables (un patrón, cinco variantes por rol)
+   activity_lista_cafeterias / lista_marcas / lista_tostaderias / lista_productores / puntos_venta
+   Cabecera: Título + subtítulo, buscador, y fila de chips:
+     Todos · Cerca · Centro · Sur   (filtros contextuales al conjunto; cerca usa Geolocalizador)
+   RecyclerView + adapter propio + ViewHolder + DiffUtil. Sin listas grandes.
+   Filtros combinables (categoría + macrodistrito + texto) y contador "18 lugares".
+   Empty state con mensaje y acción "Quitar filtros" cuando el filtro es el culpable.
+
+P13 DetalleCafeteriaActivity (activity_detalle_cafeteria.xml)
+   Barra con flecha atrás, hero de 230dp (foto si existe; si no, ícono de rol sobre
+   fondo_photo_r12), tarjeta blanca superpuesta (-20dp), tabs o secciones
+   Descripción · Horarios · Ubicación.
+   "Esta organización participa como:" con los roles reales como chips verdes.
+   "Sucursales" (N) -> 3 sucursales: nombre, macrodistrito, dirección, botón "Cómo llegar".
+   "Cafés registrados" -> item_cafe_origen.xml.
+   Campos vacíos del censo: ocultar el bloque entero, nunca mostrar "null" ni guiones bajos.
+
+P14 DetalleMarcaActivity (activity_detalle_marca.xml)
+   Nombre + badge "Marca nacional registrada" (o "Marca importada", según dato real).
+   Canales de comercialización, cobertura, n productos, año de creación, registro SENAPI.
+   Relación de roles como chips. "Cafés de Origen". "Dónde encontrar la marca" con el conteo
+   real de puntos de venta y botón "Ver puntos en mapa" -> MapaActivity filtrado por esa marca.
+
+P15 DetalleTostaderiaActivity (activity_detalle_tostaderia.xml)
+   Descripción · Horarios · Contacto · Año de inicio · Kg tostados/mes · Compra café ·
+   Regiones de origen · Tipos de tueste. Botón "Cómo llegar".
+
+P16 DetalleProductorActivity (activity_detalle_productor.xml)
+   "Huella del productor": Familia/comunidad, Origen, Años produciendo, Especies, Variedades,
+   Producción última cosecha, Notas de cata (como chips), "¿A quién vende?", dirección.
+   "Cafés registrados" (N). Diseño flexible: todos los bloques son opcionales.
+
+P17 FichaOrigenActivity (activity_ficha_origen.xml) — la más importante visualmente
+   Hero con la inicial de la variedad si no hay foto. "Pertenece a: MARCA".
+   Ficha técnica en pares etiqueta/valor con item_par_info.xml:
+     ORIGEN, ALTITUD (m s. n. m.), VARIEDAD, PROCESO, TOSTADO, AROMA/NOTAS (chips)
+   Bloque obligatorio "Presentación" (250 g) + "Precio observado" (Bs. 35) en dos columnas,
+   y debajo la fecha: "Observado el 12 de septiembre de 2026" + nota de referencia.
+   "Dónde encontrarlo": sucursales con nombre + macrodistrito, botón "Ver en mapa".
+   Si no hay PrecioObservado para ese café, ocultar el bloque de precio completo.
+
+P18 MacrodistritosActivity + DetalleMacrodistritoActivity
+   Listado visual: Centro 121 · Sur 49 · Cotahuma 29 · Max Paredes 9 · Periférica 4 · Mallasa 1.
+   Detalle: total + desglose por rol (cafeterías, puntos de venta, marcas, tostadurías, otros)
+   + botón "Ver en mapa" con el área ajustada a ese macrodistrito.
+
+═══════════════════════════════════════════════════════════════════════
+10. COMPONENTES Y REGLAS DE UI
+═══════════════════════════════════════════════════════════════════════
+
+Componentes reutilizables (styles + layouts + UiUtils): botón primario/secundario, buscador,
+FiltroChip, TarjetaCategoria, PlaceCard, BrandCard, ProductCard, ProducerCard, TarjetaCifra,
+bloque de precio observado, marcador de mapa, panel inferior, BarraTitulo (include),
+section header, empty state, loading state (ProgressBar centrado con fondo crema).
+
+Imágenes: SIEMPRE opcionales. El censo no tiene fotos. Patrón obligatorio:
+  if (imagen != null) mostrar; else mostrar placeholder con fondo_photo_r12 + ícono de rol,
+  o círculo de color de la marca con la inicial (ya implementado vía colorMarca + inicial).
+  Nunca dejar un ImageView vacío, nunca un espacio en blanco, nunca una carga rota.
+
+Estados obligatorios en toda pantalla con datos:
+  LOADING  ProgressBar crema, sin spinner en esquina, sin skeletons parpadeantes.
+  VACÍO    ícono 24dp tenue + "Sin resultados para este filtro o búsqueda." + acción de rescate.
+  ERROR    si la carga del censo falla: "No pudimos cargar los datos del censo." + "Reintentar".
+  Mapear cada estado a una vista en el layout; ninguna pantalla debe quedar en blanco.
+
+Reglas de datos NO NEGOCIABLES:
+  1. El precio SIEMPRE como "Precio observado" + fecha. Nunca "precio actual".
+  2. NO existe rating, ni reseñas, ni número de opiniones, ni favoritos.
+  3. NO inventar campos. Si el censo no lo tiene, no se muestra.
+  4. Una entidad muestra SIEMPRE su tipo: ícono de rol + etiqueta de rol, incluso en la tarjeta.
+  5. Distinguir visualmente marca, sucursal, establecimiento, productor y variedad.
+  6. Toda cifra viene de RepositorioDatos; prohibido escribir un número en un layout.
+  7. "Cómo llegar" = Intent ACTION_VIEW con geo:lat,lon?label=... ; si no hay app de mapas
+     instalada, capturar el fallo y mostrar un Toast informativo, nunca crashear.
+  8. Accesibilidad: contentDescription en todo ícono con contenido, null en decorativos,
+     targets táctiles >=48dp, contraste AA sobre crema, texto de chips >=13sp.
+
+═══════════════════════════════════════════════════════════════════════
+11. ESTILO DE CÓDIGO
+═══════════════════════════════════════════════════════════════════════
+
+- Java, 4 espacios, UTF-8, sin emojis en el código.
+- Nombres, clases, variables, ids, strings y comentarios en ESPAÑOL, minúsculas con guion bajo
+  para recursos; PascalCase y camelCase para Java.
+- Modelos con campos final e inmutables; sin setters; sin singletons mutables.
+- Javadoc en las clases del modelo y en los métodos públicos del repositorio, explicando
+  QUÉ hace y POR QUÉ. Comentarios solo donde hay una decisión no obvia; nunca
+  repetir el código línea por línea.
+- Favorecer Colecciones: sin concatenar cadenas en bucles, sin parseo repetido de JSON,
+  sin trabajo pesado en el hilo UI (parseo y agregados fuera de onCreate/onViewCreated).
+- Quita TODO import, variable y método sin usar. Sin código muerto, sin if (true),
+  sin System.out.println, sin Log.d de depuración.
+- viewBinding everywhere; nunca findViewById con cast si existe binding.
+  (en Fragment, limpiar binding en onDestroyView)
+- Todo string en strings.xml con placeholders %1$s / %1$d y plurals <plurals> para
+  "1 punto de venta" / "N puntos de venta" y "1 café" / "N cafés".
+
+═══════════════════════════════════════════════════════════════════════
+12. VERIFICACIÓN (Definition of Done)
+═══════════════════════════════════════════════════════════════════════
+
+La entrega no está completa hasta que:
+  [ ] ./gradlew :app:assembleDebug compila sin errores ni warnings de lint nuevos
+  [ ] ./gradlew :app:lintDebug sin issues de gravedad error
+  [ ] La app arranca: Splash -> Onboarding (solo la 1a vez) -> MainActivity
+  [ ] Las 4 pestañas cargan y sobreviven al cambio de pestaña y a la rotación
+  [ ] Los 213 registros se cargan del asset y los conteos por rol y macrodistrito
+      coinciden exactamente con la sección 4
+  [ ] Una entidad con múltiples roles se muestra correctamente en mapa, listado y detalle
+  [ ] Todos los filtros de chips funcionan combinados con el buscador
+  [ ] Buscar "geisha" y "cafe" (sin tilde) devuelve resultados
+  [ ] Denegar el permiso de ubicación degrada con elegancia, sin crashear
+  [ ] Una entidad sin foto, sin precio, sin coordenadas y sin campos de detalle
+      renderiza sin romperse y sin placeholders rotos
+  [ ] El precio siempre aparece con su fecha
+  [ ] Cero apariciones de rating/opiniones/favoritos en todo el código
+  [ ] Cero strings visibles hardcodeados en Java o XML
+  [ ] Cero colores #hex literales fuera de colors.xml
+  [ ] El mapa no filtra la app al ir a background (onPause/onDetach correctos)
+  [ ] 213 marcadores se dibujan y el pan/zoom es fluido en un dispositivo de gama media
+
+Si algún requisito es imposible sin datos que no existen, NO lo inventes: deja el hueco
+documentado con un TODO que nombre exactamente qué dato falta y de dónde debe venir.

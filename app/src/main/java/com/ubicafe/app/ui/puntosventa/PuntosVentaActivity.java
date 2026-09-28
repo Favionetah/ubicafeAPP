@@ -2,193 +2,206 @@ package com.ubicafe.app.ui.puntosventa;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.ubicafe.app.R;
 import com.ubicafe.app.datos.RepositorioDatos;
-import com.ubicafe.app.modelo.MarcaCafe;
-import com.ubicafe.app.modelo.PuntoVenta;
+import com.ubicafe.app.modelo.Sucursal;
+import com.ubicafe.app.ui.comun.AdaptadorSucursal;
+import com.ubicafe.app.ui.comun.ListaBaseActivity;
 import com.ubicafe.app.ui.mapa.MapaActivity;
 import com.ubicafe.app.ui.marcas.DetalleMarcaActivity;
+import com.ubicafe.app.util.Texto;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
-import java.util.Locale;
+import java.util.TreeSet;
 
 /**
- * PUNTOS DE VENTA (P12).
- * "Marcas censadas" se puede filtrar con el buscador; al elegir una marca
- * se resalta y se muestra el detalle con sus puntos de venta.
+ * PUNTOS DE VENTA (P12)
+ * ---------------------------------------------------------------
+ * Los 78 locales que el censo registró, no las marcas. La diferencia
+ * importa: hay 40 marcas censadas pero solo 78 locales, así que la
+ * lista de marcas y la de locales no son la misma pantalla.
+ *
+ * El filtro es por marca, porque "dónde compro Typica" es una pregunta
+ * por cadena, y por macrodistrito, porque "dónde me queda cerca" es
+ * una pregunta por zona.
  */
-public class PuntosVentaActivity extends AppCompatActivity {
+public class PuntosVentaActivity extends ListaBaseActivity {
 
-    /** Marcas que tienen al menos un punto de venta (registradas para el censo). */
-    private final List<MarcaCafe> marcas = new ArrayList<>();
-    private MarcaCafe seleccionada;
+    /** Modo en que se leen los valores de los chips. */
+    private static final String MODO_MARCAS = "__marcas__";
+    private static final String MODO_MACRODISTRITOS = "__macrodistritos__";
+
+    private List<String> marcas = Collections.emptyList();
+    private AdaptadorSucursal adaptador;
+    private String modo = MODO_MARCAS;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_puntos_venta);
+    protected void onCreate(@Nullable Bundle estado) {
+        marcas = new ArrayList<>(recolectarMarcas());
+        super.onCreate(estado);
 
-        ((TextView) findViewById(R.id.texto_titulo)).setText(getString(R.string.puntos_titulo));
-        ((TextView) findViewById(R.id.texto_subtitulo))
-                .setText(getString(R.string.puntos_subtitulo));
-
-        findViewById(R.id.btn_volver).setOnClickListener(v -> finish());
-        findViewById(R.id.btn_ver_mapa)
-                .setOnClickListener(v -> {
-                    Intent intento = new Intent(this, MapaActivity.class);
-                    if (seleccionada != null) {
-                        intento.putExtra(DetalleMarcaActivity.EXTRA_NOMBRE_MARCA,
-                                seleccionada.nombre);
-                    }
-                    startActivity(intento);
-                });
-
-        // Solo entran las marcas con puntos de venta en el censo.
-        for (MarcaCafe marca : RepositorioDatos.obtenerMarcas()) {
-            if (RepositorioDatos.contarPuntosDeVentaDe(marca.nombre) > 0) {
-                marcas.add(marca);
-            }
-        }
-        if (!marcas.isEmpty()) {
-            seleccionada = marcas.get(0);
-        }
-
-        rozarLista();
-
-        EditText campo = findViewById(R.id.campo_busqueda);
-        campo.addTextChangedListener(new TextWatcher() {
-            @Override public void beforeTextChanged(CharSequence s, int a, int b, int c) { }
-            @Override public void afterTextChanged(Editable s) { }
-
-            @Override public void onTextChanged(CharSequence s, int a, int b, int c) {
-                rozarLista();
-            }
-        });
+        int total = RepositorioDatos.obtenerSucursales().size();
+        ui.barra.textoSubtitulo.setText(getResources().getQuantityString(
+                R.plurals.puntos_subtitulo, total, total));
     }
 
-    /** Reconstruye la lista de marcas según el texto del buscador. */
-    private void rozarLista() {
-        EditText campo = findViewById(R.id.campo_busqueda);
-        String texto = campo.getText().toString().trim().toLowerCase(Locale.getDefault());
+    /** Las cadenas que de verdad tienen al menos un local censado. */
+    private static TreeSet<String> recolectarMarcas() {
+        TreeSet<String> encontradas = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
+        for (Sucursal sucursal : RepositorioDatos.obtenerSucursales()) {
+            if (!sucursal.marca.isEmpty()) {
+                encontradas.add(sucursal.marca);
+            }
+        }
+        return encontradas;
+    }
 
-        LinearLayout contenedor = findViewById(R.id.lista_marcas);
-        contenedor.removeAllViews();
+    @Override
+    protected String titulo() {
+        return getString(R.string.puntos_titulo);
+    }
 
-        if (seleccionada != null && !seleccionada.nombre.toLowerCase(Locale.getDefault())
-                .contains(texto)
-                && !texto.isEmpty()) {
-            // La selección dejó de ser visible con el filtro: no resaltar nada.
-            pintarDetalle(null);
+    @Override
+    protected String subtitulo() {
+        return "";
+    }
+
+    @Override
+    protected int placeholderBusqueda() {
+        return R.string.buscar_punto_venta;
+    }
+
+    @Override
+    protected String etiquetaDeFiltro(String valor) {
+        if (valor.isEmpty()) {
+            return getString(R.string.cafeterias_filtro_todas);
+        }
+        if (valor.equals(MODO_MARCAS)) {
+            return getString(R.string.puntos_filtro_marcas);
+        }
+        if (valor.equals(MODO_MACRODISTRITOS)) {
+            return getString(R.string.puntos_filtro_zonas);
+        }
+        return valor;
+    }
+
+    @Override
+    protected List<String> filtrosDeAgrupacion() {
+        return Arrays.asList(MODO_MARCAS, MODO_MACRODISTRITOS);
+    }
+
+    /**
+     * Los chips siguientes muestran cadenas o macrodistritos según el
+     * que se toque. Se reconstruye la fila porque los valores anteriores
+     * dejan de aplicar.
+     */
+    @Override
+    protected boolean alSeleccionarFiltro(String valor) {
+        if (valor.equals(MODO_MARCAS)) {
+            modo = MODO_MARCAS;
+            return true;
+        }
+        if (valor.equals(MODO_MACRODISTRITOS)) {
+            modo = MODO_MACRODISTRITOS;
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    protected List<String> valoresDeFiltros() {
+        return modo.equals(MODO_MARCAS) ? new ArrayList<>(marcas) : zonasConLocales();
+    }
+
+    /**
+     * Solo los macrodistritos con algún local censado. De los 20 que hay
+     * en el censo, la mayoría no tiene ninguno, y un chip que siempre
+     * sale a cero parece un dato mal escrito.
+     */
+    private static List<String> zonasConLocales() {
+        TreeSet<String> zonas = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
+        for (Sucursal sucursal : RepositorioDatos.obtenerSucursales()) {
+            if (!sucursal.macrodistrito.isEmpty()) {
+                zonas.add(sucursal.macrodistrito);
+            }
+        }
+        return new ArrayList<>(zonas);
+    }
+
+    @Override
+    protected void refrescar() {
+        if (adaptador == null) {
+            adaptador = new AdaptadorSucursal(Collections.<Sucursal>emptyList(),
+                    this::abrirMarcaDeLaSucursal);
+            ui.lista.setLayoutManager(new LinearLayoutManager(this));
+            ui.lista.setAdapter(adaptador);
         }
 
-        for (MarcaCafe marca : marcas) {
-            if (!marca.nombre.toLowerCase(Locale.getDefault()).contains(texto)) {
+        String seleccion = filtroActual();
+        String consulta = consultaActual();
+
+        List<Sucursal> resultados = new ArrayList<>();
+        for (Sucursal sucursal : RepositorioDatos.obtenerSucursales()) {
+            if (!coincideFiltro(sucursal, seleccion) || !coincideConsulta(sucursal, consulta)) {
                 continue;
             }
-            contenedor.addView(crearFilaMarca(marca, contenedor));
+            resultados.add(sucursal);
         }
 
-        if (seleccionada != null) {
-            pintarDetalle(seleccionada);
+        adaptador.setItems(resultados);
+        mostrarResultados(resultados.size(), !seleccion.isEmpty() || !consulta.isEmpty());
+    }
+
+    /**
+     * Un valor se compara solo contra el campo del modo activo. Si no,
+     * una cadena llamada igual que una zona filtraría por ambas, y
+     * "Centro" con la lista en modo marcas mostraría locales de otras.
+     */
+    private boolean coincideFiltro(Sucursal sucursal, String seleccion) {
+        if (seleccion.isEmpty() || seleccion.equals(MODO_MARCAS)
+                || seleccion.equals(MODO_MACRODISTRITOS)) {
+            return true;
         }
+        return modo.equals(MODO_MARCAS)
+                ? Texto.clave(sucursal.marca).equals(Texto.clave(seleccion))
+                : Texto.clave(sucursal.macrodistrito).equals(Texto.clave(seleccion));
     }
 
-    /** Crea una fila de "Marcas censadas" con su selección marcada. */
-    private View crearFilaMarca(MarcaCafe marca, LinearLayout contenedor) {
-        View fila = LayoutInflater.from(this)
-                .inflate(R.layout.item_marca_resumen, contenedor, false);
-
-        ((TextView) fila.findViewById(R.id.texto_nombre)).setText(marca.nombre);
-        ((TextView) fila.findViewById(R.id.texto_conteo))
-                .setText(getResources().getQuantityString(R.plurals.unidad_puntos_venta,
-                        RepositorioDatos.contarPuntosDeVentaDe(marca.nombre),
-                        RepositorioDatos.contarPuntosDeVentaDe(marca.nombre)));
-
-        boolean estáSeleccionada = seleccionada != null
-                && seleccionada.nombre.equalsIgnoreCase(marca.nombre);
-        pintarFilaSeleccion(fila, estáSeleccionada);
-
-        fila.setOnClickListener(v -> {
-            seleccionada = marca;
-            rozarLista();
-        });
-        return fila;
+    private static boolean coincideConsulta(Sucursal sucursal, String consulta) {
+        return consulta.isEmpty()
+                || Texto.clave(sucursal.nombre).contains(consulta)
+                || Texto.clave(sucursal.marca).contains(consulta)
+                || Texto.clave(sucursal.direccion).contains(consulta)
+                || Texto.clave(sucursal.macrodistrito).contains(consulta);
     }
 
-    private void pintarFilaSeleccion(View fila, boolean seleccionada) {
-        fila.setBackground(ContextCompat.getDrawable(this,
-                seleccionada ? R.drawable.fondo_fila_brand_seleccionado
-                        : R.drawable.fondo_fila_brand_no_seleccionado));
-        TextView nombre = fila.findViewById(R.id.texto_nombre);
-        TextView conteo = fila.findViewById(R.id.texto_conteo);
-        int colorTexto = getColor(seleccionada ? R.color.texto_sobre_verde : R.color.texto_principal);
-        int colorConteo = getColor(seleccionada ? R.color.fondo_crema : R.color.texto_secundario);
-        nombre.setTextColor(colorTexto);
-        conteo.setTextColor(colorConteo);
-    }
-
-    /** Pinta el detalle de la marca elegida con sus puntos de venta. */
-    private void pintarDetalle(MarcaCafe marca) {
-        TextView textoNombre = findViewById(R.id.texto_detalle_nombre);
-        TextView textoDestacado = findViewById(R.id.texto_destacado);
-        LinearLayout contenedor = findViewById(R.id.contenedor_puntos);
-
-        if (marca == null) {
-            textoNombre.setText("");
-            textoDestacado.setVisibility(View.GONE);
-            contenedor.removeAllViews();
+    /**
+     * Tocar un local abre la ficha de la cadena a la que pertenece, que
+     * es donde están el resto de sus locales y el botón de verlos en el
+     * mapa. Un local suelto no tiene ficha propia en el censo.
+     */
+    private void abrirMarcaDeLaSucursal(Sucursal sucursal) {
+        if (sucursal.marca.isEmpty()) {
             return;
         }
+        Intent intento = new Intent(this, DetalleMarcaActivity.class);
+        intento.putExtra(DetalleMarcaActivity.EXTRA_NOMBRE_MARCA, sucursal.marca);
+        startActivity(intento);
+    }
 
-        textoNombre.setText(marca.nombre);
-        textoDestacado.setVisibility(marca.esNacional ? View.VISIBLE : View.GONE);
-
-        contenedor.removeAllViews();
-        for (PuntoVenta punto : RepositorioDatos.obtenerPuntosDeVentaDe(marca.nombre)) {
-            contenedor.addView(crearFilaPunto(punto));
+    /** Abre el mapa con el filtro de una cadena. */
+    public static void abrirEnMapa(android.app.Activity origen, String marca) {
+        Intent intento = new Intent(origen, MapaActivity.class);
+        if (marca != null && !marca.isEmpty()) {
+            intento.putExtra(MapaActivity.EXTRA_FILTRO_MARCA, marca);
         }
-    }
-
-    /** Fila "Punto verde + Local / Barrio" dentro del detalle. */
-    private View crearFilaPunto(PuntoVenta punto) {
-        LinearLayout fila = new LinearLayout(this);
-        fila.setOrientation(LinearLayout.HORIZONTAL);
-        fila.setGravity(android.view.Gravity.CENTER_VERTICAL);
-
-        LinearLayout.LayoutParams anchoPunto = new LinearLayout.LayoutParams(dp(8), dp(8));
-        View viñeta = new View(this);
-        viñeta.setBackgroundResource(R.drawable.fondo_punto_verde);
-        fila.addView(viñeta, anchoPunto);
-
-        TextView texto = new TextView(this);
-        texto.setText(punto.local + " / " + punto.barrio);
-        texto.setTextSize(14);
-        texto.setTypeface(android.graphics.Typeface.create(
-                "sans-serif", android.graphics.Typeface.NORMAL));
-        texto.setTextColor(getColor(R.color.texto_principal));
-        LinearLayout.LayoutParams parametros =
-                new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
-                        LinearLayout.LayoutParams.WRAP_CONTENT);
-        parametros.leftMargin = dp(10);
-        parametros.topMargin = dp(6);
-        parametros.bottomMargin = dp(6);
-        fila.addView(texto, parametros);
-        return fila;
-    }
-
-    private int dp(int valor) {
-        return Math.round(valor * getResources().getDisplayMetrics().density);
+        origen.startActivity(intento);
     }
 }

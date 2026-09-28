@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    PANTALLA: Búsqueda global (P10)
-    - Campo de búsqueda + botón Cancelar.
-    - Resultados agrupados: Cafés de Especialidad, Marcas Registradas, Establecimientos.
+    BUSQUEDA GLOBAL (P10)
+    Un solo campo busca en todo el censo y los resultados se agrupan en
+    secciones. Se agrupan porque "cafe" devuelve cafés de origen, marcas
+    y establecimientos a la vez, y cada tipo se ve distinto: mezclarlo
+    en una lista única no ayudaría a elegir.
+
+    Las secciones que no tienen resultados se ocultan, y el bloque de
+    "precios" desaparece de la app: el censo no registró ninguno.
 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -11,112 +16,162 @@
     android:background="@color/fondo_crema"
     android:orientation="vertical">
 
-    <!-- Barra de búsqueda -->
+    <!-- Campo de búsqueda con cancelar -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/fondo_buscador"
+        android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:paddingLeft="14dp"
-        android:paddingRight="10dp">
-
-        <ImageView
-            android:layout_width="18dp"
-            android:layout_height="18dp"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_buscar" />
+        android:paddingHorizontal="16dp"
+        android:paddingTop="16dp">
 
         <EditText
             android:id="@+id/campo_busqueda"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="8dp"
+            android:layout_height="46dp"
             android:layout_weight="1"
-            android:background="@android:color/transparent"
+            android:autofillHints=""
+            android:background="@drawable/fondo_buscador"
+            android:drawableStart="@drawable/ic_buscar"
+            android:drawablePadding="10dp"
             android:hint="@string/buscar_global"
             android:imeOptions="actionSearch"
             android:inputType="text"
             android:maxLines="1"
+            android:paddingHorizontal="14dp"
             android:textColor="@color/texto_principal"
-            android:textColorHint="@color/texto_tenue"
+            android:textColorHint="@color/texto_secundario"
             android:textSize="15sp" />
 
-        <Button
+        <TextView
             android:id="@+id/btn_cancelar"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/nunito_bold"
-            android:paddingHorizontal="8dp"
+            android:layout_marginStart="10dp"
+            android:fontFamily="@font/nunito_sans_medium"
+            android:padding="8dp"
             android:text="@string/buscar_cancelar"
             android:textColor="@color/verde_oscuro"
             android:textSize="15sp" />
     </LinearLayout>
 
-    <!-- Resultados -->
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="12dp"
-        android:fillViewport="true">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingBottom="32dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingBottom="24dp">
+            android:orientation="vertical">
 
-            <!-- Mensaje mientras no hay búsqueda -->
+            <!-- Antes de escribir: qué se puede buscar -->
             <TextView
                 android:id="@+id/texto_vacio_inicial"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/nunito_sans_medium"
+                android:layout_marginTop="48dp"
+                android:fontFamily="@font/nunito_sans_regular"
                 android:gravity="center"
-                android:padding="40dp"
+                android:paddingHorizontal="40dp"
                 android:text="@string/buscar_vacio_inicial"
-                android:textColor="@color/texto_tenue"
-                android:textSize="14sp" />
+                android:textColor="@color/texto_secundario"
+                android:textSize="15sp" />
 
-            <!-- Sección: cafés de especialidad -->
+            <!-- Secciones de resultados -->
             <TextView
                 android:id="@+id/titulo_cafes"
                 style="@style/TituloSeccion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:visibility="gone"
-                tools:text="Cafés de Especialidad (1)" />
+                tools:text="Cafés de especialidad (4)"
+                tools:visibility="visible" />
 
             <LinearLayout
                 android:id="@+id/lista_cafes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:visibility="gone" />
 
-            <!-- Sección: marcas registradas -->
             <TextView
                 android:id="@+id/titulo_marcas"
                 style="@style/TituloSeccion"
-                android:visibility="gone" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                tools:text="Marcas registradas (2)"
+                tools:visibility="visible" />
 
             <LinearLayout
                 android:id="@+id/lista_marcas"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:visibility="gone" />
 
-            <!-- Sección: establecimientos -->
             <TextView
                 android:id="@+id/titulo_establecimientos"
                 style="@style/TituloSeccion"
-                android:visibility="gone" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                tools:text="Establecimientos (5)"
+                tools:visibility="visible" />
 
             <LinearLayout
                 android:id="@+id/lista_establecimientos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/titulo_productores"
+                style="@style/TituloSeccion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/lista_productores"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/titulo_tostaderias"
+                style="@style/TituloSeccion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/lista_tostaderias"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone" />
+
+            <!-- Sin coincidencias -->
+            <TextView
+                android:id="@+id/texto_sin_resultados"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="56dp"
+                android:fontFamily="@font/nunito_extra_bold"
+                android:gravity="center"
+                android:paddingHorizontal="40dp"
+                android:text="@string/buscar_sin_resultados_titulo"
+                android:textColor="@color/texto_principal"
+                android:textSize="18sp"
+                android:visibility="gone"
+                tools:visibility="visible" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </LinearLayout>

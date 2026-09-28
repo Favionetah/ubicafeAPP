@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
     PANTALLA MAPA (P4)
-    - Encabezado: título "Mapa" + ubicación "Achumani, La Paz".
+    - Encabezado: título "Mapa" + cuántos lugares tiene el censo.
+    - Debajo, el estado de la ubicación de la persona, pulsable para
+      pedir el permiso si falta.
     - Filtros pill: Todos, Cafeterías, Tostadurías, Productores, Puntos de venta.
     - Mapa real de OpenStreetMap (osmdroid) con marcadores por tipo.
     - Panel inferior con la información del marcador elegido.
@@ -32,7 +34,17 @@
         <TextView
             android:id="@+id/texto_ubicacion"
             style="@style/SubtituloHeader"
-            android:text="@string/mapa_subtitulo" />
+            tools:text="213 lugares del censo" />
+
+        <TextView
+            android:id="@+id/texto_mi_ubicacion"
+            style="@style/SubtituloHeader"
+            android:clickable="true"
+            android:focusable="true"
+            android:minHeight="32dp"
+            android:paddingTop="6dp"
+            android:textColor="@color/verde_oscuro"
+            tools:text="Ubicación no disponible · toca para activarla" />
     </LinearLayout>
 
     <!-- Filtros -->
@@ -105,39 +117,8 @@
                 android:textSize="15sp"
                 tools:text="Calle 15 de Achumani, La Paz" />
 
-            <LinearLayout
-                android:id="@+id/fila_rating"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="14dp"
-                    android:layout_height="14dp"
-                    android:contentDescription="@null"
-                    android:src="@drawable/ic_star" />
-
-                <TextView
-                    android:id="@+id/texto_marcador_rating"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:fontFamily="@font/nunito_sans_bold"
-                    android:textColor="@color/texto_principal"
-                    android:textSize="20sp"
-                    tools:text="4.9" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="6dp"
-                    android:fontFamily="@font/nunito_sans_medium"
-                    android:textColor="@color/texto_tenue"
-                    android:text="@string/mapa_categoria_rating"
-                    android:textSize="13sp" />
-            </LinearLayout>
+            <!-- No hay fila de rating: el censo no recoge reseñas, y un
+                 "4.9" fijo ahí sería un dato inventado. -->
 
             <Button
                 android:id="@+id/btn_ver_informacion"

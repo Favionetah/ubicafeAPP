@@ -38,7 +38,7 @@
             android:fontFamily="@font/nunito_sans_medium"
             android:textColor="@color/texto_secundario"
             android:textSize="13sp"
-            tools:text="Caranavi · 1.600 m" />
+            tools:text="Caranavi" />
 
         <TextView
             android:id="@+id/texto_notas"
@@ -48,7 +48,7 @@
             android:fontFamily="@font/nunito_sans_regular"
             android:textColor="@color/texto_tenue"
             android:textSize="12sp"
-            tools:text="Notas de Jazmín y Durazno" />
+            tools:text="Café de altura de Bolivia" />
     </LinearLayout>
 
     <ImageView

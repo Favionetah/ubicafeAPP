@@ -1,153 +1,113 @@
 package com.ubicafe.app.ui.cafeterias;
 
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.ubicafe.app.R;
 import com.ubicafe.app.datos.RepositorioDatos;
-import com.ubicafe.app.modelo.Cafeteria;
-import com.ubicafe.app.util.UiUtils;
+import com.ubicafe.app.modelo.Entidad;
+import com.ubicafe.app.modelo.Estadisticas;
+import com.ubicafe.app.modelo.Rol;
+import com.ubicafe.app.ui.comun.AdaptadorEntidad;
+import com.ubicafe.app.ui.comun.ListaBaseActivity;
+import com.ubicafe.app.util.Texto;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
- * LISTA DE CAFETERÍAS (P6).
- * Muestra todas las cafeterías con búsqueda por nombre y filtro por zona.
- * Recibe opcionalmente un macrodistrito (EXTRA_ZONA) desde la pantalla de
- * inicio para abrir con ese filtro preseleccionado.
+ * LISTA DE CAFETERÍAS (P6)
+ * ---------------------------------------------------------------
+ * Los 189 lugares del censo que venden café al público. Muestra también
+ * los que además son tostaduría o marca, porque para quien busca un
+ * lugar donde tomar un café es lo mismo.
+ *
+ * El filtro es por macrodistrito y sus valores salen del propio censo,
+ * no de una lista escrita a mano: así no aparece un chip que no lleva
+ * a ninguna parte.
  */
-public class ListaCafeteriasActivity extends AppCompatActivity {
+public class ListaCafeteriasActivity extends ListaBaseActivity {
 
-    /** Zona/macrodistrito a preseleccionar al abrir (ej. "Sur", "Sopocachi"). */
-    public static final String EXTRA_ZONA = "zona_inicial";
+    /** Alias del nombre que usan otras pantallas para abrir con filtro. */
+    public static final String EXTRA_ZONA = EXTRA_FILTRO;
 
-    // Estado visible para el usuario.
-    private final List<Cafeteria> cafeteriasMostradas = new ArrayList<>();
-    private AdaptadorCafeteria adaptador;
-
-    // Filtros seleccionados actualmente.
-    private String zonaSeleccionada = "";  // "" = todas
-    private final List<TextView> chips = new ArrayList<>();
-
-    // Macrodistritos disponibles ("" = Todas, "Cerca" = sin geolocalización).
-    private final String[] zonas = {"", "Cerca", "Centro", "Cotahuma", "Sur",
-            "Sopocachi", "Miraflores", "San Antonio", "Mallasa"};
+    private AdaptadorEntidad adaptador;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lista_cafeterias);
+    protected String titulo() {
+        return getString(R.string.cafeterias_titulo);
+    }
 
-        ((TextView) findViewById(R.id.texto_titulo)).setText(getString(R.string.cafeterias_titulo));
-        ((TextView) findViewById(R.id.texto_subtitulo))
-                .setText(getString(R.string.cafeterias_subtitulo));
+    @Override
+    protected String subtitulo() {
+        return getString(R.string.cafeterias_subtitulo);
+    }
 
-        // Botón de volver
-        findViewById(R.id.btn_volver).setOnClickListener(v -> finish());
+    @Override
+    protected int placeholderBusqueda() {
+        return R.string.buscar_cafeteria;
+    }
 
-        // Lista
-        adaptador = new AdaptadorCafeteria(cafeteriasMostradas);
-        RecyclerView lista = findViewById(R.id.lista);
-        lista.setLayoutManager(new LinearLayoutManager(this));
-        lista.setAdapter(adaptador);
+    private List<String> macrodistritos = Collections.emptyList();
 
-        // Filtros por zona
-        crearFiltros();
+    @Override
+    protected void onCreate(@Nullable Bundle estado) {
+        // Los macrodistritos se piden antes de llamar a super, porque la
+        // base los necesita para armar los chips durante su propio onCreate.
+        Estadisticas estadisticas = RepositorioDatos.obtenerEstadisticas();
+        if (estadisticas != null) {
+            macrodistritos = estadisticas.macrodistritosOrdenados();
+        }
+        super.onCreate(estado);
+    }
 
-        // Si vino un macrodistrito desde Inicio, preseleccionarlo.
-        String zonaInicial = getIntent().getStringExtra(EXTRA_ZONA);
-        if (zonaInicial != null && !zonaInicial.isEmpty()) {
-            seleccionarZonaInicial(zonaInicial);
+    @Override
+    protected List<String> valoresDeFiltros() {
+        List<String> valores = new ArrayList<>();
+        valores.add("");
+        valores.addAll(macrodistritos);
+        return valores;
+    }
+
+    @Override
+    protected void refrescar() {
+        if (adaptador == null) {
+            adaptador = new AdaptadorEntidad(Collections.<Entidad>emptyList(),
+                    this::abrirDetalle);
+            ui.lista.setLayoutManager(new LinearLayoutManager(this));
+            ui.lista.setAdapter(adaptador);
         }
 
-        aplicarFiltros();
+        String macrodistrito = filtroActual();
+        String consulta = consultaActual();
 
-        // Búsqueda por nombre
-        EditText campoBusqueda = findViewById(R.id.campo_busqueda);
-        campoBusqueda.addTextChangedListener(new TextWatcher() {
-            @Override public void beforeTextChanged(CharSequence s, int a, int b, int c) { }
-            @Override public void afterTextChanged(Editable s) { }
-
-            @Override public void onTextChanged(CharSequence s, int a, int b, int c) {
-                aplicarFiltros();
+        List<Entidad> resultados = new ArrayList<>();
+        for (Entidad lugar : RepositorioDatos.obtenerEntidadesPorRol(Rol.CAFETERIA)) {
+            if (!macrodistrito.isEmpty()
+                    && !Texto.clave(lugar.macrodistrito).equals(Texto.clave(macrodistrito))) {
+                continue;
             }
-        });
-    }
-
-    /** Crea los chips horizontales de macrodistrito. */
-    private void crearFiltros() {
-        LinearLayout fila = findViewById(R.id.fila_filtros);
-        for (int i = 0; i < zonas.length; i++) {
-            String texto = zonas[i].isEmpty() ? getString(R.string.cafeterias_filtro_todas)
-                    : zonas[i];
-            TextView chip = UiUtils.crearChip(fila, texto);
-            final int posicion = i;
-            chip.setOnClickListener(v -> {
-                zonaSeleccionada = zonas[posicion];
-                refrescarChips();
-                aplicarFiltros();
-            });
-            chips.add(chip);
-        }
-        refrescarChips();
-    }
-
-    /** El chip marcado es el de "Todos" salvo que haya otra zona elegida. */
-    private void refrescarChips() {
-        for (int i = 0; i < chips.size(); i++) {
-            boolean seleccionado = zonas[i].equals(zonaSeleccionada);
-            UiUtils.marcarChipSeleccionado(chips.get(i), seleccionado);
-        }
-    }
-
-    /** Preselecciona el macrodistrito recibido desde otra pantalla. */
-    private void seleccionarZonaInicial(String zona) {
-        for (int i = 0; i < zonas.length; i++) {
-            if (zonas[i].equalsIgnoreCase(zona)) {
-                zonaSeleccionada = zonas[i];
-                refrescarChips();
-                return;
+            if (!consulta.isEmpty() && !coincide(lugar, consulta)) {
+                continue;
             }
+            resultados.add(lugar);
         }
-        // Zona sin chip propio: se agrega temporalmente como selección.
-        zonaSeleccionada = zona;
+
+        adaptador.setItems(resultados);
+        mostrarResultados(resultados.size(), !macrodistrito.isEmpty() || !consulta.isEmpty());
     }
 
-    /** Aplica simultáneamente el filtro de zona y el texto del buscador. */
-    private void aplicarFiltros() {
-        // "Cerca" y "Todos" muestran todas las zonas (aún sin geolocalización).
-        String zona = (zonaSeleccionada.isEmpty()
-                || zonaSeleccionada.equals(getString(R.string.cafeterias_filtro_cerca)))
-                ? "" : zonaSeleccionada;
-
-        EditText campo = findViewById(R.id.campo_busqueda);
-        String textoBusqueda = campo.getText().toString().toLowerCase().trim();
-
-        List<Cafeteria> resultado = new ArrayList<>();
-        for (Cafeteria cafeteria : RepositorioDatos.obtenerCafeteriasPorZona(zona)) {
-            if (cafeteria.nombre.toLowerCase().contains(textoBusqueda)) {
-                resultado.add(cafeteria);
-            }
-        }
-        adaptador.actualizar(resultado);
-        mostrarVacio(resultado.isEmpty());
+    private static boolean coincide(Entidad lugar, String consulta) {
+        return Texto.clave(lugar.nombre).contains(consulta)
+                || Texto.clave(lugar.direccion).contains(consulta)
+                || Texto.clave(lugar.macrodistrito).contains(consulta)
+                || Texto.clave(lugar.marcaAsociada).contains(consulta);
     }
 
-    /** Muestra u oculta el mensaje de "sin resultados". */
-    private void mostrarVacio(boolean vacio) {
-        findViewById(R.id.texto_vacio).setVisibility(
-                vacio ? View.VISIBLE : View.GONE);
-        findViewById(R.id.lista).setVisibility(
-                vacio ? View.GONE : View.VISIBLE);
+    private void abrirDetalle(Entidad lugar) {
+        DetalleCafeteriaActivity.abrir(this, lugar);
     }
 }

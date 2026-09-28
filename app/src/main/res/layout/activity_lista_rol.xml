@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    PANTALLA BASE DE LISTADO (P8)
+    Un solo patrón para cafeterías, marcas, tostadurías, productores y
+    otros: cabecera, buscador, fila de filtros y lista.
+
+    Las cinco variantes heredan de ListaEntidadesActivity y solo cambian
+    el título, el subtítulo, el texto del buscador y el tipo de tarjeta.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo_crema"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/barra"
+        layout="@layout/barra_titulo" />
+
+    <EditText
+        android:id="@+id/campo_busqueda"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        android:autofillHints=""
+        android:background="@drawable/fondo_buscador"
+        android:drawableStart="@drawable/ic_buscar"
+        android:drawablePadding="10dp"
+        android:hint="@string/buscar_global"
+        android:imeOptions="actionSearch"
+        android:inputType="text"
+        android:maxLines="1"
+        android:paddingHorizontal="14dp"
+        android:textColor="@color/texto_principal"
+        android:textColorHint="@color/texto_secundario"
+        android:textSize="15sp" />
+
+    <!-- Filtros: los escribe el código según el rol (macrodistritos,
+         regiones, o el país de la marca) -->
+    <HorizontalScrollView
+        android:id="@+id/scroll_filtros"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:scrollbars="none"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <LinearLayout
+            android:id="@+id/fila_filtros"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp" />
+    </HorizontalScrollView>
+
+    <!-- Conteo de resultados, para que el usuario sepa qué está viendo -->
+    <TextView
+        android:id="@+id/texto_conteo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/nunito_sans_medium"
+        android:textColor="@color/texto_tenue"
+        android:textSize="13sp"
+        tools:text="189 lugares" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/lista"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingTop="12dp"
+            android:paddingBottom="24dp"
+            tools:listitem="@layout/item_entidad" />
+
+        <include
+            android:id="@+id/vacio"
+            layout="@layout/estado_vacio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+    </FrameLayout>
+</LinearLayout>

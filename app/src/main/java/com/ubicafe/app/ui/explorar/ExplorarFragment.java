@@ -14,14 +14,24 @@ import androidx.fragment.app.Fragment;
 
 import com.ubicafe.app.R;
 import com.ubicafe.app.datos.RepositorioDatos;
-import com.ubicafe.app.modelo.CafeOrigen;
-import com.ubicafe.app.modelo.Cafeteria;
+import com.ubicafe.app.modelo.CafeVariedad;
 import com.ubicafe.app.ui.origen.FichaOrigenActivity;
 
+import java.util.List;
+import java.util.Map;
+
 /**
- * Pestaña de EXPLORAR (P5).
- * Muestra variedades paceñas, regiones cafeteras y una guía del café.
- * Sin métricas ni cifras (según alcance aprobado).
+ * PESTAÑA DE EXPLORAR (P5)
+ * ---------------------------------------------------------------
+ * Tres bloques, todos sacados del censo:
+ *   1. Las 66 variedades y cafés de origen, agrupados por región.
+ *   2. Las regiones cafetaleras con el número de variedades que el
+ *      censo les atribuye.
+ *   3. Una guía breve de qué es el café de especialidad.
+ *
+ * No hay altitudes ni puntajes: el censo no los preguntó, y esta
+ * pantalla es la que más tempted de inventarlos está, porque "cafetal
+ * de altura" sin cifra parece pobre.
  */
 public class ExplorarFragment extends Fragment {
 
@@ -33,87 +43,111 @@ public class ExplorarFragment extends Fragment {
     }
 
     @Override
-    public void onViewCreated(@NonNull View vista, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(vista, savedInstanceState);
+    public void onViewCreated(@NonNull View vista, @Nullable Bundle estado) {
+        super.onViewCreated(vista, estado);
 
-        rellenarVariedades(vista);
-        rellenarRegiones(vista);
-        rellenarGuia(vista);
+        List<CafeVariedad> variedades = RepositorioDatos.obtenerVariedades();
+        pintarVariedades(vista, variedades);
+        pintarRegiones(vista);
+        pintarGuia(vista);
     }
 
-    /** Variedades paceñas: una fila por cada café de origen → Ficha de Origen. */
-    private void rellenarVariedades(View vista) {
+    /**
+     * Una tarjeta por variedad. Muestra la región y la marca solo si el
+     * censo las registró: 36 de las 66 no tienen región, y escribirlas
+     * de todas sería inventar el dato más visible de la tarjeta.
+     */
+    private void pintarVariedades(View vista, List<CafeVariedad> variedades) {
         LinearLayout contenedor = vista.findViewById(R.id.contenedor_variedades);
-        for (CafeOrigen cafe : RepositorioDatos.obtenerCafesDeOrigen()) {
-            View tarjeta = getLayoutInflater()
-                    .inflate(R.layout.item_cafe_origen, contenedor, false);
+        LayoutInflater inflador = LayoutInflater.from(contenedor.getContext());
 
-            ((TextView) tarjeta.findViewById(R.id.texto_variedad)).setText(cafe.variedad);
-            ((TextView) tarjeta.findViewById(R.id.texto_origen)).setText(
-                    nombreMarcaDe(cafe.variedad) + " · " + cafe.origen);
-            ((TextView) tarjeta.findViewById(R.id.texto_notas)).setText(cafe.aroma);
+        for (CafeVariedad variedad : variedades) {
+            View tarjeta = inflador.inflate(R.layout.item_cafe_origen, contenedor, false);
 
-            tarjeta.setOnClickListener(v -> {
-                Intent intento = new Intent(requireContext(), FichaOrigenActivity.class);
-                intento.putExtra(FichaOrigenActivity.EXTRA_VARIEDAD, cafe.variedad);
-                intento.putExtra(FichaOrigenActivity.EXTRA_NOMBRE_MARCA,
-                        nombreMarcaDe(cafe.variedad));
-                startActivity(intento);
-            });
+            ((TextView) tarjeta.findViewById(R.id.texto_variedad)).setText(variedad.nombre);
+
+            StringBuilder pie = new StringBuilder();
+            if (!variedad.region.isEmpty()) {
+                pie.append(variedad.region);
+            }
+            if (!variedad.marca.isEmpty()) {
+                if (pie.length() > 0) {
+                    pie.append(" · ");
+                }
+                pie.append(variedad.marca);
+            }
+            TextView origen = tarjeta.findViewById(R.id.texto_origen);
+            if (pie.length() == 0) {
+                origen.setVisibility(View.GONE);
+            } else {
+                origen.setText(pie);
+            }
+
+            // El contexto explica por qué aparece: "Cafetería que compra
+            // esta variedad", "Productor que cultiva". Valdrá más que una
+            // nota de cata inventada.
+            TextView notas = tarjeta.findViewById(R.id.texto_notas);
+            if (variedad.contexto.isEmpty()) {
+                notas.setVisibility(View.GONE);
+            } else {
+                notas.setText(variedad.contexto);
+            }
+
+            tarjeta.setOnClickListener(v -> abrir(variedad));
             contenedor.addView(tarjeta);
         }
     }
 
-    /** Regiones cafeteras: filas estáticas de las zonas de cultivo. */
-    private void rellenarRegiones(View vista) {
+    private void abrir(CafeVariedad variedad) {
+        Intent intento = new Intent(requireContext(), FichaOrigenActivity.class);
+        intento.putExtra(FichaOrigenActivity.EXTRA_VARIEDAD, variedad.nombre);
+        if (!variedad.marca.isEmpty()) {
+            intento.putExtra(FichaOrigenActivity.EXTRA_NOMBRE_MARCA, variedad.marca);
+        }
+        startActivity(intento);
+    }
+
+    /**
+     * Las regiones con su conteo real. El filtro de una sola variedad
+     * ya está en el repositorio, que es quien sabe qué grafías del
+     * censo son la misma región.
+     */
+    private void pintarRegiones(View vista) {
         LinearLayout contenedor = vista.findViewById(R.id.contenedor_regiones);
-        String[][] regiones = {
-                {"Caranavi", "Cafetales de altura entre 1.400 y 1.800 m s. n. m."},
-                {"Yungas", "Café de sombra bajo bosque nativo entre 1.200 y 1.500 m."},
-                {"La Paz", "La capital reúne tostadores y cafeterías de especialidad."}
-        };
-        for (String[] region : regiones) {
-            View fila = getLayoutInflater().inflate(R.layout.item_region, contenedor, false);
-            ((TextView) fila.findViewById(R.id.texto_titulo)).setText(region[0]);
-            ((TextView) fila.findViewById(R.id.texto_descripcion)).setText(region[1]);
+        LayoutInflater inflador = LayoutInflater.from(contenedor.getContext());
+
+        for (Map.Entry<String, Integer> region
+                : RepositorioDatos.obtenerRegionesCafetaleras().entrySet()) {
+            View fila = inflador.inflate(R.layout.item_region, contenedor, false);
+            ((TextView) fila.findViewById(R.id.texto_titulo)).setText(region.getKey());
+            int veces = region.getValue();
+            ((TextView) fila.findViewById(R.id.texto_descripcion)).setText(
+                    getResources().getQuantityString(R.plurals.explorar_region_conteo,
+                            veces, veces));
             contenedor.addView(fila);
         }
     }
 
     /** Guía del café: tres tarjetas informativas estáticas. */
-    private void rellenarGuia(View vista) {
+    private void pintarGuia(View vista) {
         LinearLayout contenedor = vista.findViewById(R.id.contenedor_guia);
-        String[] titulos = {
-                getString(R.string.explorar_guia_card1_titulo),
-                getString(R.string.explorar_guia_card2_titulo),
-                getString(R.string.explorar_guia_card3_titulo)
+        LayoutInflater inflador = LayoutInflater.from(contenedor.getContext());
+        int[] titulos = {
+                R.string.explorar_guia_card1_titulo,
+                R.string.explorar_guia_card2_titulo,
+                R.string.explorar_guia_card3_titulo
         };
-        String[] descripciones = {
-                getString(R.string.explorar_guia_card1_txt),
-                getString(R.string.explorar_guia_card2_txt),
-                getString(R.string.explorar_guia_card3_txt)
+        int[] textos = {
+                R.string.explorar_guia_card1_txt,
+                R.string.explorar_guia_card2_txt,
+                R.string.explorar_guia_card3_txt
         };
+
         for (int i = 0; i < titulos.length; i++) {
-            View tarjeta = getLayoutInflater().inflate(R.layout.item_card_info, contenedor, false);
+            View tarjeta = inflador.inflate(R.layout.item_card_info, contenedor, false);
             ((TextView) tarjeta.findViewById(R.id.texto_titulo)).setText(titulos[i]);
-            ((TextView) tarjeta.findViewById(R.id.texto_descripcion)).setText(descripciones[i]);
+            ((TextView) tarjeta.findViewById(R.id.texto_descripcion)).setText(textos[i]);
             contenedor.addView(tarjeta);
         }
-    }
-
-    /** Nombre de la marca que ofrece una variedad (para "TYPICA · Caranavi"). */
-    private String nombreMarcaDe(String variedad) {
-        for (Cafeteria cafeteria : RepositorioDatos.obtenerCafeterias()) {
-            if (cafeteria.marca == null) {
-                continue;
-            }
-            for (CafeOrigen cafe : cafeteria.fichaOrigen) {
-                if (cafeteria.marca != null
-                        && cafe.variedad.equalsIgnoreCase(variedad)) {
-                    return cafeteria.marca;
-                }
-            }
-        }
-        return getString(R.string.categoria_cafeterias);
     }
 }

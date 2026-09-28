@@ -83,6 +83,38 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="fill_horizontal"
                 android:layout_column="1" />
+
+            <include
+                layout="@layout/tarjeta_cifra"
+                android:id="@+id/cifra_cafeterias"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="fill_horizontal"
+                android:layout_column="0" />
+
+            <include
+                layout="@layout/tarjeta_cifra"
+                android:id="@+id/cifra_puntos_venta"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="fill_horizontal"
+                android:layout_column="1" />
+
+            <include
+                layout="@layout/tarjeta_cifra"
+                android:id="@+id/cifra_variedades"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="fill_horizontal"
+                android:layout_column="0" />
+
+            <include
+                layout="@layout/tarjeta_cifra"
+                android:id="@+id/cifra_sucursales"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="fill_horizontal"
+                android:layout_column="1" />
         </GridLayout>
 
         <!-- ============ DISTRIBUCIÓN POR MACRODISTRITO ============ -->
@@ -104,5 +136,24 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical" />
         </androidx.cardview.widget.CardView>
+
+        <!-- ============ NOTA METODOLÓGICA ============ -->
+        <!-- El rango de precios que pedía el diseño original no va: el
+             censo no registró ninguno. En su lugar, la fuente y el año
+             del censo, que sí están registrados. -->
+        <TextView
+            style="@style/TituloSeccion"
+            android:text="@string/ecosistema_nota_titulo" />
+
+        <TextView
+            android:id="@+id/texto_nota_metodologica"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:fontFamily="@font/nunito_sans_regular"
+            android:lineSpacingExtra="3dp"
+            android:textColor="@color/texto_secundario"
+            android:textSize="13sp"
+            tools:text="213 encuestas \u00b7 189 declararon tener cafeter\u00eda \u00b7 70 con datos completos." />
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

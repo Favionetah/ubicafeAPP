@@ -3,8 +3,8 @@
     PANTALLA: Ficha de Origen de un café de especialidad (P9a)
     - Foto hero con la inicial de la variedad.
     - Tarjeta blanca con los campos de la ficha técnica.
-    - Notas sensoriales en chips.
-    - Presentación y precio observado.
+    - Variedades declaradas en chips.
+    - El censo no registró precios: en su lugar va una línea que lo explica.
 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -13,7 +13,9 @@
     android:background="@color/fondo_crema"
     android:orientation="vertical">
 
-    <include layout="@layout/barra_titulo" />
+    <include
+        android:id="@+id/barra"
+        layout="@layout/barra_titulo" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -62,92 +64,38 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical" />
 
-                <!-- Notas sensoriales -->
+                <!-- Variedades declaradas -->
                 <TextView
-                    android:id="@+id/titulo_notas"
+                    android:id="@+id/titulo_variedades"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="14dp"
                     android:fontFamily="@font/nunito_bold"
-                    android:text="@string/ficha_notas_sensoriales"
+                    android:text="@string/ficha_campo_variedad"
                     android:textColor="@color/texto_principal"
                     android:textSize="15sp" />
 
                 <LinearLayout
-                    android:id="@+id/fila_notas"
+                    android:id="@+id/fila_variedades"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:orientation="horizontal" />
 
-                <!-- Presentación / Precio observado -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="18dp"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/nunito_sans_medium"
-                            android:text="@string/ficha_presentacion"
-                            android:textColor="@color/texto_tenue"
-                            android:textSize="12sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
-                            android:fontFamily="@font/nunito_extra_bold"
-                            android:text="@string/ficha_presentacion_valor"
-                            android:textColor="@color/texto_principal"
-                            android:textSize="17sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/nunito_sans_medium"
-                            android:text="@string/ficha_precio_observado"
-                            android:textColor="@color/texto_tenue"
-                            android:textSize="12sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
-                            android:fontFamily="@font/nunito_extra_bold"
-                            android:text="@string/ficha_precio_valor"
-                            android:textColor="@color/verde_oscuro"
-                            android:textSize="17sp" />
-                    </LinearLayout>
-                </LinearLayout>
             </LinearLayout>
 
-            <!-- Pie de precio de referencia -->
+            <!-- Aviso en lugar del precio -->
             <TextView
+                android:id="@+id/texto_sin_precios"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="12dp"
                 android:fontFamily="@font/nunito_sans_regular"
                 android:gravity="center"
-                android:text="@string/ficha_precio_referencia"
+                android:text="@string/detalle_precios_omitidos"
                 android:textColor="@color/texto_tenue"
-                android:textSize="11sp" />
+                android:textSize="12sp" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </LinearLayout>
