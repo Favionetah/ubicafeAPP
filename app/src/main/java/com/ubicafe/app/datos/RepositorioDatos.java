@@ -300,10 +300,10 @@ public final class RepositorioDatos {
         Map<String, Integer> regiones = new LinkedHashMap<>();
         for (Map<String, Integer> grafias : porClave.values()) {
             int total = 0;
-            String masUsada = "";
+            String masUsada = null;
             for (Map.Entry<String, Integer> grafia : grafias.entrySet()) {
                 total += grafia.getValue();
-                if (grafia.getValue() > grafias.get(masUsada)) {
+                if (masUsada == null || grafia.getValue() > grafias.get(masUsada)) {
                     masUsada = grafia.getKey();
                 }
             }
