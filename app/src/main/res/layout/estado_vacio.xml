@@ -27,23 +27,17 @@
 
     <TextView
         android:id="@+id/texto_vacio_titulo"
+        style="@style/TituloVacio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:fontFamily="@font/nunito_extra_bold"
-        android:gravity="center"
-        android:textColor="@color/texto_principal"
-        android:textSize="17sp"
         tools:text="Sin resultados" />
 
     <TextView
         android:id="@+id/texto_vacio_detalle"
+        style="@style/SubtituloVacio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
-        android:fontFamily="@font/nunito_sans_regular"
-        android:gravity="center"
-        android:textColor="@color/texto_secundario"
-        android:textSize="14sp"
         tools:text="Prueba con otro nombre o quita los filtros." />
 </LinearLayout>

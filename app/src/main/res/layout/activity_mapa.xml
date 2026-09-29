@@ -47,20 +47,17 @@
 
                 <TextView
                     android:id="@+id/texto_marcador_titulo"
+                    style="@style/TituloCardInfo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/texto_principal"
-                    android:textSize="17sp"
-                    android:textStyle="bold"
                     tools:text="TYPICA - Achumani" />
 
                 <TextView
                     android:id="@+id/texto_marcador_zona"
+                    style="@style/TextoDetalle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
-                    android:textColor="@color/texto_secundario"
-                    android:textSize="13sp"
                     tools:text="Zona Sur · Toca un marcador en el mapa" />
 
                 <Button

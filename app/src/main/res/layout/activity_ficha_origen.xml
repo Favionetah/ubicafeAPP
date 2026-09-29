@@ -38,12 +38,10 @@
 
                 <TextView
                     android:id="@+id/texto_inicial_hero"
+                    style="@style/HeroFichaOrigen"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:fontFamily="@font/nunito_extra_bold"
-                    android:textColor="#F5F1E4"
-                    android:textSize="72sp"
                     tools:text="G" />
             </FrameLayout>
 
@@ -67,13 +65,11 @@
                 <!-- Variedades declaradas -->
                 <TextView
                     android:id="@+id/titulo_variedades"
+                    style="@style/TituloCampoFicha"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="14dp"
-                    android:fontFamily="@font/nunito_bold"
-                    android:text="@string/ficha_campo_variedad"
-                    android:textColor="@color/texto_principal"
-                    android:textSize="15sp" />
+                    android:text="@string/ficha_campo_variedad" />
 
                 <LinearLayout
                     android:id="@+id/fila_variedades"
@@ -87,15 +83,13 @@
             <!-- Aviso en lugar del precio -->
             <TextView
                 android:id="@+id/texto_sin_precios"
+                style="@style/TextoNotaTenue"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="12dp"
-                android:fontFamily="@font/nunito_sans_regular"
                 android:gravity="center"
-                android:text="@string/detalle_precios_omitidos"
-                android:textColor="@color/texto_tenue"
-                android:textSize="12sp" />
+                android:text="@string/detalle_precios_omitidos" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </LinearLayout>

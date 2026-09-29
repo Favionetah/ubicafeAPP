@@ -70,10 +70,9 @@
 
                     <TextView
                         android:id="@+id/texto_roles"
+                        style="@style/EtiquetaRol"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/nunito_sans_medium"
-                        android:textColor="@color/cafe_accent"
                         android:textSize="14sp"
                         tools:text="Cafetería · Tostaduría" />
                 </LinearLayout>
@@ -107,15 +106,13 @@
             <!-- Aviso del censo sobre la posición del lugar -->
             <TextView
                 android:id="@+id/texto_aviso_ubicacion"
+                style="@style/AvisoDelCenso"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/fondo_aviso"
                 android:drawablePadding="10dp"
-                android:fontFamily="@font/nunito_sans_medium"
                 android:padding="14dp"
-                android:textColor="@color/texto_secundario"
-                android:textSize="13sp"
                 android:visibility="gone"
                 app:drawableStartCompat="@drawable/ic_ubicacion"
                 tools:text="Aviso del censo: la coordenada fue aproximada por quien respondió."
@@ -139,22 +136,19 @@
             <!-- El censo no registró precios: se explica en vez de callar -->
             <TextView
                 android:id="@+id/texto_sin_precios"
+                style="@style/TextoNotaTenue"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:fontFamily="@font/nunito_sans_regular"
                 android:text="@string/detalle_precios_omitidos"
-                android:textColor="@color/texto_tenue"
                 android:textSize="13sp" />
 
             <TextView
                 android:id="@+id/texto_registro"
+                style="@style/TextoNotaTenue"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:fontFamily="@font/nunito_sans_regular"
-                android:textColor="@color/texto_tenue"
-                android:textSize="12sp"
                 tools:text="Registrado en el censo 2026" />
 
             <!-- Acciones -->

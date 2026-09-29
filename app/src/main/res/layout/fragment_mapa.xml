@@ -90,31 +90,25 @@
 
             <TextView
                 android:id="@+id/texto_marcador_nombre"
+                style="@style/TituloMarcador"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/nunito_bold"
-                android:textColor="@color/texto_principal"
-                android:textSize="20sp"
                 tools:text="TYPICA - Achumani" />
 
             <TextView
                 android:id="@+id/texto_marcador_tipo"
+                style="@style/TextoDetalle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
-                android:fontFamily="@font/nunito_sans_medium"
-                android:textColor="@color/texto_secundario"
-                android:textSize="13sp"
                 tools:text="Cafetería de Especialidad · Tostaduría" />
 
             <TextView
                 android:id="@+id/texto_marcador_direccion"
+                style="@style/TextoMarcadorDireccion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
-                android:fontFamily="@font/nunito_sans_medium"
-                android:textColor="@color/texto_principal"
-                android:textSize="15sp"
                 tools:text="Calle 15 de Achumani, La Paz" />
 
             <!-- No hay fila de rating: el censo no recoge reseñas, y un

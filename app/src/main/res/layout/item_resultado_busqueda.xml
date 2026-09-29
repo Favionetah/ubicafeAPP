@@ -11,25 +11,21 @@
 
     <TextView
         android:id="@+id/texto_nombre"
+        style="@style/NombreResultado"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ellipsize="end"
-        android:fontFamily="@font/nunito_extra_bold"
         android:maxLines="1"
-        android:textColor="@color/texto_principal"
-        android:textSize="15sp"
         tools:text="TYPICA - Achumani" />
 
     <TextView
         android:id="@+id/texto_subtitulo"
+        style="@style/TextoDetalle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
         android:ellipsize="end"
-        android:fontFamily="@font/nunito_sans_medium"
         android:maxLines="2"
-        android:textColor="@color/texto_secundario"
-        android:textSize="13sp"
         tools:text="Av. Costanera, Achumani · Cafetería" />
 
     <View

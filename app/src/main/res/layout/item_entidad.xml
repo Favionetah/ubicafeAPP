@@ -62,13 +62,11 @@
 
                 <TextView
                     android:id="@+id/texto_roles"
+                    style="@style/EtiquetaRol"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
-                    android:fontFamily="@font/nunito_sans_medium"
                     android:maxLines="1"
-                    android:textColor="@color/cafe_accent"
-                    android:textSize="13sp"
                     tools:text="Cafetería · Marca de café" />
             </LinearLayout>
 
@@ -107,15 +105,13 @@
 
             <TextView
                 android:id="@+id/texto_pie"
+                style="@style/TextoDetalle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
                 android:layout_weight="1"
                 android:ellipsize="end"
-                android:fontFamily="@font/nunito_sans_medium"
                 android:maxLines="1"
-                android:textColor="@color/texto_secundario"
-                android:textSize="13sp"
                 tools:text="A 450 m de ti" />
         </LinearLayout>
     </LinearLayout>

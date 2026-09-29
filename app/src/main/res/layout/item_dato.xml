@@ -13,22 +13,18 @@
 
     <TextView
         android:id="@+id/texto_etiqueta"
+        style="@style/EtiquetaDato"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="0.42"
-        android:fontFamily="@font/nunito_sans_medium"
-        android:textColor="@color/texto_secundario"
-        android:textSize="14sp"
         tools:text="Dirección" />
 
     <TextView
         android:id="@+id/texto_valor"
+        style="@style/ValorDato"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:layout_weight="0.58"
-        android:fontFamily="@font/nunito_sans_medium"
-        android:textColor="@color/texto_principal"
-        android:textSize="14sp"
         tools:text="Calle 21 de Calacoto" />
 </LinearLayout>

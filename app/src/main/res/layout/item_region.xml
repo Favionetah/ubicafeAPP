@@ -27,21 +27,17 @@
 
         <TextView
             android:id="@+id/texto_titulo"
+            style="@style/TituloRegion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/nunito_sans_bold"
-            android:textColor="@color/texto_principal"
-            android:textSize="15sp"
             tools:text="Caranavi" />
 
         <TextView
             android:id="@+id/texto_descripcion"
+            style="@style/TextoDescripcion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
-            android:fontFamily="@font/nunito_sans_regular"
-            android:textColor="@color/texto_secundario"
-            android:textSize="13sp"
             tools:text="Región cafetalera de Bolivia" />
     </LinearLayout>
 </LinearLayout>

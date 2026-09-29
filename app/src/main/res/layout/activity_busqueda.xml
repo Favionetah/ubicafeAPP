@@ -27,6 +27,7 @@
 
         <EditText
             android:id="@+id/campo_busqueda"
+            style="@style/CampoBusqueda"
             android:layout_width="0dp"
             android:layout_height="46dp"
             android:layout_weight="1"
@@ -38,21 +39,16 @@
             android:imeOptions="actionSearch"
             android:inputType="text"
             android:maxLines="1"
-            android:paddingHorizontal="14dp"
-            android:textColor="@color/texto_principal"
-            android:textColorHint="@color/texto_secundario"
-            android:textSize="15sp" />
+            android:paddingHorizontal="14dp" />
 
         <TextView
             android:id="@+id/btn_cancelar"
+            style="@style/BotonEnlaceVerde"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:fontFamily="@font/nunito_sans_medium"
             android:padding="8dp"
-            android:text="@string/buscar_cancelar"
-            android:textColor="@color/verde_oscuro"
-            android:textSize="15sp" />
+            android:text="@string/buscar_cancelar" />
     </LinearLayout>
 
     <androidx.core.widget.NestedScrollView
@@ -70,15 +66,12 @@
             <!-- Antes de escribir: qué se puede buscar -->
             <TextView
                 android:id="@+id/texto_vacio_inicial"
+                style="@style/TextoVacioBusqueda"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="48dp"
-                android:fontFamily="@font/nunito_sans_regular"
-                android:gravity="center"
                 android:paddingHorizontal="40dp"
-                android:text="@string/buscar_vacio_inicial"
-                android:textColor="@color/texto_secundario"
-                android:textSize="15sp" />
+                android:text="@string/buscar_vacio_inicial" />
 
             <!-- Secciones de resultados -->
             <TextView
@@ -161,15 +154,12 @@
             <!-- Sin coincidencias -->
             <TextView
                 android:id="@+id/texto_sin_resultados"
+                style="@style/TituloSinResultados"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="56dp"
-                android:fontFamily="@font/nunito_extra_bold"
-                android:gravity="center"
                 android:paddingHorizontal="40dp"
                 android:text="@string/buscar_sin_resultados_titulo"
-                android:textColor="@color/texto_principal"
-                android:textSize="18sp"
                 android:visibility="gone"
                 tools:visibility="visible" />
         </LinearLayout>

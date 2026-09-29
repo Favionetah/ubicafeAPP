@@ -129,4 +129,312 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
     </style>
+
+    <!-- ===================== TEXTOS GENERALES ===================== -->
+    <!-- Saludo y textos tenues pequeños (Nunito Sans 500 13sp) -->
+    <style name="TextoSaludo">
+        <item name="android:fontFamily">@font/nunito_sans_medium</item>
+        <item name="android:textColor">@color/texto_tenue</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <!-- Título grande de pantalla (Nunito 800 28sp verde) -->
+    <style name="TituloPantallaGrande">
+        <item name="android:fontFamily">@font/nunito_extra_bold</item>
+        <item name="android:textColor">@color/verde_oscuro</item>
+        <item name="android:textSize">28sp</item>
+    </style>
+
+    <!-- Título del aviso/estado vacío (Nunito 800 17sp centrado) -->
+    <style name="TituloVacio">
+        <item name="android:fontFamily">@font/nunito_extra_bold</item>
+        <item name="android:textColor">@color/texto_principal</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!-- Detalle de estado vacío (Nunito Sans 500 14sp centrado) -->
+    <style name="SubtituloVacio">
+        <item name="android:fontFamily">@font/nunito_sans_regular</item>
+        <item name="android:textColor">@color/texto_secundario</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!-- Descripción (Nunito Sans 500 13sp gris) -->
+    <style name="TextoDescripcion">
+        <item name="android:fontFamily">@font/nunito_sans_regular</item>
+        <item name="android:textColor">@color/texto_secundario</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <!-- Nota secundaria tenue (Nunito Sans 500 12sp) -->
+    <style name="TextoNotaTenue">
+        <item name="android:fontFamily">@font/nunito_sans_regular</item>
+        <item name="android:textColor">@color/texto_tenue</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <!-- Detalle de tarjetas de lista (Nunito Sans 500 13sp gris) -->
+    <style name="TextoDetalle">
+        <item name="android:fontFamily">@font/nunito_sans_medium</item>
+        <item name="android:textColor">@color/texto_secundario</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <!-- Rol/secundario en café (Nunito Sans 500 13sp) -->
+    <style name="EtiquetaRol">
+        <item name="android:fontFamily">@font/nunito_sans_medium</item>
+        <item name="android:textColor">@color/cafe_accent</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <!-- Etiqueta de establecimiento en mayúsculas (Nunito Sans 500 11sp café) -->
+    <style name="EtiquetaEstablecimiento">
+        <item name="android:fontFamily">@font/nunito_sans_medium</item>
+        <item name="android:textColor">@color/cafe_accent</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:letterSpacing">0.06</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <!-- ===================== LISTAS (ITEMS) ===================== -->
+    <!-- Nombre de variedad destacado en verde (Nunito 800 17sp) -->
+    <style name="NombreVariedad">
+        <item name="android:fontFamily">@font/nunito_extra_bold</item>
+        <item name="android:textColor">@color/verde_oscuro</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+
+    <!-- Etiqueta de una fila "etiqueta: valor" (Nunito Sans 500 14sp) -->
+    <style name="EtiquetaDato">
+        <item name="android:fontFamily">@font/nunito_sans_medium</item>
+        <item name="android:textColor">@color/texto_secundario</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <!-- Valor de una fila "etiqueta: valor" (Nunito Sans 500 14sp) -->
+    <style name="ValorDato">
+        <item name="android:fontFamily">@font/nunito_sans_medium</item>
+        <item name="android:textColor">@color/texto_principal</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <!-- Etiqueta pequeña de un par informativo (Nunito Sans 500 12sp) -->
+    <style name="EtiquetaParInfo">
+        <item name="android:fontFamily">@font/nunito_sans_medium</item>
+        <item name="android:textColor">@color/texto_tenue</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <!-- Valor de un par informativo (Nunito 700 16sp) -->
+    <style name="ValorParInfo">
+        <item name="android:fontFamily">@font/nunito_bold</item>
+        <item name="android:textColor">@color/texto_principal</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <!-- Título de tarjeta informativa (Nunito 700 17sp) -->
+    <style name="TituloCardInfo">
+        <item name="android:fontFamily">@font/nunito_bold</item>
+        <item name="android:textColor">@color/texto_principal</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+
+    <!-- Título de región (Nunito Sans 600 15sp) -->
+    <style name="TituloRegion">
+        <item name="android:fontFamily">@font/nunito_sans_bold</item>
+        <item name="android:textColor">@color/texto_principal</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <!-- Nombre marcado del marcador del mapa (Nunito 700 20sp) -->
+    <style name="TituloMarcador">
+        <item name="android:fontFamily">@font/nunito_bold</item>
+        <item name="android:textColor">@color/texto_principal</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <!-- Dirección del marcador del mapa (Nunito Sans 500 15sp) -->
+    <style name="TextoMarcadorDireccion">
+        <item name="android:fontFamily">@font/nunito_sans_medium</item>
+        <item name="android:textColor">@color/texto_principal</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <!-- Nombre de resultado de búsqueda (Nunito 800 15sp) -->
+    <style name="NombreResultado">
+        <item name="android:fontFamily">@font/nunito_extra_bold</item>
+        <item name="android:textColor">@color/texto_principal</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <!-- Inicial de marca (letra sobre círculo, sin fuente fija) -->
+    <style name="InicialMarca">
+        <item name="android:textColor">@color/fondo_blanco</item>
+        <item name="android:gravity">center</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <!-- ===================== SPLASH / ONBOARDING / HEROES ===================== -->
+    <!-- Logo de la app (Nunito 800 32sp verde) -->
+    <style name="TituloLogo">
+        <item name="android:fontFamily">@font/nunito_extra_bold</item>
+        <item name="android:textColor">@color/verde_oscuro</item>
+        <item name="android:textSize">32sp</item>
+    </style>
+
+    <!-- Eslogan del splash (Nunito Sans 500 17sp) -->
+    <style name="EsloganSplash">
+        <item name="android:fontFamily">@font/nunito_sans_medium</item>
+        <item name="android:textColor">@color/texto_secundario</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+
+    <!-- Botón "Omitir" (Nunito Sans 600 15sp) -->
+    <style name="TextoOmitir">
+        <item name="android:fontFamily">@font/nunito_sans_semi_bold</item>
+        <item name="android:textColor">@color/texto_tenue</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <!-- Descripción de diapositiva de onboarding (Nunito Sans 500 16sp) -->
+    <style name="DescripcionOnboarding">
+        <item name="android:fontFamily">@font/nunito_sans_regular</item>
+        <item name="android:textColor">@color/texto_secundario</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!-- Letra hero de la ficha de origen (Nunito 800 72sp) -->
+    <style name="HeroFichaOrigen">
+        <item name="android:fontFamily">@font/nunito_extra_bold</item>
+        <item name="android:textColor">#F5F1E4</item>
+        <item name="android:textSize">72sp</item>
+    </style>
+
+    <!-- Título de campo dentro de una ficha (Nunito 700 15sp) -->
+    <style name="TituloCampoFicha">
+        <item name="android:fontFamily">@font/nunito_bold</item>
+        <item name="android:textColor">@color/texto_principal</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <!-- ===================== CAMPOS Y AVISOS ===================== -->
+    <!-- Campo de búsqueda (texto e hint) -->
+    <style name="CampoBusqueda">
+        <item name="android:textColor">@color/texto_principal</item>
+        <item name="android:textColorHint">@color/texto_secundario</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <!-- Enlace de texto en verde (Nunito Sans 500 15sp) -->
+    <style name="BotonEnlaceVerde">
+        <item name="android:fontFamily">@font/nunito_sans_medium</item>
+        <item name="android:textColor">@color/verde_oscuro</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <!-- Aviso del censo (Nunito Sans 500 13sp) -->
+    <style name="AvisoDelCenso">
+        <item name="android:fontFamily">@font/nunito_sans_medium</item>
+        <item name="android:textColor">@color/texto_secundario</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <!-- ===================== ECOSISTEMA ===================== -->
+    <!-- Título del encabezado del ecosistema (26sp sobre verde) -->
+    <style name="TituloEcosistema">
+        <item name="android:textColor">@color/texto_sobre_verde</item>
+        <item name="android:textSize">26sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Subtítulo del encabezado del ecosistema (14sp caramelo) -->
+    <style name="SubtituloEcosistema">
+        <item name="android:textColor">@color/caramelo_claro</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <!-- Número grande de una cifra (34sp bold) -->
+    <style name="CifraNumero">
+        <item name="android:textColor">@color/texto_principal</item>
+        <item name="android:textSize">34sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Etiqueta de una cifra (13sp centrado) -->
+    <style name="CifraEtiqueta">
+        <item name="android:textColor">@color/texto_secundario</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!-- Título del banner de productores (Nunito 800 20sp blanco) -->
+    <style name="TituloBannerProductores">
+        <item name="android:fontFamily">@font/nunito_extra_bold</item>
+        <item name="android:textColor">@color/fondo_blanco</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <!-- Descripción del banner de productores (Nunito Sans 500 14sp crema) -->
+    <style name="TextoBannerProductores">
+        <item name="android:fontFamily">@font/nunito_sans_regular</item>
+        <item name="android:textColor">#E8E4D8</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:lineSpacingExtra">2dp</item>
+    </style>
+
+    <!-- Título del bloque de resumen "El censo en cifras" (Nunito 800 16sp) -->
+    <style name="TituloResumen">
+        <item name="android:fontFamily">@font/nunito_extra_bold</item>
+        <item name="android:textColor">@color/texto_principal</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <!-- Texto de ayuda inicial de la búsqueda (Nunito Sans 500 15sp centrado) -->
+    <style name="TextoVacioBusqueda">
+        <item name="android:fontFamily">@font/nunito_sans_regular</item>
+        <item name="android:textColor">@color/texto_secundario</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!-- Título "sin resultados" de la búsqueda (Nunito 800 18sp centrado) -->
+    <style name="TituloSinResultados">
+        <item name="android:fontFamily">@font/nunito_extra_bold</item>
+        <item name="android:textColor">@color/texto_principal</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!-- Nombre de macrodistrito en la distribución (bold 15sp) -->
+    <style name="NombreMacrodistrito">
+        <item name="android:textColor">@color/texto_principal</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Conteo junto al nombre de macrodistrito (13sp gris) -->
+    <style name="TextoConteoMacrodistrito">
+        <item name="android:textColor">@color/texto_secundario</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <!-- ===================== PANTAALLA FANTASMA ===================== -->
+    <!-- Título de bloque de la pantalla fantasma (bold 15sp centrado) -->
+    <style name="TituloContenidoGhost">
+        <item name="android:fontFamily">@font/nunito_bold</item>
+        <item name="android:textColor">@color/texto_principal</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!-- Nombre de estudiante de la pantalla fantasma (bold 16sp centrado) -->
+    <style name="NombreEstudianteGhost">
+        <item name="android:fontFamily">@font/nunito_bold</item>
+        <item name="android:textColor">@color/texto_principal</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:gravity">center</item>
+    </style>
 </resources>

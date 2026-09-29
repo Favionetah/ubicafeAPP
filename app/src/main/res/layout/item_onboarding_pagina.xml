@@ -31,24 +31,19 @@
     <!-- Título -->
     <TextView
         android:id="@+id/texto_titulo"
+        style="@style/TituloPantallaGrande"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:fontFamily="@font/nunito_extra_bold"
         android:gravity="center"
-        android:lineSpacingExtra="2dp"
-        android:textColor="@color/verde_oscuro"
-        android:textSize="28sp" />
+        android:lineSpacingExtra="2dp" />
 
     <!-- Descripción -->
     <TextView
         android:id="@+id/texto_descripcion"
+        style="@style/DescripcionOnboarding"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:fontFamily="@font/nunito_sans_regular"
-        android:gravity="center"
-        android:lineSpacingExtra="4dp"
-        android:textColor="@color/texto_secundario"
-        android:textSize="16sp" />
+        android:lineSpacingExtra="4dp" />
 </LinearLayout>

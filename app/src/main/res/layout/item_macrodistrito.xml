@@ -15,20 +15,17 @@
 
         <TextView
             android:id="@+id/texto_nombre"
+            style="@style/NombreMacrodistrito"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textColor="@color/texto_principal"
-            android:textSize="15sp"
-            android:textStyle="bold"
             tools:text="Sur" />
 
         <TextView
             android:id="@+id/texto_conteo"
+            style="@style/TextoConteoMacrodistrito"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/texto_secundario"
-            android:textSize="13sp"
             tools:text="21 cafés" />
     </LinearLayout>
 

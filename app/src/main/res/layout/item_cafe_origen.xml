@@ -23,31 +23,25 @@
 
         <TextView
             android:id="@+id/texto_variedad"
+            style="@style/NombreVariedad"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/nunito_extra_bold"
-            android:textColor="@color/verde_oscuro"
-            android:textSize="17sp"
             tools:text="GEISHA" />
 
         <TextView
             android:id="@+id/texto_origen"
+            style="@style/TextoDetalle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
-            android:fontFamily="@font/nunito_sans_medium"
-            android:textColor="@color/texto_secundario"
-            android:textSize="13sp"
             tools:text="Caranavi" />
 
         <TextView
             android:id="@+id/texto_notas"
+            style="@style/TextoNotaTenue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
-            android:fontFamily="@font/nunito_sans_regular"
-            android:textColor="@color/texto_tenue"
-            android:textSize="12sp"
             tools:text="Café de altura de Bolivia" />
     </LinearLayout>
 

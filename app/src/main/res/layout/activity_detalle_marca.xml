@@ -38,12 +38,10 @@
 
                 <TextView
                     android:id="@+id/texto_inicial"
+                    style="@style/InicialMarca"
                     android:layout_width="56dp"
                     android:layout_height="56dp"
                     android:background="@drawable/fondo_circulo_icono"
-                    android:gravity="center"
-                    android:includeFontPadding="false"
-                    android:textColor="@color/fondo_blanco"
                     android:textSize="26sp"
                     tools:text="T" />
 
@@ -63,14 +61,12 @@
 
             <TextView
                 android:id="@+id/texto_nota"
+                style="@style/AvisoDelCenso"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"
                 android:background="@drawable/fondo_aviso"
-                android:fontFamily="@font/nunito_sans_medium"
                 android:padding="14dp"
-                android:textColor="@color/texto_secundario"
-                android:textSize="13sp"
                 android:visibility="gone"
                 tools:text="Cadena boliviana con 11 locales registrados."
                 tools:visibility="visible" />
@@ -115,12 +111,10 @@
 
             <TextView
                 android:id="@+id/texto_registro"
+                style="@style/TextoNotaTenue"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:fontFamily="@font/nunito_sans_regular"
-                android:textColor="@color/texto_tenue"
-                android:textSize="12sp"
                 tools:text="Registrado en el censo 2026" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

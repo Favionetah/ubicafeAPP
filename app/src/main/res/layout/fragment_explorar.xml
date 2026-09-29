@@ -57,12 +57,10 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            style="@style/TextoDescripcion"
             android:layout_marginHorizontal="20dp"
             android:layout_marginBottom="8dp"
-            android:fontFamily="@font/nunito_sans_regular"
-            android:text="@string/explorar_regiones_descripcion"
-            android:textColor="@color/texto_secundario"
-            android:textSize="14sp" />
+            android:text="@string/explorar_regiones_descripcion" />
 
         <LinearLayout
             android:id="@+id/contenedor_regiones"

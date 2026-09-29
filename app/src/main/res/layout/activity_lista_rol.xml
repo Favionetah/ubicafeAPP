@@ -20,6 +20,7 @@
 
     <EditText
         android:id="@+id/campo_busqueda"
+        style="@style/CampoBusqueda"
         android:layout_width="match_parent"
         android:layout_height="46dp"
         android:layout_marginHorizontal="20dp"
@@ -32,10 +33,7 @@
         android:imeOptions="actionSearch"
         android:inputType="text"
         android:maxLines="1"
-        android:paddingHorizontal="14dp"
-        android:textColor="@color/texto_principal"
-        android:textColorHint="@color/texto_secundario"
-        android:textSize="15sp" />
+        android:paddingHorizontal="14dp" />
 
     <!-- Filtros: los escribe el código según el rol (macrodistritos,
          regiones, o el país de la marca) -->
@@ -60,13 +58,11 @@
     <!-- Conteo de resultados, para que el usuario sepa qué está viendo -->
     <TextView
         android:id="@+id/texto_conteo"
+        style="@style/TextoSaludo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="12dp"
-        android:fontFamily="@font/nunito_sans_medium"
-        android:textColor="@color/texto_tenue"
-        android:textSize="13sp"
         tools:text="189 lugares" />
 
     <FrameLayout

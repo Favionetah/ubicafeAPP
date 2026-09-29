@@ -51,14 +51,11 @@
 
             <TextView
                 android:id="@+id/texto_materia"
+                style="@style/TituloContenidoGhost"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:fontFamily="@font/nunito_bold"
-                android:gravity="center"
                 android:text="@string/ghost_materia"
-                android:textColor="@color/texto_principal"
-                android:textSize="15sp"
                 tools:text="Aplicaciones Moviles I" />
 
             <TextView
@@ -80,25 +77,19 @@
 
             <TextView
                 android:id="@+id/texto_estudiante1"
+                style="@style/NombreEstudianteGhost"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/nunito_bold"
-                android:gravity="center"
                 android:text="@string/ghost_estupid1"
-                android:textColor="@color/texto_principal"
-                android:textSize="16sp"
                 tools:text="Martin Diego Tejeda Gutierrez" />
 
             <TextView
                 android:id="@+id/texto_estudiante2"
+                style="@style/NombreEstudianteGhost"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
-                android:fontFamily="@font/nunito_bold"
-                android:gravity="center"
                 android:text="@string/ghost_estupid2"
-                android:textColor="@color/texto_principal"
-                android:textSize="16sp"
                 tools:text="Favio Estefano Sandy Gonzales" />
         </LinearLayout>
     </ScrollView>

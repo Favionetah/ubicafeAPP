@@ -37,13 +37,11 @@
 
         <TextView
             android:id="@+id/btn_omitir"
+            style="@style/TextoOmitir"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/nunito_sans_semi_bold"
             android:padding="8dp"
-            android:text="@string/onboarding_omitir"
-            android:textColor="@color/texto_tenue"
-            android:textSize="15sp" />
+            android:text="@string/onboarding_omitir" />
 
         <Button
             android:id="@+id/btn_avanzar"

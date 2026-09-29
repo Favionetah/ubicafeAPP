@@ -25,22 +25,18 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            style="@style/TextoSaludo"
             android:layout_marginHorizontal="20dp"
-            android:fontFamily="@font/nunito_sans_medium"
-            android:text="@string/inicio_saludo"
-            android:textColor="@color/texto_tenue"
-            android:textSize="13sp" />
+            android:text="@string/inicio_saludo" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            style="@style/TituloPantallaGrande"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="2dp"
-            android:fontFamily="@font/nunito_extra_bold"
             android:lineSpacingExtra="2dp"
-            android:text="@string/inicio_titulo"
-            android:textColor="@color/verde_oscuro"
-            android:textSize="28sp" />
+            android:text="@string/inicio_titulo" />
 
         <!-- ============ 2. BUSCADOR ============ -->
         <LinearLayout
@@ -65,10 +61,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
+                style="@style/CampoBusqueda"
                 android:fontFamily="@font/nunito_sans_medium"
                 android:text="@string/inicio_buscar_placeholder"
-                android:textColor="@color/texto_tenue"
-                android:textSize="15sp" />
+                android:textColor="@color/texto_tenue" />
         </LinearLayout>
 
         <!-- ============ 3. EXPLORA POR CATEGORÍA ============ -->
@@ -143,11 +139,9 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/nunito_sans_semi_bold"
-                android:text="@string/categoria_puntos_venta"
-                android:textColor="@color/texto_principal"
-                android:textSize="15sp" />
+                style="@style/TextoNombreCategoria"
+                android:layout_marginStart="0dp"
+                android:text="@string/categoria_puntos_venta" />
 
             <ImageView
                 android:layout_width="18dp"
@@ -185,21 +179,17 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/texto_nombre_cerca"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/nunito_extra_bold"
-                        android:textColor="@color/verde_oscuro"
-                        android:textSize="24sp" />
+                    android:id="@+id/texto_nombre_cerca"
+                    style="@style/TituloHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
-                    <TextView
-                        android:id="@+id/texto_tipo_cerca"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:fontFamily="@font/nunito_sans_medium"
-                        android:textColor="@color/texto_secundario"
-                        android:textSize="13sp" />
+                <TextView
+                    android:id="@+id/texto_tipo_cerca"
+                    style="@style/TextoDetalle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp" />
                 </LinearLayout>
 
                 <TextView
@@ -223,12 +213,10 @@
 
                 <TextView
                     android:id="@+id/texto_distancia"
+                    style="@style/TextoDetalle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:fontFamily="@font/nunito_sans_medium"
-                    android:textColor="@color/texto_secundario"
-                    android:textSize="13sp" />
+                    android:layout_marginStart="4dp" />
 
             </LinearLayout>
 
@@ -281,10 +269,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:fontFamily="@font/nunito_extra_bold"
-                    android:text="@string/productores_banner_titulo"
-                    android:textColor="@color/fondo_blanco"
-                    android:textSize="20sp" />
+                    style="@style/TituloBannerProductores"
+                    android:text="@string/productores_banner_titulo" />
 
                 <ImageView
                     android:layout_width="22dp"
@@ -296,12 +282,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                style="@style/TextoBannerProductores"
                 android:layout_marginTop="6dp"
-                android:fontFamily="@font/nunito_sans_regular"
-                android:lineSpacingExtra="2dp"
-                android:text="@string/productores_banner_descripcion"
-                android:textColor="#E8E4D8"
-                android:textSize="14sp" />
+                android:text="@string/productores_banner_descripcion" />
         </LinearLayout>
 
         <!-- ============ CIFRAS REALES DEL CENSO ============ -->
@@ -318,19 +301,16 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/nunito_extra_bold"
-                android:text="@string/inicio_resumen_titulo"
-                android:textColor="@color/texto_principal"
-                android:textSize="16sp" />
+                style="@style/TituloResumen"
+                android:text="@string/inicio_resumen_titulo" />
 
             <TextView
                 android:id="@+id/texto_resumen"
+                style="@style/TextoDescripcion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
-                android:fontFamily="@font/nunito_sans_regular"
                 android:lineSpacingExtra="4dp"
-                android:textColor="@color/texto_secundario"
                 android:textSize="14sp" />
         </LinearLayout>
     </LinearLayout>

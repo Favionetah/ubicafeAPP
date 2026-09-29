@@ -29,20 +29,16 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/TituloLogo"
             android:layout_marginTop="22dp"
-            android:fontFamily="@font/nunito_extra_bold"
-            android:text="@string/app_nombre_largo"
-            android:textColor="@color/verde_oscuro"
-            android:textSize="32sp" />
+            android:text="@string/app_nombre_largo" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/EsloganSplash"
             android:layout_marginTop="8dp"
-            android:fontFamily="@font/nunito_sans_medium"
-            android:text="@string/app_eslogan"
-            android:textColor="@color/texto_secundario"
-            android:textSize="17sp" />
+            android:text="@string/app_eslogan" />
     </LinearLayout>
 
     <!-- Pie: ubicación -->
@@ -64,10 +60,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/TextoSaludo"
             android:layout_marginStart="6dp"
-            android:fontFamily="@font/nunito_sans_medium"
-            android:text="@string/app_ubicacion"
-            android:textColor="@color/texto_tenue"
-            android:textSize="13sp" />
+            android:text="@string/app_ubicacion" />
     </LinearLayout>
 </LinearLayout>

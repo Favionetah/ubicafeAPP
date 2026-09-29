@@ -12,21 +12,17 @@
 
     <TextView
         android:id="@+id/texto_titulo"
+        style="@style/TituloCardInfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/nunito_bold"
-        android:textColor="@color/texto_principal"
-        android:textSize="17sp"
         tools:text="¿Qué es el café de especialidad?" />
 
     <TextView
         android:id="@+id/texto_descripcion"
+        style="@style/TextoDescripcion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:fontFamily="@font/nunito_sans_regular"
         android:lineSpacingExtra="3dp"
-        android:textColor="@color/texto_secundario"
-        android:textSize="13sp"
         tools:text="Cafés con puntaje superior a 80 puntos en la escala SCA." />
 </LinearLayout>

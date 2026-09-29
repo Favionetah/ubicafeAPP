@@ -27,20 +27,17 @@
             android:padding="24dp">
 
             <TextView
+                style="@style/TituloEcosistema"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/ecosistema_titulo"
-                android:textColor="@color/texto_sobre_verde"
-                android:textSize="26sp"
-                android:textStyle="bold" />
+                android:text="@string/ecosistema_titulo" />
 
             <TextView
+                style="@style/SubtituloEcosistema"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
-                android:text="@string/ecosistema_subtitulo"
-                android:textColor="@color/caramelo_claro"
-                android:textSize="14sp" />
+                android:text="@string/ecosistema_subtitulo" />
         </LinearLayout>
 
         <!-- ============ CIFRAS EN REJILLA (2x2) ============ -->
@@ -147,13 +144,11 @@
 
         <TextView
             android:id="@+id/texto_nota_metodologica"
+            style="@style/TextoNotaTenue"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
-            android:fontFamily="@font/nunito_sans_regular"
             android:lineSpacingExtra="3dp"
-            android:textColor="@color/texto_secundario"
-            android:textSize="13sp"
             tools:text="213 encuestas \u00b7 189 declararon tener cafeter\u00eda \u00b7 70 con datos completos." />
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>
