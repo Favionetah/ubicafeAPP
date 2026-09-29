@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    PANTALLA SECRETA (ghost page)
+    Solo se abre con el patrón en la barra inferior de MainActivity:
+    Inicio · Inicio · Inicio · Mapa · Mapa · Mapa ·
+    Explorar · Explorar · Explorar · Inicio · Mapa · Explorar.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo_crema"
+    android:orientation="vertical">
+
+    <include layout="@layout/barra_titulo" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="40dp">
+
+            <!-- Isologo de la Universidad -->
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginBottom="18dp"
+                android:contentDescription="@string/ghost_universidad"
+                android:scaleType="fitCenter"
+                android:src="@drawable/isologo_azul_upds_800x800" />
+
+            <TextView
+                android:id="@+id/texto_universidad"
+                style="@style/TituloHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:lineSpacingExtra="2dp"
+                android:text="@string/ghost_universidad"
+                android:textSize="18sp"
+                tools:text="Universidad Privada Domingo Savio" />
+
+            <TextView
+                android:id="@+id/texto_materia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/nunito_bold"
+                android:gravity="center"
+                android:text="@string/ghost_materia"
+                android:textColor="@color/texto_principal"
+                android:textSize="15sp"
+                tools:text="Aplicaciones Moviles I" />
+
+            <TextView
+                android:id="@+id/texto_docente"
+                style="@style/SubtituloHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:gravity="center"
+                android:text="@string/ghost_docente"
+                tools:text="Omar Surci Alvarado" />
+
+            <View
+                android:layout_width="56dp"
+                android:layout_height="2dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginBottom="14dp"
+                android:background="@color/divisor" />
+
+            <TextView
+                android:id="@+id/texto_estudiante1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_bold"
+                android:gravity="center"
+                android:text="@string/ghost_estupid1"
+                android:textColor="@color/texto_principal"
+                android:textSize="16sp"
+                tools:text="Martin Diego Tejeda Gutierrez" />
+
+            <TextView
+                android:id="@+id/texto_estudiante2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/nunito_bold"
+                android:gravity="center"
+                android:text="@string/ghost_estupid2"
+                android:textColor="@color/texto_principal"
+                android:textSize="16sp"
+                tools:text="Favio Estefano Sandy Gonzales" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

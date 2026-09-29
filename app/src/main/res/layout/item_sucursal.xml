@@ -39,26 +39,22 @@
 
         <TextView
             android:id="@+id/texto_sucursal"
+            style="@style/NombreItem"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:ellipsize="end"
-            android:fontFamily="@font/nunito_extra_bold"
             android:maxLines="1"
-            android:textColor="@color/texto_principal"
-            android:textSize="17sp"
             tools:text="Sucursal Mallasa" />
 
         <TextView
             android:id="@+id/texto_direccion"
+            style="@style/DetalleItem"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:ellipsize="end"
-            android:fontFamily="@font/nunito_sans_regular"
             android:maxLines="2"
-            android:textColor="@color/texto_secundario"
-            android:textSize="14sp"
             tools:text="Av. hemispheric oriental 780, Mallasa" />
 
         <LinearLayout

@@ -47,6 +47,11 @@
             android:name=".ui.OnboardingActivity"
             android:exported="false" />
 
+        <!-- Pantalla secreta (solo con el patrón de pestañas de MainActivity) -->
+        <activity
+            android:name=".ui.GhostActivity"
+            android:exported="false" />
+
         <!-- Pantallas de listado -->
         <activity android:name=".ui.cafeterias.ListaCafeteriasActivity" />
         <activity android:name=".ui.marcas.ListaMarcasActivity" />

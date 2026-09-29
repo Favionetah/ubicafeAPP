@@ -162,4 +162,12 @@
         <item quantity="one">%1$d sucursal registrada</item>
         <item quantity="other">%1$d sucursales registradas</item>
     </plurals>
+
+    <!-- Pantalla secreta (ghost page) -->
+    <string name="ghost_titulo">Desarrolladores</string>
+    <string name="ghost_universidad">Universidad Privada Domingo Savio</string>
+    <string name="ghost_materia">Aplicaciones Moviles I</string>
+    <string name="ghost_docente">Omar Surci Alvarado</string>
+    <string name="ghost_estupid1">Martin Diego Tejeda Gutierrez</string>
+    <string name="ghost_estupid2">Favio Estefano Sandy Gonzales</string>
 </resources>

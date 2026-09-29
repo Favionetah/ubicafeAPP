@@ -53,13 +53,11 @@
 
                 <TextView
                     android:id="@+id/texto_nombre"
+                    style="@style/NombreItem"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
-                    android:fontFamily="@font/nunito_extra_bold"
                     android:maxLines="1"
-                    android:textColor="@color/texto_principal"
-                    android:textSize="17sp"
                     tools:text="Typica" />
 
                 <TextView
@@ -83,14 +81,12 @@
         <!-- Dirección, solo si el censo la respondió -->
         <TextView
             android:id="@+id/texto_direccion"
+            style="@style/DetalleItem"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:ellipsize="end"
-            android:fontFamily="@font/nunito_sans_regular"
             android:maxLines="2"
-            android:textColor="@color/texto_secundario"
-            android:textSize="14sp"
             tools:text="Calle 21 de Calacoto entre avenida Costanera" />
 
         <!-- Datos del detalle que tenga la ficha, o la distancia -->

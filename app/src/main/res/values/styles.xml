@@ -46,6 +46,20 @@
         <item name="android:textSize">15sp</item>
     </style>
 
+    <!-- Nombre principal de una tarjeta de lista (Nunito 800 17sp) -->
+    <style name="NombreItem">
+        <item name="android:fontFamily">@font/nunito_extra_bold</item>
+        <item name="android:textColor">@color/texto_principal</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+
+    <!-- Detalle secundario de una tarjeta de lista (Nunito Sans 500 14sp) -->
+    <style name="DetalleItem">
+        <item name="android:fontFamily">@font/nunito_sans_regular</item>
+        <item name="android:textColor">@color/texto_secundario</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
     <!-- ===================== TARJETA DE CATEGORÍA ===================== -->
     <!-- Fila blanca (radio 12) de "Explora por categoría" -->
     <style name="TarjetaCategoria">
