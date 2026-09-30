@@ -1,36 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Fila de un resultado de búsqueda -->
+<!--
+    Fila de un resultado de búsqueda
+    La foto solo se usa en los resultados que la tienen: los lugares y
+    las marcas. Las variedades de café no la traen en el manifiesto, así
+    que esa fila se queda sin marco y queda como estaba. Para eso el
+    ImageView nace oculto y lo enciende el código.
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="?attr/selectableItemBackground"
-    android:orientation="vertical"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
     android:paddingHorizontal="20dp"
     android:paddingVertical="12dp">
 
-    <TextView
-        android:id="@+id/texto_nombre"
-        style="@style/NombreResultado"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ellipsize="end"
-        android:maxLines="1"
-        tools:text="TYPICA - Achumani" />
+    <ImageView
+        android:id="@+id/foto_resultado"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_marginEnd="12dp"
+        android:background="@drawable/fondo_circulo_icono"
+        android:contentDescription="@null"
+        android:scaleType="centerCrop"
+        android:visibility="gone"
+        tools:src="@drawable/ic_cafeteria"
+        tools:visibility="visible" />
 
-    <TextView
-        android:id="@+id/texto_subtitulo"
-        style="@style/TextoDetalle"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:ellipsize="end"
-        android:maxLines="2"
-        tools:text="Av. Costanera, Achumani · Cafetería" />
+        android:layout_weight="1"
+        android:orientation="vertical">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="12dp"
-        android:background="@color/divisor" />
+        <TextView
+            android:id="@+id/texto_nombre"
+            style="@style/NombreResultado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            tools:text="TYPICA - Achumani" />
+
+        <TextView
+            android:id="@+id/texto_subtitulo"
+            style="@style/TextoDetalle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            tools:text="Av. Costanera, Achumani · Cafetería" />
+    </LinearLayout>
 </LinearLayout>

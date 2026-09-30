@@ -1,5 +1,6 @@
 package com.ubicafe.app.ui.comun;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.ubicafe.app.R;
 import com.ubicafe.app.modelo.Marca;
 import com.ubicafe.app.modelo.Rol;
+import com.ubicafe.app.util.CargadorFotos;
 import com.ubicafe.app.util.Texto;
 
 import java.util.ArrayList;
@@ -27,9 +29,11 @@ import java.util.List;
  * sino el número de sucursales y las zonas donde opera, que es lo que
  * de verdad le interesa a quien la busca.
  *
- * El censo no tiene logotipos, así que la marca se representa con su
- * inicial sobre el color de su papel. Es una inicial, no un logo
- * inventado.
+ * La marca se representa con su foto genérica, y si no tiene con su
+ * inicial sobre el color de su papel. La inicial queda debajo como
+ * respaldo, para que nunca se vea un hueco mientras carga. Al no venir
+ * logotipos en el censo, no se inventa ninguno: la inicial es la letra
+ * del nombre y nada más.
  */
 public class AdaptadorMarca extends RecyclerView.Adapter<AdaptadorMarca.Vista> {
 
@@ -64,10 +68,17 @@ public class AdaptadorMarca extends RecyclerView.Adapter<AdaptadorMarca.Vista> {
     @Override
     public void onBindViewHolder(@NonNull Vista soporte, int posicion) {
         Marca marca = marcas.get(posicion);
+        Context contexto = soporte.itemView.getContext();
 
+        // La inicial se pinta siempre y la foto encima. Si la imagen no
+        // existe, CargadorFotos deja el ícono del papel y la inicial
+        // sigue leyéndose detrás.
         soporte.inicial.setText(String.valueOf(marca.inicial()));
         soporte.inicial.setBackgroundTintList(ContextCompat.getColorStateList(
-                soporte.itemView.getContext(), Rol.MARCA.color()));
+                contexto, Rol.MARCA.color()));
+        CargadorFotos.pintarRecortada(soporte.fotoMarca, contexto, marca.foto,
+                R.drawable.ic_marca);
+
         soporte.textoNombre.setText(marca.nombre);
         soporte.textoEtiquetas.setText(resumen(marca));
 
@@ -97,10 +108,12 @@ public class AdaptadorMarca extends RecyclerView.Adapter<AdaptadorMarca.Vista> {
     }
 
     static class Vista extends RecyclerView.ViewHolder {
+        final ImageView fotoMarca;
         final TextView inicial, textoNombre, textoEtiquetas;
 
         Vista(View itemView) {
             super(itemView);
+            fotoMarca = itemView.findViewById(R.id.foto_marca);
             inicial = itemView.findViewById(R.id.texto_inicial);
             textoNombre = itemView.findViewById(R.id.texto_nombre);
             textoEtiquetas = itemView.findViewById(R.id.texto_etiquetas);
@@ -127,7 +140,8 @@ public class AdaptadorMarca extends RecyclerView.Adapter<AdaptadorMarca.Vista> {
             Marca uno = antes.get(i);
             Marca otro = despues.get(j);
             return uno.sucursales.size() == otro.sucursales.size()
-                    && uno.nota.equals(otro.nota);
+                    && uno.nota.equals(otro.nota)
+                    && uno.foto.equals(otro.foto);
         }
     }
 }

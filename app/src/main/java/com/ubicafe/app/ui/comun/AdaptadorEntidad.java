@@ -15,6 +15,7 @@ import com.ubicafe.app.R;
 import com.ubicafe.app.modelo.Entidad;
 import com.ubicafe.app.modelo.Rol;
 import com.ubicafe.app.ui.mapa.Geolocalizador;
+import com.ubicafe.app.util.CargadorFotos;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,10 +28,10 @@ import java.util.List;
  * lugar. Así el usuario ve de un vistazo que un sitio es cafetería y
  * tostaduría a la vez, sin repetirlo en dos listas.
  *
- * No muestra fotos porque el censo no tiene ninguna, y no muestra
- * estrellas porque no hay reseñas: inventar un "4.9 (240)" sería
- * mentira. En su lugar dice la distancia real, o pide activar la
- * ubicación.
+ * Muestra la foto del local a la izquierda, y si no tiene, el ícono del
+ * papel. No muestra estrellas porque no hay reseñas: inventar un
+ * "4.9 (240)" sería mentira. En su lugar dice la distancia real, o pide
+ * activar la ubicación.
  */
 public class AdaptadorEntidad extends RecyclerView.Adapter<AdaptadorEntidad.Vista> {
 
@@ -39,22 +40,81 @@ public class AdaptadorEntidad extends RecyclerView.Adapter<AdaptadorEntidad.Vist
         void onEntidadTocada(Entidad entidad);
     }
 
+    /**
+     * Cuántas tarjetas se precalientan al abrir la lista. Suficiente
+     * para llenar la primera pantalla y algo más, que es lo que el
+     * usuario ve de golpe; el resto se carga al desplazarse, que es lo
+     * que corresponde.
+     */
+    private static final int A_PRECALENTAR = 8;
+
+    /** El lado de la foto de la tarjeta, en dp, tal como está en el layout. */
+    private static final int LADO_FOTO_DP = 56;
+
     private final List<Entidad> lugares = new ArrayList<>();
     private final AlTocar alTocar;
+
+    /**
+     * La pantalla que montó la lista. Lo necesita el precalentado: Glide
+     * necesita un Activity para volver al hilo principal a entregar las
+     * fotos, y con el contexto de la aplicación se quejaría.
+     */
+    private Context contexto;
+
+    /** Lo fija la pantalla cuando monta la lista. */
+    public void setContexto(Context contexto) {
+        this.contexto = contexto;
+    }
 
     public AdaptadorEntidad(List<Entidad> lugares, AlTocar alTocar) {
         this.alTocar = alTocar;
         setItems(lugares);
     }
 
-    /** Reemplaza la lista animando solo lo que cambió. */
+    /**
+     * Reemplaza la lista animando solo lo que cambió, y deja listas las
+     * fotos de las primeras tarjetas.
+     *
+     * El precalentado se hace aquí y no en la pantalla porque es el
+     * adaptador quien sabe el tamaño con el que se pinta la miniatura.
+     */
     public void setItems(List<Entidad> nuevos) {
         DiffUtil.DiffResult diferencia = DiffUtil.calculateDiff(
                 new Comparador(lugares, nuevos));
         lugares.clear();
         lugares.addAll(nuevos);
         diferencia.dispatchUpdatesTo(this);
+        precalentarPrimeras();
     }
+
+    /**
+     * Descarga en segundo plano las fotos de las primeras tarjetas, al
+     * tamaño exacto con el que se van a pintar. Al terminar, la lista
+     * muestra fotos ya descodificadas en vez de un ícono un instante.
+     */
+    private void precalentarPrimeras() {
+        if (lugares.isEmpty()) {
+            return;
+        }
+        List<String> rutas = new ArrayList<>();
+        int limite = Math.min(lugares.size(), A_PRECALENTAR);
+        for (int i = 0; i < limite; i++) {
+            String foto = lugares.get(i).foto;
+            if (foto != null && !foto.isEmpty()) {
+                rutas.add(foto);
+            }
+        }
+        if (rutas.isEmpty() || contexto == null) {
+            // Sin una Activity no hay hilo principal al que volver, y
+            // Glide lo necesita: en ese caso las fotos se cargarán al
+            // pintarse, que es el camino normal de todos modos.
+            return;
+        }
+        int lado = Math.round(contexto.getResources()
+                .getDisplayMetrics().density * LADO_FOTO_DP);
+        CargadorFotos.precalentar(contexto, rutas, lado, lado);
+    }
+
 
     @NonNull
     @Override
@@ -68,6 +128,11 @@ public class AdaptadorEntidad extends RecyclerView.Adapter<AdaptadorEntidad.Vist
     public void onBindViewHolder(@NonNull Vista soporte, int posicion) {
         Entidad lugar = lugares.get(posicion);
         Context contexto = soporte.itemView.getContext();
+
+        // La foto va antes que el ícono: si el lugar no tiene ninguna,
+        // CargadorFotos deja el ícono del papel a la vista.
+        CargadorFotos.pintarRecortada(soporte.fotoLugar, contexto, lugar.foto,
+                CargadorFotos.respaldo(lugar.rolPrincipal));
 
         soporte.iconoRol.setImageResource(lugar.rolPrincipal.icono());
         soporte.iconoRol.setBackgroundTintList(
@@ -127,12 +192,13 @@ public class AdaptadorEntidad extends RecyclerView.Adapter<AdaptadorEntidad.Vist
 
     /** Vistas de una tarjeta, resueltas una sola vez. */
     static class Vista extends RecyclerView.ViewHolder {
-        final ImageView iconoRol;
+        final ImageView fotoLugar, iconoRol;
         final TextView textoNombre, textoRoles, textoZona, textoDireccion, textoPie;
         final View filaPie;
 
         Vista(View itemView) {
             super(itemView);
+            fotoLugar = itemView.findViewById(R.id.foto_lugar);
             iconoRol = itemView.findViewById(R.id.icono_rol);
             textoNombre = itemView.findViewById(R.id.texto_nombre);
             textoRoles = itemView.findViewById(R.id.texto_roles);
@@ -170,7 +236,8 @@ public class AdaptadorEntidad extends RecyclerView.Adapter<AdaptadorEntidad.Vist
             return uno.nombre.equals(otro.nombre)
                     && uno.rolesComoTexto().equals(otro.rolesComoTexto())
                     && uno.macrodistrito.equals(otro.macrodistrito)
-                    && uno.direccion.equals(otro.direccion);
+                    && uno.direccion.equals(otro.direccion)
+                    && uno.foto.equals(otro.foto);
         }
     }
 }

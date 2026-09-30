@@ -1,0 +1,2840 @@
+{
+ "generado": "2026-09-29",
+ "tamano": "1024x768",
+ "nota": "origen 'propia' = foto de la web del negocio. origen 'generica' = foto de café de Wikimedia Commons usada como marcador de posición porque no se encontró la del negocio. Las 'generica' NO son el local.",
+ "resumen": {
+  "propia": 0,
+  "generica": 242,
+  "sin_foto": 0
+ },
+ "cafes": {
+  "ent-001": {
+   "archivo": "cafe_berna_linares_947.jpg",
+   "nombre": "Café Berna",
+   "zona": "Max Paredes"
+  },
+  "ent-002": {
+   "archivo": "cafe_con_coca_linares_906.jpg",
+   "nombre": "CAFE CON COCA",
+   "zona": "Max Paredes"
+  },
+  "ent-003": {
+   "archivo": "alexander_coffe_20_de_octubre.jpg",
+   "nombre": "Alexander Coffe",
+   "zona": "Cotahuma"
+  },
+  "ent-005": {
+   "archivo": "mugen_coffe_20_de_octubre_plaza_abar.jpg",
+   "nombre": "Mugen coffe",
+   "zona": "Cotahuma"
+  },
+  "ent-006": {
+   "archivo": "experiment_coffe_av_6_de_agosto_esquina_l.jpg",
+   "nombre": "Experiment Coffe",
+   "zona": "Cotahuma"
+  },
+  "ent-008": {
+   "archivo": "bolivian_cofee_avillampu.jpg",
+   "nombre": "Bolivian Cofee",
+   "zona": "Centro"
+  },
+  "ent-009": {
+   "archivo": "beirut_belisario_salinas_380.jpg",
+   "nombre": "Beirut",
+   "zona": "Centro"
+  },
+  "ent-010": {
+   "archivo": "crazy_market_tarija.jpg",
+   "nombre": "Crazy Market",
+   "zona": "Cotahuma"
+  },
+  "ent-012": {
+   "archivo": "tari_cafe_tarija.jpg",
+   "nombre": "Tari- Café",
+   "zona": "Cotahuma"
+  },
+  "ent-013": {
+   "archivo": "cafe_urbano_fernando_guachalla.jpg",
+   "nombre": "Cafe Urbano",
+   "zona": "Cotahuma"
+  },
+  "ent-014": {
+   "archivo": "the_abuelas_coffe_bar_linares.jpg",
+   "nombre": "The abuelas coffe bar",
+   "zona": "Max Paredes"
+  },
+  "ent-016": {
+   "archivo": "lunas_sagarnaga.jpg",
+   "nombre": "Lunas",
+   "zona": "Max Paredes"
+  },
+  "ent-017": {
+   "archivo": "almara_ecuador.jpg",
+   "nombre": "Almara",
+   "zona": "Cotahuma"
+  },
+  "ent-018": {
+   "archivo": "cafe_restaurante_angelo_colonial_linares.jpg",
+   "nombre": "Cafe restaurante Angelo Colonial",
+   "zona": "Max Paredes"
+  },
+  "ent-019": {
+   "archivo": "cafe_del_mundo_sagarnaga_n_324.jpg",
+   "nombre": "café del mundo",
+   "zona": "Centro"
+  },
+  "ent-020": {
+   "archivo": "click_20_octubre.jpg",
+   "nombre": "Click",
+   "zona": "Cotahuma"
+  },
+  "ent-021": {
+   "archivo": "era_cafe_y_tiempo_av_20_de_octubre.jpg",
+   "nombre": "Era café y tiempo",
+   "zona": "Cotahuma"
+  },
+  "ent-022": {
+   "archivo": "cafe_vida_pasaje_juan_xxiii_187_de.jpg",
+   "nombre": "Cafe vida",
+   "zona": "Max Paredes"
+  },
+  "ent-023": {
+   "archivo": "sultana_ecuador_y_belisario_sali.jpg",
+   "nombre": "Sultana",
+   "zona": "Cotahuma"
+  },
+  "ent-024": {
+   "archivo": "rugbyes_colombia.jpg",
+   "nombre": "Rugbyes",
+   "zona": "Cotahuma"
+  },
+  "ent-025": {
+   "archivo": "mil_delicias_colombia.jpg",
+   "nombre": "Mil delicias",
+   "zona": "Cotahuma"
+  },
+  "ent-026": {
+   "archivo": "fortaleza_coffe_max_paredes.jpg",
+   "nombre": "Fortaleza Coffe",
+   "zona": "Max Paredes"
+  },
+  "ent-027": {
+   "archivo": "kuchen_stube_rosendo_gutierrez.jpg",
+   "nombre": "Kuchen stube",
+   "zona": "Cotahuma"
+  },
+  "ent-028": {
+   "archivo": "la_propia_empanada_rosendo_gutierrez.jpg",
+   "nombre": "La propia empanada",
+   "zona": "Cotahuma"
+  },
+  "ent-029": {
+   "archivo": "coffeeeology_6_de_agosto_planta_baja.jpg",
+   "nombre": "Coffeeeology",
+   "zona": "Cotahuma"
+  },
+  "ent-030": {
+   "archivo": "rubyes_colombia_y_mexico.jpg",
+   "nombre": "Rubyes",
+   "zona": "Cotahuma"
+  },
+  "ent-031": {
+   "archivo": "the_coffee_25_arce_edificio_santa_isab.jpg",
+   "nombre": "The Coffee.25",
+   "zona": "Centro"
+  },
+  "ent-032": {
+   "archivo": "mugen_coffee_project_avaroa_av_20_de_octubre.jpg",
+   "nombre": "Mugen Coffee Project",
+   "zona": "Cotahuma"
+  },
+  "ent-033": {
+   "archivo": "samoo_landaeta_equ_abdoon_saav.jpg",
+   "nombre": "Samoo",
+   "zona": "Cotahuma"
+  },
+  "ent-034": {
+   "archivo": "kimsa_charani_coffe_shop_busch_calle_panama.jpg",
+   "nombre": "Kimsa charani coffe shop",
+   "zona": "Centro"
+  },
+  "ent-035": {
+   "archivo": "cafe_copacabana_miraflores_stadium.jpg",
+   "nombre": "Cafe copacabana",
+   "zona": "Centro"
+  },
+  "ent-036": {
+   "archivo": "main_coffe_miraflores_av_savedra.jpg",
+   "nombre": "Main coffe",
+   "zona": "Centro"
+  },
+  "ent-037": {
+   "archivo": "refugio_quetzal_miraflores_av_villalobos.jpg",
+   "nombre": "Refugio Quetzal",
+   "zona": "Centro"
+  },
+  "ent-038": {
+   "archivo": "wali_suma_miraflores.jpg",
+   "nombre": "Wali Suma",
+   "zona": "Centro"
+  },
+  "ent-040": {
+   "archivo": "amanita_busch_miraflores.jpg",
+   "nombre": "Amanita",
+   "zona": "Centro"
+  },
+  "ent-041": {
+   "archivo": "cafe_santa_20_de_octubre_belisario.jpg",
+   "nombre": "Café Santa",
+   "zona": "Cotahuma"
+  },
+  "ent-045": {
+   "archivo": "le_palais_rose_20_de_octubre_aspiazu.jpg",
+   "nombre": "Le palais rose",
+   "zona": "Cotahuma"
+  },
+  "ent-046": {
+   "archivo": "michelline_20_de_octubre_aspiazu.jpg",
+   "nombre": "Michelline",
+   "zona": "Cotahuma"
+  },
+  "ent-047": {
+   "archivo": "cris_mografo_20_de_octubre_aspiazu.jpg",
+   "nombre": "Cris mografo",
+   "zona": "Cotahuma"
+  },
+  "ent-048": {
+   "archivo": "chis_magrafo_aspiazu.jpg",
+   "nombre": "Chis magrafo",
+   "zona": "Cotahuma"
+  },
+  "ent-049": {
+   "archivo": "cafe_dante_6_de_agosto.jpg",
+   "nombre": "Cafe Dante",
+   "zona": "Centro"
+  },
+  "ent-050": {
+   "archivo": "matriz_cafe_sensorial_lisimaco_gutierrez.jpg",
+   "nombre": "Matriz cafe sensorial",
+   "zona": "Centro"
+  },
+  "ent-051": {
+   "archivo": "alexander_coffee_multicine_arce.jpg",
+   "nombre": "Alexander Coffee Multicine",
+   "zona": "Centro"
+  },
+  "ent-052": {
+   "archivo": "eclaie_coffe_multicine_av_arce_la_paz.jpg",
+   "nombre": "Eclaie coffe",
+   "zona": "Centro"
+  },
+  "ent-053": {
+   "archivo": "multicine_cafe_multicine_av_arce.jpg",
+   "nombre": "Multicine cafe",
+   "zona": "Centro"
+  },
+  "ent-054": {
+   "archivo": "andean_hills_coffe_arce_plaza_isabela_catol.jpg",
+   "nombre": "Andean hills coffe",
+   "zona": "Centro"
+  },
+  "ent-055": {
+   "archivo": "juan_valdez_las_torres_mall.jpg",
+   "nombre": "Juan Valdez",
+   "zona": "Centro"
+  },
+  "ent-056": {
+   "archivo": "rosa_negra_las_torres_mall_2do_piso.jpg",
+   "nombre": "Rosa negra",
+   "zona": "Centro"
+  },
+  "ent-059": {
+   "archivo": "madidi_coffee_panama_y_avenida_saavedr.jpg",
+   "nombre": "Madidi Coffee",
+   "zona": "Centro"
+  },
+  "ent-060": {
+   "archivo": "pasteleria_snack_la_yunguenita_diaz_romero_av_brasil_y.jpg",
+   "nombre": "Pastelería snack la yungueñita",
+   "zona": "Centro"
+  },
+  "ent-061": {
+   "archivo": "pasteleria_snack_la_yunguenita_diaz_romero.jpg",
+   "nombre": "Pastelería Snack La Yungueñita",
+   "zona": "Centro"
+  },
+  "ent-062": {
+   "archivo": "corban_coffe_diaz_romero.jpg",
+   "nombre": "Corban coffe",
+   "zona": "Centro"
+  },
+  "ent-063": {
+   "archivo": "corban_coffee_diaz_romero.jpg",
+   "nombre": "Corban Coffee",
+   "zona": "Centro"
+  },
+  "ent-064": {
+   "archivo": "los_sauces_gualberto_villarroel.jpg",
+   "nombre": "Los sauces",
+   "zona": "Periférica"
+  },
+  "ent-065": {
+   "archivo": "la_sabrosa_esquina_diaz_romero_y_av.jpg",
+   "nombre": "La Sabrosa",
+   "zona": "Centro"
+  },
+  "ent-066": {
+   "archivo": "corban_diaz_romero.jpg",
+   "nombre": "CORBAN",
+   "zona": "Centro"
+  },
+  "ent-067": {
+   "archivo": "coffee_place_republica_dominicana_num.jpg",
+   "nombre": "Coffee Place",
+   "zona": "Centro"
+  },
+  "ent-068": {
+   "archivo": "artaban_coffee_bar_n1820_argentina_y_j_gutierrez.jpg",
+   "nombre": "ARTABÁN COFFEE BAR N°1820",
+   "zona": "Centro"
+  },
+  "ent-069": {
+   "archivo": "bunna_cafeteria_especializada_frente_de_la_plaza_villa.jpg",
+   "nombre": "Bunna cafeteria especializada",
+   "zona": "Centro"
+  },
+  "ent-072": {
+   "archivo": "orange_caff_panama_y_estados_unidos.jpg",
+   "nombre": "Orange caff",
+   "zona": "Centro"
+  },
+  "ent-074": {
+   "archivo": "rustik_coffee_busch.jpg",
+   "nombre": "Rustik Coffee",
+   "zona": "Centro"
+  },
+  "ent-075": {
+   "archivo": "rustik_coffe_busch.jpg",
+   "nombre": "Rustik coffe",
+   "zona": "Centro"
+  },
+  "ent-076": {
+   "archivo": "amanita_cafe_market_av_busch_edif_londres_16.jpg",
+   "nombre": "AMANITA CAFE MARKET",
+   "zona": "Centro"
+  },
+  "ent-077": {
+   "archivo": "mare_nostrum_c_rep_de_cuba_1291_la_pa.jpg",
+   "nombre": "Mare nostrum",
+   "zona": "Centro"
+  },
+  "ent-078": {
+   "archivo": "chabuca_brasil_frente_calle_esta.jpg",
+   "nombre": "Chabuca",
+   "zona": "Centro"
+  },
+  "ent-079": {
+   "archivo": "pasteleria_cruz_hugo_estrada.jpg",
+   "nombre": "Pastelería cruz",
+   "zona": "Centro"
+  },
+  "ent-082": {
+   "archivo": "kimsa_charani_panama_media_cuadra_abaj.jpg",
+   "nombre": "Kimsa Charani",
+   "zona": "Centro"
+  },
+  "ent-083": {
+   "archivo": "cafeteria_orurena_bueno.jpg",
+   "nombre": "Cafeteria Orureña",
+   "zona": "Centro"
+  },
+  "ent-084": {
+   "archivo": "cafeteria_milaneso_anticafe_bueno.jpg",
+   "nombre": "Cafeteria Milaneso Anticafe",
+   "zona": "Centro"
+  },
+  "ent-085": {
+   "archivo": "rosa_negra_potosi.jpg",
+   "nombre": "Rosa Negra",
+   "zona": "Centro"
+  },
+  "ent-087": {
+   "archivo": "daniel_s_coffee_potosi.jpg",
+   "nombre": "Daniel's coffee",
+   "zona": "Centro"
+  },
+  "ent-088": {
+   "archivo": "challa_potosi.jpg",
+   "nombre": "Challa",
+   "zona": "Centro"
+  },
+  "ent-089": {
+   "archivo": "distrito_caffe_mercado.jpg",
+   "nombre": "Distrito Caffe",
+   "zona": "Centro"
+  },
+  "ent-090": {
+   "archivo": "moki_mercado.jpg",
+   "nombre": "Moki",
+   "zona": "Centro"
+  },
+  "ent-091": {
+   "archivo": "andean_hills_potosi.jpg",
+   "nombre": "Andean Hills",
+   "zona": "Centro"
+  },
+  "ent-092": {
+   "archivo": "cafeteria_valdez_federico_zuaso.jpg",
+   "nombre": "Cafeteria Valdez",
+   "zona": "Centro"
+  },
+  "ent-094": {
+   "archivo": "cafe_copacabana_potosi_y_socabaya.jpg",
+   "nombre": "Café Copacabana",
+   "zona": "Centro"
+  },
+  "ent-095": {
+   "archivo": "alexander_coffee_esquina_potosi_y_socabay.jpg",
+   "nombre": "Alexander Coffee",
+   "zona": "Centro"
+  },
+  "ent-096": {
+   "archivo": "lunas_coffe_restaurant_sagarnaga.jpg",
+   "nombre": "LUNAS Coffe Restaurant",
+   "zona": "Centro"
+  },
+  "ent-097": {
+   "archivo": "pasteleria_michelline_max_paredes.jpg",
+   "nombre": "Pastelería Michelline",
+   "zona": "Centro"
+  },
+  "ent-098": {
+   "archivo": "rizoma_piensa_en_el_cafe_bolivar.jpg",
+   "nombre": "Rizoma piensa en el café",
+   "zona": "Centro"
+  },
+  "ent-099": {
+   "archivo": "kilometro_zero_bolviar.jpg",
+   "nombre": "Kilómetro Zero",
+   "zona": "Centro"
+  },
+  "ent-100": {
+   "archivo": "amato_cafe_restaurant_ballivian.jpg",
+   "nombre": "Amato café restaurant",
+   "zona": "Centro"
+  },
+  "ent-101": {
+   "archivo": "coffee_palace_bolviar.jpg",
+   "nombre": "Coffee palace",
+   "zona": "Centro"
+  },
+  "ent-103": {
+   "archivo": "canela_bakery_coffee_santa_cruz.jpg",
+   "nombre": "Canela Bakery & coffee",
+   "zona": "Centro"
+  },
+  "ent-104": {
+   "archivo": "cafe_la_tienda_mariscal_pasaje_peaton.jpg",
+   "nombre": "Cafe la tienda",
+   "zona": "Centro"
+  },
+  "ent-105": {
+   "archivo": "la_joya_mariscal_pasaje_peaton.jpg",
+   "nombre": "La joya",
+   "zona": "Centro"
+  },
+  "ent-106": {
+   "archivo": "quinaya_yanacocha_425.jpg",
+   "nombre": "Quinaya",
+   "zona": "Centro"
+  },
+  "ent-107": {
+   "archivo": "coffee_californ_club_yanacocha_428.jpg",
+   "nombre": "coffee Californ Club",
+   "zona": "Centro"
+  },
+  "ent-108": {
+   "archivo": "alexander_coffee_potosi_s_n.jpg",
+   "nombre": "Alexander Coffee",
+   "zona": "Centro"
+  },
+  "ent-109": {
+   "archivo": "pasteleria_bistro_rosa_negra_potosi.jpg",
+   "nombre": "Pastelería bistro Rosa Negra",
+   "zona": "Centro"
+  },
+  "ent-110": {
+   "archivo": "casera_pasteleria_cafeteria_loayza_s_n.jpg",
+   "nombre": "Casera pastelería cafeteria",
+   "zona": "Centro"
+  },
+  "ent-111": {
+   "archivo": "cafeteria_andino_comercio_1307.jpg",
+   "nombre": "Cafeteria Andino",
+   "zona": "Centro"
+  },
+  "ent-112": {
+   "archivo": "el_parlamento_historia_cafe_comercio_1280.jpg",
+   "nombre": "El parlamento historia cafe",
+   "zona": "Centro"
+  },
+  "ent-113": {
+   "archivo": "break_time_bolivar_y_ballivian_1206.jpg",
+   "nombre": "Break Time",
+   "zona": "Centro"
+  },
+  "ent-114": {
+   "archivo": "kilometro_0_murillo_comercio.jpg",
+   "nombre": "Kilómetro 0",
+   "zona": "Centro"
+  },
+  "ent-115": {
+   "archivo": "miga_campos.jpg",
+   "nombre": "Miga",
+   "zona": "Centro"
+  },
+  "ent-116": {
+   "archivo": "bistro_mercado_1308.jpg",
+   "nombre": "Bistro",
+   "zona": "Centro"
+  },
+  "ent-117": {
+   "archivo": "mi_deleite_catering_bakery_campos.jpg",
+   "nombre": "Mi Deleite Catering & Bakery",
+   "zona": "Centro"
+  },
+  "ent-118": {
+   "archivo": "alexander_coffee_6_de_agosto.jpg",
+   "nombre": "Alexander Coffee",
+   "zona": "Centro"
+  },
+  "ent-119": {
+   "archivo": "ocheto_la_paz.jpg",
+   "nombre": "Ocheto",
+   "zona": "Centro"
+  },
+  "ent-122": {
+   "archivo": "sin_fronteras_6_de_agosto_y_rosendo_gu.jpg",
+   "nombre": "Sin Fronteras",
+   "zona": "Centro"
+  },
+  "ent-123": {
+   "archivo": "anticafe_quetzal_villalobos.jpg",
+   "nombre": "Anticafe quetzal",
+   "zona": "Centro"
+  },
+  "ent-124": {
+   "archivo": "moshe_triangular.jpg",
+   "nombre": "Moshe",
+   "zona": "Centro"
+  },
+  "ent-125": {
+   "archivo": "nayra_wiri_chichas_a_pasos_del_puen.jpg",
+   "nombre": "Nayra wiri",
+   "zona": "Centro"
+  },
+  "ent-126": {
+   "archivo": "la_antorcha_victor_eduardo.jpg",
+   "nombre": "La antorcha",
+   "zona": "Centro"
+  },
+  "ent-127": {
+   "archivo": "cafeteria_copacabana_en_el_estadio_hernando_s.jpg",
+   "nombre": "Cafeteria copacabana",
+   "zona": "Centro"
+  },
+  "ent-128": {
+   "archivo": "la_cordobesa_arce_2132.jpg",
+   "nombre": "La Cordobesa",
+   "zona": "Cotahuma"
+  },
+  "ent-129": {
+   "archivo": "typica_batallon_colorado.jpg",
+   "nombre": "Typica",
+   "zona": "Centro"
+  },
+  "ent-131": {
+   "archivo": "almus_mexico.jpg",
+   "nombre": "ALMUS",
+   "zona": "Centro"
+  },
+  "ent-132": {
+   "archivo": "cultoras_victor_eduardo.jpg",
+   "nombre": "Cultoras",
+   "zona": "Centro"
+  },
+  "ent-133": {
+   "archivo": "juan_valdez_federico_zuazo_y_bueno.jpg",
+   "nombre": "JUAN VALDEZ",
+   "zona": "Centro"
+  },
+  "ent-134": {
+   "archivo": "rosa_negra_arce_torres_mall.jpg",
+   "nombre": "Rosa Negra",
+   "zona": "Centro"
+  },
+  "ent-135": {
+   "archivo": "especialidad_en_cafe_arce_torres_mall.jpg",
+   "nombre": "Especialidad en café",
+   "zona": "Centro"
+  },
+  "ent-136": {
+   "archivo": "the_writer_s_coffee_comercio_1270.jpg",
+   "nombre": "The Writer's Coffee",
+   "zona": "Centro"
+  },
+  "ent-137": {
+   "archivo": "coffeto_miel_cornero_mamani.jpg",
+   "nombre": "Coffeto miel",
+   "zona": "Cotahuma"
+  },
+  "ent-139": {
+   "archivo": "fahrenheit_nicaragua.jpg",
+   "nombre": "Fahrenheit",
+   "zona": "Centro"
+  },
+  "ent-140": {
+   "archivo": "marraqueta_ave_14_de_septiembre.jpg",
+   "nombre": "Marraqueta",
+   "zona": "Sur"
+  },
+  "ent-141": {
+   "archivo": "cafeteria_expresso_al_paso_jorge_rouma_1095.jpg",
+   "nombre": "Cafeteria expresso al paso",
+   "zona": "Sur"
+  },
+  "ent-142": {
+   "archivo": "biofilia_srl_6_de_agosto.jpg",
+   "nombre": "Biofilia SRL",
+   "zona": "Centro"
+  },
+  "ent-143": {
+   "archivo": "robusta_cafe_miraflores_calle_argenti.jpg",
+   "nombre": "Robusta cafe",
+   "zona": "Centro"
+  },
+  "ent-144": {
+   "archivo": "eclear_coffe_arce_multicine.jpg",
+   "nombre": "Eclear coffe",
+   "zona": "Centro"
+  },
+  "ent-145": {
+   "archivo": "mi_mundo_de_pasteles_arce_multicine.jpg",
+   "nombre": "Mi mundo de pasteles",
+   "zona": "Centro"
+  },
+  "ent-146": {
+   "archivo": "briely_gido_villa_gomez_1118.jpg",
+   "nombre": "BriEly",
+   "zona": "Sur"
+  },
+  "ent-147": {
+   "archivo": "coffee_time_ingavi.jpg",
+   "nombre": "Coffee time",
+   "zona": "Centro"
+  },
+  "ent-149": {
+   "archivo": "nayra_qata_mayor_de_san_francisco.jpg",
+   "nombre": "Nayra Qata",
+   "zona": "Centro"
+  },
+  "ent-150": {
+   "archivo": "garabato_6_de_agosto.jpg",
+   "nombre": "Garabato",
+   "zona": "Centro"
+  },
+  "ent-151": {
+   "archivo": "typica_6_de_agosto.jpg",
+   "nombre": "Typica",
+   "zona": "Centro"
+  },
+  "ent-152": {
+   "archivo": "typica_6_de_agosto_2.jpg",
+   "nombre": "Typica",
+   "zona": "Centro"
+  },
+  "ent-153": {
+   "archivo": "coffe_nation_6_de_agosto.jpg",
+   "nombre": "Coffe nation",
+   "zona": "Centro"
+  },
+  "ent-154": {
+   "archivo": "amaroma_6_de_agosto.jpg",
+   "nombre": "Amaroma",
+   "zona": "Centro"
+  },
+  "ent-155": {
+   "archivo": "cafe_chulumani_genaro_ramos_hernando_siles.jpg",
+   "nombre": "Café chulumani Genaro Ramos",
+   "zona": "Sur"
+  },
+  "ent-156": {
+   "archivo": "el_parlamento_historia_cafe_comercio.jpg",
+   "nombre": "El Parlamento historia café",
+   "zona": "Centro"
+  },
+  "ent-157": {
+   "archivo": "otono_cafe_y_vinos_jose_maria_zalles.jpg",
+   "nombre": "Otoño café y vinos",
+   "zona": "Sur"
+  },
+  "ent-158": {
+   "archivo": "supra_coffe_jose_maria_zalles.jpg",
+   "nombre": "Supra coffe",
+   "zona": "Sur"
+  },
+  "ent-159": {
+   "archivo": "cafe_alexander_jose_maria_aguirre_acha.jpg",
+   "nombre": "Cafe Alexander",
+   "zona": "Sur"
+  },
+  "ent-160": {
+   "archivo": "cafeteria_juan_valdez_jose_maria_aguirre_acha.jpg",
+   "nombre": "Cafetería Juan Valdez",
+   "zona": "Sur"
+  },
+  "ent-162": {
+   "archivo": "sweet_sensitive_pasteleria_6.jpg",
+   "nombre": "Sweet sensitive pasteleria",
+   "zona": "Sur"
+  },
+  "ent-163": {
+   "archivo": "el_parlamento_montenegro.jpg",
+   "nombre": "El parlamento",
+   "zona": "Sur"
+  },
+  "ent-164": {
+   "archivo": "alexander_coffee_montenegro.jpg",
+   "nombre": "Alexander Coffee",
+   "zona": "Sur"
+  },
+  "ent-165": {
+   "archivo": "cafe_con_pan_mcl_de_montenegro.jpg",
+   "nombre": "Café con Pan",
+   "zona": "Sur"
+  },
+  "ent-166": {
+   "archivo": "cafe_con_pan_entre_la_22_y_la_23_de_c.jpg",
+   "nombre": "Café con Pan",
+   "zona": "Sur"
+  },
+  "ent-167": {
+   "archivo": "alexander_coffee_jose_aguirre_hipermaxi.jpg",
+   "nombre": "Alexander coffee",
+   "zona": "Sur"
+  },
+  "ent-168": {
+   "archivo": "typica_cafe_y_tostaduria_mall_21.jpg",
+   "nombre": "Typica café y tostaduria",
+   "zona": "Sur"
+  },
+  "ent-169": {
+   "archivo": "alexander_coffee_21.jpg",
+   "nombre": "Alexander coffee",
+   "zona": "Sur"
+  },
+  "ent-170": {
+   "archivo": "cafe_esencia_montenegro.jpg",
+   "nombre": "Café Esencia",
+   "zona": "Sur"
+  },
+  "ent-171": {
+   "archivo": "supra_coffee_enrique_penaranda.jpg",
+   "nombre": "Supra Coffee",
+   "zona": "Sur"
+  },
+  "ent-172": {
+   "archivo": "madame_brunch_bakery_enrique_penaranda.jpg",
+   "nombre": "Madame brunch & bakery",
+   "zona": "Sur"
+  },
+  "ent-173": {
+   "archivo": "otono_cafe_vinos_jose_maria_zalles.jpg",
+   "nombre": "Otoño Café & Vinos",
+   "zona": "Sur"
+  },
+  "ent-174": {
+   "archivo": "barbecue_cafe_restaurant_sur.jpg",
+   "nombre": "Barbecue - café restaurant",
+   "zona": "Sur"
+  },
+  "ent-175": {
+   "archivo": "kanguru_enrique_penaranda.jpg",
+   "nombre": "Kangurù",
+   "zona": "Sur"
+  },
+  "ent-176": {
+   "archivo": "jirafas_gral_jose_ballivian.jpg",
+   "nombre": "Jirafas",
+   "zona": "Sur"
+  },
+  "ent-177": {
+   "archivo": "luva_gabriel_rene_moreno.jpg",
+   "nombre": "Luva",
+   "zona": "Mallasa"
+  },
+  "ent-178": {
+   "archivo": "high_coffee_jaime_mendoza.jpg",
+   "nombre": "High Coffee",
+   "zona": "Sur"
+  },
+  "ent-179": {
+   "archivo": "arcadia_general_inofuentes.jpg",
+   "nombre": "Arcadia",
+   "zona": "Sur"
+  },
+  "ent-180": {
+   "archivo": "caliente_18_de_calacoto.jpg",
+   "nombre": "Caliente",
+   "zona": "Sur"
+  },
+  "ent-181": {
+   "archivo": "vainilla_bistro_fw58_v93_calle_15_la_paz.jpg",
+   "nombre": "Vainilla Bistro",
+   "zona": "Sur"
+  },
+  "ent-182": {
+   "archivo": "cafecito_togo_cafecito_to_go_calacoto.jpg",
+   "nombre": "Cafecito ToGo",
+   "zona": "Sur"
+  },
+  "ent-183": {
+   "archivo": "bru_coffee_esquina_avenida_hernando.jpg",
+   "nombre": "Bru coffee",
+   "zona": "Sur"
+  },
+  "ent-184": {
+   "archivo": "toffee_9_gral_angel_babia.jpg",
+   "nombre": "TOFFEE",
+   "zona": "Sur"
+  },
+  "ent-185": {
+   "archivo": "reposteria_casera_hernando_siles_calle_9_e.jpg",
+   "nombre": "Reposteria casera",
+   "zona": "Sur"
+  },
+  "ent-186": {
+   "archivo": "anatomia_cafe_bistro_los_sauces_al_lado_de_ha.jpg",
+   "nombre": "ANATOMIA Café & Bistro",
+   "zona": "Sur"
+  },
+  "ent-187": {
+   "archivo": "mi_jhoyita_elizardo_perez.jpg",
+   "nombre": "Mi Jhoyita",
+   "zona": "Sur"
+  },
+  "ent-188": {
+   "archivo": "cafeteria_elis_16_de_julio.jpg",
+   "nombre": "Cafetería Elis",
+   "zona": "Centro"
+  },
+  "ent-189": {
+   "archivo": "alexander_coffe_21_de_calacoto.jpg",
+   "nombre": "Alexander coffe",
+   "zona": "Sur"
+  },
+  "ent-190": {
+   "archivo": "coccos_federico_zuazo.jpg",
+   "nombre": "Coccos",
+   "zona": "Centro"
+  },
+  "ent-191": {
+   "archivo": "typica_batallon_colorados.jpg",
+   "nombre": "Typica",
+   "zona": "Centro"
+  },
+  "ent-192": {
+   "archivo": "jawitas_mi_chulumani_21.jpg",
+   "nombre": "Jawitas mi chulumani",
+   "zona": "Sur"
+  },
+  "ent-193": {
+   "archivo": "coffee_go_tomasa_murillo_en_plena.jpg",
+   "nombre": "Coffee & Go",
+   "zona": "Sur"
+  },
+  "ent-194": {
+   "archivo": "typica_cafe_saavedra_edifico_bella_f.jpg",
+   "nombre": "Typica cafe",
+   "zona": "Centro"
+  },
+  "ent-195": {
+   "archivo": "hay_cafe_achumani_cerca_plaza_de.jpg",
+   "nombre": "Hay Cafe",
+   "zona": "Sur"
+  },
+  "ent-196": {
+   "archivo": "pomas_cake_genaro_gamarra.jpg",
+   "nombre": "Pomas cake",
+   "zona": "Centro"
+  },
+  "ent-197": {
+   "archivo": "casero_by_typica_panaderia_gobles_esq_calle_12_irpa.jpg",
+   "nombre": "Casero by Typica Panaderia",
+   "zona": "Sur"
+  },
+  "ent-198": {
+   "archivo": "typica_cafe_tostaduria_achumani.jpg",
+   "nombre": "Typica Café Tostaduria",
+   "zona": "Sur"
+  },
+  "ent-199": {
+   "archivo": "retrogusto_braulio_vera.jpg",
+   "nombre": "RetroGusto",
+   "zona": "Sur"
+  },
+  "ent-200": {
+   "archivo": "esencia_5.jpg",
+   "nombre": "ESENCIA",
+   "zona": "Sur"
+  },
+  "ent-201": {
+   "archivo": "babilonia_miguel_quenayato_calle_1.jpg",
+   "nombre": "Babilonia",
+   "zona": "Sur"
+  },
+  "ent-202": {
+   "archivo": "k_fe_la_mia_aroma_12_miguel_quenallate.jpg",
+   "nombre": "k-fe la mía aroma",
+   "zona": "Sur"
+  },
+  "ent-203": {
+   "archivo": "cafe_en_ruta_garcia_lanza.jpg",
+   "nombre": "Café en ruta",
+   "zona": "Sur"
+  },
+  "ent-204": {
+   "archivo": "selah_esquina.jpg",
+   "nombre": "Selah",
+   "zona": "Centro"
+  },
+  "ent-205": {
+   "archivo": "teo_cat_montevideo_calle_capitan.jpg",
+   "nombre": "Teo Cat",
+   "zona": "Centro"
+  },
+  "ent-206": {
+   "archivo": "uta_cafe_alexander.jpg",
+   "nombre": "Uta cafe",
+   "zona": "Sur"
+  },
+  "ent-207": {
+   "archivo": "vainilla_coffe_company_alexander.jpg",
+   "nombre": "Vainilla coffe company",
+   "zona": "Sur"
+  },
+  "ent-208": {
+   "archivo": "alexander_coffe_alexander.jpg",
+   "nombre": "Alexander coffe",
+   "zona": "Sur"
+  },
+  "ent-209": {
+   "archivo": "juan_valdez_the_strongest.jpg",
+   "nombre": "Juan valdez",
+   "zona": "Sur"
+  },
+  "ent-210": {
+   "archivo": "cafe_bronze_illimani_plaza_tomas_fri.jpg",
+   "nombre": "Café bronze",
+   "zona": "Centro"
+  },
+  "ent-211": {
+   "archivo": "roaster_esq_plaza_isabel_la_cato.jpg",
+   "nombre": "Roaster",
+   "zona": "Centro"
+  },
+  "ent-212": {
+   "archivo": "coffeeology_6_de_agosto.jpg",
+   "nombre": "Coffeeology",
+   "zona": "Centro"
+  },
+  "ent-213": {
+   "archivo": "cafe_andre_final_pasaje_caracas.jpg",
+   "nombre": "Café Andre",
+   "zona": "Centro"
+  }
+ },
+ "marcas": {
+  "alexander coffee": {
+   "archivo": "alexander_coffee_la_paz.jpg",
+   "nombre": "Alexander Coffee",
+   "zona": "La Paz"
+  },
+  "amanita": {
+   "archivo": "amanita.jpg",
+   "nombre": "AMANITA",
+   "zona": ""
+  },
+  "andean hills": {
+   "archivo": "andean_hills.jpg",
+   "nombre": "Andean Hills",
+   "zona": ""
+  },
+  "biofilia": {
+   "archivo": "biofilia.jpg",
+   "nombre": "Biofilia",
+   "zona": ""
+  },
+  "bolivian coffee / cafe yungas": {
+   "archivo": "bolivian_coffee_cafe_yungas.jpg",
+   "nombre": "Bolivian Coffee / Café Yungas",
+   "zona": ""
+  },
+  "cafe chulumani": {
+   "archivo": "cafe_chulumani.jpg",
+   "nombre": "Café chulumani",
+   "zona": ""
+  },
+  "cafe con pan": {
+   "archivo": "cafe_con_pan.jpg",
+   "nombre": "Café con Pan",
+   "zona": ""
+  },
+  "cafe copacabana": {
+   "archivo": "cafe_copacabana.jpg",
+   "nombre": "Café Copacabana",
+   "zona": ""
+  },
+  "cafe santa": {
+   "archivo": "cafe_santa.jpg",
+   "nombre": "Café Santa",
+   "zona": ""
+  },
+  "cafe yungas": {
+   "archivo": "cafe_yungas_yungas.jpg",
+   "nombre": "Café Yungas",
+   "zona": "Dpto. de La Paz"
+  },
+  "casero by typica": {
+   "archivo": "casero_by_typica.jpg",
+   "nombre": "Casero by Typica",
+   "zona": ""
+  },
+  "coffee brothers": {
+   "archivo": "coffee_brothers.jpg",
+   "nombre": "Coffee Brothers",
+   "zona": ""
+  },
+  "coffeeology": {
+   "archivo": "coffeeology.jpg",
+   "nombre": "Coffeeology",
+   "zona": ""
+  },
+  "colibri": {
+   "archivo": "colibri.jpg",
+   "nombre": "Colibrí",
+   "zona": ""
+  },
+  "corban": {
+   "archivo": "corban.jpg",
+   "nombre": "Corban",
+   "zona": ""
+  },
+  "eclair": {
+   "archivo": "eclair.jpg",
+   "nombre": "Eclair",
+   "zona": ""
+  },
+  "el parlamento": {
+   "archivo": "el_parlamento.jpg",
+   "nombre": "El Parlamento",
+   "zona": ""
+  },
+  "esencia": {
+   "archivo": "esencia.jpg",
+   "nombre": "Esencia",
+   "zona": ""
+  },
+  "fortaleza coffe": {
+   "archivo": "fortaleza_coffe.jpg",
+   "nombre": "Fortaleza Coffe",
+   "zona": ""
+  },
+  "fortaleza coffee": {
+   "archivo": "fortaleza_coffee.jpg",
+   "nombre": "Fortaleza Coffee",
+   "zona": ""
+  },
+  "geisha": {
+   "archivo": "geisha.jpg",
+   "nombre": "Geisha",
+   "zona": ""
+  },
+  "irupana": {
+   "archivo": "irupana_la_paz.jpg",
+   "nombre": "IRUPANA",
+   "zona": "La Paz"
+  },
+  "juan valdez": {
+   "archivo": "juan_valdez_bolivia.jpg",
+   "nombre": "Juan Valdez",
+   "zona": "Bolivia"
+  },
+  "kimsa charani": {
+   "archivo": "kimsa_charani.jpg",
+   "nombre": "Kimsa Charani",
+   "zona": ""
+  },
+  "la yunguena": {
+   "archivo": "la_yunguena.jpg",
+   "nombre": "La Yungueña",
+   "zona": ""
+  },
+  "lunas": {
+   "archivo": "lunas.jpg",
+   "nombre": "Lunas",
+   "zona": ""
+  },
+  "mografo": {
+   "archivo": "mografo.jpg",
+   "nombre": "Mografo",
+   "zona": ""
+  },
+  "mugen coffee": {
+   "archivo": "mugen_coffee.jpg",
+   "nombre": "Mugen Coffee",
+   "zona": ""
+  },
+  "mugen coffee project": {
+   "archivo": "mugen_coffee_project.jpg",
+   "nombre": "Mugen Coffee Project",
+   "zona": ""
+  },
+  "nakhaki": {
+   "archivo": "nakhaki_caranavi.jpg",
+   "nombre": "NAKHAKI",
+   "zona": "Caranavi"
+  },
+  "nayra qata": {
+   "archivo": "nayra_qata.jpg",
+   "nombre": "Nayra Qata",
+   "zona": ""
+  },
+  "orange cup": {
+   "archivo": "orange_cup.jpg",
+   "nombre": "Orange Cup",
+   "zona": ""
+  },
+  "otono": {
+   "archivo": "otono.jpg",
+   "nombre": "Otoño",
+   "zona": ""
+  },
+  "rosa negra": {
+   "archivo": "rosa_negra.jpg",
+   "nombre": "Rosa Negra",
+   "zona": ""
+  },
+  "rustik": {
+   "archivo": "rustik.jpg",
+   "nombre": "Rustik",
+   "zona": ""
+  },
+  "sin fronteras": {
+   "archivo": "sin_fronteras.jpg",
+   "nombre": "Sin Fronteras",
+   "zona": ""
+  },
+  "sultana": {
+   "archivo": "sultana.jpg",
+   "nombre": "Sultana",
+   "zona": ""
+  },
+  "supra coffee": {
+   "archivo": "supra_coffee.jpg",
+   "nombre": "Supra Coffee",
+   "zona": ""
+  },
+  "typica": {
+   "archivo": "typica.jpg",
+   "nombre": "Typica",
+   "zona": ""
+  }
+ },
+ "tostadurias": {
+  "ent-008": {
+   "archivo": "bolivian_cofee_avillampu.jpg",
+   "nombre": "Bolivian Cofee",
+   "zona": "Centro"
+  },
+  "ent-026": {
+   "archivo": "fortaleza_coffe_max_paredes.jpg",
+   "nombre": "Fortaleza Coffe",
+   "zona": "Max Paredes"
+  },
+  "ent-039": {
+   "archivo": "agroecologia_nakhaki_cotahuma.jpg",
+   "nombre": "AGROECOLOGIA NAKHAKI",
+   "zona": "Cotahuma"
+  },
+  "ent-072": {
+   "archivo": "orange_caff_panama_y_estados_unidos.jpg",
+   "nombre": "Orange caff",
+   "zona": "Centro"
+  },
+  "ent-073": {
+   "archivo": "chumpi_diaz_romero_y_republica.jpg",
+   "nombre": "Chumpi",
+   "zona": "Centro"
+  },
+  "ent-091": {
+   "archivo": "andean_hills_potosi.jpg",
+   "nombre": "Andean Hills",
+   "zona": "Centro"
+  },
+  "ent-116": {
+   "archivo": "bistro_mercado_1308.jpg",
+   "nombre": "Bistro",
+   "zona": "Centro"
+  },
+  "ent-129": {
+   "archivo": "typica_batallon_colorado.jpg",
+   "nombre": "Typica",
+   "zona": "Centro"
+  },
+  "ent-136": {
+   "archivo": "the_writer_s_coffee_comercio_1270.jpg",
+   "nombre": "The Writer's Coffee",
+   "zona": "Centro"
+  },
+  "ent-142": {
+   "archivo": "biofilia_srl_6_de_agosto.jpg",
+   "nombre": "Biofilia SRL",
+   "zona": "Centro"
+  },
+  "ent-149": {
+   "archivo": "nayra_qata_mayor_de_san_francisco.jpg",
+   "nombre": "Nayra Qata",
+   "zona": "Centro"
+  },
+  "ent-155": {
+   "archivo": "cafe_chulumani_genaro_ramos_hernando_siles.jpg",
+   "nombre": "Café chulumani Genaro Ramos",
+   "zona": "Sur"
+  },
+  "ent-168": {
+   "archivo": "typica_cafe_y_tostaduria_mall_21.jpg",
+   "nombre": "Typica café y tostaduria",
+   "zona": "Sur"
+  }
+ },
+ "creditos": {
+  "cafe_berna_linares_947.jpg": {
+   "origen": "generica",
+   "pool": "pool_01.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Aromas_Latte_art%2C_Noosa_Heads%2C_Queensland.jpg/1920px-Aromas_Latte_art%2C_Noosa_Heads%2C_Queensland.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Kgbo",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "cafe_con_coca_linares_906.jpg": {
+   "origen": "generica",
+   "pool": "pool_17.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/5/58/Latte_art_at_Balzac%27s.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "Linda N. from Chicago, USA",
+   "licencia": "CC BY 2.0"
+  },
+  "alexander_coffe_20_de_octubre.jpg": {
+   "origen": "generica",
+   "pool": "pool_53.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/3/38/Caf%C3%A9_Espresso_%40_Almanara_Bas%C3%ADlio_da_Gama_%286997021212%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "Wagner Tamanaha from Sao Paulo, Brazil",
+   "licencia": "CC BY-SA 2.0"
+  },
+  "mugen_coffe_20_de_octubre_plaza_abar.jpg": {
+   "origen": "generica",
+   "pool": "pool_41.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/4/41/Cappuccino-cup_20230110_120045.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "Ioacc1234red",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "experiment_coffe_av_6_de_agosto_esquina_l.jpg": {
+   "origen": "generica",
+   "pool": "pool_32.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/A_takeout_cappuccino_in_a_brown_cup.jpg/1920px-A_takeout_cappuccino_in_a_brown_cup.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Revital Salomon",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "bolivian_cofee_avillampu.jpg": {
+   "origen": "generica",
+   "pool": "pool_55.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Cup_of_espresso_01.jpg/1920px-Cup_of_espresso_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Kritzolina",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "beirut_belisario_salinas_380.jpg": {
+   "origen": "generica",
+   "pool": "pool_14.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/Latte_art_-_London_Grind%2C_London%2C_UK_-_28424820001.jpg/1920px-Latte_art_-_London_Grind%2C_London%2C_UK_-_28424820001.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Bex Walton",
+   "licencia": "CC BY 2.0"
+  },
+  "crazy_market_tarija.jpg": {
+   "origen": "generica",
+   "pool": "pool_57.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Demitasse_Cup_and_Saucer_MET_270970.jpg/1920px-Demitasse_Cup_and_Saucer_MET_270970.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Creator:Onata North Fitts",
+   "licencia": "CC0"
+  },
+  "tari_cafe_tarija.jpg": {
+   "origen": "generica",
+   "pool": "pool_07.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/3/34/HK_Coffee_latte_art_sweet_milk_Aug-2013.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "Onpuichunsen",
+   "licencia": "CC BY-SA 3.0"
+  },
+  "cafe_urbano_fernando_guachalla.jpg": {
+   "origen": "generica",
+   "pool": "pool_26.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/6/65/A_cup_of_Cappuccino.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "P.Harika Reddy",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "the_abuelas_coffe_bar_linares.jpg": {
+   "origen": "generica",
+   "pool": "pool_13.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Latte_art_-_London_Grind%2C_London%2C_UK.jpg/1920px-Latte_art_-_London_Grind%2C_London%2C_UK.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Bex Walton",
+   "licencia": "CC BY 2.0"
+  },
+  "lunas_sagarnaga.jpg": {
+   "origen": "generica",
+   "pool": "pool_57.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Demitasse_Cup_and_Saucer_MET_270970.jpg/1920px-Demitasse_Cup_and_Saucer_MET_270970.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Creator:Onata North Fitts",
+   "licencia": "CC0"
+  },
+  "almara_ecuador.jpg": {
+   "origen": "generica",
+   "pool": "pool_42.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Cappuccino_6.jpg/1920px-Cappuccino_6.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Vrindapl",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "cafe_restaurante_angelo_colonial_linares.jpg": {
+   "origen": "generica",
+   "pool": "pool_39.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/Cappuccino-cup_20230110_104250.jpg/1920px-Cappuccino-cup_20230110_104250.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Ioacc1234red",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "cafe_del_mundo_sagarnaga_n_324.jpg": {
+   "origen": "generica",
+   "pool": "pool_29.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/A_cup_of_cappuccino_at_Miettes_Bakery%2C_Graceville%2C_Queensland%2C_2023.jpg/1920px-A_cup_of_cappuccino_at_Miettes_Bakery%2C_Graceville%2C_Queensland%2C_2023.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Kgbo",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "click_20_octubre.jpg": {
+   "origen": "generica",
+   "pool": "pool_22.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Latte_art_smile.jpg/1920px-Latte_art_smile.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "קלאופטרה",
+   "licencia": "CC BY-SA 3.0"
+  },
+  "era_cafe_y_tiempo_av_20_de_octubre.jpg": {
+   "origen": "generica",
+   "pool": "pool_24.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Rosetta_latte_art_in_Botellon_Restaurant%2C_Graceville%2C_Brisbane%2C_Queensland.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "Kgbo",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "cafe_vida_pasaje_juan_xxiii_187_de.jpg": {
+   "origen": "generica",
+   "pool": "pool_03.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Compass_Coffee_Lattes.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "Jackiegeorges92321",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "sultana_ecuador_y_belisario_sali.jpg": {
+   "origen": "generica",
+   "pool": "pool_59.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/Demitasse_Cup_and_Saucer_MET_DP258772.jpg/1920px-Demitasse_Cup_and_Saucer_MET_DP258772.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Union Porcelain Works",
+   "licencia": "CC0"
+  },
+  "rugbyes_colombia.jpg": {
+   "origen": "generica",
+   "pool": "pool_24.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Rosetta_latte_art_in_Botellon_Restaurant%2C_Graceville%2C_Brisbane%2C_Queensland.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "Kgbo",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "mil_delicias_colombia.jpg": {
+   "origen": "generica",
+   "pool": "pool_55.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Cup_of_espresso_01.jpg/1920px-Cup_of_espresso_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Kritzolina",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "fortaleza_coffe_max_paredes.jpg": {
+   "origen": "generica",
+   "pool": "pool_13.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Latte_art_-_London_Grind%2C_London%2C_UK.jpg/1920px-Latte_art_-_London_Grind%2C_London%2C_UK.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Bex Walton",
+   "licencia": "CC BY 2.0"
+  },
+  "kuchen_stube_rosendo_gutierrez.jpg": {
+   "origen": "generica",
+   "pool": "pool_44.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Classic_Cappuccino.jpg/1920px-Classic_Cappuccino.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Jazzbobrown",
+   "licencia": "Public domain"
+  },
+  "la_propia_empanada_rosendo_gutierrez.jpg": {
+   "origen": "generica",
+   "pool": "pool_49.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/20231220_una_tazza_di_bokeh_PD103944.jpg/1920px-20231220_una_tazza_di_bokeh_PD103944.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Paul Danese",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "coffeeeology_6_de_agosto_planta_baja.jpg": {
+   "origen": "generica",
+   "pool": "pool_06.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/b/bb/HK_Coffee_latte_art_practice_and_practice_Aug-2013.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "Onpuichunsen",
+   "licencia": "CC BY-SA 3.0"
+  },
+  "rubyes_colombia_y_mexico.jpg": {
+   "origen": "generica",
+   "pool": "pool_14.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/Latte_art_-_London_Grind%2C_London%2C_UK_-_28424820001.jpg/1920px-Latte_art_-_London_Grind%2C_London%2C_UK_-_28424820001.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Bex Walton",
+   "licencia": "CC BY 2.0"
+  },
+  "the_coffee_25_arce_edificio_santa_isab.jpg": {
+   "origen": "generica",
+   "pool": "pool_38.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Cappuccino-cup_20230110_104200.jpg/1920px-Cappuccino-cup_20230110_104200.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Ioacc1234red",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "mugen_coffee_project_avaroa_av_20_de_octubre.jpg": {
+   "origen": "generica",
+   "pool": "pool_54.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/Coffecup_Moscow_20180622.jpg/1920px-Coffecup_Moscow_20180622.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Ingimar E",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "samoo_landaeta_equ_abdoon_saav.jpg": {
+   "origen": "generica",
+   "pool": "pool_34.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0d/Cappuccino-cup_20230110_103646.jpg/1280px-Cappuccino-cup_20230110_103646.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Ioacc1234red",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "kimsa_charani_coffe_shop_busch_calle_panama.jpg": {
+   "origen": "generica",
+   "pool": "pool_27.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/A_cup_of_cappuccino.jpg/1920px-A_cup_of_cappuccino.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Vee Satayamas",
+   "licencia": "CC BY 4.0"
+  },
+  "cafe_copacabana_miraflores_stadium.jpg": {
+   "origen": "generica",
+   "pool": "pool_47.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Cups_of_cappuccino_%281%29.jpg/1920px-Cups_of_cappuccino_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Sakhalinio",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "main_coffe_miraflores_av_savedra.jpg": {
+   "origen": "generica",
+   "pool": "pool_01.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Aromas_Latte_art%2C_Noosa_Heads%2C_Queensland.jpg/1920px-Aromas_Latte_art%2C_Noosa_Heads%2C_Queensland.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Kgbo",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "refugio_quetzal_miraflores_av_villalobos.jpg": {
+   "origen": "generica",
+   "pool": "pool_12.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Latte_art_%22Rosetta%22.jpg/1920px-Latte_art_%22Rosetta%22.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Maxstein5",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "wali_suma_miraflores.jpg": {
+   "origen": "generica",
+   "pool": "pool_26.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/6/65/A_cup_of_Cappuccino.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "P.Harika Reddy",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "amanita_busch_miraflores.jpg": {
+   "origen": "generica",
+   "pool": "pool_48.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Soy_milk_cappuccino_in_a_tea_cup.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "Miscellaneous contributor",
+   "licencia": "CC0"
+  },
+  "cafe_santa_20_de_octubre_belisario.jpg": {
+   "origen": "generica",
+   "pool": "pool_27.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/A_cup_of_cappuccino.jpg/1920px-A_cup_of_cappuccino.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Vee Satayamas",
+   "licencia": "CC BY 4.0"
+  },
+  "le_palais_rose_20_de_octubre_aspiazu.jpg": {
+   "origen": "generica",
+   "pool": "pool_14.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/Latte_art_-_London_Grind%2C_London%2C_UK_-_28424820001.jpg/1920px-Latte_art_-_London_Grind%2C_London%2C_UK_-_28424820001.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Bex Walton",
+   "licencia": "CC BY 2.0"
+  },
+  "michelline_20_de_octubre_aspiazu.jpg": {
+   "origen": "generica",
+   "pool": "pool_37.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Cappuccino-cup_20230110_104144.jpg/1920px-Cappuccino-cup_20230110_104144.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Ioacc1234red",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "cris_mografo_20_de_octubre_aspiazu.jpg": {
+   "origen": "generica",
+   "pool": "pool_17.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/5/58/Latte_art_at_Balzac%27s.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "Linda N. from Chicago, USA",
+   "licencia": "CC BY 2.0"
+  },
+  "chis_magrafo_aspiazu.jpg": {
+   "origen": "generica",
+   "pool": "pool_58.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Demitasse_Cup_and_Saucer_MET_270970b.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "Creator:Onata North Fitts",
+   "licencia": "CC0"
+  },
+  "cafe_dante_6_de_agosto.jpg": {
+   "origen": "generica",
+   "pool": "pool_28.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/A_cup_of_cappuccino_at_Burleigh_Heads_Hotel.JPG/1920px-A_cup_of_cappuccino_at_Burleigh_Heads_Hotel.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Kgbo",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "matriz_cafe_sensorial_lisimaco_gutierrez.jpg": {
+   "origen": "generica",
+   "pool": "pool_22.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Latte_art_smile.jpg/1920px-Latte_art_smile.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "קלאופטרה",
+   "licencia": "CC BY-SA 3.0"
+  },
+  "alexander_coffee_multicine_arce.jpg": {
+   "origen": "generica",
+   "pool": "pool_54.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/Coffecup_Moscow_20180622.jpg/1920px-Coffecup_Moscow_20180622.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Ingimar E",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "eclaie_coffe_multicine_av_arce_la_paz.jpg": {
+   "origen": "generica",
+   "pool": "pool_57.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Demitasse_Cup_and_Saucer_MET_270970.jpg/1920px-Demitasse_Cup_and_Saucer_MET_270970.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Creator:Onata North Fitts",
+   "licencia": "CC0"
+  },
+  "multicine_cafe_multicine_av_arce.jpg": {
+   "origen": "generica",
+   "pool": "pool_50.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/20231223_una_tazza_di_bokeh_PD104696_1.jpg/1920px-20231223_una_tazza_di_bokeh_PD104696_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Paul Danese",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "andean_hills_coffe_arce_plaza_isabela_catol.jpg": {
+   "origen": "generica",
+   "pool": "pool_60.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Demitasse_Cup_and_Saucer_MET_DP260300.jpg/1920px-Demitasse_Cup_and_Saucer_MET_DP260300.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "",
+   "licencia": "CC0"
+  },
+  "juan_valdez_las_torres_mall.jpg": {
+   "origen": "generica",
+   "pool": "pool_46.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Cup_of_cappuccino_at_Nantucket_Kitchen_%26_Bar.JPG/1920px-Cup_of_cappuccino_at_Nantucket_Kitchen_%26_Bar.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Kgbo",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "rosa_negra_las_torres_mall_2do_piso.jpg": {
+   "origen": "generica",
+   "pool": "pool_08.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Hearts_in_latte_art%2C_Krak%C3%B3w%2C_Poland%2C_2023.jpg/1920px-Hearts_in_latte_art%2C_Krak%C3%B3w%2C_Poland%2C_2023.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Kgbo",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "madidi_coffee_panama_y_avenida_saavedr.jpg": {
+   "origen": "generica",
+   "pool": "pool_41.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/4/41/Cappuccino-cup_20230110_120045.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "Ioacc1234red",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "pasteleria_snack_la_yunguenita_diaz_romero_av_brasil_y.jpg": {
+   "origen": "generica",
+   "pool": "pool_13.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Latte_art_-_London_Grind%2C_London%2C_UK.jpg/1920px-Latte_art_-_London_Grind%2C_London%2C_UK.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Bex Walton",
+   "licencia": "CC BY 2.0"
+  },
+  "pasteleria_snack_la_yunguenita_diaz_romero.jpg": {
+   "origen": "generica",
+   "pool": "pool_04.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/Cup_of_coffee_with_latte_art_2016.jpg/1920px-Cup_of_coffee_with_latte_art_2016.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Abdulrohmatt",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "corban_coffe_diaz_romero.jpg": {
+   "origen": "generica",
+   "pool": "pool_33.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Cappuccino-cup_20230110_103258.jpg/1280px-Cappuccino-cup_20230110_103258.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Ioacc1234red",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "corban_coffee_diaz_romero.jpg": {
+   "origen": "generica",
+   "pool": "pool_59.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/Demitasse_Cup_and_Saucer_MET_DP258772.jpg/1920px-Demitasse_Cup_and_Saucer_MET_DP258772.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Union Porcelain Works",
+   "licencia": "CC0"
+  },
+  "los_sauces_gualberto_villarroel.jpg": {
+   "origen": "generica",
+   "pool": "pool_27.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/A_cup_of_cappuccino.jpg/1920px-A_cup_of_cappuccino.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Vee Satayamas",
+   "licencia": "CC BY 4.0"
+  },
+  "la_sabrosa_esquina_diaz_romero_y_av.jpg": {
+   "origen": "generica",
+   "pool": "pool_31.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/b/bf/A_cup_of_cappuccino_from_Gloria_Jean%27s_Coffees_in_Tianjin_University.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "Amazingloong",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "corban_diaz_romero.jpg": {
+   "origen": "generica",
+   "pool": "pool_26.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/6/65/A_cup_of_Cappuccino.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "P.Harika Reddy",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "coffee_place_republica_dominicana_num.jpg": {
+   "origen": "generica",
+   "pool": "pool_16.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Latte_art_3.jpg/1920px-Latte_art_3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Kim Sanso",
+   "licencia": "CC0"
+  },
+  "artaban_coffee_bar_n1820_argentina_y_j_gutierrez.jpg": {
+   "origen": "generica",
+   "pool": "pool_05.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/7/74/HK_Coffee_latte_art_milk_pattern_Aug-2013.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "Onpuichunsen",
+   "licencia": "CC BY-SA 3.0"
+  },
+  "bunna_cafeteria_especializada_frente_de_la_plaza_villa.jpg": {
+   "origen": "generica",
+   "pool": "pool_09.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Latte_Art.jpg/1920px-Latte_Art.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Lirazelf",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "orange_caff_panama_y_estados_unidos.jpg": {
+   "origen": "generica",
+   "pool": "pool_27.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/A_cup_of_cappuccino.jpg/1920px-A_cup_of_cappuccino.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Vee Satayamas",
+   "licencia": "CC BY 4.0"
+  },
+  "rustik_coffee_busch.jpg": {
+   "origen": "generica",
+   "pool": "pool_49.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/20231220_una_tazza_di_bokeh_PD103944.jpg/1920px-20231220_una_tazza_di_bokeh_PD103944.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Paul Danese",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "rustik_coffe_busch.jpg": {
+   "origen": "generica",
+   "pool": "pool_34.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0d/Cappuccino-cup_20230110_103646.jpg/1280px-Cappuccino-cup_20230110_103646.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Ioacc1234red",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "amanita_cafe_market_av_busch_edif_londres_16.jpg": {
+   "origen": "generica",
+   "pool": "pool_19.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/Latte_art_at_Roma_Street_Parkland%2C_Brisbane%2C_May_2020.jpg/1920px-Latte_art_at_Roma_Street_Parkland%2C_Brisbane%2C_May_2020.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Kgbo",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "mare_nostrum_c_rep_de_cuba_1291_la_pa.jpg": {
+   "origen": "generica",
+   "pool": "pool_30.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/A_cup_of_cappuccino_at_Regatta_Hotel.JPG/1920px-A_cup_of_cappuccino_at_Regatta_Hotel.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Kgbo",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "chabuca_brasil_frente_calle_esta.jpg": {
+   "origen": "generica",
+   "pool": "pool_49.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/20231220_una_tazza_di_bokeh_PD103944.jpg/1920px-20231220_una_tazza_di_bokeh_PD103944.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Paul Danese",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "pasteleria_cruz_hugo_estrada.jpg": {
+   "origen": "generica",
+   "pool": "pool_28.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/A_cup_of_cappuccino_at_Burleigh_Heads_Hotel.JPG/1920px-A_cup_of_cappuccino_at_Burleigh_Heads_Hotel.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Kgbo",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "kimsa_charani_panama_media_cuadra_abaj.jpg": {
+   "origen": "generica",
+   "pool": "pool_26.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/6/65/A_cup_of_Cappuccino.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "P.Harika Reddy",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "cafeteria_orurena_bueno.jpg": {
+   "origen": "generica",
+   "pool": "pool_18.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Latte_art_at_Imperial_Hotel%2C_Warwick%2C_Queensland%2C_2021.jpg/1920px-Latte_art_at_Imperial_Hotel%2C_Warwick%2C_Queensland%2C_2021.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Kgbo",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "cafeteria_milaneso_anticafe_bueno.jpg": {
+   "origen": "generica",
+   "pool": "pool_51.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9f/20241223_tazza_di_bokeh_PD104669.jpg/1920px-20241223_tazza_di_bokeh_PD104669.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Paul Danese",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "rosa_negra_potosi.jpg": {
+   "origen": "generica",
+   "pool": "pool_18.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Latte_art_at_Imperial_Hotel%2C_Warwick%2C_Queensland%2C_2021.jpg/1920px-Latte_art_at_Imperial_Hotel%2C_Warwick%2C_Queensland%2C_2021.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Kgbo",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "daniel_s_coffee_potosi.jpg": {
+   "origen": "generica",
+   "pool": "pool_37.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Cappuccino-cup_20230110_104144.jpg/1920px-Cappuccino-cup_20230110_104144.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Ioacc1234red",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "challa_potosi.jpg": {
+   "origen": "generica",
+   "pool": "pool_26.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/6/65/A_cup_of_Cappuccino.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "P.Harika Reddy",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "distrito_caffe_mercado.jpg": {
+   "origen": "generica",
+   "pool": "pool_21.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Latte_art_heart_Garden_Caff%C3%A9_Portugal_20190118.jpg/1920px-Latte_art_heart_Garden_Caff%C3%A9_Portugal_20190118.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Londonjackbooks",
+   "licencia": "CC0"
+  },
+  "moki_mercado.jpg": {
+   "origen": "generica",
+   "pool": "pool_35.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Cappuccino-cup_20230110_103835.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "Ioacc1234red",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "andean_hills_potosi.jpg": {
+   "origen": "generica",
+   "pool": "pool_59.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/Demitasse_Cup_and_Saucer_MET_DP258772.jpg/1920px-Demitasse_Cup_and_Saucer_MET_DP258772.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Union Porcelain Works",
+   "licencia": "CC0"
+  },
+  "cafeteria_valdez_federico_zuaso.jpg": {
+   "origen": "generica",
+   "pool": "pool_42.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Cappuccino_6.jpg/1920px-Cappuccino_6.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Vrindapl",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "cafe_copacabana_potosi_y_socabaya.jpg": {
+   "origen": "generica",
+   "pool": "pool_24.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Rosetta_latte_art_in_Botellon_Restaurant%2C_Graceville%2C_Brisbane%2C_Queensland.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "Kgbo",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "alexander_coffee_esquina_potosi_y_socabay.jpg": {
+   "origen": "generica",
+   "pool": "pool_35.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Cappuccino-cup_20230110_103835.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "Ioacc1234red",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "lunas_coffe_restaurant_sagarnaga.jpg": {
+   "origen": "generica",
+   "pool": "pool_46.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Cup_of_cappuccino_at_Nantucket_Kitchen_%26_Bar.JPG/1920px-Cup_of_cappuccino_at_Nantucket_Kitchen_%26_Bar.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Kgbo",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "pasteleria_michelline_max_paredes.jpg": {
+   "origen": "generica",
+   "pool": "pool_50.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/20231223_una_tazza_di_bokeh_PD104696_1.jpg/1920px-20231223_una_tazza_di_bokeh_PD104696_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Paul Danese",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "rizoma_piensa_en_el_cafe_bolivar.jpg": {
+   "origen": "generica",
+   "pool": "pool_20.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/Latte_art_by_Nijat_Zayidov.jpg/1920px-Latte_art_by_Nijat_Zayidov.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Tokimemooo",
+   "licencia": "CC BY 4.0"
+  },
+  "kilometro_zero_bolviar.jpg": {
+   "origen": "generica",
+   "pool": "pool_32.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/A_takeout_cappuccino_in_a_brown_cup.jpg/1920px-A_takeout_cappuccino_in_a_brown_cup.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Revital Salomon",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "amato_cafe_restaurant_ballivian.jpg": {
+   "origen": "generica",
+   "pool": "pool_26.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/6/65/A_cup_of_Cappuccino.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "P.Harika Reddy",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "coffee_palace_bolviar.jpg": {
+   "origen": "generica",
+   "pool": "pool_42.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Cappuccino_6.jpg/1920px-Cappuccino_6.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Vrindapl",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "canela_bakery_coffee_santa_cruz.jpg": {
+   "origen": "generica",
+   "pool": "pool_35.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Cappuccino-cup_20230110_103835.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "Ioacc1234red",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "cafe_la_tienda_mariscal_pasaje_peaton.jpg": {
+   "origen": "generica",
+   "pool": "pool_20.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/Latte_art_by_Nijat_Zayidov.jpg/1920px-Latte_art_by_Nijat_Zayidov.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Tokimemooo",
+   "licencia": "CC BY 4.0"
+  },
+  "la_joya_mariscal_pasaje_peaton.jpg": {
+   "origen": "generica",
+   "pool": "pool_59.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/Demitasse_Cup_and_Saucer_MET_DP258772.jpg/1920px-Demitasse_Cup_and_Saucer_MET_DP258772.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Union Porcelain Works",
+   "licencia": "CC0"
+  },
+  "quinaya_yanacocha_425.jpg": {
+   "origen": "generica",
+   "pool": "pool_19.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/Latte_art_at_Roma_Street_Parkland%2C_Brisbane%2C_May_2020.jpg/1920px-Latte_art_at_Roma_Street_Parkland%2C_Brisbane%2C_May_2020.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Kgbo",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "coffee_californ_club_yanacocha_428.jpg": {
+   "origen": "generica",
+   "pool": "pool_46.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Cup_of_cappuccino_at_Nantucket_Kitchen_%26_Bar.JPG/1920px-Cup_of_cappuccino_at_Nantucket_Kitchen_%26_Bar.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Kgbo",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "alexander_coffee_potosi_s_n.jpg": {
+   "origen": "generica",
+   "pool": "pool_08.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Hearts_in_latte_art%2C_Krak%C3%B3w%2C_Poland%2C_2023.jpg/1920px-Hearts_in_latte_art%2C_Krak%C3%B3w%2C_Poland%2C_2023.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Kgbo",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "pasteleria_bistro_rosa_negra_potosi.jpg": {
+   "origen": "generica",
+   "pool": "pool_26.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/6/65/A_cup_of_Cappuccino.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "P.Harika Reddy",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "casera_pasteleria_cafeteria_loayza_s_n.jpg": {
+   "origen": "generica",
+   "pool": "pool_49.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/20231220_una_tazza_di_bokeh_PD103944.jpg/1920px-20231220_una_tazza_di_bokeh_PD103944.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Paul Danese",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "cafeteria_andino_comercio_1307.jpg": {
+   "origen": "generica",
+   "pool": "pool_31.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/b/bf/A_cup_of_cappuccino_from_Gloria_Jean%27s_Coffees_in_Tianjin_University.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "Amazingloong",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "el_parlamento_historia_cafe_comercio_1280.jpg": {
+   "origen": "generica",
+   "pool": "pool_37.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Cappuccino-cup_20230110_104144.jpg/1920px-Cappuccino-cup_20230110_104144.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Ioacc1234red",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "break_time_bolivar_y_ballivian_1206.jpg": {
+   "origen": "generica",
+   "pool": "pool_38.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Cappuccino-cup_20230110_104200.jpg/1920px-Cappuccino-cup_20230110_104200.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Ioacc1234red",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "kilometro_0_murillo_comercio.jpg": {
+   "origen": "generica",
+   "pool": "pool_04.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/Cup_of_coffee_with_latte_art_2016.jpg/1920px-Cup_of_coffee_with_latte_art_2016.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Abdulrohmatt",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "miga_campos.jpg": {
+   "origen": "generica",
+   "pool": "pool_05.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/7/74/HK_Coffee_latte_art_milk_pattern_Aug-2013.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "Onpuichunsen",
+   "licencia": "CC BY-SA 3.0"
+  },
+  "bistro_mercado_1308.jpg": {
+   "origen": "generica",
+   "pool": "pool_42.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Cappuccino_6.jpg/1920px-Cappuccino_6.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Vrindapl",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "mi_deleite_catering_bakery_campos.jpg": {
+   "origen": "generica",
+   "pool": "pool_46.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Cup_of_cappuccino_at_Nantucket_Kitchen_%26_Bar.JPG/1920px-Cup_of_cappuccino_at_Nantucket_Kitchen_%26_Bar.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Kgbo",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "alexander_coffee_6_de_agosto.jpg": {
+   "origen": "generica",
+   "pool": "pool_53.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/3/38/Caf%C3%A9_Espresso_%40_Almanara_Bas%C3%ADlio_da_Gama_%286997021212%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "Wagner Tamanaha from Sao Paulo, Brazil",
+   "licencia": "CC BY-SA 2.0"
+  },
+  "ocheto_la_paz.jpg": {
+   "origen": "generica",
+   "pool": "pool_22.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Latte_art_smile.jpg/1920px-Latte_art_smile.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "קלאופטרה",
+   "licencia": "CC BY-SA 3.0"
+  },
+  "sin_fronteras_6_de_agosto_y_rosendo_gu.jpg": {
+   "origen": "generica",
+   "pool": "pool_36.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/Cappuccino-cup_20230110_104012.jpg/1280px-Cappuccino-cup_20230110_104012.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Ioacc1234red",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "anticafe_quetzal_villalobos.jpg": {
+   "origen": "generica",
+   "pool": "pool_17.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/5/58/Latte_art_at_Balzac%27s.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "Linda N. from Chicago, USA",
+   "licencia": "CC BY 2.0"
+  },
+  "moshe_triangular.jpg": {
+   "origen": "generica",
+   "pool": "pool_60.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Demitasse_Cup_and_Saucer_MET_DP260300.jpg/1920px-Demitasse_Cup_and_Saucer_MET_DP260300.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "",
+   "licencia": "CC0"
+  },
+  "nayra_wiri_chichas_a_pasos_del_puen.jpg": {
+   "origen": "generica",
+   "pool": "pool_56.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Cup_of_espresso_02.jpg/1920px-Cup_of_espresso_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Kritzolina",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "la_antorcha_victor_eduardo.jpg": {
+   "origen": "generica",
+   "pool": "pool_02.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Cappuccino_with_latte_art_on_Coffee_Right_in_Brno%2C_Brno-City_District.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "Frettie",
+   "licencia": "CC BY 3.0"
+  },
+  "cafeteria_copacabana_en_el_estadio_hernando_s.jpg": {
+   "origen": "generica",
+   "pool": "pool_16.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Latte_art_3.jpg/1920px-Latte_art_3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Kim Sanso",
+   "licencia": "CC0"
+  },
+  "la_cordobesa_arce_2132.jpg": {
+   "origen": "generica",
+   "pool": "pool_60.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Demitasse_Cup_and_Saucer_MET_DP260300.jpg/1920px-Demitasse_Cup_and_Saucer_MET_DP260300.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "",
+   "licencia": "CC0"
+  },
+  "typica_batallon_colorado.jpg": {
+   "origen": "generica",
+   "pool": "pool_52.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/A_cup_of_espresso.jpg/1920px-A_cup_of_espresso.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Vee Satayamas",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "almus_mexico.jpg": {
+   "origen": "generica",
+   "pool": "pool_21.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Latte_art_heart_Garden_Caff%C3%A9_Portugal_20190118.jpg/1920px-Latte_art_heart_Garden_Caff%C3%A9_Portugal_20190118.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Londonjackbooks",
+   "licencia": "CC0"
+  },
+  "cultoras_victor_eduardo.jpg": {
+   "origen": "generica",
+   "pool": "pool_13.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Latte_art_-_London_Grind%2C_London%2C_UK.jpg/1920px-Latte_art_-_London_Grind%2C_London%2C_UK.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Bex Walton",
+   "licencia": "CC BY 2.0"
+  },
+  "juan_valdez_federico_zuazo_y_bueno.jpg": {
+   "origen": "generica",
+   "pool": "pool_43.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Cappuccino_Cup_%2843817942%29.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "Theerawat Sangprakarn",
+   "licencia": "CC BY 3.0"
+  },
+  "rosa_negra_arce_torres_mall.jpg": {
+   "origen": "generica",
+   "pool": "pool_02.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Cappuccino_with_latte_art_on_Coffee_Right_in_Brno%2C_Brno-City_District.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "Frettie",
+   "licencia": "CC BY 3.0"
+  },
+  "especialidad_en_cafe_arce_torres_mall.jpg": {
+   "origen": "generica",
+   "pool": "pool_56.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Cup_of_espresso_02.jpg/1920px-Cup_of_espresso_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Kritzolina",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "the_writer_s_coffee_comercio_1270.jpg": {
+   "origen": "generica",
+   "pool": "pool_43.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Cappuccino_Cup_%2843817942%29.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "Theerawat Sangprakarn",
+   "licencia": "CC BY 3.0"
+  },
+  "coffeto_miel_cornero_mamani.jpg": {
+   "origen": "generica",
+   "pool": "pool_20.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/Latte_art_by_Nijat_Zayidov.jpg/1920px-Latte_art_by_Nijat_Zayidov.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Tokimemooo",
+   "licencia": "CC BY 4.0"
+  },
+  "fahrenheit_nicaragua.jpg": {
+   "origen": "generica",
+   "pool": "pool_30.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/A_cup_of_cappuccino_at_Regatta_Hotel.JPG/1920px-A_cup_of_cappuccino_at_Regatta_Hotel.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Kgbo",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "marraqueta_ave_14_de_septiembre.jpg": {
+   "origen": "generica",
+   "pool": "pool_12.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Latte_art_%22Rosetta%22.jpg/1920px-Latte_art_%22Rosetta%22.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Maxstein5",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "cafeteria_expresso_al_paso_jorge_rouma_1095.jpg": {
+   "origen": "generica",
+   "pool": "pool_04.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/Cup_of_coffee_with_latte_art_2016.jpg/1920px-Cup_of_coffee_with_latte_art_2016.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Abdulrohmatt",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "biofilia_srl_6_de_agosto.jpg": {
+   "origen": "generica",
+   "pool": "pool_57.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Demitasse_Cup_and_Saucer_MET_270970.jpg/1920px-Demitasse_Cup_and_Saucer_MET_270970.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Creator:Onata North Fitts",
+   "licencia": "CC0"
+  },
+  "robusta_cafe_miraflores_calle_argenti.jpg": {
+   "origen": "generica",
+   "pool": "pool_16.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Latte_art_3.jpg/1920px-Latte_art_3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Kim Sanso",
+   "licencia": "CC0"
+  },
+  "eclear_coffe_arce_multicine.jpg": {
+   "origen": "generica",
+   "pool": "pool_15.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Latte_art_0.jpg/1920px-Latte_art_0.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Angela CoffeeRank",
+   "licencia": "CC BY 2.0"
+  },
+  "mi_mundo_de_pasteles_arce_multicine.jpg": {
+   "origen": "generica",
+   "pool": "pool_54.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/Coffecup_Moscow_20180622.jpg/1920px-Coffecup_Moscow_20180622.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Ingimar E",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "briely_gido_villa_gomez_1118.jpg": {
+   "origen": "generica",
+   "pool": "pool_19.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/Latte_art_at_Roma_Street_Parkland%2C_Brisbane%2C_May_2020.jpg/1920px-Latte_art_at_Roma_Street_Parkland%2C_Brisbane%2C_May_2020.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Kgbo",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "coffee_time_ingavi.jpg": {
+   "origen": "generica",
+   "pool": "pool_22.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Latte_art_smile.jpg/1920px-Latte_art_smile.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "קלאופטרה",
+   "licencia": "CC BY-SA 3.0"
+  },
+  "nayra_qata_mayor_de_san_francisco.jpg": {
+   "origen": "generica",
+   "pool": "pool_26.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/6/65/A_cup_of_Cappuccino.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "P.Harika Reddy",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "garabato_6_de_agosto.jpg": {
+   "origen": "generica",
+   "pool": "pool_15.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Latte_art_0.jpg/1920px-Latte_art_0.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Angela CoffeeRank",
+   "licencia": "CC BY 2.0"
+  },
+  "typica_6_de_agosto.jpg": {
+   "origen": "generica",
+   "pool": "pool_20.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/Latte_art_by_Nijat_Zayidov.jpg/1920px-Latte_art_by_Nijat_Zayidov.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Tokimemooo",
+   "licencia": "CC BY 4.0"
+  },
+  "typica_6_de_agosto_2.jpg": {
+   "origen": "generica",
+   "pool": "pool_22.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Latte_art_smile.jpg/1920px-Latte_art_smile.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "קלאופטרה",
+   "licencia": "CC BY-SA 3.0"
+  },
+  "coffe_nation_6_de_agosto.jpg": {
+   "origen": "generica",
+   "pool": "pool_08.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Hearts_in_latte_art%2C_Krak%C3%B3w%2C_Poland%2C_2023.jpg/1920px-Hearts_in_latte_art%2C_Krak%C3%B3w%2C_Poland%2C_2023.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Kgbo",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "amaroma_6_de_agosto.jpg": {
+   "origen": "generica",
+   "pool": "pool_53.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/3/38/Caf%C3%A9_Espresso_%40_Almanara_Bas%C3%ADlio_da_Gama_%286997021212%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "Wagner Tamanaha from Sao Paulo, Brazil",
+   "licencia": "CC BY-SA 2.0"
+  },
+  "cafe_chulumani_genaro_ramos_hernando_siles.jpg": {
+   "origen": "generica",
+   "pool": "pool_48.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Soy_milk_cappuccino_in_a_tea_cup.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "Miscellaneous contributor",
+   "licencia": "CC0"
+  },
+  "el_parlamento_historia_cafe_comercio.jpg": {
+   "origen": "generica",
+   "pool": "pool_01.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Aromas_Latte_art%2C_Noosa_Heads%2C_Queensland.jpg/1920px-Aromas_Latte_art%2C_Noosa_Heads%2C_Queensland.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Kgbo",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "otono_cafe_y_vinos_jose_maria_zalles.jpg": {
+   "origen": "generica",
+   "pool": "pool_15.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Latte_art_0.jpg/1920px-Latte_art_0.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Angela CoffeeRank",
+   "licencia": "CC BY 2.0"
+  },
+  "supra_coffe_jose_maria_zalles.jpg": {
+   "origen": "generica",
+   "pool": "pool_09.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Latte_Art.jpg/1920px-Latte_Art.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Lirazelf",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "cafe_alexander_jose_maria_aguirre_acha.jpg": {
+   "origen": "generica",
+   "pool": "pool_38.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Cappuccino-cup_20230110_104200.jpg/1920px-Cappuccino-cup_20230110_104200.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Ioacc1234red",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "cafeteria_juan_valdez_jose_maria_aguirre_acha.jpg": {
+   "origen": "generica",
+   "pool": "pool_23.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Making_of_Latte_art_of_cappuccino_on_Coffee_Right_in_Brno%2C_Brno-City_District.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "Frettie",
+   "licencia": "CC BY 3.0"
+  },
+  "sweet_sensitive_pasteleria_6.jpg": {
+   "origen": "generica",
+   "pool": "pool_46.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Cup_of_cappuccino_at_Nantucket_Kitchen_%26_Bar.JPG/1920px-Cup_of_cappuccino_at_Nantucket_Kitchen_%26_Bar.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Kgbo",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "el_parlamento_montenegro.jpg": {
+   "origen": "generica",
+   "pool": "pool_44.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Classic_Cappuccino.jpg/1920px-Classic_Cappuccino.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Jazzbobrown",
+   "licencia": "Public domain"
+  },
+  "alexander_coffee_montenegro.jpg": {
+   "origen": "generica",
+   "pool": "pool_07.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/3/34/HK_Coffee_latte_art_sweet_milk_Aug-2013.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "Onpuichunsen",
+   "licencia": "CC BY-SA 3.0"
+  },
+  "cafe_con_pan_mcl_de_montenegro.jpg": {
+   "origen": "generica",
+   "pool": "pool_20.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/Latte_art_by_Nijat_Zayidov.jpg/1920px-Latte_art_by_Nijat_Zayidov.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Tokimemooo",
+   "licencia": "CC BY 4.0"
+  },
+  "cafe_con_pan_entre_la_22_y_la_23_de_c.jpg": {
+   "origen": "generica",
+   "pool": "pool_12.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Latte_art_%22Rosetta%22.jpg/1920px-Latte_art_%22Rosetta%22.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Maxstein5",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "alexander_coffee_jose_aguirre_hipermaxi.jpg": {
+   "origen": "generica",
+   "pool": "pool_10.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/Latte_and_dark_coffee.jpg/1920px-Latte_and_dark_coffee.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Bex Walton",
+   "licencia": "CC BY 2.0"
+  },
+  "typica_cafe_y_tostaduria_mall_21.jpg": {
+   "origen": "generica",
+   "pool": "pool_37.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Cappuccino-cup_20230110_104144.jpg/1920px-Cappuccino-cup_20230110_104144.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Ioacc1234red",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "alexander_coffee_21.jpg": {
+   "origen": "generica",
+   "pool": "pool_40.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Cappuccino-cup_20230110_104449.jpg/1920px-Cappuccino-cup_20230110_104449.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Ioacc1234red",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "cafe_esencia_montenegro.jpg": {
+   "origen": "generica",
+   "pool": "pool_28.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/A_cup_of_cappuccino_at_Burleigh_Heads_Hotel.JPG/1920px-A_cup_of_cappuccino_at_Burleigh_Heads_Hotel.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Kgbo",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "supra_coffee_enrique_penaranda.jpg": {
+   "origen": "generica",
+   "pool": "pool_55.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Cup_of_espresso_01.jpg/1920px-Cup_of_espresso_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Kritzolina",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "madame_brunch_bakery_enrique_penaranda.jpg": {
+   "origen": "generica",
+   "pool": "pool_28.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/A_cup_of_cappuccino_at_Burleigh_Heads_Hotel.JPG/1920px-A_cup_of_cappuccino_at_Burleigh_Heads_Hotel.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Kgbo",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "otono_cafe_vinos_jose_maria_zalles.jpg": {
+   "origen": "generica",
+   "pool": "pool_45.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Cup_of_Cappuccino%2C_May_2025%2C.jpg/1920px-Cup_of_Cappuccino%2C_May_2025%2C.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Ralff Nestor Nacor",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "barbecue_cafe_restaurant_sur.jpg": {
+   "origen": "generica",
+   "pool": "pool_25.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/1/1e/A-cup-of-cappuccino-coffee-dar-es-salaam-cafe.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "Aneth David (SLU)",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "kanguru_enrique_penaranda.jpg": {
+   "origen": "generica",
+   "pool": "pool_13.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Latte_art_-_London_Grind%2C_London%2C_UK.jpg/1920px-Latte_art_-_London_Grind%2C_London%2C_UK.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Bex Walton",
+   "licencia": "CC BY 2.0"
+  },
+  "jirafas_gral_jose_ballivian.jpg": {
+   "origen": "generica",
+   "pool": "pool_29.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/A_cup_of_cappuccino_at_Miettes_Bakery%2C_Graceville%2C_Queensland%2C_2023.jpg/1920px-A_cup_of_cappuccino_at_Miettes_Bakery%2C_Graceville%2C_Queensland%2C_2023.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Kgbo",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "luva_gabriel_rene_moreno.jpg": {
+   "origen": "generica",
+   "pool": "pool_15.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Latte_art_0.jpg/1920px-Latte_art_0.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Angela CoffeeRank",
+   "licencia": "CC BY 2.0"
+  },
+  "high_coffee_jaime_mendoza.jpg": {
+   "origen": "generica",
+   "pool": "pool_06.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/b/bb/HK_Coffee_latte_art_practice_and_practice_Aug-2013.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "Onpuichunsen",
+   "licencia": "CC BY-SA 3.0"
+  },
+  "arcadia_general_inofuentes.jpg": {
+   "origen": "generica",
+   "pool": "pool_05.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/7/74/HK_Coffee_latte_art_milk_pattern_Aug-2013.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "Onpuichunsen",
+   "licencia": "CC BY-SA 3.0"
+  },
+  "caliente_18_de_calacoto.jpg": {
+   "origen": "generica",
+   "pool": "pool_31.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/b/bf/A_cup_of_cappuccino_from_Gloria_Jean%27s_Coffees_in_Tianjin_University.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "Amazingloong",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "vainilla_bistro_fw58_v93_calle_15_la_paz.jpg": {
+   "origen": "generica",
+   "pool": "pool_32.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/A_takeout_cappuccino_in_a_brown_cup.jpg/1920px-A_takeout_cappuccino_in_a_brown_cup.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Revital Salomon",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "cafecito_togo_cafecito_to_go_calacoto.jpg": {
+   "origen": "generica",
+   "pool": "pool_35.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Cappuccino-cup_20230110_103835.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "Ioacc1234red",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "bru_coffee_esquina_avenida_hernando.jpg": {
+   "origen": "generica",
+   "pool": "pool_57.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Demitasse_Cup_and_Saucer_MET_270970.jpg/1920px-Demitasse_Cup_and_Saucer_MET_270970.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Creator:Onata North Fitts",
+   "licencia": "CC0"
+  },
+  "toffee_9_gral_angel_babia.jpg": {
+   "origen": "generica",
+   "pool": "pool_33.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Cappuccino-cup_20230110_103258.jpg/1280px-Cappuccino-cup_20230110_103258.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Ioacc1234red",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "reposteria_casera_hernando_siles_calle_9_e.jpg": {
+   "origen": "generica",
+   "pool": "pool_30.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/A_cup_of_cappuccino_at_Regatta_Hotel.JPG/1920px-A_cup_of_cappuccino_at_Regatta_Hotel.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Kgbo",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "anatomia_cafe_bistro_los_sauces_al_lado_de_ha.jpg": {
+   "origen": "generica",
+   "pool": "pool_32.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/A_takeout_cappuccino_in_a_brown_cup.jpg/1920px-A_takeout_cappuccino_in_a_brown_cup.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Revital Salomon",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "mi_jhoyita_elizardo_perez.jpg": {
+   "origen": "generica",
+   "pool": "pool_16.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Latte_art_3.jpg/1920px-Latte_art_3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Kim Sanso",
+   "licencia": "CC0"
+  },
+  "cafeteria_elis_16_de_julio.jpg": {
+   "origen": "generica",
+   "pool": "pool_06.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/b/bb/HK_Coffee_latte_art_practice_and_practice_Aug-2013.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "Onpuichunsen",
+   "licencia": "CC BY-SA 3.0"
+  },
+  "alexander_coffe_21_de_calacoto.jpg": {
+   "origen": "generica",
+   "pool": "pool_12.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Latte_art_%22Rosetta%22.jpg/1920px-Latte_art_%22Rosetta%22.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Maxstein5",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "coccos_federico_zuazo.jpg": {
+   "origen": "generica",
+   "pool": "pool_38.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Cappuccino-cup_20230110_104200.jpg/1920px-Cappuccino-cup_20230110_104200.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Ioacc1234red",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "typica_batallon_colorados.jpg": {
+   "origen": "generica",
+   "pool": "pool_57.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Demitasse_Cup_and_Saucer_MET_270970.jpg/1920px-Demitasse_Cup_and_Saucer_MET_270970.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Creator:Onata North Fitts",
+   "licencia": "CC0"
+  },
+  "jawitas_mi_chulumani_21.jpg": {
+   "origen": "generica",
+   "pool": "pool_19.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/Latte_art_at_Roma_Street_Parkland%2C_Brisbane%2C_May_2020.jpg/1920px-Latte_art_at_Roma_Street_Parkland%2C_Brisbane%2C_May_2020.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Kgbo",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "coffee_go_tomasa_murillo_en_plena.jpg": {
+   "origen": "generica",
+   "pool": "pool_25.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/1/1e/A-cup-of-cappuccino-coffee-dar-es-salaam-cafe.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "Aneth David (SLU)",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "typica_cafe_saavedra_edifico_bella_f.jpg": {
+   "origen": "generica",
+   "pool": "pool_51.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9f/20241223_tazza_di_bokeh_PD104669.jpg/1920px-20241223_tazza_di_bokeh_PD104669.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Paul Danese",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "hay_cafe_achumani_cerca_plaza_de.jpg": {
+   "origen": "generica",
+   "pool": "pool_09.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Latte_Art.jpg/1920px-Latte_Art.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Lirazelf",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "pomas_cake_genaro_gamarra.jpg": {
+   "origen": "generica",
+   "pool": "pool_34.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0d/Cappuccino-cup_20230110_103646.jpg/1280px-Cappuccino-cup_20230110_103646.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Ioacc1234red",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "casero_by_typica_panaderia_gobles_esq_calle_12_irpa.jpg": {
+   "origen": "generica",
+   "pool": "pool_15.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Latte_art_0.jpg/1920px-Latte_art_0.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Angela CoffeeRank",
+   "licencia": "CC BY 2.0"
+  },
+  "typica_cafe_tostaduria_achumani.jpg": {
+   "origen": "generica",
+   "pool": "pool_39.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/Cappuccino-cup_20230110_104250.jpg/1920px-Cappuccino-cup_20230110_104250.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Ioacc1234red",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "retrogusto_braulio_vera.jpg": {
+   "origen": "generica",
+   "pool": "pool_06.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/b/bb/HK_Coffee_latte_art_practice_and_practice_Aug-2013.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "Onpuichunsen",
+   "licencia": "CC BY-SA 3.0"
+  },
+  "esencia_5.jpg": {
+   "origen": "generica",
+   "pool": "pool_30.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/A_cup_of_cappuccino_at_Regatta_Hotel.JPG/1920px-A_cup_of_cappuccino_at_Regatta_Hotel.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Kgbo",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "babilonia_miguel_quenayato_calle_1.jpg": {
+   "origen": "generica",
+   "pool": "pool_41.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/4/41/Cappuccino-cup_20230110_120045.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "Ioacc1234red",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "k_fe_la_mia_aroma_12_miguel_quenallate.jpg": {
+   "origen": "generica",
+   "pool": "pool_38.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Cappuccino-cup_20230110_104200.jpg/1920px-Cappuccino-cup_20230110_104200.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Ioacc1234red",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "cafe_en_ruta_garcia_lanza.jpg": {
+   "origen": "generica",
+   "pool": "pool_49.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/20231220_una_tazza_di_bokeh_PD103944.jpg/1920px-20231220_una_tazza_di_bokeh_PD103944.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Paul Danese",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "selah_esquina.jpg": {
+   "origen": "generica",
+   "pool": "pool_46.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Cup_of_cappuccino_at_Nantucket_Kitchen_%26_Bar.JPG/1920px-Cup_of_cappuccino_at_Nantucket_Kitchen_%26_Bar.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Kgbo",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "teo_cat_montevideo_calle_capitan.jpg": {
+   "origen": "generica",
+   "pool": "pool_57.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Demitasse_Cup_and_Saucer_MET_270970.jpg/1920px-Demitasse_Cup_and_Saucer_MET_270970.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Creator:Onata North Fitts",
+   "licencia": "CC0"
+  },
+  "uta_cafe_alexander.jpg": {
+   "origen": "generica",
+   "pool": "pool_59.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/Demitasse_Cup_and_Saucer_MET_DP258772.jpg/1920px-Demitasse_Cup_and_Saucer_MET_DP258772.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Union Porcelain Works",
+   "licencia": "CC0"
+  },
+  "vainilla_coffe_company_alexander.jpg": {
+   "origen": "generica",
+   "pool": "pool_48.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Soy_milk_cappuccino_in_a_tea_cup.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "Miscellaneous contributor",
+   "licencia": "CC0"
+  },
+  "alexander_coffe_alexander.jpg": {
+   "origen": "generica",
+   "pool": "pool_51.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9f/20241223_tazza_di_bokeh_PD104669.jpg/1920px-20241223_tazza_di_bokeh_PD104669.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Paul Danese",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "juan_valdez_the_strongest.jpg": {
+   "origen": "generica",
+   "pool": "pool_36.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/Cappuccino-cup_20230110_104012.jpg/1280px-Cappuccino-cup_20230110_104012.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Ioacc1234red",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "cafe_bronze_illimani_plaza_tomas_fri.jpg": {
+   "origen": "generica",
+   "pool": "pool_33.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Cappuccino-cup_20230110_103258.jpg/1280px-Cappuccino-cup_20230110_103258.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Ioacc1234red",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "roaster_esq_plaza_isabel_la_cato.jpg": {
+   "origen": "generica",
+   "pool": "pool_51.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9f/20241223_tazza_di_bokeh_PD104669.jpg/1920px-20241223_tazza_di_bokeh_PD104669.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Paul Danese",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "coffeeology_6_de_agosto.jpg": {
+   "origen": "generica",
+   "pool": "pool_01.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Aromas_Latte_art%2C_Noosa_Heads%2C_Queensland.jpg/1920px-Aromas_Latte_art%2C_Noosa_Heads%2C_Queensland.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Kgbo",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "cafe_andre_final_pasaje_caracas.jpg": {
+   "origen": "generica",
+   "pool": "pool_26.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/6/65/A_cup_of_Cappuccino.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "P.Harika Reddy",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "agroecologia_nakhaki_cotahuma.jpg": {
+   "origen": "generica",
+   "pool": "pool_45.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Cup_of_Cappuccino%2C_May_2025%2C.jpg/1920px-Cup_of_Cappuccino%2C_May_2025%2C.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Ralff Nestor Nacor",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "chumpi_diaz_romero_y_republica.jpg": {
+   "origen": "generica",
+   "pool": "pool_57.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Demitasse_Cup_and_Saucer_MET_270970.jpg/1920px-Demitasse_Cup_and_Saucer_MET_270970.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Creator:Onata North Fitts",
+   "licencia": "CC0"
+  },
+  "alexander_coffee_la_paz.jpg": {
+   "origen": "generica",
+   "pool": "pool_26.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/6/65/A_cup_of_Cappuccino.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "P.Harika Reddy",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "amanita.jpg": {
+   "origen": "generica",
+   "pool": "pool_02.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Cappuccino_with_latte_art_on_Coffee_Right_in_Brno%2C_Brno-City_District.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "Frettie",
+   "licencia": "CC BY 3.0"
+  },
+  "andean_hills.jpg": {
+   "origen": "generica",
+   "pool": "pool_14.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/Latte_art_-_London_Grind%2C_London%2C_UK_-_28424820001.jpg/1920px-Latte_art_-_London_Grind%2C_London%2C_UK_-_28424820001.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Bex Walton",
+   "licencia": "CC BY 2.0"
+  },
+  "biofilia.jpg": {
+   "origen": "generica",
+   "pool": "pool_30.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/A_cup_of_cappuccino_at_Regatta_Hotel.JPG/1920px-A_cup_of_cappuccino_at_Regatta_Hotel.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Kgbo",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "bolivian_coffee_cafe_yungas.jpg": {
+   "origen": "generica",
+   "pool": "pool_01.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Aromas_Latte_art%2C_Noosa_Heads%2C_Queensland.jpg/1920px-Aromas_Latte_art%2C_Noosa_Heads%2C_Queensland.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Kgbo",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "cafe_chulumani_sud_yungas.jpg": {
+   "origen": "generica",
+   "pool": "pool_08.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Hearts_in_latte_art%2C_Krak%C3%B3w%2C_Poland%2C_2023.jpg/1920px-Hearts_in_latte_art%2C_Krak%C3%B3w%2C_Poland%2C_2023.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Kgbo",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "cafe_chulumani.jpg": {
+   "origen": "generica",
+   "pool": "pool_50.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/20231223_una_tazza_di_bokeh_PD104696_1.jpg/1920px-20231223_una_tazza_di_bokeh_PD104696_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Paul Danese",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "cafe_con_pan.jpg": {
+   "origen": "generica",
+   "pool": "pool_40.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Cappuccino-cup_20230110_104449.jpg/1920px-Cappuccino-cup_20230110_104449.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Ioacc1234red",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "cafe_copacabana.jpg": {
+   "origen": "generica",
+   "pool": "pool_20.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/Latte_art_by_Nijat_Zayidov.jpg/1920px-Latte_art_by_Nijat_Zayidov.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Tokimemooo",
+   "licencia": "CC BY 4.0"
+  },
+  "cafe_santa.jpg": {
+   "origen": "generica",
+   "pool": "pool_57.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Demitasse_Cup_and_Saucer_MET_270970.jpg/1920px-Demitasse_Cup_and_Saucer_MET_270970.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Creator:Onata North Fitts",
+   "licencia": "CC0"
+  },
+  "cafe_yungas_yungas.jpg": {
+   "origen": "generica",
+   "pool": "pool_04.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/Cup_of_coffee_with_latte_art_2016.jpg/1920px-Cup_of_coffee_with_latte_art_2016.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Abdulrohmatt",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "casero_by_typica.jpg": {
+   "origen": "generica",
+   "pool": "pool_57.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Demitasse_Cup_and_Saucer_MET_270970.jpg/1920px-Demitasse_Cup_and_Saucer_MET_270970.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Creator:Onata North Fitts",
+   "licencia": "CC0"
+  },
+  "coffee_brothers.jpg": {
+   "origen": "generica",
+   "pool": "pool_44.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Classic_Cappuccino.jpg/1920px-Classic_Cappuccino.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Jazzbobrown",
+   "licencia": "Public domain"
+  },
+  "coffeeology.jpg": {
+   "origen": "generica",
+   "pool": "pool_44.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Classic_Cappuccino.jpg/1920px-Classic_Cappuccino.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Jazzbobrown",
+   "licencia": "Public domain"
+  },
+  "colibri.jpg": {
+   "origen": "generica",
+   "pool": "pool_59.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/Demitasse_Cup_and_Saucer_MET_DP258772.jpg/1920px-Demitasse_Cup_and_Saucer_MET_DP258772.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Union Porcelain Works",
+   "licencia": "CC0"
+  },
+  "corban.jpg": {
+   "origen": "generica",
+   "pool": "pool_24.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Rosetta_latte_art_in_Botellon_Restaurant%2C_Graceville%2C_Brisbane%2C_Queensland.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "Kgbo",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "eclair.jpg": {
+   "origen": "generica",
+   "pool": "pool_19.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/Latte_art_at_Roma_Street_Parkland%2C_Brisbane%2C_May_2020.jpg/1920px-Latte_art_at_Roma_Street_Parkland%2C_Brisbane%2C_May_2020.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Kgbo",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "el_parlamento.jpg": {
+   "origen": "generica",
+   "pool": "pool_11.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Latte_art%2C_Ground%2C_Brighton.jpg/1920px-Latte_art%2C_Ground%2C_Brighton.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "WordRidden",
+   "licencia": "CC BY 2.0"
+  },
+  "esencia.jpg": {
+   "origen": "generica",
+   "pool": "pool_49.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/20231220_una_tazza_di_bokeh_PD103944.jpg/1920px-20231220_una_tazza_di_bokeh_PD103944.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Paul Danese",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "fortaleza_coffe.jpg": {
+   "origen": "generica",
+   "pool": "pool_58.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Demitasse_Cup_and_Saucer_MET_270970b.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "Creator:Onata North Fitts",
+   "licencia": "CC0"
+  },
+  "fortaleza_coffee.jpg": {
+   "origen": "generica",
+   "pool": "pool_29.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/A_cup_of_cappuccino_at_Miettes_Bakery%2C_Graceville%2C_Queensland%2C_2023.jpg/1920px-A_cup_of_cappuccino_at_Miettes_Bakery%2C_Graceville%2C_Queensland%2C_2023.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Kgbo",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "geisha.jpg": {
+   "origen": "generica",
+   "pool": "pool_23.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Making_of_Latte_art_of_cappuccino_on_Coffee_Right_in_Brno%2C_Brno-City_District.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "Frettie",
+   "licencia": "CC BY 3.0"
+  },
+  "irupana_la_paz.jpg": {
+   "origen": "generica",
+   "pool": "pool_40.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Cappuccino-cup_20230110_104449.jpg/1920px-Cappuccino-cup_20230110_104449.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Ioacc1234red",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "juan_valdez_bolivia.jpg": {
+   "origen": "generica",
+   "pool": "pool_11.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Latte_art%2C_Ground%2C_Brighton.jpg/1920px-Latte_art%2C_Ground%2C_Brighton.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "WordRidden",
+   "licencia": "CC BY 2.0"
+  },
+  "kimsa_charani.jpg": {
+   "origen": "generica",
+   "pool": "pool_58.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Demitasse_Cup_and_Saucer_MET_270970b.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "Creator:Onata North Fitts",
+   "licencia": "CC0"
+  },
+  "la_yunguena.jpg": {
+   "origen": "generica",
+   "pool": "pool_45.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Cup_of_Cappuccino%2C_May_2025%2C.jpg/1920px-Cup_of_Cappuccino%2C_May_2025%2C.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Ralff Nestor Nacor",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "lunas.jpg": {
+   "origen": "generica",
+   "pool": "pool_25.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/1/1e/A-cup-of-cappuccino-coffee-dar-es-salaam-cafe.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "Aneth David (SLU)",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "mografo.jpg": {
+   "origen": "generica",
+   "pool": "pool_42.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Cappuccino_6.jpg/1920px-Cappuccino_6.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Vrindapl",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "mugen_coffee.jpg": {
+   "origen": "generica",
+   "pool": "pool_36.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/Cappuccino-cup_20230110_104012.jpg/1280px-Cappuccino-cup_20230110_104012.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Ioacc1234red",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "mugen_coffee_project.jpg": {
+   "origen": "generica",
+   "pool": "pool_17.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/5/58/Latte_art_at_Balzac%27s.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "Linda N. from Chicago, USA",
+   "licencia": "CC BY 2.0"
+  },
+  "nakhaki_caranavi.jpg": {
+   "origen": "generica",
+   "pool": "pool_26.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/6/65/A_cup_of_Cappuccino.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "P.Harika Reddy",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "nayra_qata.jpg": {
+   "origen": "generica",
+   "pool": "pool_56.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Cup_of_espresso_02.jpg/1920px-Cup_of_espresso_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Kritzolina",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "orange_cup.jpg": {
+   "origen": "generica",
+   "pool": "pool_44.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Classic_Cappuccino.jpg/1920px-Classic_Cappuccino.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Jazzbobrown",
+   "licencia": "Public domain"
+  },
+  "otono.jpg": {
+   "origen": "generica",
+   "pool": "pool_46.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Cup_of_cappuccino_at_Nantucket_Kitchen_%26_Bar.JPG/1920px-Cup_of_cappuccino_at_Nantucket_Kitchen_%26_Bar.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Kgbo",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "rosa_negra.jpg": {
+   "origen": "generica",
+   "pool": "pool_29.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/A_cup_of_cappuccino_at_Miettes_Bakery%2C_Graceville%2C_Queensland%2C_2023.jpg/1920px-A_cup_of_cappuccino_at_Miettes_Bakery%2C_Graceville%2C_Queensland%2C_2023.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Kgbo",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "rustik.jpg": {
+   "origen": "generica",
+   "pool": "pool_40.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Cappuccino-cup_20230110_104449.jpg/1920px-Cappuccino-cup_20230110_104449.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Ioacc1234red",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "sin_fronteras.jpg": {
+   "origen": "generica",
+   "pool": "pool_09.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Latte_Art.jpg/1920px-Latte_Art.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Lirazelf",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "sultana.jpg": {
+   "origen": "generica",
+   "pool": "pool_06.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/b/bb/HK_Coffee_latte_art_practice_and_practice_Aug-2013.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "credito": "Onpuichunsen",
+   "licencia": "CC BY-SA 3.0"
+  },
+  "supra_coffee.jpg": {
+   "origen": "generica",
+   "pool": "pool_04.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/Cup_of_coffee_with_latte_art_2016.jpg/1920px-Cup_of_coffee_with_latte_art_2016.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Abdulrohmatt",
+   "licencia": "CC BY-SA 4.0"
+  },
+  "typica.jpg": {
+   "origen": "generica",
+   "pool": "pool_40.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Cappuccino-cup_20230110_104449.jpg/1920px-Cappuccino-cup_20230110_104449.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "credito": "Ioacc1234red",
+   "licencia": "CC BY-SA 4.0"
+  }
+ }
+}

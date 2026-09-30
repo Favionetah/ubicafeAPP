@@ -2,7 +2,6 @@ package com.ubicafe.app.ui.mapa;
 
 import android.Manifest;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +14,6 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
-import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.fragment.app.Fragment;
 
 import com.ubicafe.app.R;
@@ -66,6 +64,7 @@ public class MapaFragment extends Fragment {
 
     private MapView mapa;
     private Marker pinUsuario;
+    private Marker pinSeleccionado;
     private MarcadorMapa seleccionado;
     private Rol categoriaSeleccionada;
 
@@ -96,8 +95,7 @@ public class MapaFragment extends Fragment {
         actualizarSubtitulo(vista);
 
         if (!marcadores.isEmpty()) {
-            seleccionado = marcadores.get(0);
-            mostrarInformacion(vista, seleccionado);
+            seleccionar(marcadores.get(0), false);
         }
 
         vista.findViewById(R.id.btn_ver_informacion)
@@ -132,18 +130,73 @@ public class MapaFragment extends Fragment {
             Marker pin = new Marker(mapa);
             pin.setPosition(new GeoPoint(dato.lat, dato.lng));
             pin.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
-            pin.setIcon(pinDeColor(dato.color));
+            pin.setIcon(PinesMapa.pin(requireContext(), dato.color));
             pin.setTitle(dato.nombre);
             pin.setRelatedObject(dato);
             pin.setOnMarkerClickListener((marcador, overlay) -> {
-                seleccionado = (MarcadorMapa) marcador.getRelatedObject();
-                if (getView() != null) {
-                    mostrarInformacion(getView(), seleccionado);
-                }
+                seleccionar((MarcadorMapa) marcador.getRelatedObject(), true);
                 return true;
             });
             mapa.getOverlays().add(pin);
             pines.add(pin);
+        }
+    }
+
+    /**
+     * Deja un marcador como el elegido: se resalta su pin, se rellena el
+     * panel de abajo y, si viene de un toque, el mapa se desplaza hasta él.
+     *
+     * Las tres cosas van juntas a propósito. Antes el pin no cambiaba de
+     * aspecto y solo se movía el panel, así que con 213 pines no había forma
+     * de saber a cuál se había tocado. Se llama con centrar=false al abrir
+     * la pestaña o al cambiar de filtro, donde moverse daría un salto
+     * innecesario.
+     */
+    private void seleccionar(MarcadorMapa marcador, boolean centrar) {
+        seleccionado = marcador;
+        resaltar(pinDeMarcador(marcador));
+
+        View vista = getView();
+        if (vista == null) {
+            return;
+        }
+        mostrarInformacion(vista, marcador);
+        if (centrar) {
+            mapa.getController().animateTo(
+                    new GeoPoint(marcador.lat, marcador.lng));
+        }
+    }
+
+    /** El pin del mapa que corresponde a un marcador. */
+    private Marker pinDeMarcador(MarcadorMapa marcador) {
+        for (int i = 0; i < marcadores.size(); i++) {
+            if (marcadores.get(i) == marcador) {
+                return pines.get(i);
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Pone el halo en un pin y se lo quita al anterior. Acepta null para
+     * dejar el mapa sin ningún pin resaltado, que es lo que pasa cuando un
+     * filtro deja la categoría vacía.
+     */
+    private void resaltar(@Nullable Marker pin) {
+        if (pin == pinSeleccionado) {
+            return;
+        }
+        if (pinSeleccionado != null) {
+            pinSeleccionado.setIcon(PinesMapa.pin(requireContext(),
+                    ((MarcadorMapa) pinSeleccionado.getRelatedObject()).color));
+        }
+        pinSeleccionado = pin;
+        if (pin != null) {
+            pin.setIcon(PinesMapa.pinSeleccionado(requireContext(),
+                    ((MarcadorMapa) pin.getRelatedObject()).color));
+        }
+        if (mapa != null) {
+            mapa.invalidate();
         }
     }
 
@@ -171,18 +224,11 @@ public class MapaFragment extends Fragment {
         pinUsuario = new Marker(mapa);
         pinUsuario.setPosition(new GeoPoint(posicion.getLatitude(), posicion.getLongitude()));
         pinUsuario.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
-        pinUsuario.setIcon(pinDeColor(ContextCompat.getColor(
+        pinUsuario.setIcon(PinesMapa.pin(requireContext(), ContextCompat.getColor(
                 requireContext(), R.color.azul_ubicacion)));
         pinUsuario.setTitle(getString(R.string.inicio_cerca_de_ti));
         mapa.getOverlays().add(pinUsuario);
         mapa.invalidate();
-    }
-
-    private Drawable pinDeColor(int color) {
-        Drawable pin = ContextCompat.getDrawable(requireContext(), R.drawable.ic_map_pin);
-        Drawable tenido = DrawableCompat.wrap(pin).mutate();
-        DrawableCompat.setTint(tenido, color);
-        return tenido;
     }
 
     /** Los chips de categoría. Null = todas. */
@@ -240,10 +286,7 @@ public class MapaFragment extends Fragment {
             mostrarPanelVacio();
             return;
         }
-        seleccionado = primero;
-        if (getView() != null) {
-            mostrarInformacion(getView(), primero);
-        }
+        seleccionar(primero, false);
     }
 
     private MarcadorMapa primeroVisible() {
@@ -274,6 +317,10 @@ public class MapaFragment extends Fragment {
         if (vista == null) {
             return;
         }
+        // Nada visible que resaltar: si no se suelta el pin anterior, la
+        // categoría vacía deja todavía un halo marcado en el mapa.
+        seleccionado = null;
+        resaltar(null);
         vista.findViewById(R.id.btn_ver_informacion).setVisibility(View.GONE);
         ((TextView) vista.findViewById(R.id.texto_marcador_nombre))
                 .setText(R.string.lista_vacia_titulo);
@@ -337,6 +384,8 @@ public class MapaFragment extends Fragment {
         pines.clear();
         chips.clear();
         pinUsuario = null;
+        pinSeleccionado = null;
+        seleccionado = null;
         super.onDestroyView();
     }
 }

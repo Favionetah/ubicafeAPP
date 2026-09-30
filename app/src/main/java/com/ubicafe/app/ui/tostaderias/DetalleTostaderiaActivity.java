@@ -16,6 +16,7 @@ import com.ubicafe.app.datos.RepositorioDatos;
 import com.ubicafe.app.databinding.ActivityDetalleEntidadBinding;
 import com.ubicafe.app.modelo.Entidad;
 import com.ubicafe.app.modelo.Rol;
+import com.ubicafe.app.ui.comun.ComoLlegar;
 import com.ubicafe.app.modelo.Sucursal;
 import com.ubicafe.app.ui.cafeterias.DetalleCafeteriaActivity;
 import com.ubicafe.app.ui.comun.FichaTecnica;
@@ -67,6 +68,9 @@ public class DetalleTostaderiaActivity extends AppCompatActivity {
                 this, Rol.TOSTADURIA.color()));
         ui.textoNombre.setText(lugar.nombre);
         ui.textoRoles.setText(lugar.rolesComoTexto());
+
+        ComoLlegar.pintarHero(ui.fotoHero, this, lugar);
+        ComoLlegar.conectar(this, lugar, ui.btnComoLlegar, ui.btnComoLlegarFijo);
 
         if (lugar.detalleTostaderia != null && !lugar.detalleTostaderia.estaVacia()) {
             agregarSeccion(lugar.detalleTostaderia.pares());

@@ -5,9 +5,10 @@
     otros. Muestra siempre de qué papel se trata, porque en el censo un
     mismo lugar puede ser cafetería y tostaduría a la vez.
 
-    No hay foto: el censo no tiene imágenes. En su lugar va el ícono del
-    rol sobre un círculo de color, para que la tarjeta nunca se vea
-    vacía ni rota.
+    La foto del local va a la izquierda como marco cuadrado. El censo no
+    trae imágenes propias y las que se usan son genéricas, así que si un
+    lugar no tiene ninguna se queda el ícono del rol sobre su círculo de
+    color: la tarjeta nunca se ve vacía ni rota.
 -->
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -25,94 +26,112 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:padding="16dp">
 
-        <!-- Fila principal: ícono de rol, nombre y roles -->
+        <!-- Foto del local, o el ícono del rol si no tiene -->
+        <ImageView
+            android:id="@+id/foto_lugar"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:background="@drawable/fondo_circulo_icono"
+            android:contentDescription="@null"
+            android:scaleType="centerCrop"
+            tools:src="@drawable/ic_cafeteria" />
+
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/icono_rol"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="@drawable/fondo_circulo_icono"
-                android:contentDescription="@null"
-                android:padding="9dp"
-                tools:src="@drawable/ic_cafeteria" />
-
+            <!-- Fila principal: ícono de rol, nombre y roles -->
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/icono_rol"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/fondo_circulo_icono"
+                    android:contentDescription="@null"
+                    android:padding="9dp"
+                    tools:src="@drawable/ic_cafeteria" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/texto_nombre"
+                        style="@style/NombreItem"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        tools:text="Typica" />
+
+                    <TextView
+                        android:id="@+id/texto_roles"
+                        style="@style/EtiquetaRol"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        tools:text="Cafetería · Marca de café" />
+                </LinearLayout>
 
                 <TextView
-                    android:id="@+id/texto_nombre"
-                    style="@style/NombreItem"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:maxLines="1"
-                    tools:text="Typica" />
-
-                <TextView
-                    android:id="@+id/texto_roles"
-                    style="@style/EtiquetaRol"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:maxLines="1"
-                    tools:text="Cafetería · Marca de café" />
+                    android:id="@+id/texto_zona"
+                    style="@style/BadgeZona"
+                    tools:text="Sur" />
             </LinearLayout>
 
+            <!-- Dirección, solo si el censo la respondió -->
             <TextView
-                android:id="@+id/texto_zona"
-                style="@style/BadgeZona"
-                tools:text="Sur" />
-        </LinearLayout>
-
-        <!-- Dirección, solo si el censo la respondió -->
-        <TextView
-            android:id="@+id/texto_direccion"
-            style="@style/DetalleItem"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:ellipsize="end"
-            android:maxLines="2"
-            tools:text="Calle 21 de Calacoto entre avenida Costanera" />
-
-        <!-- Datos del detalle que tenga la ficha, o la distancia -->
-        <LinearLayout
-            android:id="@+id/fila_pie"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/icono_pie"
-                android:layout_width="14dp"
-                android:layout_height="14dp"
-                android:contentDescription="@null"
-                tools:src="@drawable/ic_navigation" />
-
-            <TextView
-                android:id="@+id/texto_pie"
-                style="@style/TextoDetalle"
-                android:layout_width="0dp"
+                android:id="@+id/texto_direccion"
+                style="@style/DetalleItem"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="6dp"
-                android:layout_weight="1"
+                android:layout_marginTop="10dp"
                 android:ellipsize="end"
-                android:maxLines="1"
-                tools:text="A 450 m de ti" />
+                android:maxLines="2"
+                tools:text="Calle 21 de Calacoto entre avenida Costanera" />
+
+            <!-- Datos del detalle que tenga la ficha, o la distancia -->
+            <LinearLayout
+                android:id="@+id/fila_pie"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/icono_pie"
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:contentDescription="@null"
+                    tools:src="@drawable/ic_navigation" />
+
+                <TextView
+                    android:id="@+id/texto_pie"
+                    style="@style/TextoDetalle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    tools:text="A 450 m de ti" />
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

@@ -15,18 +15,24 @@ import java.util.concurrent.Executors;
 /**
  * ARRANQUE DE LA APP
  * ---------------------------------------------------------------
- * El censo pesa unos 180 KB de JSON y parsearlo tarda lo suyo, así que
- * se lee una sola vez al abrir la app, en un hilo aparte, y se queda
- * en memoria. La Splash espera a que termine antes de pasar a las
- * pestañas, de modo que ninguna pantalla llega a pintar una lista
- * vacía por un dato que todavía no se había leído.
+ * La base de datos se abre y, si es la primera vez, se llena desde el
+ * JSON de los assets. Eso implica abrir SQLite, leer 180 KB y escribir
+ * 9 tablas, así que se hace en un hilo aparte al abrir la app. La Splash
+ * espera a que termine antes de pasar a las pestañas, de modo que
+ * ninguna pantalla llega a pintar una lista vacía por un dato que
+ * todavía no estaba.
+ *
+ * En los arranques siguientes no hay trabajo: SembradorCenso solo
+ * comprueba el sello de la tabla meta contra el JSON, que es una
+ * lectura de un milisegundo.
  *
  * Quien necesite esperar usa esperarCenso(callback), que se invoca en
  * el hilo principal tanto si el censo ya estaba listo como si acaba de
- * terminar de leerse. No se bloquea el hilo principal con un latch:
+ * terminar de sembrarse. No se bloquea el hilo principal con un latch:
  * eso congelaría la animación de la Splash justo mientras espera.
  *
- * Ninguna pantalla lee el JSON: todas pasan por RepositorioDatos.
+ * Ninguna pantalla lee el JSON ni la base: todas pasan por
+ * RepositorioDatos.
  */
 public class UbiCafeApp extends Application {
 
@@ -59,10 +65,11 @@ public class UbiCafeApp extends Application {
     private void cargarCenso() {
         boolean disponible = false;
         try {
-            // Llamar a las estadísticas fuerza la lectura del asset y la
-            // construcción de los índices; si devuelve una lista vacía
-            // con datos, es que el JSON se leyó bien.
-            disponible = RepositorioDatos.obtenerEstadisticas().totalEntidades > 0;
+            // hayDatos() abre la base y, si hace falta, la llena desde
+            // el JSON: es el punto de entrada que las pantallas también
+            // usan, así que al terminar la app y las pantallas trabajan
+            // sobre la misma base ya sembrada.
+            disponible = RepositorioDatos.hayDatos();
         } catch (RuntimeException problema) {
             // Un JSON corrupto no debe tumbar la app al abrir: se avisa
             // y las pantallas mostrarán su estado de error.

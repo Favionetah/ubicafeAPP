@@ -14,6 +14,7 @@ android {
         targetSdk 37
         versionCode 1
         versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     compileOptions {
@@ -47,6 +48,21 @@ dependencies {
     // RecyclerView: listas eficientes para cafeterías, marcas, etc.
     implementation 'androidx.recyclerview:recyclerview:1.4.0'
 
+    // Room: la base de datos del censo. Room es la capa oficial de
+    // AndroidX sobre SQLite: el esquema se declara con anotaciones y el
+    // compilador escribe el SQL y comprueba las consultas al compilar,
+    // así que un error de SQL sale en el build y no en el teléfono.
+    // En un proyecto Java el procesador es 'annotationProcessor'; KSP es
+    // solo para Kotlin.
+    implementation 'androidx.room:room-runtime:2.7.1'
+    annotationProcessor 'androidx.room:room-compiler:2.7.1'
+
+    // Glide: carga y cachea las fotos de los locales. Descodificar a mano
+    // 242 imágenes en listas con recycling es un bug esperando; Glide se
+    // encarga del hilo, del recorte al tamaño de pantalla y de no pintar
+    // la foto de una fila reciclada en otra.
+    implementation 'com.github.bumptech.glide:glide:4.16.0'
+
     // CardView: tarjetas tipo "café" con esquinas redondeadas.
     implementation 'androidx.cardview:cardview:1.0.0'
 
@@ -55,4 +71,13 @@ dependencies {
 
     // osmdroid: mapa real de OpenStreetMap (P4).
     implementation 'org.osmdroid:osmdroid-android:6.1.20'
+
+    // Pruebas instrumentadas: se ejecutan en el teléfono. Existen sobre
+    // todo para comprobar que las fotos se abren de verdad desde los
+    // assets, algo que no se puede deducir leyendo el código porque el
+    // fallo de la URI era silencioso: compilaba, la base estaba bien y
+    // no salía ninguna imagen.
+    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
+    androidTestImplementation 'androidx.test:runner:1.6.2'
+    androidTestImplementation 'androidx.test:core:1.6.1'
 }

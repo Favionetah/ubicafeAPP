@@ -15,6 +15,7 @@ import com.ubicafe.app.R;
 import com.ubicafe.app.datos.RepositorioDatos;
 import com.ubicafe.app.databinding.ActivityDetalleEntidadBinding;
 import com.ubicafe.app.modelo.Entidad;
+import com.ubicafe.app.ui.comun.ComoLlegar;
 import com.ubicafe.app.modelo.Rol;
 import com.ubicafe.app.ui.comun.FichaTecnica;
 import com.ubicafe.app.ui.mapa.Geolocalizador;
@@ -65,6 +66,9 @@ public class DetalleProductorActivity extends AppCompatActivity {
                 this, Rol.PRODUCTOR.color()));
         ui.textoNombre.setText(lugar.nombre);
         ui.textoRoles.setText(lugar.rolesComoTexto());
+
+        ComoLlegar.pintarHero(ui.fotoHero, this, lugar);
+        ComoLlegar.conectar(this, lugar, ui.btnComoLlegar, ui.btnComoLlegarFijo);
 
         pintarDatos(lugar);
         pintarFichas(lugar);

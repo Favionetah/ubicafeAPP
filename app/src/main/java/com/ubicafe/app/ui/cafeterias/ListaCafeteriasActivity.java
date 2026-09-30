@@ -77,6 +77,7 @@ public class ListaCafeteriasActivity extends ListaBaseActivity {
         if (adaptador == null) {
             adaptador = new AdaptadorEntidad(Collections.<Entidad>emptyList(),
                     this::abrirDetalle);
+            adaptador.setContexto(this);
             ui.lista.setLayoutManager(new LinearLayoutManager(this));
             ui.lista.setAdapter(adaptador);
         }

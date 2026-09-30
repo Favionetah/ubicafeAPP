@@ -18,6 +18,7 @@ import com.ubicafe.app.databinding.ActivityDetalleEntidadBinding;
 import com.ubicafe.app.modelo.Entidad;
 import com.ubicafe.app.modelo.FichaDetalle;
 import com.ubicafe.app.modelo.Marca;
+import com.ubicafe.app.ui.comun.ComoLlegar;
 import com.ubicafe.app.ui.comun.FichaTecnica;
 import com.ubicafe.app.ui.mapa.Geolocalizador;
 import com.ubicafe.app.ui.mapa.MapaActivity;
@@ -100,12 +101,15 @@ public class DetalleCafeteriaActivity extends AppCompatActivity {
                 this, lugar.rolPrincipal.color()));
         ui.textoNombre.setText(lugar.nombre);
         ui.textoRoles.setText(lugar.rolesComoTexto());
+
+        ComoLlegar.pintarHero(ui.fotoHero, this, lugar);
+        ComoLlegar.conectar(this, lugar, ui.btnComoLlegar, ui.btnComoLlegarFijo);
     }
 
     /**
      * Las cuatro filas de datos clave. Cada una se oculta si el censo no
      * la respondió, y la distancia solo si la persona aktivó la
-     * ubicación: sin permiso se dice cómo activarla, no se估算.
+     * ubicación: sin permiso se dice cómo activarla, no se estima nada.
      */
     private void pintarDatosBasicos(Entidad lugar) {
         mostrarFila(ui.datoZona, getString(R.string.cafeteria_campo_zona), lugar.macrodistrito);

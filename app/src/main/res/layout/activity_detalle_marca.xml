@@ -3,7 +3,11 @@
     FICHA DE UNA MARCA (P7)
     Una marca es una empresa, no un lugar: la ficha muestra los datos que
     registró la empresa y, debajo, los locales que el censo encontró
-    abiertos. Si no registró ninguno, se dice con todas las letras.
+    abiertos. Si no registró ninguno, se dice con todas sus letras.
+
+    Arriba va la foto de la marca y, detrás, su inicial, que es lo que se
+    ve si no hay imagen. El censo no trae logotipos, así que no se
+    inventa ninguno.
 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -27,8 +31,35 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingHorizontal="20dp">
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/foto_hero"
+                android:layout_width="match_parent"
+                android:layout_height="190dp"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop"
+                android:visibility="gone"
+                tools:src="@drawable/ic_marca"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/texto_foto_credito"
+                style="@style/TextoNotaTenue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:gravity="center"
+                android:text="@string/foto_no_es_del_local"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="20dp">
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -100,13 +131,10 @@
                 android:layout_marginTop="12dp"
                 android:orientation="vertical" />
 
-            <TextView
+            <Button
                 android:id="@+id/btn_ver_mapa"
                 style="@style/BotonVerde"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
                 android:layout_marginTop="20dp"
-                android:gravity="center"
                 android:text="@string/marca_ver_puntos_mapa" />
 
             <TextView
@@ -116,6 +144,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 tools:text="Registrado en el censo 2026" />
+            </LinearLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </LinearLayout>

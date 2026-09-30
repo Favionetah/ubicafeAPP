@@ -2,8 +2,8 @@
 <!--
     TARJETA DE UNA MARCA (P13)
     Una marca es una empresa, no un lugar: puede tener 11 locales o
-    ninguno. La tarjeta muestra su inicial (el censo no tiene logotipos),
-    cuántas sucursales registró y en qué zonas están.
+    ninguno. La tarjeta muestra su foto genérica, o su inicial si no
+    tiene, cuántas sucursales registró y en qué zonas están.
 -->
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -26,14 +26,33 @@
         android:orientation="horizontal"
         android:padding="16dp">
 
-        <TextView
-            android:id="@+id/texto_inicial"
-            style="@style/InicialMarca"
-            android:layout_width="44dp"
-            android:layout_height="44dp"
-            android:background="@drawable/fondo_circulo_icono"
-            android:textSize="20sp"
-            tools:text="T" />
+        <!--
+            Foto de la marca encima de la inicial. La inicial es el
+            respaldo: si la imagen no existe o tarda, se ve la inicial y
+            no un hueco. Al ser la foto opaca, tapa la inicial una vez
+            que carga.
+        -->
+        <FrameLayout
+            android:layout_width="48dp"
+            android:layout_height="48dp">
+
+            <TextView
+                android:id="@+id/texto_inicial"
+                style="@style/InicialMarca"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/fondo_circulo_icono"
+                android:textSize="20sp"
+                tools:text="T" />
+
+            <ImageView
+                android:id="@+id/foto_marca"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop"
+                tools:src="@drawable/ic_marca" />
+        </FrameLayout>
 
         <LinearLayout
             android:layout_width="0dp"

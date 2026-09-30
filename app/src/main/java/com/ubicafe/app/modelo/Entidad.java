@@ -48,12 +48,24 @@ public class Entidad {
     public final DetalleTostaderia detalleTostaderia;
     public final DetalleProductor detalleProductor;
 
+    /**
+     * La foto del local, como ruta dentro de los assets
+     * ("fotos/cafes/cafe_berna_linares_947.jpg"), o "" si no tiene.
+     *
+     * Es una ruta y no la foto entera a propósito: la base de datos
+     * guarda el nombre del archivo y los bytes viven en los assets. Así
+     * consultar el censo no carga 23 MB de imágenes en memoria, y cambiar
+     * la foto de un local no obliga a reescribir su fila.
+     */
+    public final String foto;
+
     public Entidad(String id, String nombre, String direccion, String mapaUrl,
                    String macrodistrito, double lat, double lng, Set<Rol> roles,
                    Rol rolPrincipal, String marcaAsociada, String nota,
                    Double precisionGps, String notaUbicacion,
                    DetalleCafeteria detalleCafeteria, DetalleMarca detalleMarca,
-                   DetalleTostaderia detalleTostaderia, DetalleProductor detalleProductor) {
+                   DetalleTostaderia detalleTostaderia, DetalleProductor detalleProductor,
+                   String foto) {
         this.id = id;
         this.nombre = nombre;
         this.direccion = vacioONulo(direccion);
@@ -71,6 +83,7 @@ public class Entidad {
         this.detalleMarca = detalleMarca;
         this.detalleTostaderia = detalleTostaderia;
         this.detalleProductor = detalleProductor;
+        this.foto = foto == null ? "" : foto;
     }
 
     /** El lugar tiene coordenadas usables y puede dibujarse en el mapa. */

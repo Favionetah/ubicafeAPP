@@ -7,6 +7,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -24,6 +25,7 @@ import com.ubicafe.app.ui.marcas.DetalleMarcaActivity;
 import com.ubicafe.app.ui.origen.FichaOrigenActivity;
 import com.ubicafe.app.ui.productores.DetalleProductorActivity;
 import com.ubicafe.app.ui.tostaderias.DetalleTostaderiaActivity;
+import com.ubicafe.app.util.CargadorFotos;
 import com.ubicafe.app.util.Texto;
 
 /**
@@ -182,6 +184,7 @@ public class BusquedaActivity extends AppCompatActivity {
                 ? getResources().getQuantityString(
                         R.plurals.marca_puntos_descripcion, locales, locales)
                 : getString(R.string.detalle_sin_sucursales));
+        pintarFoto(fila, marca.foto, R.drawable.ic_marca);
         fila.setOnClickListener(v -> {
             Intent intento = new Intent(this, DetalleMarcaActivity.class);
             intento.putExtra(DetalleMarcaActivity.EXTRA_NOMBRE_MARCA, marca.nombre);
@@ -202,12 +205,28 @@ public class BusquedaActivity extends AppCompatActivity {
                 .setText(Texto.unir(" · ", java.util.Arrays.asList(
                         lugar.rolesComoTexto(),
                         lugar.direccion.isEmpty() ? lugar.macrodistrito : lugar.direccion)));
+        pintarFoto(fila, lugar.foto, lugar.rolPrincipal.icono());
         fila.setOnClickListener(v -> {
             Intent intento = new Intent(this, destino);
             intento.putExtra(DetalleCafeteriaActivity.EXTRA_ID_ENTIDAD, lugar.id);
             startActivity(intento);
         });
         lista.addView(fila);
+    }
+
+    /**
+     * Enciende la foto de la fila si el resultado tiene. Las variedades
+     * de café no la tienen en el manifiesto, así que su fila se queda
+     * sin marco: es preferible una fila sin foto a un rectángulo vacío.
+     */
+    private void pintarFoto(View fila, String rutaFoto, int respaldo) {
+        ImageView foto = fila.findViewById(R.id.foto_resultado);
+        if (rutaFoto == null || rutaFoto.isEmpty()) {
+            foto.setVisibility(View.GONE);
+            return;
+        }
+        foto.setVisibility(View.VISIBLE);
+        CargadorFotos.pintarRecortada(foto, this, rutaFoto, respaldo);
     }
 
     private View inflarFila(LinearLayout contenedor) {

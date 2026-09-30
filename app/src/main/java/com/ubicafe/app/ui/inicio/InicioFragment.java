@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -25,8 +26,8 @@ import com.ubicafe.app.ui.mapa.Geolocalizador;
 import com.ubicafe.app.ui.mapa.MapaActivity;
 import com.ubicafe.app.ui.marcas.ListaMarcasActivity;
 import com.ubicafe.app.ui.productores.ListaProductoresActivity;
-import com.ubicafe.app.ui.puntosventa.PuntosVentaActivity;
 import com.ubicafe.app.ui.tostaderias.ListaTostaderiasActivity;
+import com.ubicafe.app.util.CargadorFotos;
 import com.ubicafe.app.util.Distancia;
 import com.ubicafe.app.util.UiUtils;
 
@@ -36,7 +37,7 @@ import java.util.List;
  * Pestaña de INICIO (P3)
  * ---------------------------------------------------------------
  * La pantalla de entrada muestra las cifras reales del censo y los
- * accesos a las cinco categorías. No inventa reseñas ni distancias: si
+ * accesos a las categorías. No inventa reseñas ni distancias: si
  * la persona no activó la ubicación, la tarjeta "Cerca de ti" lo dice
  * en vez de mostrar "450 m" fijos.
  */
@@ -85,8 +86,6 @@ public class InicioFragment extends Fragment {
                 .setOnClickListener(v -> abrir(ListaMarcasActivity.class));
         vista.findViewById(R.id.tile_tostaderias)
                 .setOnClickListener(v -> abrir(ListaTostaderiasActivity.class));
-        vista.findViewById(R.id.tile_puntos_venta)
-                .setOnClickListener(v -> abrir(PuntosVentaActivity.class));
     }
 
     /** El buscador del inicio abre la búsqueda global (P10). */
@@ -113,6 +112,7 @@ public class InicioFragment extends Fragment {
                     .setText(R.string.inicio_cerca_sin_ubicacion);
             vista.findViewById(R.id.texto_tipo_cerca).setVisibility(View.GONE);
             vista.findViewById(R.id.texto_zona_cerca).setVisibility(View.GONE);
+            vista.findViewById(R.id.foto_cerca).setVisibility(View.GONE);
             ((TextView) vista.findViewById(R.id.texto_distancia)).setText(
                     Geolocalizador.permisoDenegado(requireContext())
                             ? R.string.inicio_ubicacion_en_ajustes
@@ -124,6 +124,16 @@ public class InicioFragment extends Fragment {
             boton.setOnClickListener(activar);
             tarjeta.setOnClickListener(activar);
             return;
+        }
+
+        // La foto del más cercano, si la tiene.
+        ImageView foto = vista.findViewById(R.id.foto_cerca);
+        if (cerca.foto.isEmpty()) {
+            foto.setVisibility(View.GONE);
+        } else {
+            foto.setVisibility(View.VISIBLE);
+            CargadorFotos.pintarRecortada(foto, requireContext(), cerca.foto,
+                    cerca.rolPrincipal.icono());
         }
 
         ((TextView) vista.findViewById(R.id.texto_nombre_cerca)).setText(cerca.nombre);

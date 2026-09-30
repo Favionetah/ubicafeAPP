@@ -143,6 +143,7 @@ public class ListaTostaderiasActivity extends ListaBaseActivity {
         if (adaptador == null) {
             adaptador = new AdaptadorEntidad(Collections.<Entidad>emptyList(),
                     lugar -> DetalleTostaderiaActivity.abrir(this, lugar));
+            adaptador.setContexto(this);
             ui.lista.setLayoutManager(new LinearLayoutManager(this));
             ui.lista.setAdapter(adaptador);
         }

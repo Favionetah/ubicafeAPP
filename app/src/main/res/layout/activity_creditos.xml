@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    CRÉDITOS Y FUENTES (P2)
+    Tres bloques: de dónde salen los datos, de dónde salen las fotos y
+    qué se hizo con ellas. El bloque de fotos es el importante: 242
+    imágenes genéricas bajo licencias Creative Commons, y varias de esas
+    licencias (CC BY, CC BY-SA) obligan a nombrar al autor. Eso no se
+    cumple escondiendo el manifiesto dentro del APK, así que aquí se
+    listan los autores con cuántas imágenes aportan.
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo_crema"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingTop="16dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="32dp">
+
+        <!-- Título de pantalla -->
+        <TextView
+            style="@style/TituloPantallaGrande"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/creditos_titulo" />
+
+        <!-- Lo primero y más importante: las fotos no son de los locales -->
+        <TextView
+            style="@style/TextoDescripcion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/fondo_aviso"
+            android:lineSpacingExtra="3dp"
+            android:padding="14dp"
+            android:text="@string/creditos_aviso_imagenes" />
+
+        <!-- Datos del censo -->
+        <TextView
+            style="@style/TituloSeccion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/creditos_datos_titulo" />
+
+        <TextView
+            android:id="@+id/texto_datos"
+            style="@style/TextoDescripcion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:lineSpacingExtra="3dp" />
+
+        <!-- Resumen numérico de las imágenes -->
+        <TextView
+            style="@style/TituloSeccion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/creditos_imagenes_titulo" />
+
+        <TextView
+            android:id="@+id/texto_resumen_imagenes"
+            style="@style/TextoDescripcion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:lineSpacingExtra="3dp" />
+
+        <!-- Autores, que es lo que exigen las licencias CC BY -->
+        <TextView
+            style="@style/TituloSeccion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/creditos_autores_titulo" />
+
+        <TextView
+            style="@style/DescripcionOnboarding"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/creditos_autores_explica" />
+
+        <LinearLayout
+            android:id="@+id/lista_autores"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical" />
+
+        <!-- Licencias -->
+        <TextView
+            style="@style/TituloSeccion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/creditos_licencias_titulo" />
+
+        <LinearLayout
+            android:id="@+id/lista_licencias"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical" />
+
+        <!-- Mapa -->
+        <TextView
+            style="@style/TituloSeccion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/creditos_mapa_titulo" />
+
+        <TextView
+            style="@style/TextoDescripcion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:lineSpacingExtra="3dp"
+            android:text="@string/creditos_mapa" />
+
+        <TextView
+            android:id="@+id/texto_version"
+            style="@style/DescripcionOnboarding"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="center" />
+    </LinearLayout>
+</ScrollView>

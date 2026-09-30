@@ -20,12 +20,20 @@ public class Marca {
     public final String nota;
     public final List<Sucursal> sucursales;
 
+    /**
+     * La foto de la cadena, como ruta dentro de los assets
+     * ("fotos/marcas/typica.jpg"), o "" si no tiene. Misma decisión que
+     * en Entidad: la base guarda el nombre, los bytes van en los assets.
+     */
+    public final String foto;
+
     public Marca(String nombre, DetalleMarca detalle, String nota,
-                 List<Sucursal> sucursales) {
+                 List<Sucursal> sucursales, String foto) {
         this.nombre = nombre == null ? "" : nombre.trim();
         this.detalle = detalle;
         this.nota = nota == null ? "" : nota.trim();
         this.sucursales = Collections.unmodifiableList(sucursales);
+        this.foto = foto == null ? "" : foto;
     }
 
     public boolean tieneSucursales() {

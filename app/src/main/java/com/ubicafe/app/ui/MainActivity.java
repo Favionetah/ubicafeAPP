@@ -2,6 +2,7 @@ package com.ubicafe.app.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -35,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
             R.id.menu_inicio, R.id.menu_mapa, R.id.menu_explorar,
     };
 
+    /** Clave con la que se guarda la pestaña activa al girar la pantalla. */
+    private static final String CLAVE_PESTANA = "pestana_activa";
+
     /** Últimos toques de la barra inferior (ventana del tamaño del patrón). */
     private final List<Integer> ultimosToques = new ArrayList<>();
 
@@ -45,20 +49,51 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView navegacion = findViewById(R.id.nav_inferior);
 
-        // Al abrir, mostramos la pestaña de Inicio.
+        // El listener va PRIMERO: setSelectedItemId dispara la selección a
+        // través de él, así que registrado después se pierde la primera
+        // llamada y el contenedor queda en blanco hasta que se toque la barra.
+        navegacion.setOnItemSelectedListener(this::alSeleccionarPestana);
+
+        // Arranque en frío: no hay ningún fragmento restaurado, así que lo
+        // cargamos explícitamente. No nos apoyamos en setSelectedItemId para
+        // esto porque la barra ya viene con Inicio marcado y volver a marcar
+        // la opción actual no vuelve a invocar al listener.
         if (savedInstanceState == null) {
-            navegacion.setSelectedItemId(R.id.menu_inicio);
+            if (navegacion.getSelectedItemId() != R.id.menu_inicio) {
+                navegacion.setSelectedItemId(R.id.menu_inicio);
+            }
+            cambiarFragmento(seleccionarFragmento(R.id.menu_inicio));
+            return;
         }
 
-        navegacion.setOnItemSelectedListener(menuItem -> {
-            registrarToque(menuItem.getItemId());
+        // Tras una rotación el FragmentManager ya restauró el fragmento, pero
+        // la barra vuelve a empezar en Inicio. Marcamos la opción correcta
+        // silenciando el listener un momento: si no, la sincronización
+        // reemplazaría el fragmento restaurado por uno nuevo y se perdería su
+        // estado (el mapa es lo más caro de reconstruir).
+        int pestana = savedInstanceState.getInt(CLAVE_PESTANA, R.id.menu_inicio);
+        if (navegacion.getSelectedItemId() != pestana) {
+            navegacion.setOnItemSelectedListener(null);
+            navegacion.setSelectedItemId(pestana);
+            navegacion.setOnItemSelectedListener(this::alSeleccionarPestana);
+        }
+    }
 
-            Fragment destino = seleccionarFragmento(menuItem.getItemId());
-            if (destino != null) {
-                cambiarFragmento(destino);
-            }
-            return true;
-        });
+    private boolean alSeleccionarPestana(MenuItem menuItem) {
+        registrarToque(menuItem.getItemId());
+
+        Fragment destino = seleccionarFragmento(menuItem.getItemId());
+        if (destino != null) {
+            cambiarFragmento(destino);
+        }
+        return true;
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        BottomNavigationView navegacion = findViewById(R.id.nav_inferior);
+        outState.putInt(CLAVE_PESTANA, navegacion.getSelectedItemId());
     }
 
     /** Acumula el toque actual y comprueba si completa el patrón secreto. */

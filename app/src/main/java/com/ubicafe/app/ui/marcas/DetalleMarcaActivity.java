@@ -15,6 +15,7 @@ import com.ubicafe.app.datos.RepositorioDatos;
 import com.ubicafe.app.databinding.ActivityDetalleMarcaBinding;
 import com.ubicafe.app.modelo.Marca;
 import com.ubicafe.app.modelo.Rol;
+import com.ubicafe.app.ui.comun.ComoLlegar;
 import com.ubicafe.app.modelo.Sucursal;
 import com.ubicafe.app.ui.cafeterias.DetalleCafeteriaActivity;
 import com.ubicafe.app.ui.comun.FichaTecnica;
@@ -80,6 +81,7 @@ public class DetalleMarcaActivity extends AppCompatActivity {
         ui.textoInicial.setBackgroundTintList(ContextCompat.getColorStateList(
                 this, Rol.MARCA.color()));
         ui.textoNombre.setText(marca.nombre);
+        ComoLlegar.pintarHeroMarca(ui.fotoHero, this, marca.foto);
     }
 
     private void pintarDatos(Marca marca) {

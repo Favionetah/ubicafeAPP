@@ -76,6 +76,31 @@
         <item name="android:paddingRight">16dp</item>
     </style>
 
+    <!--
+    Variante de "TarjetaCategoria" para las 3 tarjetas en una sola fila.
+    Al repartirse el ancho en tres, cada una se queda cerca de 100dp: menos
+    padding y texto centrado es lo único que deja caber "Cafeterías" y
+    "Tostadurías" sin partirse en dos líneas.
+    -->
+    <style name="TarjetaCategoria3" parent="TarjetaCategoria">
+        <item name="android:layout_margin">4dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingLeft">4dp</item>
+        <item name="android:paddingRight">4dp</item>
+    </style>
+
+    <!--
+    Nombre dentro de la tarjeta de 3 columnas. Hereda el 0dp+weight que
+    hace que el texto ocupe toda la tarjeta, y solo cambia el margen
+    inicial, el centrado y el cuerpo de letra.
+    -->
+    <style name="TextoNombreCategoria3" parent="TextoNombreCategoria">
+        <item name="android:maxLines">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginStart">0dp</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
     <!-- ===================== FILTROS (CHIPS PILL) ===================== -->
 
     <!-- ===================== BADGES ===================== -->

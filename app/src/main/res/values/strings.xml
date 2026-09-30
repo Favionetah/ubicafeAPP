@@ -110,7 +110,91 @@
     <string name="detalle_ubicacion_no_verificada">Ubicación sin verificar por el censo</string>
     <string name="detalle_ubicacion_no_respondida">Sin coordenadas en el censo</string>
     <string name="detalle_volver_mapa">Ver en el mapa</string>
+    <!-- Acción principal de la ficha: cómo llegar al local -->
+    <string name="como_llegar">Cómo llegar</string>
+
+    <!-- Aviso de las fotos. Son imágenes genéricas de cafeterías y
+         tostadoras, no fotografías de cada local: decirlo es parte de
+         no hacer pasar por real algo que no lo es. -->
+    <string name="foto_no_es_del_local">Imagen genérica, no una foto de este local</string>
+    <string name="como_llegar_permiso_texto">UbiCafe necesita tu ubicación para calcular
+        la ruta hasta el local. No se guarda en ningún sitio.</string>
+    <string name="ruta_titulo">Ruta hasta %1$s</string>
+    <string name="ruta_calculando">Calculando la ruta…</string>
+    <string name="ruta_buscando_ubicacion">Buscando tu ubicación…</string>
+    <string name="ruta_sin_posicion">No se pudo saber dónde estás. Activa la ubicación
+        en los ajustes del teléfono y vuelve a intentarlo; mientras tanto solo se
+        muestra el local en el mapa. %1$s</string>
+    <string name="ruta_sin_conexion">Sin conexión: se muestra el trayecto en línea recta
+        hasta el local.</string>
+    <string name="ruta_error">No se pudo calcular la ruta. Se muestra el trayecto en
+        línea recta.</string>
+    <string name="ruta_distancia">A %1$s en coche</string>
+    <string name="ruta_duracion">Unos %1$s de trayecto</string>
+    <string name="ruta_origen_desconocido">Tu ubicación</string>
+
+    <!-- El tiempo sale de un cálculo, no de un recurso con un número
+         fijo, así que el plural se resuelve en el código. -->
+    <plurals name="ruta_minutos">
+        <item quantity="one">%1$d minuto</item>
+        <item quantity="other">%1$d minutos</item>
+    </plurals>
     <string name="detalle_ficha_tecnica">Ficha técnica</string>
+
+    <!-- Créditos y fuentes. El aviso de las imágenes va primero a
+         propósito: es el dato que más surprising haría malentendidos,
+         porque se ven fotos junto a sitios concretos. -->
+    <string name="creditos_titulo">Créditos y fuentes</string>
+    <string name="creditos_aviso_imagenes">Las fotos de los locales NO son de esos
+        locales. Son imágenes genéricas de café y de tostadoras, escogidas solo
+        para que la app se vea y para identificar de qué tipo de lugar se
+        trata. Cada foto lleva su aviso debajo, y aquí está el detalle.</string>
+    <string name="creditos_datos_titulo">Los datos</string>
+    <string name="creditos_datos_texto">Los lugares, marcas, sucursales y variedades
+        salen de un censo del ecosistema del café de La Paz, recogido en una
+        planilla. Esa planilla se convierte en un archivo JSON que viaja dentro
+        de la app, y al abrir por primera vez se copia a la base de datos del
+        teléfono. A partir de ahí, la app no vuelve a leer el archivo: todo
+        sale de la base.</string>
+    <string name="creditos_datos_origen">Fuente declarada en el censo: %1$s (año %2$d).</string>
+    <string name="creditos_datos_conteo">En esta app hay %1$d de lugares y %2$d de marcas.</string>
+    <!-- PluralsCandidate se calla aquí a propósito: el aviso salta con
+         cualquier %d seguido de una palabra, y esta cadena lleva tres
+         cifras. Convertirla en plural obligaría a partirla en tres
+         cadenas sueltas y a que la frase quedara mal en dos de los tres
+         casos ("1 imágenes", "0 imágenes"). El plural ya se resuelve
+         donde de verdad importa, en las filas de autores y licencias. -->
+    <string name="creditos_imagenes_texto" tools:ignore="PluralsCandidate">%1$d en total. De ellas, %2$d imágenes
+        genéricas y %3$d tomadas de la web del propio negocio. Las genéricas se
+        eligieron por parecer el tipo de lugar, no por ser ese lugar, y por eso cada
+        una lleva su aviso debajo. Vienen de Wikimedia Commons.</string>
+    <string name="creditos_sin_manifiesto">No se pudo leer el manifiesto de imágenes, así
+        que no se puede mostrar el detalle de los autores.</string>
+    <string name="creditos_imagenes_titulo">Las imágenes</string>
+    <string name="creditos_autores_titulo">Autores de las fotos</string>
+    <string name="creditos_autores_explica">Las licencias Creative Commons de tipo
+        BY y BY-SA obligan a nombrar al autor de cada imagen. Estos son los
+        autores de las fotos usadas, con cuántas aporta cada uno.</string>
+    <string name="creditos_licencias_titulo">Licencias</string>
+    <string name="creditos_mapa_titulo">El mapa</string>
+    <string name="creditos_mapa">Los mapas y las teselas son de OpenStreetMap, a
+        través de osmdroid. Ruta y distancia por OSRM. OpenStreetMap es un
+        proyecto abierto: sus datos son de ODbL y hay que créditarlo, que es lo
+        que se está haciendo aquí.</string>
+    <string name="creditos_version">Manifiesto de imágenes del %1$s · %2$d en total</string>
+
+    <!-- Plurales de verdad: un autor con una sola imagen y otro con
+         cuarenta no pueden decir lo mismo. El primer %d es siempre la
+         cantidad, y el segundo el texto. -->
+    <plurals name="creditos_fila_autor">
+        <item quantity="one">%2$s — %1$d imagen</item>
+        <item quantity="other">%2$s — %1$d imágenes</item>
+    </plurals>
+    <plurals name="creditos_fila_licencia">
+        <item quantity="one">%2$s — %1$d imagen</item>
+        <item quantity="other">%2$s — %1$d imágenes</item>
+    </plurals>
+    <string name="creditos_desconocido">Autor no identificado</string>
     <string name="detalle_tostaderia_vacio">Este lugar no respondió la sección de tostaduría del censo.</string>
     <string name="detalle_productor_vacio">Este lugar no respondió la sección de productor del censo.</string>
     <string name="detalle_marca_vacio">Esta marca no respondió la sección de marca del censo.</string>

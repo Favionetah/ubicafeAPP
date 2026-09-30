@@ -29,8 +29,57 @@
             osmdroid:zoom="13"
             osmdroid:multiTouchControls="true" />
 
+        <!-- Panel de la ruta. Va arriba porque el de abajo es el del
+             punto elegido, y si los dos estuvieran abajo se taparían.
+             Solo se ve cuando se entra desde "Cómo llegar". -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/panel_ruta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:layout_margin="16dp"
+            android:visibility="gone"
+            app:cardBackgroundColor="@color/fondo_blanco"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="4dp"
+            tools:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/texto_ruta_destino"
+                    style="@style/TituloCardInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="Ruta hasta Café Berna" />
+
+                <TextView
+                    android:id="@+id/texto_ruta_resumen"
+                    style="@style/TextoDetalle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    tools:text="A 1,2 km en coche · unos 5 minutos de trayecto" />
+
+                <TextView
+                    android:id="@+id/texto_ruta_aviso"
+                    style="@style/TextoNotaTenue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:visibility="gone"
+                    tools:text="Sin conexión: se muestra el trayecto en línea recta."
+                    tools:visibility="visible" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
         <!-- Panel inferior: muestra el punto elegido -->
         <androidx.cardview.widget.CardView
+            android:id="@+id/panel_inferior"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"

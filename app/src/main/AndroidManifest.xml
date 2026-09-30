@@ -13,6 +13,20 @@
          persona la deniega, la app sigue funcionando sin distancias. -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
+    <!-- Ubicación precisa: solo la pide el botón "Cómo llegar", y solo
+         en el momento de pulsarlo. Hace falta porque una ruta calculada
+         desde una posición aproximada puede empezar un kilómetro
+         lejos del sitio real. -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <!-- El GPS es opcional: la ruta se puede calcular con la última
+         posición conocida por la red, así que no se declara como
+         obligatorio. -->
+    <uses-feature
+        android:name="android.hardware.location.gps"
+        android:required="false" />
+
+
     <application
         android:name=".UbiCafeApp"
         android:allowBackup="true"
@@ -65,6 +79,8 @@
         <activity android:name=".ui.productores.DetalleProductorActivity" />
         <activity android:name=".ui.tostaderias.DetalleTostaderiaActivity" />
         <activity android:name=".ui.origen.FichaOrigenActivity" />
+        <!-- Créditos de las imágenes. Se abre desde el aviso que lleva cada foto. -->
+        <activity android:name=".ui.comun.CreditosActivity" />
 
         <!-- Búsqueda global -->
         <activity android:name=".ui.busqueda.BusquedaActivity" />

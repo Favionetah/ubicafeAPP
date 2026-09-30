@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Disco blanco que va detrás de la cabeza del pin seleccionado, para que
+    resalte sobre el fondo del mapa. El círculo se ciñe a la cabeza del pin
+    (r=7) con algo de margen (r=9) y comparte viewport y tamaño con
+    ic_map_pin_grande, así que las dos capas alinean sin ajustes: la
+    punta del pin sobresale del disco hacia abajo, como un pin de verdad.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="34dp" android:height="34dp"
+    android:viewportWidth="24" android:viewportHeight="24">
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M12,0 a9,9 0 1,0 0,18 a9,9 0 1,0 0,-18 z" />
+</vector>

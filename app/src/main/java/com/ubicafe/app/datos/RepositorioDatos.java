@@ -3,6 +3,8 @@ package com.ubicafe.app.datos;
 import android.annotation.SuppressLint;
 import android.content.Context;
 
+import com.ubicafe.app.datos.room.Traductor;
+import com.ubicafe.app.datos.room.UbiCafeBaseDatos;
 import com.ubicafe.app.modelo.CafeVariedad;
 import com.ubicafe.app.modelo.Entidad;
 import com.ubicafe.app.modelo.Estadisticas;
@@ -15,6 +17,7 @@ import com.ubicafe.app.util.Texto;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,12 +25,23 @@ import java.util.Map;
 /**
  * PUNTO ÚNICO DE ACCESO A LOS DATOS
  * ---------------------------------------------------------------
- * Ninguna pantalla lee el JSON ni conoce al CargadorCenso: todas pasan
- * por aquí. Es la razón por la que, el día que haya un servidor, solo
- * haya que reescribir CargadorCenso y ni una pantalla cambie.
+ * Ninguna pantalla habla con la base de datos ni sabe qué hay debajo:
+ * todas pasan por aquí. Es la razón por la que, el día que haya un
+ * servidor, solo haya que reescribir esta clase (o el DAO que usa) y ni
+ * una pantalla cambie.
  *
- * Es una clase estática a propósito. El censo es de solo lectura, así
- * que no hay estado que sincronizar ni que proteger.
+ * QUÉ HAY DEBAJO AHORA
+ * La base de datos es SQLite, a través de Room: las tablas están
+ * declaradas con anotaciones en el paquete datos.room y las consultas son
+ * SQL escrito en los DAO. Este JSON de assets ya no se lee para pintar
+ * nada: SembradorCenso lo lee una única vez, al primer arranque, para
+ * llenar las tablas, y a partir de ahí todo sale de la base.
+ *
+ * Se mantiene el patrón de listas de la versión anterior (copia
+ * defensiva, y las listas que se devuelven no se tocan) porque las
+ * pantallas ordenan y filtran lo que reciben. Copiar 213 objetos cuesta
+ * microsegundos y evita que una pantalla que ordene su lista en situ
+ * descoloque a la siguiente.
  *
  * Todas las listas que devuelve son copias. Quien llama puede ordenar o
  * filtrar su resultado sin que otras pantallas lo noterán, y los datos
@@ -48,7 +62,7 @@ public final class RepositorioDatos {
     }
 
     /**
-     * Deja el repositorio con acceso a los assets. Lo llama el
+     * Deja el repositorio con acceso a la base. Lo llama el
      * Application al arrancar, o el Splash si no hay una clase
      * Application propia. Hasta entonces, las consultas devuelven
      * listas vacías en vez de fallar.
@@ -57,25 +71,52 @@ public final class RepositorioDatos {
         contexto = contextoAplicacion.getApplicationContext();
     }
 
+    // ------------------------------------------------------------------
+    // La base
+    // ------------------------------------------------------------------
+
     /**
      * true si el censo está disponible. Las pantallas lo consultan antes
      * de pintar, para poder mostrar estado de carga o de error en vez de
      * una lista vacía sin explicación.
      */
     public static boolean hayDatos() {
-        return censo() != null;
+        if (contexto == null) {
+            return false;
+        }
+        UbiCafeBaseDatos base = base();
+        return base != null && base.entidades().contar() > 0;
     }
 
-    /** Los datos crudos, o null si todavía no se han cargado. */
-    private static CargadorCenso.Censo censo() {
-        return contexto == null ? null : CargadorCenso.cargar(contexto);
+    /**
+     * Abre la base y, si está vacía, la llena desde el JSON.
+     *
+     * SembradorCenso solo hace trabajo la primera vez: en los arranques
+     * siguientes se limita a leer el sello de la tabla meta y ver que
+     * coincide con el JSON de los assets, lo cual es una consulta de
+     * un milisegundo.
+     */
+    private static UbiCafeBaseDatos base() {
+        if (contexto == null) {
+            return null;
+        }
+        if (!SembradorCenso.sembrarSiFalta(contexto)) {
+            return null;
+        }
+        return UbiCafeBaseDatos.obtener(contexto);
+    }
+
+    /** La fila de metadatos, o null si todavía no hay nada sembrado. */
+    private static com.ubicafe.app.datos.room.FilaMeta meta() {
+        UbiCafeBaseDatos base = base();
+        return base == null ? null : base.meta().leer();
     }
 
     /**
      * Copia defensiva. El spec la pide explícitamente y el motivo es
      * concreto: una pantalla que ordene su lista in situ deformaría el
-     * índice interno y la siguiente pantalla abriría con el orden roto.
-     * Con 213 entidades, copiar cuesta menos que un milisegundo.
+     * resultado interno y la siguiente pantalla abriría con el orden
+     * roto. Con 213 entidades, copiar cuesta menos que un milisegundo.
      */
     private static <T> List<T> copia(List<T> original) {
         return new ArrayList<>(original);
@@ -87,8 +128,11 @@ public final class RepositorioDatos {
 
     /** Los 213 lugares del censo, en el orden en que los registró. */
     public static List<Entidad> obtenerEntidades() {
-        CargadorCenso.Censo censo = censo();
-        return censo == null ? Collections.<Entidad>emptyList() : copia(censo.entidades);
+        UbiCafeBaseDatos base = base();
+        if (base == null) {
+            return Collections.emptyList();
+        }
+        return copia(Traductor.entidades(base, base.entidades().todas()));
     }
 
     /**
@@ -96,14 +140,17 @@ public final class RepositorioDatos {
      * rol principal. Devuelve 189 cafeterías, 25 marcas, 13 tostadurías,
      * 12 productores, 6 tiendas y 17 otros, y un lugar con dos papeles
      * aparece en las dos listas.
+     *
+     * La consulta es un INNER JOIN con la tabla de roles: por eso un
+     * local con dos papeles sale dos veces, una en cada lista, sin
+     * duplicar filas dentro de la misma.
      */
     public static List<Entidad> obtenerEntidadesPorRol(Rol rol) {
-        CargadorCenso.Censo censo = censo();
-        if (censo == null) {
+        UbiCafeBaseDatos base = base();
+        if (base == null) {
             return Collections.emptyList();
         }
-        List<Entidad> resultado = censo.porRol.get(rol);
-        return resultado == null ? Collections.<Entidad>emptyList() : copia(resultado);
+        return copia(Traductor.entidades(base, base.entidades().porRol(rol.name())));
     }
 
     /**
@@ -112,22 +159,22 @@ public final class RepositorioDatos {
      * listados, donde cada lugar debe aparecer una sola vez.
      */
     public static List<Entidad> obtenerPrincipalesPorRol(Rol rol) {
-        List<Entidad> resultado = new ArrayList<>();
-        for (Entidad entidad : obtenerEntidades()) {
-            if (entidad.rolPrincipal == rol) {
-                resultado.add(entidad);
-            }
+        UbiCafeBaseDatos base = base();
+        if (base == null) {
+            return Collections.emptyList();
         }
-        return resultado;
+        return copia(Traductor.entidades(base, base.entidades().porRolPrincipal(rol.name())));
     }
 
     public static List<Entidad> obtenerEntidadesPorMacrodistrito(String macrodistrito) {
-        CargadorCenso.Censo censo = censo();
-        if (censo == null || macrodistrito == null || macrodistrito.isEmpty()) {
+        UbiCafeBaseDatos base = base();
+        if (base == null) {
+            return Collections.emptyList();
+        }
+        if (macrodistrito == null || macrodistrito.isEmpty()) {
             return obtenerEntidades();
         }
-        List<Entidad> resultado = censo.porMacrodistrito.get(macrodistrito);
-        return resultado == null ? Collections.<Entidad>emptyList() : copia(resultado);
+        return copia(Traductor.entidades(base, base.entidades().porMacrodistrito(macrodistrito)));
     }
 
     /**
@@ -150,19 +197,20 @@ public final class RepositorioDatos {
 
     /** Una entidad por su identificador, o null si no existe. */
     public static Entidad obtenerEntidad(String id) {
-        CargadorCenso.Censo censo = censo();
-        return censo == null ? null : censo.porId.get(id);
+        UbiCafeBaseDatos base = base();
+        if (base == null || id == null) {
+            return null;
+        }
+        return Traductor.entidad(base, base.entidades().porId(id));
     }
 
     /** Una entidad por su nombre, ignorando mayúsculas y tildes. */
     public static Entidad obtenerEntidadPorNombre(String nombre) {
-        String clave = Texto.clave(nombre);
-        for (Entidad entidad : obtenerEntidades()) {
-            if (Texto.clave(entidad.nombre).equals(clave)) {
-                return entidad;
-            }
+        UbiCafeBaseDatos base = base();
+        if (base == null || nombre == null) {
+            return null;
         }
-        return null;
+        return Traductor.entidad(base, base.entidades().porNombreClave(Texto.clave(nombre)));
     }
 
     // ------------------------------------------------------------------
@@ -170,40 +218,71 @@ public final class RepositorioDatos {
     // ------------------------------------------------------------------
 
     public static List<Marca> obtenerMarcas() {
-        CargadorCenso.Censo censo = censo();
-        return censo == null ? Collections.<Marca>emptyList() : copia(censo.marcas);
+        UbiCafeBaseDatos base = base();
+        if (base == null) {
+            return Collections.emptyList();
+        }
+        return copia(Traductor.marcas(
+                base.marcas().todas(), base.detalles().todasSucursales()));
     }
 
     /** Una marca por su nombre, ignorando mayúsculas y tildes. */
     public static Marca obtenerMarca(String nombre) {
-        CargadorCenso.Censo censo = censo();
-        return censo == null ? null : censo.marcaPorClave.get(Texto.clave(nombre));
+        UbiCafeBaseDatos base = base();
+        if (base == null || nombre == null) {
+            return null;
+        }
+        com.ubicafe.app.datos.room.FilaMarca fila =
+                base.marcas().porClave(Texto.clave(nombre));
+        if (fila == null) {
+            return null;
+        }
+        List<Marca> una = Traductor.marcas(
+                Collections.singletonList(fila), base.detalles().todasSucursales());
+        return una.isEmpty() ? null : una.get(0);
     }
 
-    /** La cadena a la que pertenece un local, o null si es independiente. */
+    /**
+     * La cadena a la que pertenece un local, o null si es independiente.
+     *
+     * La inversa del índice anterior: se pregunta por el id del local y
+     * se responde con la marca. La tabla de puntos de venta tiene el id
+     * del local como clave primaria, así que es una lectura directa.
+     */
     public static Marca obtenerMarcaDe(String entidadId) {
-        CargadorCenso.Censo censo = censo();
-        return censo == null ? null : censo.marcaDeLocal.get(entidadId);
+        UbiCafeBaseDatos base = base();
+        if (base == null || entidadId == null) {
+            return null;
+        }
+        com.ubicafe.app.datos.room.FilaSucursal sucursal =
+                base.detalles().sucursalDeEntidad(entidadId);
+        if (sucursal == null) {
+            return null;
+        }
+        com.ubicafe.app.datos.room.FilaMarca fila = base.marcas().porClave(sucursal.marcaClave);
+        if (fila == null) {
+            return null;
+        }
+        List<Marca> una = Traductor.marcas(
+                Collections.singletonList(fila), base.detalles().todasSucursales());
+        return una.isEmpty() ? null : una.get(0);
     }
 
     /** Los 78 puntos de venta del censo, con la marca a la que pertenecen. */
     public static List<Sucursal> obtenerSucursales() {
-        List<Sucursal> todas = new ArrayList<>();
-        for (Marca marca : obtenerMarcas()) {
-            for (Sucursal sucursal : marca.sucursales) {
-                todas.add(sucursal);
-            }
+        UbiCafeBaseDatos base = base();
+        if (base == null) {
+            return Collections.emptyList();
         }
-        return todas;
+        return Traductor.sucursales(base.detalles().todasSucursales());
     }
 
     public static List<Sucursal> obtenerSucursalesDe(String marca) {
-        CargadorCenso.Censo censo = censo();
-        if (censo == null || marca == null || marca.isEmpty()) {
+        UbiCafeBaseDatos base = base();
+        if (base == null || marca == null || marca.isEmpty()) {
             return Collections.emptyList();
         }
-        List<Sucursal> resultado = censo.sucursalesPorMarca.get(Texto.clave(marca));
-        return resultado == null ? Collections.<Sucursal>emptyList() : copia(resultado);
+        return Traductor.sucursales(base.detalles().sucursalesDeMarca(Texto.clave(marca)));
     }
 
     /**
@@ -211,17 +290,22 @@ public final class RepositorioDatos {
      * "ver en el mapa" pueda dibujar marcadores.
      */
     public static List<Entidad> obtenerEntidadesDeMarca(String marca) {
-        CargadorCenso.Censo censo = censo();
-        if (censo == null) {
+        UbiCafeBaseDatos base = base();
+        if (base == null || marca == null) {
             return Collections.emptyList();
         }
-        List<Entidad> resultado = censo.porMarcaAsociada.get(Texto.clave(marca));
-        return resultado == null ? Collections.<Entidad>emptyList() : copia(resultado);
+        return copia(Traductor.entidades(base, base.entidades().porMarca(Texto.clave(marca))));
     }
 
     /** Cuántos locales tiene una cadena. */
     public static int contarSucursalesDe(String marca) {
-        return obtenerSucursalesDe(marca).size();
+        UbiCafeBaseDatos base = base();
+        if (base == null || marca == null || marca.isEmpty()) {
+            return 0;
+        }
+        // Cuenta en la base en vez de traer la lista y medirla: la
+        // respuesta es un entero y no hace falta cargar 6 filas.
+        return base.detalles().contarSucursalesDeMarca(Texto.clave(marca));
     }
 
     /**
@@ -230,13 +314,15 @@ public final class RepositorioDatos {
      * id y no el nombre de la cadena.
      */
     public static List<Sucursal> obtenerSucursalesDeEntidad(String entidadId) {
-        List<Sucursal> resultado = new ArrayList<>();
-        for (Sucursal sucursal : obtenerSucursales()) {
-            if (sucursal.entidadId.equals(entidadId)) {
-                resultado.add(sucursal);
-            }
+        UbiCafeBaseDatos base = base();
+        if (base == null || entidadId == null) {
+            return Collections.emptyList();
         }
-        return resultado;
+        com.ubicafe.app.datos.room.FilaSucursal fila =
+                base.detalles().sucursalDeEntidad(entidadId);
+        return fila == null
+                ? Collections.<Sucursal>emptyList()
+                : Collections.singletonList(Traductor.sucursal(fila));
     }
 
     // ------------------------------------------------------------------
@@ -244,30 +330,33 @@ public final class RepositorioDatos {
     // ------------------------------------------------------------------
 
     public static List<CafeVariedad> obtenerVariedades() {
-        CargadorCenso.Censo censo = censo();
-        return censo == null ? Collections.<CafeVariedad>emptyList() : copia(censo.variedades);
+        UbiCafeBaseDatos base = base();
+        if (base == null) {
+            return Collections.emptyList();
+        }
+        return copia(Traductor.variedades(base.variedades().todas()));
     }
 
     /** Los cafés de origen de una marca concreta. */
     public static List<CafeVariedad> obtenerVariedadesDe(String marca) {
-        String clave = Texto.clave(marca);
-        List<CafeVariedad> resultado = new ArrayList<>();
-        for (CafeVariedad variedad : obtenerVariedades()) {
-            if (Texto.clave(variedad.marca).equals(clave)) {
-                resultado.add(variedad);
-            }
+        UbiCafeBaseDatos base = base();
+        if (base == null || marca == null) {
+            return Collections.emptyList();
         }
-        return resultado;
+        return copia(Traductor.variedades(base.variedades().porMarca(Texto.clave(marca))));
     }
 
     public static CafeVariedad obtenerVariedadPorNombre(String nombre) {
-        String clave = Texto.clave(nombre);
-        for (CafeVariedad variedad : obtenerVariedades()) {
-            if (Texto.clave(variedad.nombre).equals(clave)) {
-                return variedad;
-            }
+        UbiCafeBaseDatos base = base();
+        if (base == null || nombre == null) {
+            return null;
         }
-        return null;
+        List<com.ubicafe.app.datos.room.FilaVariedad> filas =
+                base.variedades().porNombreClave(Texto.clave(nombre));
+        if (filas.isEmpty()) {
+            return null;
+        }
+        return Traductor.variedad(filas.get(0));
     }
 
     /**
@@ -287,14 +376,21 @@ public final class RepositorioDatos {
      * como región cafetalera sería inventarle una categoría.
      */
     public static Map<String, Integer> obtenerRegionesCafetaleras() {
+        UbiCafeBaseDatos base = base();
+        if (base == null) {
+            return Collections.emptyMap();
+        }
+
+        // La clave normalizada de cada región ya está en la base, en la
+        // columna region_clave, calculada al sembrar. Antes se
+        // normalizaba aquí, en cada llamada.
         Map<String, Map<String, Integer>> porClave = new LinkedHashMap<>();
-        for (CafeVariedad variedad : obtenerVariedades()) {
-            if (variedad.region.isEmpty()) {
+        for (com.ubicafe.app.datos.room.FilaVariedad fila : base.variedades().todas()) {
+            if (fila.region == null || fila.region.isEmpty()) {
                 continue;
             }
-            String clave = Texto.clave(variedad.region);
-            porClave.computeIfAbsent(clave, k -> new LinkedHashMap<>())
-                    .merge(variedad.region, 1, Integer::sum);
+            porClave.computeIfAbsent(fila.regionClave, k -> new LinkedHashMap<>())
+                    .merge(fila.region, 1, Integer::sum);
         }
 
         Map<String, Integer> regiones = new LinkedHashMap<>();
@@ -325,7 +421,14 @@ public final class RepositorioDatos {
      * que dar cafeterías, marcas, tostadurías y productores a la vez, y
      * mostrarlos mezclados no ayuda: cada tipo de dato se ve distinto.
      *
-     * La comparación recorre todos los lugares, menos de 300 en total.
+     * La comparación se hace en memoria y no con un "LIKE" de SQL, y es
+     * a propósito. Un LIKE necesita preparar la consulta con los
+     * comodines y no usaría ningún índice; además, el campo que se
+     * busca está repartido entre el local, su macrodistrito y hasta
+     * cuatro fichas, así que la alternativa sería unir nueve tablas.
+     * Con 213 locales menos de 300 filas en total, traerlas y recorrerlas
+     * es más rápido y más sencillo.
+     *
      * Con un índice invertido se ganaría poco y se perdería la
      * tolerancia a erratas, que aquí conviene: el censo escribe
      * "Coffe", "Cofee" y "Coffe" para lo mismo, y quien busca "coffee"
@@ -425,14 +528,18 @@ public final class RepositorioDatos {
      * Los lugares con coordenadas más cerca de un punto, ordenados por
      * distancia. Los que no tienen coordenadas se descartan: no se
      * puede ordenar por una distancia que no existe.
+     *
+     * La distancia se calcula en Java y no en SQL porque SQLite no trae
+     * fórmula de haversine: se tendría que escribirla entera en la
+     * consulta. Con 213 candidatos, mostrarlos ya filtrados por
+     * coordenada y ordenarlos en memoria es lo más simple.
      */
     public static List<Entidad> obtenerEntidadesCercanas(double lat, double lng, int limite) {
-        List<Entidad> candidatas = new ArrayList<>();
-        for (Entidad entidad : obtenerEntidades()) {
-            if (entidad.tieneCoordenadas()) {
-                candidatas.add(entidad);
-            }
+        UbiCafeBaseDatos base = base();
+        if (base == null) {
+            return Collections.emptyList();
         }
+        List<Entidad> candidatas = Traductor.entidades(base, base.entidades().conCoordenadas());
         Collections.sort(candidatas, (una, otra) -> Double.compare(
                 Distancia.entre(una.lat, una.lng, lat, lng),
                 Distancia.entre(otra.lat, otra.lng, lat, lng)));
@@ -458,12 +565,40 @@ public final class RepositorioDatos {
 
     /** El texto de procedencia que se muestra al pie del ecosistema. */
     public static String obtenerFuente() {
-        CargadorCenso.Censo censo = censo();
-        return censo == null ? "" : censo.fuente;
+        com.ubicafe.app.datos.room.FilaMeta meta = meta();
+        return meta == null || meta.fuente == null ? "" : meta.fuente;
     }
 
     public static int obtenerAnioCenso() {
-        CargadorCenso.Censo censo = censo();
-        return censo == null ? 0 : censo.anio;
+        com.ubicafe.app.datos.room.FilaMeta meta = meta();
+        return meta == null ? 0 : meta.anio;
+    }
+
+    // ------------------------------------------------------------------
+    // Solo para pruebas
+    // ------------------------------------------------------------------
+
+    /**
+     * Las cifras que hay ahora mismo en la base, para comparar con lo que
+     * dice el JSON. No lo usa ninguna pantalla: existe para poder
+     * comprobar, desde un terminal o un test, que la base se llenó
+     * igual que el archivo.
+     */
+    public static Map<String, Integer> contarFilas() {
+        Map<String, Integer> filas = new HashMap<>();
+        UbiCafeBaseDatos base = base();
+        if (base == null) {
+            return filas;
+        }
+        filas.put("entidades", base.entidades().contar());
+        filas.put("entidades_roles", base.roles().contar());
+        filas.put("marcas", base.marcas().contar());
+        filas.put("variedades", base.variedades().contar());
+        filas.put("sucursales", base.detalles().todasSucursales().size());
+        filas.put("detalle_cafeteria", base.detalles().contarFichasCafeteria());
+        filas.put("detalle_marca_entidad", base.detalles().contarFichasMarca());
+        filas.put("detalle_tostaderia", base.detalles().contarFichasTostaderia());
+        filas.put("detalle_productor", base.detalles().contarFichasProductor());
+        return filas;
     }
 }
