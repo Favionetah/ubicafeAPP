@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.RequestBuilder;
 import com.bumptech.glide.RequestManager;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -35,11 +36,9 @@ import com.ubicafe.app.R;
  *
  * DÓNDE ESTÁN LAS IMÁGENES
  * En app/src/main/assets/fotos/, repartidas en cafes, marcas y
- * tostadurias. Son imágenes genéricas de cafeterías y tostadoras, no fotos
- * reales de cada negocio. El aviso está en la propia ficha, debajo del
- * hero, y los créditos completos en la pantalla de créditos. Aun así,
- * conviene que la interfaz no finja más de lo que sabe: por eso el
- * respaldo no es un marco vacío sino el ícono del rol.
+ * tostadurias. De dónde salen y con qué licencia están en la pantalla de
+ * créditos. Aun así, conviene que la interfaz no finja más de lo que
+ * sabe: por eso el respaldo no es un marco vacío sino el ícono del rol.
  */
 public final class CargadorFotos {
 
@@ -102,8 +101,20 @@ public final class CargadorFotos {
 
     /**
      * Igual que pintar, pero con un recorte: las fotos del censo son
-     * todas de 1024×768, y en una miniatura cuadrada interested el
+     * todas de 1024×768, y en una miniatura cuadrada interesa el
      * centro. centerCrop no deforma, a diferencia de fitXY.
+     *
+     * Un iconoRespaldo de 0 significa "sin respaldo": la vista se deja
+     * como está y se conserva el fondo que le puso el layout. Lo usan
+     * las portadas, que son fotos a sangre sobre un degradado y no
+     * admiten un ícono encima.
+     *
+     * El respaldo se añade o no con un if y no con un
+     * "cond ? null : icono" porque placeholder() y error() piden un int,
+     * no un Integer: en un ternario con un null, Java unifica el tipo
+     * como Integer y al desempaquetar el null la app peta con un
+     * NullPointerException en pleno arranque. No salta el compilador y
+     * tampoco la revisión, así que lo natural es no escribirlo.
      */
     public static void pintarRecortada(ImageView vista, Context contexto,
                                        String rutaFoto, int iconoRespaldo) {
@@ -111,20 +122,23 @@ public final class CargadorFotos {
             return;
         }
         Glide.with(contexto).clear(vista);
-        vista.setImageResource(iconoRespaldo);
+        if (iconoRespaldo != 0) {
+            vista.setImageResource(iconoRespaldo);
+        }
 
         if (rutaFoto == null || rutaFoto.isEmpty()) {
             return;
         }
 
-        Glide.with(contexto)
+        RequestBuilder<Drawable> peticion = Glide.with(contexto)
                 .load(uriDe(rutaFoto))
                 .diskCacheStrategy(DiskCacheStrategy.NONE)
                 .centerCrop()
-                .placeholder(iconoRespaldo)
-                .error(iconoRespaldo)
-                .transition(DrawableTransitionOptions.withCrossFade(150))
-                .into(vista);
+                .transition(DrawableTransitionOptions.withCrossFade(150));
+        if (iconoRespaldo != 0) {
+            peticion = peticion.placeholder(iconoRespaldo).error(iconoRespaldo);
+        }
+        peticion.into(vista);
     }
 
     /**

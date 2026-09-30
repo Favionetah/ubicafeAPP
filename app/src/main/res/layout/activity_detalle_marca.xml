@@ -43,17 +43,6 @@
                 tools:src="@drawable/ic_marca"
                 tools:visibility="visible" />
 
-            <TextView
-                android:id="@+id/texto_foto_credito"
-                style="@style/TextoNotaTenue"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:gravity="center"
-                android:text="@string/foto_no_es_del_local"
-                android:visibility="gone"
-                tools:visibility="visible" />
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -144,6 +133,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 tools:text="Registrado en el censo 2026" />
+
+            <!-- Las licencias CC BY y CC BY-SA obligan a que el autor
+                 y la licencia sean accesibles desde la app. -->
+            <TextView
+                android:id="@+id/enlace_creditos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="18dp"
+                android:background="?attr/selectableItemBackground"
+                android:padding="8dp"
+                android:text="@string/creditos_abrir"
+                android:textColor="@color/verde_oscuro"
+                android:textSize="13sp"
+                android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

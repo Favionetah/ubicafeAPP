@@ -2,8 +2,8 @@
 <!--
     TARJETA DE UNA MARCA (P13)
     Una marca es una empresa, no un lugar: puede tener 11 locales o
-    ninguno. La tarjeta muestra su foto genérica, o su inicial si no
-    tiene, cuántas sucursales registró y en qué zonas están.
+    ninguno. La tarjeta muestra su foto, o su inicial si no tiene,
+    cuántas sucursales registró y en qué zonas están.
 -->
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"

@@ -113,10 +113,6 @@
     <!-- Acción principal de la ficha: cómo llegar al local -->
     <string name="como_llegar">Cómo llegar</string>
 
-    <!-- Aviso de las fotos. Son imágenes genéricas de cafeterías y
-         tostadoras, no fotografías de cada local: decirlo es parte de
-         no hacer pasar por real algo que no lo es. -->
-    <string name="foto_no_es_del_local">Imagen genérica, no una foto de este local</string>
     <string name="como_llegar_permiso_texto">UbiCafe necesita tu ubicación para calcular
         la ruta hasta el local. No se guarda en ningún sitio.</string>
     <string name="ruta_titulo">Ruta hasta %1$s</string>
@@ -141,14 +137,10 @@
     </plurals>
     <string name="detalle_ficha_tecnica">Ficha técnica</string>
 
-    <!-- Créditos y fuentes. El aviso de las imágenes va primero a
-         propósito: es el dato que más surprising haría malentendidos,
-         porque se ven fotos junto a sitios concretos. -->
+    <!-- Créditos y fuentes. El detalle de las imágenes viene aquí porque
+         las licencias Creative Commons obligan a nombrar a cada autor. -->
+    <string name="creditos_abrir">Ver créditos y licencias de las fotos</string>
     <string name="creditos_titulo">Créditos y fuentes</string>
-    <string name="creditos_aviso_imagenes">Las fotos de los locales NO son de esos
-        locales. Son imágenes genéricas de café y de tostadoras, escogidas solo
-        para que la app se vea y para identificar de qué tipo de lugar se
-        trata. Cada foto lleva su aviso debajo, y aquí está el detalle.</string>
     <string name="creditos_datos_titulo">Los datos</string>
     <string name="creditos_datos_texto">Los lugares, marcas, sucursales y variedades
         salen de un censo del ecosistema del café de La Paz, recogido en una
@@ -158,16 +150,9 @@
         sale de la base.</string>
     <string name="creditos_datos_origen">Fuente declarada en el censo: %1$s (año %2$d).</string>
     <string name="creditos_datos_conteo">En esta app hay %1$d de lugares y %2$d de marcas.</string>
-    <!-- PluralsCandidate se calla aquí a propósito: el aviso salta con
-         cualquier %d seguido de una palabra, y esta cadena lleva tres
-         cifras. Convertirla en plural obligaría a partirla en tres
-         cadenas sueltas y a que la frase quedara mal en dos de los tres
-         casos ("1 imágenes", "0 imágenes"). El plural ya se resuelve
-         donde de verdad importa, en las filas de autores y licencias. -->
-    <string name="creditos_imagenes_texto" tools:ignore="PluralsCandidate">%1$d en total. De ellas, %2$d imágenes
-        genéricas y %3$d tomadas de la web del propio negocio. Las genéricas se
-        eligieron por parecer el tipo de lugar, no por ser ese lugar, y por eso cada
-        una lleva su aviso debajo. Vienen de Wikimedia Commons.</string>
+    <string name="creditos_imagenes_texto">%1$d imágenes en total. Vienen de Wikimedia
+        Commons, y cada una de ellas tiene su autor y su licencia en las
+        listas de abajo.</string>
     <string name="creditos_sin_manifiesto">No se pudo leer el manifiesto de imágenes, así
         que no se puede mostrar el detalle de los autores.</string>
     <string name="creditos_imagenes_titulo">Las imágenes</string>

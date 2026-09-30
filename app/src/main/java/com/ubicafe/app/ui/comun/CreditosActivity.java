@@ -26,17 +26,15 @@ import java.util.Map;
 /**
  * CRÉDITOS Y FUENTES
  * ---------------------------------------------------------------
- * Se abre desde el aviso que lleva cada foto. Ese aviso dice que la
- * imagen no es del local, y esta pantalla contesta lo que alguien con
- * Reasonably se preguntaría después: de dónde salió, quién la hizo y con
- * qué permiso.
+ * Contesta lo que alguien se preguntaría al ver una foto en la app: de
+ * dónde salió, quién la hizo y con qué permiso.
  *
  * POR QUÉ EXISTE Y NO ES UN ADORNO
- * Las fotos no son de los negocios, son imágenes genéricas de
- * Wikimedia Commons. Más de 200 usan licencias CC BY o CC BY-SA,
- * y esas licencias tienen una obligación concreta: nombrar al autor y
- * decir qué licencia se aplica. Dejar el manifiesto escondido en los
- * assets no cumple eso, por mucho que el archivo esté ahí dentro.
+ * Las imágenes vienen de Wikimedia Commons. Más de 200 usan licencias
+ * CC BY o CC BY-SA, y esas licencias tienen una obligación concreta:
+ * nombrar al autor y decir qué licencia se aplica. Dejar el manifiesto
+ * escondido en los assets no cumple eso, por mucho que el archivo esté
+ * ahí dentro.
  *
  * LAS CIFRAS NO ESTÁN ESCRITAS A MANO
  * Se leen de imagenes.json, el mismo archivo que usa el sembrador, así
@@ -106,14 +104,8 @@ public class CreditosActivity extends AppCompatActivity {
         }
 
         int total = contarImagenes(manifiesto);
-        JSONObject resumenDelManifiesto = manifiesto.optJSONObject("resumen");
-        int genericas = resumenDelManifiesto == null
-                ? 0 : resumenDelManifiesto.optInt("generica", 0);
-        int propias = resumenDelManifiesto == null
-                ? 0 : resumenDelManifiesto.optInt("propia", 0);
 
-        resumen.setText(getString(R.string.creditos_imagenes_texto,
-                total, genericas, propias));
+        resumen.setText(getString(R.string.creditos_imagenes_texto, total));
 
         version.setText(getString(R.string.creditos_version,
                 manifiesto.optString("generado", "?"), total));

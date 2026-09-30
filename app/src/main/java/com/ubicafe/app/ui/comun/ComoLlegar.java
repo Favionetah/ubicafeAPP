@@ -127,11 +127,6 @@ public final class ComoLlegar {
      * La foto grande de la cabecera. Si el lugar no tiene, la vista se
      * oculta para que el encabezado suba y no quede un rectángulo vacío
      * de 200 dp: es preferible no tener hero a tener un hueco.
-     *
-     * Cuando sí la hay, se enciende también el aviso de que es una
-     * imagen genérica. Las fotos del censo no son de cada local, así
-     * que poner la foto sin decirlo sería hacer pasar una imagen de
-     * stock por la foto del negocio.
      */
     public static void pintarHero(ImageView hero, Context contexto, Entidad lugar) {
         pintar(hero, contexto, lugar.foto, lugar.rolPrincipal.icono());
@@ -146,12 +141,8 @@ public final class ComoLlegar {
         if (hero == null) {
             return;
         }
-        View aviso = avisoDe(hero);
         if (foto == null || foto.isEmpty()) {
             hero.setVisibility(View.GONE);
-            if (aviso != null) {
-                aviso.setVisibility(View.GONE);
-            }
             return;
         }
         hero.setVisibility(View.VISIBLE);
@@ -159,23 +150,5 @@ public final class ComoLlegar {
         // imagen no llegara a decodificarse, al menos se ve de qué
         // lugar se trata en vez de un hueco.
         CargadorFotos.pintarRecortada(hero, contexto, foto, respaldo);
-        if (aviso != null) {
-            aviso.setVisibility(View.VISIBLE);
-            // El aviso es pulsable: es justo el texto que alguien
-            // encuentra leyendo cuando se pregunta "por qué la
-            // foto no es de la cafetería". La respuesta está en los
-            // créditos.
-            aviso.setOnClickListener(v -> CreditosActivity.abrir(contexto));
-        }
-    }
-
-    /**
-     * El TextView del aviso, que va justo detrás del hero en el layout.
-     * Se busca por id y no se guarda, porque el helper no guarda
-     * referencias a vistas de una pantalla que puede destruirse.
-     */
-    private static View avisoDe(ImageView hero) {
-        android.view.ViewGroup padre = (android.view.ViewGroup) hero.getParent();
-        return padre == null ? null : padre.findViewById(R.id.texto_foto_credito);
     }
 }

@@ -15,6 +15,7 @@ import com.ubicafe.app.R;
 import com.ubicafe.app.datos.RepositorioDatos;
 import com.ubicafe.app.databinding.ActivityDetalleEntidadBinding;
 import com.ubicafe.app.modelo.Entidad;
+import com.ubicafe.app.ui.comun.CreditosActivity;
 import com.ubicafe.app.ui.comun.ComoLlegar;
 import com.ubicafe.app.modelo.Rol;
 import com.ubicafe.app.ui.comun.FichaTecnica;
@@ -52,6 +53,10 @@ public class DetalleProductorActivity extends AppCompatActivity {
         setContentView(ui.getRoot());
 
         ui.barra.btnVolver.setOnClickListener(v -> finish());
+
+        // Los créditos tienen que quedar a mano en cada ficha: las
+        // licencias de las fotos obligan a poder consultarlos.
+        ui.enlaceCreditos.setOnClickListener(v -> CreditosActivity.abrir(this));
 
         Entidad lugar = buscarLugar();
         if (lugar == null) {

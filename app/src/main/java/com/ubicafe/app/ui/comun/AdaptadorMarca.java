@@ -29,7 +29,7 @@ import java.util.List;
  * sino el número de sucursales y las zonas donde opera, que es lo que
  * de verdad le interesa a quien la busca.
  *
- * La marca se representa con su foto genérica, y si no tiene con su
+ * La marca se representa con su foto, y si no tiene con su
  * inicial sobre el color de su papel. La inicial queda debajo como
  * respaldo, para que nunca se vea un hueco mientras carga. Al no venir
  * logotipos en el censo, no se inventa ninguno: la inicial es la letra

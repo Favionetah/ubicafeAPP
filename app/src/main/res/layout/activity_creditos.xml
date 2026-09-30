@@ -2,8 +2,8 @@
 <!--
     CRÉDITOS Y FUENTES (P2)
     Tres bloques: de dónde salen los datos, de dónde salen las fotos y
-    qué se hizo con ellas. El bloque de fotos es el importante: 242
-    imágenes genéricas bajo licencias Creative Commons, y varias de esas
+    qué se hizo con ellas. El bloque de fotos es el importante: las
+    imágenes vienen bajo licencias Creative Commons, y varias de esas
     licencias (CC BY, CC BY-SA) obligan a nombrar al autor. Eso no se
     cumple escondiendo el manifiesto dentro del APK, así que aquí se
     listan los autores con cuántas imágenes aportan.
@@ -29,17 +29,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/creditos_titulo" />
-
-        <!-- Lo primero y más importante: las fotos no son de los locales -->
-        <TextView
-            style="@style/TextoDescripcion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/fondo_aviso"
-            android:lineSpacingExtra="3dp"
-            android:padding="14dp"
-            android:text="@string/creditos_aviso_imagenes" />
 
         <!-- Datos del censo -->
         <TextView

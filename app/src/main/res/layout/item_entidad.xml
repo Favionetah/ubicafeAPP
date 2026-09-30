@@ -5,10 +5,9 @@
     otros. Muestra siempre de qué papel se trata, porque en el censo un
     mismo lugar puede ser cafetería y tostaduría a la vez.
 
-    La foto del local va a la izquierda como marco cuadrado. El censo no
-    trae imágenes propias y las que se usan son genéricas, así que si un
-    lugar no tiene ninguna se queda el ícono del rol sobre su círculo de
-    color: la tarjeta nunca se ve vacía ni rota.
+    La foto del local va a la izquierda como marco cuadrado. Si un lugar no
+    tiene ninguna se queda el ícono del rol sobre su círculo de color: la
+    tarjeta nunca se ve vacía ni rota.
 -->
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
